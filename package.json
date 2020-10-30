@@ -1,0 +1,28 @@
+{
+  "name": "pedroni.dev-front",
+  "version": "1.0.0",
+  "description": "Front-end lucaspedroni.com.br",
+  "main": "pages/index.js",
+  "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
+    "next": "^9.5.4",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scrollspy": "^3.4.3",
+    "rellax": "^1.12.1",
+    "styled-components": "^5.1.1",
+    "swiper": "^6.0.4"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.10.7",
+    "sass": "^1.26.10"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "npm install && next build && next start"
+  },
+  "author": "pedronidev",
+  "license": "ISC"
+}
