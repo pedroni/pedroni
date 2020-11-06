@@ -1,3 +1,4 @@
+import { isAuthenticated } from "../../auth"
 import { databaseConnection } from "../../database"
 
 const post = async (req, res) => {
@@ -68,9 +69,24 @@ const post = async (req, res) => {
   }
 }
 
+export const get = async (req, res) => {
+  const isAuth = await isAuthenticated({
+    token: req.headers.authorization
+  })
+  if (!isAuth) {
+    return res.status(401).json({message: 'Você precisa estar autenticado para ver essa página.'})
+  }
+  const database = await databaseConnection()
+  const collection = database.collection('contact')
+  const contacts = await collection.find().sort({'messages.createdAt': -1}).toArray()
+  return res.status(200).json(contacts)
+}
+
 export default (req, res) => {
   if (req.method === 'POST') {
     post(req, res)
+  } else if (req.method === 'GET') {
+    get(req, res)
   } else {
     res.status(405)
   }
