@@ -1,13 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from "./Input";
 import Button from "./Button";
 import styled from "styled-components";
-
+import { formDataToJson } from "../helpers";
+import axios from 'axios'
 const HomeContactForm = (props) => {
+  const [messageSent, setMessageSent] = useState('')
+  const [messageError, setMessageError] = useState('')
+  const [loading, setLoading] = useState(false)
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    if (loading) {
+      return
+    }
+    const body = formDataToJson(new FormData(event.target))
+    setLoading(true)
+    try {
+      const response = await axios.post('/api/contact', body)
+      setMessageSent(response.data.message)
+    } catch (err) {
+      if (err?.response?.data?.message) {
+        setMessageError(err.response.data.message)
+      } else {
+        setMessageError('Não foi possível enviar a mensagem. Por favor tente novamente mais tarde, ou entre em contato pelo WhatsApp')
+      }
+    } finally {
+      setLoading(false)
+    }
+  }
+  if (messageSent) {
+    return (<>
+      <div style={{
+        marginTop: 64,
+        textAlign: 'center',
+        whiteSpace: 'pre-wrap',
+        color: 'var(--color-secondary-light)'
+      }}>{messageSent}</div>
+      
+    </>)
+  }
+  
   return (
-    <StyledContactForm {...props}>
+    <StyledContactForm onSubmit={handleSubmit} {...props}>
       <div>
         <Input
+          required
           style={{
             borderTopLeftRadius: 16,
           }}
@@ -19,7 +56,7 @@ const HomeContactForm = (props) => {
       <div>
         <Input
           required
-          name="whatsapp"
+          name="email"
           label="WhatsApp ou e-mail"
           type="text"
         />
@@ -30,13 +67,16 @@ const HomeContactForm = (props) => {
           style={{
             borderBottomRightRadius: 16,
           }}
-          name="message"
+          name="subject"
           label="Sobre o que você quer conversar?"
           type="text"
         />
       </div>
       <div>
-        <Button type="submit">Enviar mensagem</Button>
+        <Button disabled={loading} type="submit">{loading ? 'Enviando...' : 'Enviar mensagem'}</Button>
+        {messageError && (
+          <div style={{marginTop: 12, color: 'var(--color-danger-dark)'}}>{messageError}</div>
+        )}
       </div>
     </StyledContactForm>
   );

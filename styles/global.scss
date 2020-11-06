@@ -9,6 +9,11 @@
   --color-secondary-light: #5ede00;
   --color-secondary-dark: #44910d;
   --color-secondary-contrast: #ffffff;
+  --color-secondary: #4bb200;
+
+  --color-danger-light: #ff2a2a;
+  --color-danger-dark: #ed4b4b;
+  --color-danger-contrast: #ffffff;
 
   /** Header */
   --header-height: 80px;
@@ -64,7 +69,11 @@ strong {
 img {
   max-width: 100%;
 }
-
+[disabled], .disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: .7;
+}
 @media (max-width: 1280px) {
   .hide-mobile {
     display: none !important;
