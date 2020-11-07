@@ -6,6 +6,7 @@ const Box = ({
   children,
   direction = "top left",
   asideProps = {},
+  boxProps = {},
   centerProps = {},
   bottomProps = {},
   bottom,
@@ -13,9 +14,11 @@ const Box = ({
 }) => {
   return (
     <StyledBoxWrapper {...props} className={`${direction}`}>
-      <StyledBox>
+      <StyledBox {...boxProps}>
         <StyledBoxMain>
+          {aside && 
           <StyledBoxAside {...asideProps}>{aside}</StyledBoxAside>
+          }
           <StyledBoxCenter {...centerProps}>{children}</StyledBoxCenter>
         </StyledBoxMain>
         {bottom && <StyledBoxBottom {...bottomProps}>{bottom}</StyledBoxBottom>}
