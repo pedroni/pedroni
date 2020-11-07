@@ -10,9 +10,9 @@ const post = async (req, res) => {
   }
   try {
     const token = await createUser({email, password})
-    res.status(200).json({message: 'user created succesfuly', data: {email, password, token}})
+    return res.status(200).json({message: 'user created succesfuly', data: {email, token}})
   } catch {
-    res.status(500).json({
+    return res.status(500).json({
       message: 'An error ocurred'
     })
   }
@@ -20,8 +20,10 @@ const post = async (req, res) => {
 
 export default (req, res) => {
   if (req.method === 'POST') {
-    post(req, res)
+    return post(req, res)
   } else {
-    return res.status(405)
+    return res.status(405).json({
+      message: 'method not allowed'
+    })
   }
 }
