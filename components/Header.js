@@ -1,35 +1,30 @@
-import React, { useCallback, useState, useEffect } from "react";
-import styled from "styled-components";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import Scrollspy from "react-scrollspy";
-import { scrollTo } from "../helpers";
+import React, { useCallback, useState, useEffect } from 'react'
+import styled from 'styled-components'
+import Link from 'next/link'
+import Scrollspy from 'react-scrollspy'
+import { scrollTo } from '../helpers'
 
 export const Header = ({ nav }) => {
-  const router = useRouter();
-
-  const [small, setSmall] = useState(false);
-
-  const [activeLink, setActiveLink] = useState("");
+  const [small, setSmall] = useState(false)
 
   const handleScroll = useCallback((ev) => {
     if (window.scrollY > 120) {
-      setSmall(true);
+      setSmall(true)
     } else {
-      setSmall(false);
+      setSmall(false)
     }
-  });
+  })
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll)
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   return (
-    <StyledHeader className={small ? "small" : undefined}>
+    <StyledHeader className={small ? 'small' : undefined}>
       <div>
         <Link href="/">
           <StyledHeaderLogo>
@@ -48,7 +43,7 @@ export const Header = ({ nav }) => {
                 key={link.label}
                 onClick={(ev) => {
                   ev.preventDefault()
-                  scrollTo(link.ref);
+                  scrollTo(link.ref)
                 }}
               >
                 <a href={`#${link.ref.current.id}`}>{link.label}</a>
@@ -61,7 +56,7 @@ export const Header = ({ nav }) => {
                 <img width="19" height="19" src="/icon/github.svg" alt="" />
               </a>
             </li>
-            
+
             <li>
               <a
                 target="blank"
@@ -84,8 +79,8 @@ export const Header = ({ nav }) => {
         </StyledHeaderNav>
       </div>
     </StyledHeader>
-  );
-};
+  )
+}
 
 const StyledHeaderLogo = styled.a`
   display: block;
@@ -99,7 +94,7 @@ const StyledHeaderLogo = styled.a`
     object-fit: contain;
     object-position: center;
   }
-`;
+`
 
 const StyledHeader = styled.header`
   background-image: linear-gradient(180deg, black, transparent);
@@ -130,7 +125,7 @@ const StyledHeader = styled.header`
     justify-content: space-between;
     align-items: center;
   }
-`;
+`
 
 const StyledHeaderNav = styled.nav`
   height: 100%;
@@ -220,6 +215,6 @@ const StyledHeaderNav = styled.nav`
       }
     }
   }
-`;
+`
 
-export default Header;
+export default Header

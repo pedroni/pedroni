@@ -1,16 +1,14 @@
-import React, { useState, useCallback, useRef } from "react";
-import Box from "./Box";
-import Title from "./Title";
-import BoxContent from "./BoxContent";
-import HomeContactForm from "./HomeContactForm";
+import React, { useState } from 'react'
+import Box from './Box'
+import Title from './Title'
+import BoxContent from './BoxContent'
+import HomeContactForm from './HomeContactForm'
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import styled from "styled-components";
-import useMobile from "../hooks/useMobile";
+import useMobile from '../hooks/useMobile'
 
 const HomeContact = (props) => {
-  const [activeListItem, setActiveListItem] = useState("");
-  const isMobile = useMobile();
+  const [activeListItem, setActiveListItem] = useState('')
+  const isMobile = useMobile()
 
   return (
     <Box
@@ -18,10 +16,10 @@ const HomeContact = (props) => {
       direction="bottom right"
       asideProps={{
         style: {
-          width: "250px",
-          flex: "0 0 250px",
-          textAlign: "left",
-        },
+          width: '250px',
+          flex: '0 0 250px',
+          textAlign: 'left'
+        }
       }}
       aside={
         !isMobile && (
@@ -50,12 +48,12 @@ const HomeContact = (props) => {
         <HomeContactForm style={{ marginTop: 32 }} />
       </BoxContent>
     </Box>
-  );
-};
+  )
+}
 
 const HomeContactAside = ({
   activeListItem,
-  onListItemSelected = () => {},
+  onListItemSelected = () => {}
 }) => {
   return (
     <>
@@ -68,19 +66,19 @@ const HomeContactAside = ({
         style={{ marginBottom: 16 }}
       />
       <div>
-        Quer uma resposta mais rápida? Envie um{" "}
+        Quer uma resposta mais rápida? Envie um{' '}
         <a href="mailto:ola@lucaspedroni.com.br">
           <strong>e-mail</strong>
-        </a>{" "}
-        ou me chame no{" "}
+        </a>{' '}
+        ou me chame no{' '}
         <a
           target="blank"
           href="https://wa.me/5554984256224"
-          style={{ color: "var(--color-secondary)" }}
+          style={{ color: 'var(--color-secondary)' }}
         >
           <strong>WhatsApp</strong>
         </a>
-        . Você também pode me mandar uma mensagem no{" "}
+        . Você também pode me mandar uma mensagem no{' '}
         <a
           href="https://www.linkedin.com/in/lucas-pedroni-422460164/"
           target="blank"
@@ -90,7 +88,7 @@ const HomeContactAside = ({
         .
       </div>
     </>
-  );
-};
+  )
+}
 
-export default HomeContact;
+export default HomeContact

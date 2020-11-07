@@ -1,31 +1,31 @@
-import React, { useCallback, useState, useEffect } from "react";
-import styled from "styled-components";
+import React, { useCallback, useState, useEffect } from 'react'
+import styled from 'styled-components'
 
 const BoxList = ({
   list,
   onItemSelected = (key) => {},
-  color = "primary",
-  activeItem,
+  color = 'primary',
+  activeItem
 }) => {
   const _onItemSelected = useCallback((key) => {
-    setActiveItem(key);
-    onItemSelected(key);
-  });
+    setActiveItem(key)
+    onItemSelected(key)
+  })
 
-  const [_activeItem, setActiveItem] = useState(activeItem);
+  const [_activeItem, setActiveItem] = useState(activeItem)
 
   useEffect(() => {
     if (!_activeItem) {
-      setActiveItem(list[0]?.key);
+      setActiveItem(list[0]?.key)
     }
-  });
+  })
 
   useEffect(() => {
-    if (activeItem != _activeItem) {
-      setActiveItem(activeItem);
-      onItemSelected(activeItem);
+    if (activeItem !== _activeItem) {
+      setActiveItem(activeItem)
+      onItemSelected(activeItem)
     }
-  }, [activeItem]);
+  }, [activeItem])
 
   return (
     <StyledBoxList>
@@ -35,14 +35,14 @@ const BoxList = ({
           role="button"
           onClick={() => _onItemSelected({ key, label })}
           key={key}
-          className={_activeItem?.key === key ? "active" : undefined}
+          className={_activeItem?.key === key ? 'active' : undefined}
         >
           {label}
         </StyledBoxListItem>
       ))}
     </StyledBoxList>
-  );
-};
+  )
+}
 
 const StyledBoxListItem = styled.li`
   text-transform: uppercase;
@@ -62,7 +62,7 @@ const StyledBoxListItem = styled.li`
     opacity: 1;
     outline: none;
   }
-`;
+`
 const StyledBoxList = styled.ul`
   list-style: none;
 
@@ -81,13 +81,13 @@ const StyledBoxList = styled.ul`
     &.active {
       color: var(
         ${(props) =>
-          props.color ? "--color-" + props.color : "--color-primary"}
+          props.color ? '--color-' + props.color : '--color-primary'}
       );
       @media (max-width: 1280px) {
         border-bottom: 2px solid
           var(
             ${(props) =>
-              props.color ? "--color-" + props.color : "--color-primary"}
+              props.color ? '--color-' + props.color : '--color-primary'}
           );
       }
     }
@@ -97,5 +97,5 @@ const StyledBoxList = styled.ul`
       margin-right: 24px;
     }
   }
-`;
-export default BoxList;
+`
+export default BoxList

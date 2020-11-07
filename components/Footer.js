@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 
 const Footer = () => {
   return (
@@ -38,8 +38,8 @@ const Footer = () => {
         </div>
       </div>
     </StyledFooter>
-  );
-};
+  )
+}
 
 const StyledFooter = styled.footer`
   position: relative;
@@ -93,6 +93,6 @@ const StyledFooter = styled.footer`
     );
     border-top-left-radius: 10px;
   }
-`;
+`
 
-export default Footer;
+export default Footer

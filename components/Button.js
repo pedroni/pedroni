@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 
-const Button = ({color = 'primary', ...props}) => {
-  return <StyledButton className={`${color} ${props.className ?? ''}`} {...props}>{props.children}</StyledButton>;
-};
+const Button = ({ color = 'primary', ...props }) => {
+  return <StyledButton className={`${color} ${props.className ?? ''}`} {...props}>{props.children}</StyledButton>
+}
 
 const StyledButton = styled.button`
   height: 50px;
@@ -44,6 +44,6 @@ const StyledButton = styled.button`
   &:hover {
     filter: brightness(1.2);
   }
-`;
+`
 
-export default Button;
+export default Button

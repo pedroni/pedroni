@@ -1,20 +1,20 @@
-import React, { useState, useCallback, useMemo } from "react";
-import Box from "./Box";
-import Title from "./Title";
-import BoxContent from "./BoxContent";
-import BoxList from "./BoxList";
-import Button from "./Button";
-import useMobile from "../hooks/useMobile";
-import HomeServicesContent, { getByKey } from "./HomeServicesContent";
-import { scrollTo } from "../helpers";
+import React, { useState, useCallback, useMemo } from 'react'
+import Box from './Box'
+import Title from './Title'
+import BoxContent from './BoxContent'
+import BoxList from './BoxList'
+import Button from './Button'
+import useMobile from '../hooks/useMobile'
+import HomeServicesContent, { getByKey } from './HomeServicesContent'
+import { scrollTo } from '../helpers'
 
 const HomeServices = (props) => {
-  const [activeListKey, setActiveListKey] = useState("aplicativos");
-  const isMobile = useMobile();
-  const content = useMemo(() => getByKey(activeListKey) || {}, [activeListKey]);
+  const [activeListKey, setActiveListKey] = useState('aplicativos')
+  const isMobile = useMobile()
+  const content = useMemo(() => getByKey(activeListKey) || {}, [activeListKey])
   const onListKeySelected = useCallback((key) => setActiveListKey(key), [
-    setActiveListKey,
-  ]);
+    setActiveListKey
+  ])
 
   return (
     <Box
@@ -22,8 +22,8 @@ const HomeServices = (props) => {
       asideProps={{
         style: {
           width: 240,
-          flex: "0 240 240px",
-        },
+          flex: '0 240 240px'
+        }
       }}
       aside={
         !isMobile && (
@@ -47,27 +47,27 @@ const HomeServices = (props) => {
         <br />
         <Button
           onClick={() => {
-            scrollTo(props.contactAnchorRef.current);
+            scrollTo(props.contactAnchorRef.current)
           }}
         >
           Entre em contato comigo
         </Button>
       </BoxContent>
     </Box>
-  );
-};
+  )
+}
 
 const HomeServicesAside = ({ activeListKey, onListKeySelected = () => {} }) => {
-  const list = HomeServicesContent;
+  const list = HomeServicesContent
 
-  const content = useMemo(() => getByKey(activeListKey) || {}, [activeListKey]);
+  const content = useMemo(() => getByKey(activeListKey) || {}, [activeListKey])
 
   const _onListKeySelected = useCallback(
     (content) => {
-      onListKeySelected(content?.key);
+      onListKeySelected(content?.key)
     },
     [onListKeySelected]
-  );
+  )
   return (
     <>
       <img
@@ -84,7 +84,7 @@ const HomeServicesAside = ({ activeListKey, onListKeySelected = () => {} }) => {
         activeItem={content}
       ></BoxList>
     </>
-  );
-};
+  )
+}
 
-export default HomeServices;
+export default HomeServices

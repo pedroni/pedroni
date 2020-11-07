@@ -1,19 +1,19 @@
-import React, { useState, useCallback, useEffect, useMemo } from "react";
-import Box from "./Box";
-import Title from "./Title";
-import BoxContent from "./BoxContent";
-import BoxList from "./BoxList";
-import Button from "./Button";
-import useMobile from "../hooks/useMobile";
-import HomeAboutContent, { getByKey } from "./HomeAboutContent";
-import { scrollTo } from "../helpers";
+import React, { useState, useCallback, useMemo } from 'react'
+import Box from './Box'
+import Title from './Title'
+import BoxContent from './BoxContent'
+import BoxList from './BoxList'
+import Button from './Button'
+import useMobile from '../hooks/useMobile'
+import HomeAboutContent, { getByKey } from './HomeAboutContent'
+import { scrollTo } from '../helpers'
 const HomeAbout = (props) => {
-  const [activeListKey, setActiveListKey] = useState("ola");
-  const isMobile = useMobile();
-  const content = useMemo(() => getByKey(activeListKey) || {}, [activeListKey]);
+  const [activeListKey, setActiveListKey] = useState('ola')
+  const isMobile = useMobile()
+  const content = useMemo(() => getByKey(activeListKey) || {}, [activeListKey])
   const onListItemSelected = useCallback((key) => setActiveListKey(key), [
-    setActiveListKey,
-  ]);
+    setActiveListKey
+  ])
   return (
     <Box
       {...props}
@@ -46,19 +46,19 @@ const HomeAbout = (props) => {
         </Button>
       </BoxContent>
     </Box>
-  );
-};
+  )
+}
 
 const HomeAboutAside = ({ activeListKey, onListItemSelected = () => {} }) => {
-  const list = HomeAboutContent;
-  const content = useMemo(() => getByKey(activeListKey) || {}, [activeListKey]);
+  const list = HomeAboutContent
+  const content = useMemo(() => getByKey(activeListKey) || {}, [activeListKey])
 
   const _onListItemSelected = useCallback(
     (content) => {
-      onListItemSelected(content?.key);
+      onListItemSelected(content?.key)
     },
     [onListItemSelected]
-  );
+  )
   return (
     <>
       <img
@@ -75,7 +75,7 @@ const HomeAboutAside = ({ activeListKey, onListItemSelected = () => {} }) => {
         activeItem={content}
       ></BoxList>
     </>
-  );
-};
+  )
+}
 
-export default HomeAbout;
+export default HomeAbout

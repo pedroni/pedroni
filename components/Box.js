@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 
 const Box = ({
   aside,
   children,
-  direction = "top left",
+  direction = 'top left',
   asideProps = {},
   boxProps = {},
   centerProps = {},
@@ -16,7 +16,7 @@ const Box = ({
     <StyledBoxWrapper {...props} className={`${direction}`}>
       <StyledBox {...boxProps}>
         <StyledBoxMain>
-          {aside && 
+          {aside &&
           <StyledBoxAside {...asideProps}>{aside}</StyledBoxAside>
           }
           <StyledBoxCenter {...centerProps}>{children}</StyledBoxCenter>
@@ -24,20 +24,20 @@ const Box = ({
         {bottom && <StyledBoxBottom {...bottomProps}>{bottom}</StyledBoxBottom>}
       </StyledBox>
     </StyledBoxWrapper>
-  );
-};
+  )
+}
 
 const StyledBoxBottom = styled.div`
   flex: 0 0 100%;
   max-width: 100%;
   width: 100%;
-`;
+`
 const StyledBoxMain = styled.div`
   display: flex;
   @media (max-width: 1280px) {
     flex-wrap: wrap;
   }
-`;
+`
 const StyledBox = styled.section`
   background-color: #101010;
   color: rgba(255, 255, 255, 0.7);
@@ -53,7 +53,7 @@ const StyledBox = styled.section`
     padding-top: calc(var(--box-padding) * 2);
     padding-bottom: calc(var(--box-padding) * 2);
   }
-`;
+`
 
 const StyledBoxCenter = styled.div`
   padding-left: 64px;
@@ -61,7 +61,7 @@ const StyledBoxCenter = styled.div`
     padding-left: 0;
     width: 100%;
   }
-`;
+`
 
 const StyledBoxWrapper = styled.section`
   position: relative;
@@ -106,7 +106,7 @@ const StyledBoxWrapper = styled.section`
       border-bottom-right-radius: 24px;
     }
   }
-`;
+`
 
 const StyledBoxAside = styled.aside`
   width: 200px;
@@ -122,6 +122,6 @@ const StyledBoxAside = styled.aside`
   img {
     max-width: none;
   }
-`;
+`
 
-export default Box;
+export default Box

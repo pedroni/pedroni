@@ -1,13 +1,13 @@
-import React, { useState, useCallback, useRef } from "react";
-import Box from "./Box";
-import Title from "./Title";
-import BoxContent from "./BoxContent";
+import React, { useState } from 'react'
+import Box from './Box'
+import Title from './Title'
+import BoxContent from './BoxContent'
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import styled from "styled-components";
+import { Swiper, SwiperSlide } from 'swiper/react'
+import styled from 'styled-components'
 
 const HomeSkills = (props) => {
-  const [activeListItem, setActiveListItem] = useState("");
+  const [activeListItem, setActiveListItem] = useState('')
 
   return (
     <Box
@@ -15,10 +15,10 @@ const HomeSkills = (props) => {
       direction="bottom right"
       asideProps={{
         style: {
-          width: "250px",
-          flex: "0 0 250px",
-          textAlign: "left",
-        },
+          width: '250px',
+          flex: '0 0 250px',
+          textAlign: 'left'
+        }
       }}
       aside={
         <HomeSkillsAside
@@ -40,8 +40,8 @@ const HomeSkills = (props) => {
         disponíveis para qualquer situação.
       </BoxContent>
     </Box>
-  );
-};
+  )
+}
 
 const HomeSkillsAside = ({ activeListItem, onListItemSelected = () => {} }) => {
   return (
@@ -55,70 +55,70 @@ const HomeSkillsAside = ({ activeListItem, onListItemSelected = () => {} }) => {
         style={{ marginBottom: 16 }}
       />
     </>
-  );
-};
+  )
+}
 
 export const HomeSkillsSwiper = () => {
-  const [swiper, setSwiper] = useState(null);
+  const [, setSwiper] = useState(null)
 
   const list = [
     {
-      background: "/img/skills/01.jpg",
-      icon: "devicon-apple-original",
-      label: "iOS / iPadOS",
+      background: '/img/skills/01.jpg',
+      icon: 'devicon-apple-original',
+      label: 'iOS / iPadOS'
     },
     {
-      background: "/img/skills/02.jpg",
-      icon: "devicon-android-plain",
-      label: "Android",
+      background: '/img/skills/02.jpg',
+      icon: 'devicon-android-plain',
+      label: 'Android'
     },
     {
-      background: "/img/skills/03.jpg",
-      icon: "devicon-javascript-plain",
-      label: "JavaScript",
+      background: '/img/skills/03.jpg',
+      icon: 'devicon-javascript-plain',
+      label: 'JavaScript'
     },
     {
-      background: "/img/skills/01.jpg",
-      icon: "devicon-angularjs-plain",
-      label: "Angular",
+      background: '/img/skills/01.jpg',
+      icon: 'devicon-angularjs-plain',
+      label: 'Angular'
     },
     {
-      background: "/img/skills/02.jpg",
-      icon: "devicon-react-plain",
-      label: "React",
+      background: '/img/skills/02.jpg',
+      icon: 'devicon-react-plain',
+      label: 'React'
     },
     {
-      background: "/img/skills/03.jpg",
-      icon: "devicon-vuejs-plain",
-      label: "Vue.js",
+      background: '/img/skills/03.jpg',
+      icon: 'devicon-vuejs-plain',
+      label: 'Vue.js'
     },
     {
-      background: "/img/skills/01.jpg",
-      icon: "devicon-nodejs-plain",
-      label: "Node.js",
+      background: '/img/skills/01.jpg',
+      icon: 'devicon-nodejs-plain',
+      label: 'Node.js'
     },
     {
-      background: "/img/skills/02.jpg",
-      icon: "devicon-php-plain",
-      label: "PHP",
+      background: '/img/skills/02.jpg',
+      icon: 'devicon-php-plain',
+      label: 'PHP'
     },
     {
-      background: "/img/skills/03.jpg",
-      icon: "devicon-laravel-plain",
-      label: "Laravel",
+      background: '/img/skills/03.jpg',
+      icon: 'devicon-laravel-plain',
+      label: 'Laravel'
     },
     {
-      background: "/img/skills/01.jpg",
-      icon: "devicon-mysql-plain",
-      label: "MySQL",
-    },
-  ];
+      background: '/img/skills/01.jpg',
+      icon: 'devicon-mysql-plain',
+      label: 'MySQL'
+    }
+  ]
   return (
     <StyledSwiperWrapper>
       <Swiper
         spaceBetween={16}
         style={{
-          marginTop: 32,
+          marginTop: 32
         }}
         navigation
         slidesPerView={3}
@@ -146,8 +146,8 @@ export const HomeSkillsSwiper = () => {
         ))}
       </Swiper>
     </StyledSwiperWrapper>
-  );
-};
+  )
+}
 
 const StyledSwiperWrapper = styled.div`
   --swiper-navigation-size: 24px;
@@ -165,7 +165,7 @@ const StyledSwiperWrapper = styled.div`
   }
   .swiper-button-next {
   }
-`;
+`
 
 const StyledSkillCard = styled.div`
   --skill-card-height: 280px;
@@ -235,6 +235,6 @@ const StyledSkillCard = styled.div`
       transform: translateY(0);
     }
   }
-`;
+`
 
-export default HomeSkills;
+export default HomeSkills

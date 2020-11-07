@@ -1,8 +1,8 @@
-import React from "react";
-import Header from "./Header";
-import Footer from "./Footer";
-import styled from "styled-components";
-import Head from "next/head";
+import React from 'react'
+import Header from './Header'
+import Footer from './Footer'
+import styled from 'styled-components'
+import Head from 'next/head'
 
 export const Layout = ({ children, nav = [] }) => {
   return (
@@ -14,8 +14,8 @@ export const Layout = ({ children, nav = [] }) => {
         <Footer />
       </LayoutStyled>
     </>
-  );
-};
+  )
+}
 
 const LayoutStyled = styled.div`
   padding-top: var(--header-height);
@@ -28,6 +28,6 @@ const LayoutStyled = styled.div`
   @media(max-width: 1280px) {
     max-width: 100vw;
   }
-`;
+`
 
-export default Layout;
+export default Layout

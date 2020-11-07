@@ -1,20 +1,20 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 
 /**
  * color primary, secondary
  */
-const Title = ({ subTitle, title, color = "primary", direction = "left" }) => {
+const Title = ({ subTitle, title, color = 'primary', direction = 'left' }) => {
   return (
     <StyledTitleWrapper className={`${color} ${direction}`}>
       <StyledSubTitle>{subTitle}</StyledSubTitle>
       <StyledTitle>{title}</StyledTitle>
     </StyledTitleWrapper>
-  );
-};
+  )
+}
 
-const StyledTitle = styled.div``;
-const StyledSubTitle = styled.div``;
+const StyledTitle = styled.div``
+const StyledSubTitle = styled.div``
 
 const StyledTitleWrapper = styled.div`
   margin-bottom: 32px;
@@ -82,6 +82,6 @@ const StyledTitleWrapper = styled.div`
       }
     }
   }
-`;
+`
 
-export default Title;
+export default Title

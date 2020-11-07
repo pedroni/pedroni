@@ -1,8 +1,7 @@
-import React, { useCallback } from "react";
-import styled from "styled-components";
-import Button from "./Button";
-import Link from "next/link";
-import { scrollTo } from "../helpers";
+import React from 'react'
+import styled from 'styled-components'
+import Button from './Button'
+import { scrollTo } from '../helpers'
 
 const HomeBanner = (props) => {
   return (
@@ -46,8 +45,8 @@ const HomeBanner = (props) => {
         </StyledHomeBannerRight>
       </div>
     </StyledHomeBanner>
-  );
-};
+  )
+}
 
 const StyledHomeBannerRight = styled.div`
   position: relative;
@@ -85,7 +84,7 @@ const StyledHomeBannerRight = styled.div`
     letter-spacing: 10px;
     text-transform: uppercase;
   }
-`;
+`
 const StyledHomeBannerScrollDown = styled.img`
   width: 20px;
   height: 21px;
@@ -95,7 +94,7 @@ const StyledHomeBannerScrollDown = styled.img`
   @media(max-width: 1280px) {
     display: none;
   }
-`;
+`
 const StyledHomeBannerLeft = styled.div`
   @media (max-width: 1280px) {
     display: none;
@@ -106,7 +105,7 @@ const StyledHomeBannerLeft = styled.div`
     margin-left: auto;
     display: block;
   }
-`;
+`
 
 const StyledHomeBanner = styled.section`
   width: 100%;
@@ -151,6 +150,6 @@ const StyledHomeBanner = styled.section`
     display: block;
     background-image: linear-gradient(black, transparent);
   }
-`;
+`
 
-export default HomeBanner;
+export default HomeBanner

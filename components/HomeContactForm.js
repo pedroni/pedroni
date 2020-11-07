@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import Input from "./Input";
-import Button from "./Button";
-import styled from "styled-components";
-import { formDataToJson } from "../helpers";
+import React, { useState } from 'react'
+import Input from './Input'
+import Button from './Button'
+import styled from 'styled-components'
+import { formDataToJson } from '../helpers'
 import axios from 'axios'
 const HomeContactForm = (props) => {
   const [messageSent, setMessageSent] = useState('')
@@ -36,17 +36,17 @@ const HomeContactForm = (props) => {
         whiteSpace: 'pre-wrap',
         color: 'var(--color-secondary-light)'
       }}>{messageSent}</div>
-      
+
     </>)
   }
-  
+
   return (
     <StyledContactForm onSubmit={handleSubmit} {...props}>
       <div>
         <Input
           required
           style={{
-            borderTopLeftRadius: 16,
+            borderTopLeftRadius: 16
           }}
           name="name"
           label="Nome"
@@ -65,7 +65,7 @@ const HomeContactForm = (props) => {
         <Input
           required
           style={{
-            borderBottomRightRadius: 16,
+            borderBottomRightRadius: 16
           }}
           name="subject"
           label="Sobre o que você quer conversar?"
@@ -75,18 +75,18 @@ const HomeContactForm = (props) => {
       <div>
         <Button disabled={loading} type="submit">{loading ? 'Enviando...' : 'Enviar mensagem'}</Button>
         {messageError && (
-          <div style={{marginTop: 12, color: 'var(--color-danger-dark)'}}>{messageError}</div>
+          <div style={{ marginTop: 12, color: 'var(--color-danger-dark)' }}>{messageError}</div>
         )}
       </div>
     </StyledContactForm>
-  );
-};
+  )
+}
 
 const StyledContactForm = styled.form`
 text-align: left;
   & > div {
     margin-bottom: 16px;
   }
-`;
+`
 
-export default HomeContactForm;
+export default HomeContactForm

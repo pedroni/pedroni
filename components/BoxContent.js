@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 
-const BoxContent = ({children}) => {
-  return <StyledBoxContent>{children}</StyledBoxContent>;
-};
+const BoxContent = ({ children }) => {
+  return <StyledBoxContent>{children}</StyledBoxContent>
+}
 
 const StyledBoxContent = styled.div`
   font-size: 16px;
@@ -11,6 +11,6 @@ const StyledBoxContent = styled.div`
   a {
     color: var(--color-primary-light)
   }
-`;
+`
 
-export default BoxContent;
+export default BoxContent

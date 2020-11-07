@@ -1,15 +1,11 @@
-import React, { useEffect } from "react";
-import Link from "next/link";
-import Layout from "../components/Layout";
-import { useRouter } from "next/router";
-import Box from "../components/Box";
-import Title from "../components/Title";
-import HomeContactForm from "../components/HomeContactForm";
-import styled from "styled-components";
-import BoxContent from "../components/BoxContent";
+import React from 'react'
+import Link from 'next/link'
+import Layout from '../components/Layout'
+import Box from '../components/Box'
+import Title from '../components/Title'
+import HomeContactForm from '../components/HomeContactForm'
+import BoxContent from '../components/BoxContent'
 const Page404 = () => {
-  const router = useRouter();
-
   return (
     <Layout>
       <Box
@@ -25,7 +21,7 @@ const Page404 = () => {
             className="brightness--2"
             style={{ marginBottom: 16 }}
           />
-          
+
         }
       >
         <Title
@@ -38,8 +34,7 @@ const Page404 = () => {
         <HomeContactForm></HomeContactForm>
       </Box>
     </Layout>
-  );
-};
+  )
+}
 
-
-export default Page404;
+export default Page404
