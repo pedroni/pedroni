@@ -1,14 +1,15 @@
-import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.scss";
-import SwiperCore, { Navigation } from "swiper";
-SwiperCore.use([Navigation]);
+import React from 'react'
+import 'swiper/swiper.scss'
+import 'swiper/components/navigation/navigation.scss'
+import SwiperCore, { Navigation } from 'swiper'
 
-import "../styles/global.scss";
+import '../styles/global.scss'
 
-import Head from "next/head";
+import Head from 'next/head'
+SwiperCore.use([Navigation])
 
 // This default export is required in a new `pages/_app.js` file.
-export default function App({ Component, pageProps }) {
+export default function App ({ Component, pageProps }) {
   return (
     <>
       <Head>
@@ -57,5 +58,5 @@ export default function App({ Component, pageProps }) {
       </Head>
       <Component {...pageProps} />
     </>
-  );
+  )
 }
