@@ -2,8 +2,11 @@ import { MongoClient } from 'mongodb'
 import { URL } from 'url'
 
 let cachedDatabase
-export const databaseConnection = async () => {
+export const databaseConnection = async (collection) => {
   if (cachedDatabase) {
+    if (collection) {
+      return cachedDatabase.collection(collection)
+    }
     return cachedDatabase
   }
 
@@ -15,6 +18,8 @@ export const databaseConnection = async () => {
   const dbName = new URL(process.env.MONGODB_URI).pathname.substr(1)
 
   cachedDatabase = client.db(dbName)
-
+  if (collection) {
+    return cachedDatabase.collection(collection)
+  }
   return cachedDatabase
 }
