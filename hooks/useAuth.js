@@ -34,6 +34,8 @@ export default function useAuth () {
       setIsAuthenticated(true)
     } catch (err) {
       setIsAuthenticated(false)
+      setToken(null)
+      localStorage.removeItem('token')
       throw err
     }
   }
