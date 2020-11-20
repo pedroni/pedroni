@@ -7,7 +7,7 @@ import HomeSkills from '../components/HomeSkills'
 import HomeServices from '../components/HomeServices'
 import HomeContact from '../components/HomeContact'
 import Rellax from 'rellax'
-
+import useMobile from '../hooks/useMobile'
 const Home = ({ data }) => {
   const bannerAnchorRef = useRef()
   const aboutAnchorRef = useRef()
@@ -16,13 +16,20 @@ const Home = ({ data }) => {
   const contactAnchorRef = useRef()
 
   const [nav, setNav] = useState([])
-  const [, setRellax] = useState()
+  const rellax = useRef(null)
+  const isMobile = useMobile()
   useEffect(() => {
-    setRellax(
-      new Rellax('.homeRellax', {
+    console.log('im here')
+    if (!isMobile && !rellax.current) {
+      rellax.current = new Rellax('.homeRellax', {
         center: true
       })
-    )
+    } else {
+      rellax.current?.destroy()
+      rellax.current = null
+    }
+  }, [isMobile])
+  useEffect(() => {
     setNav([
       {
         label: 'Início',
