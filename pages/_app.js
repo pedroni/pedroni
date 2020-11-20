@@ -41,6 +41,8 @@ export default function App ({ Component, pageProps }) {
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="msapplication-TileImage" content="/img/favicon/mstile-144x144.png" />
         <meta name="theme-color" content="#000000" />
+        <meta property="og:image:url" content="https://pedroni.dev/image.jpg" />
+
         <link
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;800&display=swap"
           rel="stylesheet"
