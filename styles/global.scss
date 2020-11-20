@@ -21,6 +21,9 @@
   /** Container */
   --container-width: 1280px;
   @media (max-width: 1280px) {
+    --container-width: calc(100% - 32px);
+  }
+  @media (max-width: 540px) {
     --container-width: 100%;
   }
 
