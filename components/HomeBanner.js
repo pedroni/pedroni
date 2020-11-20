@@ -61,7 +61,7 @@ const StyledHomeBannerRight = styled.div`
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    padding-bottom: 16px;
+    padding-bottom: 128px;
     padding-left: 32px;
     padding-right: 32px;
   }
