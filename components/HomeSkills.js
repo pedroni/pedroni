@@ -153,6 +153,12 @@ const StyledSwiperWrapper = styled.div`
   --swiper-navigation-size: 24px;
   margin-left: calc(-1 * var(--box-padding));
   width: calc(100% + (2 * var(--box-padding)));
+  .swiper-wrapper {
+    @media(max-width: 768px) {
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
   .swiper-container {
     padding-left: var(--box-padding);
     padding-right: var(--box-padding);
@@ -179,6 +185,9 @@ const StyledSkillCard = styled.div`
   justify-content: flex-end;
   flex-wrap: wrap;
   flex-direction: column;
+  @media(max-width: 768px) {
+    box-shadow: 0 0 15px 0 rgba(255,255,255,.25);
+  }
   &::after,
   &::before {
     content: "";

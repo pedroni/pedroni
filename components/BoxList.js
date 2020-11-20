@@ -68,8 +68,9 @@ const StyledBoxList = styled.ul`
 
   @media (max-width: 1280px) {
     display: flex;
-    max-width: 100%;
-    width: 100%;
+    width: calc(100% + (var(--box-padding) * 2));
+    margin-left: calc(-1 * var(--box-padding));
+    padding-left: var(--box-padding);
     flex-wrap: nowrap;
     overflow-x: auto;
     margin-bottom: 16px;
@@ -92,7 +93,7 @@ const StyledBoxList = styled.ul`
       }
     }
     @media (max-width: 1280px) {
-      border-bottom: 2px solid transparent; 
+      border-bottom: 2px solid transparent;
       flex: 0 0 auto;
       margin-right: 24px;
     }

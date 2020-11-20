@@ -65,16 +65,13 @@ const Home = ({ data }) => {
         ref={aboutAnchorRef}
       >
         <HomeAbout
-          style={{
-            marginTop: 'calc(-1 * var(--header-height))'
-          }}
           contactAnchorRef={contactAnchorRef}
         />
       </div>
       <div id="skillsAnchor" ref={skillsAnchorRef}>
         <HomeSkills
           style={{
-            marginTop: 64
+            marginTop: isMobile ? 16 : 64
           }}
         />
       </div>
@@ -86,7 +83,7 @@ const Home = ({ data }) => {
       >
         <HomeServices
           style={{
-            marginTop: 64
+            marginTop: isMobile ? 16 : 64
           }}
           contactAnchorRef={contactAnchorRef}
         />
@@ -94,7 +91,7 @@ const Home = ({ data }) => {
       <div id="contactAnchor" ref={contactAnchorRef}>
         <HomeContact
           style={{
-            marginTop: 64
+            marginTop: isMobile ? 16 : 64
           }}
         />
       </div>

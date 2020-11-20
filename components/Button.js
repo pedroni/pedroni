@@ -5,7 +5,7 @@ const Button = ({ color = 'primary', ...props }) => {
   return <StyledButton className={`${color} ${props.className ?? ''}`} {...props}>{props.children}</StyledButton>
 }
 
-const StyledButton = styled.button`
+export const StyledButton = styled.button`
   height: 50px;
   min-width: 200px;
   padding-left: 32px;

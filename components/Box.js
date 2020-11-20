@@ -39,19 +39,21 @@ const StyledBoxMain = styled.div`
   }
 `
 const StyledBox = styled.section`
-  background-color: #101010;
   color: rgba(255, 255, 255, 0.7);
   display: flex;
   flex-direction: column;
   width: 80%;
   padding: var(--box-padding);
-  box-shadow: 0 0 30px black;
   flex-wrap: wrap;
   @media (max-width: 1280px) {
     width: 100%;
     display: block;
     padding-top: calc(var(--box-padding) * 2);
     padding-bottom: calc(var(--box-padding) * 2);
+  }
+  @media (min-width: 768px) {
+    background-color: #101010;
+    box-shadow: 0 0 30px black;
   }
 `
 

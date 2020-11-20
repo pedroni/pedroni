@@ -65,6 +65,9 @@ const StyledLabel = styled.label`
   left: 24px;
   top: calc(var(--input-height) * 0.3);
   transition: 0.3s;
+  @media(max-width: 768px) {
+    font-size: 14px;
+  }
 `
 
 const StyledInputWrapper = styled.div`
