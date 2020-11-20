@@ -121,7 +121,7 @@ export const HomeSkillsSwiper = () => {
           marginTop: 32
         }}
         navigation
-        slidesPerView={3}
+        slidesPerView={1.3}
         onSwiper={setSwiper}
         breakpoints={{
           400: {
