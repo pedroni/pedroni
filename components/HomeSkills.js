@@ -99,16 +99,21 @@ export const HomeSkillsSwiper = () => {
     },
     {
       background: '/img/skills/02.jpg',
+      icon: 'devicon-mongodb-plain',
+      label: 'MongoDB'
+    },
+    {
+      background: '/img/skills/03.jpg',
       icon: 'devicon-php-plain',
       label: 'PHP'
     },
     {
-      background: '/img/skills/03.jpg',
+      background: '/img/skills/01.jpg',
       icon: 'devicon-laravel-plain',
       label: 'Laravel'
     },
     {
-      background: '/img/skills/01.jpg',
+      background: '/img/skills/02.jpg',
       icon: 'devicon-mysql-plain',
       label: 'MySQL'
     }
