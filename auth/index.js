@@ -41,7 +41,10 @@ export const authenticate = async ({ email, password }) => {
       }
     )
   }
-  await bcrypt.compare(password, passwordHash)
+  const same = await bcrypt.compare(password, passwordHash)
+  if(!same) {
+    throw new Error('Credenciais inválidas')
+  }
   return token
 }
 
