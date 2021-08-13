@@ -16,9 +16,7 @@ const Box = ({
     <StyledBoxWrapper {...props} className={`${direction}`}>
       <StyledBox {...boxProps}>
         <StyledBoxMain>
-          {aside &&
-          <StyledBoxAside {...asideProps}>{aside}</StyledBoxAside>
-          }
+          {aside && <StyledBoxAside {...asideProps}>{aside}</StyledBoxAside>}
           <StyledBoxCenter {...centerProps}>{children}</StyledBoxCenter>
         </StyledBoxMain>
         {bottom && <StyledBoxBottom {...bottomProps}>{bottom}</StyledBoxBottom>}
@@ -44,7 +42,6 @@ const StyledBox = styled.section`
   flex-direction: column;
   width: 80%;
   padding: var(--box-padding);
-  flex-wrap: wrap;
   @media (max-width: 1280px) {
     width: 100%;
     display: block;
@@ -116,7 +113,7 @@ const StyledBoxAside = styled.aside`
   text-align: right;
   font-size: 16px;
   line-height: 28px;
-  @media(max-width: 1280px) {
+  @media (max-width: 1280px) {
     width: 100%;
     flex: 0 0 100%;
     text-align: left;
