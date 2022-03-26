@@ -4,12 +4,9 @@
   "description": "Front-end lucaspedroni.com.br",
   "main": "pages/index.js",
   "dependencies": {
-    "@types/mongodb": "^3.5.33",
     "axios": "^0.21.0",
     "bcrypt": "^5.0.0",
-    "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.20",
-    "mongodb": "^3.6.3",
     "next": "^9.5.4",
     "randomstring": "^1.1.5",
     "react": "^16.13.1",
@@ -34,6 +31,6 @@
     "build": "next build",
     "start": "npm install && next build && next start"
   },
-  "author": "pedronidev",
+  "author": "pedroni",
   "license": "ISC"
 }
