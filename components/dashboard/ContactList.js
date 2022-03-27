@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const ContactList = ({ list, ...props }) => {
-  const [opened, setOpened] = useState(null)
+  const [opened,setOpened] = useState(null)
   return (
     <StyledContactList>
       {list.map((item, index) => (
