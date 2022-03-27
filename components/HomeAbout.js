@@ -7,13 +7,14 @@ import Button from './Button'
 import useMobile from '../hooks/useMobile'
 import HomeAboutContent, { getByKey } from './HomeAboutContent'
 import { scrollTo } from '../helpers'
-const HomeAbout = (props) => {
+const HomeAbout = props => {
   const [activeListKey, setActiveListKey] = useState('ola')
   const isMobile = useMobile()
   const content = useMemo(() => getByKey(activeListKey) || {}, [activeListKey])
-  const onListItemSelected = useCallback((key) => setActiveListKey(key), [
-    setActiveListKey
-  ])
+  const onListItemSelected = useCallback(
+    key => setActiveListKey(key),
+    [setActiveListKey]
+  )
   return (
     <Box
       {...props}
@@ -54,7 +55,7 @@ const HomeAboutAside = ({ activeListKey, onListItemSelected = () => {} }) => {
   const content = useMemo(() => getByKey(activeListKey) || {}, [activeListKey])
 
   const _onListItemSelected = useCallback(
-    (content) => {
+    content => {
       onListItemSelected(content?.key)
     },
     [onListItemSelected]

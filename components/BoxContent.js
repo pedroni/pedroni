@@ -9,7 +9,7 @@ const StyledBoxContent = styled.div`
   font-size: 16px;
   line-height: 28px;
   a {
-    color: var(--color-primary-light)
+    color: var(--color-primary-light);
   }
 `
 

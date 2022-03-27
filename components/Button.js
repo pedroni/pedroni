@@ -2,7 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Button = ({ color = 'primary', ...props }) => {
-  return <StyledButton className={`${color} ${props.className ?? ''}`} {...props}>{props.children}</StyledButton>
+  return (
+    <StyledButton className={`${color} ${props.className ?? ''}`} {...props}>
+      {props.children}
+    </StyledButton>
+  )
 }
 
 export const StyledButton = styled.button`

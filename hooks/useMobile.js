@@ -1,6 +1,6 @@
 import { useEffect, useCallback, useState } from 'react'
 
-export default function useMobile () {
+export default function useMobile() {
   const [isMobile, setIsMobile] = useState(false)
 
   const handleResize = useCallback(() =>

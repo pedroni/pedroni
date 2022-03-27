@@ -21,16 +21,22 @@ const Page404 = () => {
             className="brightness--2"
             style={{ marginBottom: 16 }}
           />
-
         }
       >
         <Title
           subTitle="PÁGINA NÃO ENCONTRADA"
           title={<h1>O que você procura?</h1>}
         ></Title>
-        <BoxContent>Volte para a página inicial <Link href="/"><a>clicando aqui </a></Link> ou entre em contato comigo no formulário abaixo. Você também pode me chamar no <a href="https://wa.me/55984256224">WhatsApp</a>.
-        <br/>
-        <br/></BoxContent>
+        <BoxContent>
+          Volte para a página inicial{' '}
+          <Link href="/">
+            <a>clicando aqui </a>
+          </Link>{' '}
+          ou entre em contato comigo no formulário abaixo. Você também pode me
+          chamar no <a href="https://wa.me/55984256224">WhatsApp</a>.
+          <br />
+          <br />
+        </BoxContent>
         <HomeContactForm></HomeContactForm>
       </Box>
     </Layout>

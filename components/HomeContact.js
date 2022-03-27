@@ -6,7 +6,7 @@ import HomeContactForm from './HomeContactForm'
 
 import useMobile from '../hooks/useMobile'
 
-const HomeContact = (props) => {
+const HomeContact = props => {
   const [activeListItem, setActiveListItem] = useState('')
   const isMobile = useMobile()
 
@@ -25,7 +25,7 @@ const HomeContact = (props) => {
         !isMobile && (
           <HomeContactAside
             activeListItem={activeListItem}
-            onListItemSelected={(key) => setActiveListItem(key)}
+            onListItemSelected={key => setActiveListItem(key)}
           />
         )
       }
@@ -42,7 +42,7 @@ const HomeContact = (props) => {
         {isMobile && (
           <HomeContactAside
             activeListItem={activeListItem}
-            onListItemSelected={(key) => setActiveListItem(key)}
+            onListItemSelected={key => setActiveListItem(key)}
           />
         )}
         <HomeContactForm style={{ marginTop: 32 }} />

@@ -80,7 +80,7 @@ const StyledFooter = styled.footer`
     }
   }
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0;
     left: 0;

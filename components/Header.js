@@ -7,7 +7,7 @@ import { scrollTo } from '../helpers'
 export const Header = ({ nav }) => {
   const [small, setSmall] = useState(false)
 
-  const handleScroll = useCallback((ev) => {
+  const handleScroll = useCallback(ev => {
     if (window.scrollY > 120) {
       setSmall(true)
     } else {
@@ -38,10 +38,10 @@ export const Header = ({ nav }) => {
             currentClassName="active"
             offset={-100}
           >
-            {nav.map((link) => (
+            {nav.map(link => (
               <li
                 key={link.label}
-                onClick={(ev) => {
+                onClick={ev => {
                   ev.preventDefault()
                   scrollTo(link.ref)
                 }}
@@ -160,7 +160,7 @@ const StyledHeaderNav = styled.nav`
         place-content: center;
         position: relative;
         &::before {
-          content: "";
+          content: '';
           position: absolute;
           left: 50%;
           bottom: 0;
@@ -191,8 +191,8 @@ const StyledHeaderNav = styled.nav`
       }
     }
 
-    @media(max-width: 1280px) {
-      display:none;
+    @media (max-width: 1280px) {
+      display: none;
     }
   }
   ul.social {

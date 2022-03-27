@@ -9,7 +9,7 @@ import Head from 'next/head'
 SwiperCore.use([Navigation])
 
 // This default export is required in a new `pages/_app.js` file.
-export default function App ({ Component, pageProps }) {
+export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
@@ -36,10 +36,17 @@ export default function App ({ Component, pageProps }) {
           sizes="16x16"
           href="/img/favicon/favicon-16x16.png"
         />
-        <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#000000" />
+        <link
+          rel="mask-icon"
+          href="/img/favicon/safari-pinned-tab.svg"
+          color="#000000"
+        />
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="msapplication-TileColor" content="#000000" />
-        <meta name="msapplication-TileImage" content="/img/favicon/mstile-144x144.png" />
+        <meta
+          name="msapplication-TileImage"
+          content="/img/favicon/mstile-144x144.png"
+        />
         <meta name="theme-color" content="#000000" />
         <meta property="og:image:url" content="https://pedroni.dev/image.jpg" />
 
