@@ -16,14 +16,9 @@
     "swiper": "^6.0.4"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.10.7",
-    "eslint": "^7.13.0",
-    "eslint-config-standard": "^16.0.1",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.21.5",
-    "sass": "^1.26.10"
+    "eslint": "8.12.0",
+    "eslint-config-next": "12.1.1",
+    "sass": "^1.49.9"
   },
   "scripts": {
     "dev": "next",

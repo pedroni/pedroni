@@ -6,6 +6,8 @@ import SwiperCore, { Navigation } from 'swiper'
 import '../styles/global.scss'
 
 import Head from 'next/head'
+import Script from 'next/script'
+import Analytics from '../components/utils/Analytics'
 SwiperCore.use([Navigation])
 
 // This default export is required in a new `pages/_app.js` file.
@@ -59,11 +61,7 @@ export default function App({ Component, pageProps }) {
           href="https://cdn.jsdelivr.net/gh/konpa/devicon@master/devicon.min.css"
         />
 
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=UA-121297636-1"
-        ></script>
-        <script src="/js/google.analyics.js"></script>
+        <Analytics />
       </Head>
       <Component {...pageProps} />
     </>
