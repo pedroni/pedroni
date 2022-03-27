@@ -40,4 +40,9 @@ jobs:
         run: npm ci --ignore-scripts
 
       - name: Run ESLint
-        run: npx eslint .
+        run: npx eslint . --fix
+
+      - name: Commit ESLint fixes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: ESLint fix
