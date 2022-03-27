@@ -19,10 +19,8 @@ jobs:
       - name: Prettify code
         uses: creyD/prettier_action@v4.2
 
-      - name: Run ESLint
-        run: npx eslint .
-
   eslint:
+    needs: prettier
     runs-on: ubuntu-latest
 
     steps:
