@@ -21,7 +21,7 @@ const HomeContactForm = props => {
     } catch (err) {
       if (err?.response?.data?.message) {
         setMessageError(err.response.data.message)
-      } else {
+      } else{
         setMessageError(
           'Não foi possível enviar a mensagem. Por favor tente novamente mais tarde, ou entre em contato pelo WhatsApp'
         )
