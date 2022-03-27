@@ -29,8 +29,8 @@ const contents = [
   }
 ]
 
-export const getByKey = (key) => {
-  return contents.find((content) => content.key === key)
+export const getByKey = key => {
+  return contents.find(content => content.key === key)
 }
 
 export default contents

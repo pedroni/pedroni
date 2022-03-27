@@ -4,8 +4,8 @@ import styled from 'styled-components'
 const Input = ({ label, name, ...props }) => {
   const [active, setActive] = useState(false)
   const inputRef = useRef()
-  const _onFocus = useCallback((ev) => setActive(true))
-  const _onBlur = useCallback((ev) =>
+  const _onFocus = useCallback(ev => setActive(true))
+  const _onBlur = useCallback(ev =>
     ev.target.value.trim() ? setActive(true) : setActive(false)
   )
 
@@ -47,10 +47,10 @@ const StyledInput = styled.input`
   display: block;
   width: 100%;
   padding-top: 16.8px;
-  transition: .3s;
+  transition: 0.3s;
   &:focus {
     outline: none;
-    border-color: var(--color-primary)
+    border-color: var(--color-primary);
   }
   .active > & {
     border-bottom-color: var(--color-primary);
@@ -65,7 +65,7 @@ const StyledLabel = styled.label`
   left: 24px;
   top: calc(var(--input-height) * 0.3);
   transition: 0.3s;
-  @media(max-width: 768px) {
+  @media (max-width: 768px) {
     font-size: 14px;
   }
 `
@@ -78,7 +78,7 @@ const StyledInputWrapper = styled.div`
     ${StyledLabel} {
       top: 2px;
       font-size: 12px;
-      opacity: .8;
+      opacity: 0.8;
     }
   }
 `

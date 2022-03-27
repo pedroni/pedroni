@@ -29,7 +29,7 @@ const StyledTitleWrapper = styled.div`
     position: relative;
     &::after,
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       bottom: 0;
@@ -49,7 +49,7 @@ const StyledTitleWrapper = styled.div`
       font-weight: 500;
       font-size: inherit;
     }
-    @media(max-width: 1280px) {
+    @media (max-width: 1280px) {
       font-size: 26px;
     }
   }

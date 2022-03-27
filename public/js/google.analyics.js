@@ -1,5 +1,5 @@
 window.dataLayer = window.dataLayer || []
-function gtag () {
+function gtag() {
   window.dataLayer.push(arguments)
 }
 gtag('js', new Date())

@@ -84,7 +84,7 @@ const StyledHomeBannerRight = styled.div`
   }
   ${StyledButton} {
     margin-top: 32px;
-    @media(max-width: 768px) {
+    @media (max-width: 768px) {
       margin-top: 0;
       width: 80%;
     }

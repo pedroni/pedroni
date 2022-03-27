@@ -1,4 +1,4 @@
-export function scrollTo (ref, offset = 0) {
+export function scrollTo(ref, offset = 0) {
   ref = ref.current ? ref.current : ref
   console.log(ref)
   window.scroll({
@@ -8,9 +8,12 @@ export function scrollTo (ref, offset = 0) {
   })
 }
 
-export function formDataToJson (formData) {
-  return Array.from(formData).reduce((currentData, [key, value]) => ({
-    ...currentData,
-    [key]: value
-  }), {})
+export function formDataToJson(formData) {
+  return Array.from(formData).reduce(
+    (currentData, [key, value]) => ({
+      ...currentData,
+      [key]: value
+    }),
+    {}
+  )
 }

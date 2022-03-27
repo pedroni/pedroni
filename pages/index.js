@@ -65,9 +65,7 @@ const Home = ({ data }) => {
         id="aboutAnchor"
         ref={aboutAnchorRef}
       >
-        <HomeAbout
-          contactAnchorRef={contactAnchorRef}
-        />
+        <HomeAbout contactAnchorRef={contactAnchorRef} />
       </div>
       <div id="skillsAnchor" ref={skillsAnchorRef}>
         <HomeSkills

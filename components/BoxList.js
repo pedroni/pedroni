@@ -3,11 +3,11 @@ import styled from 'styled-components'
 
 const BoxList = ({
   list,
-  onItemSelected = (key) => {},
+  onItemSelected = key => {},
   color = 'primary',
   activeItem
 }) => {
-  const _onItemSelected = useCallback((key) => {
+  const _onItemSelected = useCallback(key => {
     setActiveItem(key)
     onItemSelected(key)
   })
@@ -76,18 +76,17 @@ const StyledBoxList = styled.ul`
     margin-bottom: 16px;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    border-bottom: 1px solid rgba(255,255,255,.2)
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
   ${StyledBoxListItem} {
     &.active {
       color: var(
-        ${(props) =>
-          props.color ? '--color-' + props.color : '--color-primary'}
+        ${props => (props.color ? '--color-' + props.color : '--color-primary')}
       );
       @media (max-width: 1280px) {
         border-bottom: 2px solid
           var(
-            ${(props) =>
+            ${props =>
               props.color ? '--color-' + props.color : '--color-primary'}
           );
       }

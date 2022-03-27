@@ -2,11 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Alert = ({ children, ...props }) => {
-  return (
-    <StyledAlert {...props}>
-      {children}
-    </StyledAlert>
-  )
+  return <StyledAlert {...props}>{children}</StyledAlert>
 }
 
 const StyledAlert = styled.div`
