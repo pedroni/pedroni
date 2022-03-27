@@ -6,7 +6,6 @@ import SwiperCore, { Navigation } from 'swiper'
 import '../styles/global.scss'
 
 import Head from 'next/head'
-import Script from 'next/script'
 import Analytics from '../components/utils/Analytics'
 SwiperCore.use([Navigation])
 

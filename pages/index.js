@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Layout from '../components/Layout'
 import HomeBanner from '../components/HomeBanner'
 import HomeAbout from '../components/HomeAbout'
