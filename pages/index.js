@@ -70,7 +70,7 @@ const Home = ({ data }) => {
       <div id="skillsAnchor" ref={skillsAnchorRef}>
         <HomeSkills
           style={{
-            marginTop: isMobile? 16 : 64
+            marginTop: isMobile ? 16 : 64
           }}
         />
       </div>
