@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState } from 'react'
-import 'isomorphic-fetch'
 import Layout from '../components/Layout'
 import HomeBanner from '../components/HomeBanner'
 import HomeAbout from '../components/HomeAbout'
@@ -8,6 +7,7 @@ import HomeServices from '../components/HomeServices'
 import HomeContact from '../components/HomeContact'
 import Rellax from 'rellax'
 import useMobile from '../hooks/useMobile'
+
 const Home = ({ data }) => {
   const bannerAnchorRef = useRef()
   const aboutAnchorRef = useRef()
@@ -18,8 +18,8 @@ const Home = ({ data }) => {
   const [nav, setNav] = useState([])
   const rellax = useRef(null)
   const isMobile = useMobile()
+
   useEffect(() => {
-    console.log('im here')
     if (!isMobile && !rellax.current) {
       rellax.current = new Rellax('.homeRellax', {
         center: true
@@ -29,6 +29,7 @@ const Home = ({ data }) => {
       rellax.current = null
     }
   }, [isMobile])
+
   useEffect(() => {
     setNav([
       {
