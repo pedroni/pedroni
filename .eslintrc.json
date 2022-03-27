@@ -3,6 +3,7 @@
   "rules": {
     "space-before-function-paren": 0,
     "react/prop-types": 0,
-    "@next/next/no-img-element": 0
+    "@next/next/no-img-element": 0,
+    "no-unused-declaration": 1
   }
 }
