@@ -1,6 +1,5 @@
-name: Prettier
+name: Prettier & ESlint
 
-# This action works with pull requests and pushes
 on:
   pull_request:
   push:
@@ -17,5 +16,11 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
+      - name: Install npm packages
+        run: npm install
+
       - name: Prettify code
         uses: creyD/prettier_action@v4.2
+
+      - name: Run ESLint
+        run: eslint .
