@@ -69,12 +69,9 @@ const HomeContactAside = ({
         Quer uma resposta mais rápida? Envie um e-mail para{' '}
         <a href="mailto:lucas@pedroni.dev">
           <strong>lucas@pedroni.dev</strong>
-        </a> 
+        </a>
         . Você também pode me mandar uma mensagem no{' '}
-        <a
-          href="https://www.linkedin.com/in/lucaspedroni/"
-          target="blank"
-        >
+        <a href="https://www.linkedin.com/in/lucaspedroni/" target="blank">
           <strong>LinkedIn</strong>
         </a>
         .

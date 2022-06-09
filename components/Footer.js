@@ -20,10 +20,7 @@ const Footer = () => {
         <div>
           <strong>Quer saber mais sobre mim?</strong>
           <br />
-          <a
-            href="https://www.linkedin.com/in/lucaspedroni/"
-            target="blank"
-          >
+          <a href="https://www.linkedin.com/in/lucaspedroni/" target="blank">
             LinkedIn
           </a>
           <br />
