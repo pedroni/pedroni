@@ -66,7 +66,7 @@ export const Header = ({ nav }) => {
               </a>
             </li>
             <li>
-              <a target="blank" href="mailto:hello@lucaspedroni.com.br">
+              <a target="blank" href="mailto:lucas@pedroni.dev">
                 <img width="19" height="14" src="/icon/mail.svg" alt="" />
               </a>
             </li>
