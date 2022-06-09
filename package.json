@@ -1,7 +1,7 @@
 {
   "name": "pedroni.dev-front",
   "version": "1.0.0",
-  "description": "Front-end lucaspedroni.com.br",
+  "description": "pedroni.dev",
   "main": "pages/index.js",
   "dependencies": {
     "axios": "^0.21.0",

@@ -66,23 +66,12 @@ const HomeContactAside = ({
         style={{ marginBottom: 16 }}
       />
       <div>
-        Quer uma resposta mais rápida? Envie um{' '}
-        <a href="mailto:ola@lucaspedroni.com.br">
-          <strong>e-mail</strong>
-        </a>{' '}
-        ou me chame no{' '}
-        <a
-          target="blank"
-          href="https://wa.me/5554984256224"
-          style={{ color: 'var(--color-secondary)' }}
-        >
-          <strong>WhatsApp</strong>
+        Quer uma resposta mais rápida? Envie um e-mail para{' '}
+        <a href="mailto:lucas@pedroni.dev">
+          <strong>lucas@pedroni.dev</strong>
         </a>
         . Você também pode me mandar uma mensagem no{' '}
-        <a
-          href="https://www.linkedin.com/in/lucas-pedroni-422460164/"
-          target="blank"
-        >
+        <a href="https://www.linkedin.com/in/lucaspedroni/" target="blank">
           <strong>LinkedIn</strong>
         </a>
         .

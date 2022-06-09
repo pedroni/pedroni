@@ -23,7 +23,7 @@ const HomeContactForm = props => {
         setMessageError(err.response.data.message)
       } else {
         setMessageError(
-          'Não foi possível enviar a mensagem. Por favor tente novamente mais tarde, ou entre em contato pelo WhatsApp'
+          'Não foi possível enviar a mensagem. Por favor envie um e-mail para lucas@pedroni.dev'
         )
       }
     } finally {
