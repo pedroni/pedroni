@@ -13,11 +13,6 @@ const Footer = () => {
           />
         </div>
         <div>
-          <strong>WhatsApp</strong>
-          <br />
-          <a href="https://wa.me/5554984256224">(54) 98425-6224</a>
-        </div>
-        <div>
           <strong>E-mail</strong>
           <br />
           <a href="mailto:ola@lucaspedroni.com.br">ola@lucaspedroni.com.br</a>
@@ -26,7 +21,7 @@ const Footer = () => {
           <strong>Quer saber mais sobre mim?</strong>
           <br />
           <a
-            href="https://www.linkedin.com/in/lucas-pedroni-422460164/"
+            href="https://www.linkedin.com/in/lucaspedroni/"
             target="blank"
           >
             LinkedIn

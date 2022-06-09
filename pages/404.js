@@ -32,8 +32,12 @@ const Page404 = () => {
           <Link href="/">
             <a>clicando aqui </a>
           </Link>{' '}
-          ou entre em contato comigo no formulário abaixo. Você também pode me
-          chamar no <a href="https://wa.me/55984256224">WhatsApp</a>.
+          ou entre em contato comigo no formulário abaixo ou envie um e-mail
+          para{' '}
+          <a href="mailto:lucas@pedroni.dev">
+            <strong>lucas@pedroni.dev</strong>
+          </a>
+          .
           <br />
           <br />
         </BoxContent>

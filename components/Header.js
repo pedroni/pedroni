@@ -60,7 +60,7 @@ export const Header = ({ nav }) => {
             <li>
               <a
                 target="blank"
-                href="https://www.linkedin.com/in/lucas-pedroni-422460164/"
+                href="https://www.linkedin.com/in/lucaspedroni/"
               >
                 <img width="17" height="17" src="/icon/linkedin.svg" alt="" />
               </a>
@@ -68,11 +68,6 @@ export const Header = ({ nav }) => {
             <li>
               <a target="blank" href="mailto:hello@lucaspedroni.com.br">
                 <img width="19" height="14" src="/icon/mail.svg" alt="" />
-              </a>
-            </li>
-            <li>
-              <a target="blank" href="https://wa.me/5554984256224">
-                <img width="19" height="19" src="/icon/whatsapp.svg" alt="" />
               </a>
             </li>
           </ul>
