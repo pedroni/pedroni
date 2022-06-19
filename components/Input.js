@@ -65,7 +65,7 @@ const StyledInputWrapper = styled.div`
   line-height: 24px;
   text-align: left;
   &.active {
-    ${StyledLabel} {
+    & > label {
       top: 2px;
       font-size: 12px;
       opacity: 0.8;
