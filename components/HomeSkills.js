@@ -74,48 +74,48 @@ export const HomeSkillsSwiper = () => {
     },
     {
       background: '/img/skills/03.jpg',
-      icon: 'devicon-javascript-plain',
-      label: 'JavaScript'
-    },
-    {
-      background: '/img/skills/01.jpg',
       icon: 'devicon-angularjs-plain',
       label: 'Angular'
     },
     {
-      background: '/img/skills/02.jpg',
+      background: '/img/skills/01.jpg',
       icon: 'devicon-react-plain',
       label: 'React'
     },
     {
-      background: '/img/skills/03.jpg',
+      background: '/img/skills/02.jpg',
       icon: 'devicon-vuejs-plain',
-      label: 'Vue.js'
+      label: 'Vue'
     },
     {
-      background: '/img/skills/01.jpg',
+      background: '/img/skills/03.jpg',
       icon: 'devicon-nodejs-plain',
       label: 'Node.js'
     },
     {
-      background: '/img/skills/02.jpg',
+      background: '/img/skills/01.jpg',
       icon: 'devicon-mongodb-plain',
       label: 'MongoDB'
     },
     {
-      background: '/img/skills/03.jpg',
+      background: '/img/skills/02.jpg',
       icon: 'devicon-php-plain',
       label: 'PHP'
     },
     {
-      background: '/img/skills/01.jpg',
+      background: '/img/skills/03.jpg',
       icon: 'devicon-laravel-plain',
       label: 'Laravel'
     },
     {
-      background: '/img/skills/02.jpg',
+      background: '/img/skills/01.jpg',
       icon: 'devicon-mysql-plain',
       label: 'MySQL'
+    },
+    {
+      background: '/img/skills/02.jpg',
+      icon: 'devicon-amazonwebservices-plain',
+      label: 'DynamoDB'
     }
   ]
   return (
