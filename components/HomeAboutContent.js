@@ -5,7 +5,7 @@ const contents = [
     label: 'Sobre',
     title: 'Olá, me chamo Lucas Pedroni',
     content:
-      'Desde os 13 anos, apaixonado por programação. Sou desenvolvedor de software de 25 anos com um forte conhecmento em front-end e back-end. Atualmente construo interfaces pixel-perfect com APIs de alto desempenho, com código bem projetado, testável e eficiente.'
+      'Desde os 13 anos, apaixonado por programação. Tenho 25 anos e sou um desenvolvedor de software com um forte conhecmento em front-end e back-end. Atualmente construo interfaces pixel-perfect com APIs de alto desempenho, com código bem projetado, testável e eficiente.'
   },
   {
     key: 'estudos',
