@@ -5,7 +5,7 @@ const contents = [
     label: 'Sobre',
     title: 'Olá, me chamo Lucas Pedroni',
     content:
-      'Estudo programação desde os 13 anos. Atualmente, aos 23, estou me formando em Análise e Desenvolvimento de Sistemas. Trabalho há 4 anos de forma profissional com desenvolvimento de aplicativos, sites, e-commerce, plataformas, além de qualquer sistema sob medida que você precise.'
+      'Desde os 13 anos, apaixonado por programação. Tenho 25 anos e sou um desenvolvedor de software com um forte conhecmento em front-end e back-end. Atualmente construo interfaces pixel-perfect com APIs de alto desempenho, com código bem projetado, testável e eficiente.'
   },
   {
     key: 'estudos',
@@ -13,16 +13,13 @@ const contents = [
     title: 'Em constante aprendizado',
     content: (
       <>
-        Estou me graduando em Análise e Desenvolvimento de Sistemas, faculdade
-        iniciada em 2017. Além da graduação, estudo constantemente novas
-        tecnologias para trazer a melhor performance e resultado para cada
-        projeto que construo.
+        Estudo constantemente novas tecnologias para trazer a melhor performance
+        e resultado para cada projeto que construo.
         <br />
-        Hoje estudo arduamente React, Node.JS e microservices, além de design de
-        interfaces de usuário e experiência do usuário, que você deve conhecer
-        como UI/UX. Também tenho sólidos conhecimentos em diversas tecnologias
-        como JavaScript, Vue, Angular, HTML, CSS, PHP, Laravel, MySQL,
-        Servidores Linux
+        Hoje estudo design de interfaces de usuário e experiência do usuário,
+        que você deve conhecer como UI/UX. Também tenho sólidos conhecimentos em
+        diversas tecnologias como JavaScript, React, Vue, Angular, HTML, CSS,
+        PHP, Laravel, MySQL, Servidores Linux, Docker, AWS.
       </>
     )
   },

@@ -13,22 +13,14 @@ const Footer = () => {
           />
         </div>
         <div>
-          <strong>WhatsApp</strong>
-          <br />
-          <a href="https://wa.me/5554984256224">(54) 98425-6224</a>
-        </div>
-        <div>
           <strong>E-mail</strong>
           <br />
-          <a href="mailto:ola@lucaspedroni.com.br">ola@lucaspedroni.com.br</a>
+          <a href="mailto:lucas@pedroni.dev">lucas@pedroni.dev</a>
         </div>
         <div>
           <strong>Quer saber mais sobre mim?</strong>
           <br />
-          <a
-            href="https://www.linkedin.com/in/lucas-pedroni-422460164/"
-            target="blank"
-          >
+          <a href="https://www.linkedin.com/in/lucaspedroni/" target="blank">
             LinkedIn
           </a>
           <br />

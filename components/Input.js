@@ -1,30 +1,20 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useState, useRef } from 'react'
 import styled from 'styled-components'
 
 const Input = ({ label, name, ...props }) => {
-  const [active, setActive] = useState(false)
+  const [active, setActive] = useState(props.defaultValue ? true : false)
   const inputRef = useRef()
-  const _onFocus = useCallback(ev => setActive(true))
-  const _onBlur = useCallback(ev =>
-    ev.target.value.trim() ? setActive(true) : setActive(false)
-  )
 
-  useEffect(() => {
-    if (props.defaultValue) {
-      setActive(true)
-    }
-    inputRef.current.addEventListener('focus', _onFocus)
-    inputRef.current.addEventListener('blur', _onBlur)
-    return () => {
-      inputRef.current.removeEventListener('focus', _onFocus)
-      inputRef.current.removeEventListener('blur', _onBlur)
-    }
-  }, [])
+  const onFocus = ev => setActive(true)
+  const onBlur = ev =>
+    ev.target.value.trim() ? setActive(true) : setActive(false)
 
   return (
     <StyledInputWrapper className={active ? 'active' : undefined}>
       <StyledLabel htmlFor={name}>{label}</StyledLabel>
       <StyledInput
+        onFocus={onFocus}
+        onBlur={onBlur}
         ref={inputRef}
         id={name}
         name={name}
@@ -75,7 +65,7 @@ const StyledInputWrapper = styled.div`
   line-height: 24px;
   text-align: left;
   &.active {
-    ${StyledLabel} {
+    & > label {
       top: 2px;
       font-size: 12px;
       opacity: 0.8;

@@ -3,7 +3,7 @@ import Input from './Input'
 import Button from './Button'
 import styled from 'styled-components'
 import { formDataToJson } from '../helpers'
-import axios from 'axios'
+
 const HomeContactForm = props => {
   const [messageSent, setMessageSent] = useState('')
   const [messageError, setMessageError] = useState('')
@@ -16,14 +16,15 @@ const HomeContactForm = props => {
     const body = formDataToJson(new FormData(event.target))
     setLoading(true)
     try {
-      const response = await axios.post('/api/contact', body)
+      // make api call here
+      console.error('Not implemented')
       setMessageSent(response.data.message)
     } catch (err) {
       if (err?.response?.data?.message) {
         setMessageError(err.response.data.message)
       } else {
         setMessageError(
-          'Não foi possível enviar a mensagem. Por favor tente novamente mais tarde, ou entre em contato pelo WhatsApp'
+          'Não foi possível enviar a mensagem. Por favor envie um e-mail para lucas@pedroni.dev'
         )
       }
     } finally {
