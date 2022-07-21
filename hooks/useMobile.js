@@ -1,4 +1,4 @@
-import { useEffect, useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 export default function useMobile() {
   const [isMobile, setIsMobile] = useState(false)
