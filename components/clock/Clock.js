@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
-import BoxContent from '../BoxContent'
 import dayjs from 'dayjs'
 
 export default function Clock() {
