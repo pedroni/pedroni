@@ -29,9 +29,7 @@ const Page404 = () => {
         ></Title>
         <BoxContent>
           Volte para a página inicial{' '}
-          <Link href="/">
-            <a>clicando aqui </a>
-          </Link>{' '}
+          <Link href="/">clicando aqui</Link>{' '}
           ou entre em contato comigo no formulário abaixo ou envie um e-mail
           para{' '}
           <a href="mailto:lucas@pedroni.dev">

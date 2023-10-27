@@ -1,6 +1,6 @@
 import React from 'react'
-import 'swiper/swiper.scss'
-import 'swiper/components/navigation/navigation.scss'
+import 'swiper/css'
+import 'swiper/css/navigation'
 import SwiperCore, { Navigation } from 'swiper'
 
 import '../styles/global.scss'

@@ -77,7 +77,7 @@ export const Header = ({ nav }) => {
   )
 }
 
-const StyledHeaderLogo = styled.a`
+const StyledHeaderLogo = styled.span`
   display: block;
   width: calc(var(--header-height) * 0.8);
   height: 100%;

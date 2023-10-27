@@ -1,9 +1,11 @@
+'use client'
 import React, { useEffect, useState } from 'react'
 import dayjs from 'dayjs'
 
 export default function Clock() {
   const [now, setNow] = useState()
   useEffect(() => {
+    setNow(new Date())
     setInterval(() => {
       setNow(new Date())
     }, 1000)
@@ -11,22 +13,12 @@ export default function Clock() {
 
   return (
     <div
+      className="text-primary-light text-[16vw] text-center flex justify-center items-center mx-auto font-mono h-[calc(100vh_-_380px)]"
       style={{
-        height: 'calc(100vh - 380px)',
-        color: 'var(--color-primary-light)',
-        fontSize: '16vw',
-        textAlign: 'center',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: '0 auto',
-        fontWeight: '900',
-        fontFamily: 'monospace',
-        
         textShadow: '0 0 1000px white, 0 0 2px white'
       }}
     >
-      <div>{dayjs(now).format('HH:mm:ss')}</div>
+      {now && <div>{dayjs(now).format('HH:mm:ss')}</div>}
     </div>
   )
 }
