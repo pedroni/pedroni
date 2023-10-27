@@ -4,6 +4,7 @@
   "description": "pedroni.dev",
   "main": "pages/index.js",
   "dependencies": {
+    "dayjs": "^1.11.10",
     "next": "^12.1.1",
     "randomstring": "^1.1.5",
     "react": "^17.0.2",
