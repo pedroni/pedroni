@@ -65,7 +65,7 @@ const Home = ({ data }) => {
         id="aboutAnchor"
         ref={aboutAnchorRef}
       >
-        <HomeAbout contactAnchorRef={contactAnchorRef} />
+        <HomeAbout onContact={() => scrollTo(contactAnchorRef.current)} />
       </div>
       <div id="skillsAnchor" ref={skillsAnchorRef}>
         <HomeSkills
@@ -84,7 +84,7 @@ const Home = ({ data }) => {
           style={{
             marginTop: isMobile ? 16 : 64
           }}
-          contactAnchorRef={contactAnchorRef}
+          onContact={() => scrollTo(contactAnchorRef.current)} 
         />
       </div>
       <div id="contactAnchor" ref={contactAnchorRef}>

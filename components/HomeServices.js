@@ -6,7 +6,6 @@ import BoxList from './BoxList'
 import Button from './Button'
 import useMobile from '../hooks/useMobile'
 import HomeServicesContent, { getByKey } from './HomeServicesContent'
-import { scrollTo } from '../helpers'
 
 const HomeServices = props => {
   const [activeListKey, setActiveListKey] = useState('aplicativos')
@@ -47,9 +46,7 @@ const HomeServices = props => {
         <br />
         <br />
         <Button
-          onClick={() => {
-            scrollTo(props.contactAnchorRef.current)
-          }}
+          onClick={props.onContact}
         >
           Entre em contato comigo
         </Button>
