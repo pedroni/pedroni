@@ -9,7 +9,7 @@ const Box = ({
   boxProps = {},
   centerProps = {},
   bottomProps = {},
-  bottom,
+  bottom = '',
   ...props
 }) => {
   return (

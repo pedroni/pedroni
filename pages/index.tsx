@@ -1,14 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react'
-import Layout from '../components/Layout'
-import HomeBanner from '../components/HomeBanner'
-import HomeAbout from '../components/HomeAbout'
-import HomeSkills from '../components/HomeSkills'
-import HomeServices from '../components/HomeServices'
-import HomeContact from '../components/HomeContact'
+import { useEffect, useRef, useState } from 'react'
 import Rellax from 'rellax'
+import HomeAbout from '../components/HomeAbout'
+import HomeBanner from '../components/HomeBanner'
+import HomeContact from '../components/HomeContact'
+import HomeServices from '../components/HomeServices'
+import HomeSkills from '../components/HomeSkills'
+import Layout from '../components/Layout'
 import useMobile from '../hooks/useMobile'
 
-const Home = ({ data }) => {
+const Home = () => {
   const bannerAnchorRef = useRef()
   const aboutAnchorRef = useRef()
   const skillsAnchorRef = useRef()
@@ -84,7 +84,7 @@ const Home = ({ data }) => {
           style={{
             marginTop: isMobile ? 16 : 64
           }}
-          onContact={() => scrollTo(contactAnchorRef.current)} 
+          onContact={() => scrollTo(contactAnchorRef.current)}
         />
       </div>
       <div id="contactAnchor" ref={contactAnchorRef}>

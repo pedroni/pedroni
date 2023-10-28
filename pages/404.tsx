@@ -1,10 +1,9 @@
-import React from 'react'
 import Link from 'next/link'
-import Layout from '../components/Layout'
 import Box from '../components/Box'
-import Title from '../components/Title'
-import HomeContactForm from '../components/HomeContactForm'
 import BoxContent from '../components/BoxContent'
+import HomeContactForm from '../components/HomeContactForm'
+import Layout from '../components/Layout'
+import Title from '../components/Title'
 const Page404 = () => {
   return (
     <Layout>
@@ -28,10 +27,8 @@ const Page404 = () => {
           title={<h1>O que você procura?</h1>}
         ></Title>
         <BoxContent>
-          Volte para a página inicial{' '}
-          <Link href="/">clicando aqui</Link>{' '}
-          ou entre em contato comigo no formulário abaixo ou envie um e-mail
-          para{' '}
+          Volte para a página inicial <Link href="/">clicando aqui</Link> ou
+          entre em contato comigo no formulário abaixo ou envie um e-mail para{' '}
           <a href="mailto:lucas@pedroni.dev">
             <strong>lucas@pedroni.dev</strong>
           </a>

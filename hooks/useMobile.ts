@@ -3,8 +3,9 @@ import { useCallback, useEffect, useState } from 'react'
 export default function useMobile() {
   const [isMobile, setIsMobile] = useState(false)
 
-  const handleResize = useCallback(() =>
-    setIsMobile(window.matchMedia('(max-width: 1280px)').matches)
+  const handleResize = useCallback(
+    () => setIsMobile(window.matchMedia('(max-width: 1280px)').matches),
+    []
   )
 
   useEffect(() => {
