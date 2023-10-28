@@ -10,26 +10,26 @@ const HomeContactForm = props => {
   const [loading, setLoading] = useState(false)
   const handleSubmit = async event => {
     event.preventDefault()
-    if (loading) {
-      return
-    }
+    // if (loading) {
+    //   return
+    // }
     const body = formDataToJson(new FormData(event.target))
     setLoading(true)
-    try {
-      // make api call here
-      console.error('Not implemented')
-      setMessageSent(response.data.message)
-    } catch (err) {
-      if (err?.response?.data?.message) {
-        setMessageError(err.response.data.message)
-      } else {
-        setMessageError(
-          'Não foi possível enviar a mensagem. Por favor envie um e-mail para lucas@pedroni.dev'
-        )
-      }
-    } finally {
-      setLoading(false)
-    }
+    // try {
+    //   // make api call here
+    //   console.error('Not implemented')
+    //   // setMessageSent(response.data.message)
+    // } catch (err) {
+    //   if (err?.response?.data?.message) {
+    //     setMessageError(err.response.data.message)
+    //   } else {
+    setMessageError(
+      'Não foi possível enviar a mensagem. Por favor envie um e-mail para lucas@pedroni.dev'
+    )
+    // }
+    // } finally {
+    //   setLoading(false)
+    // }
   }
   if (messageSent) {
     return (

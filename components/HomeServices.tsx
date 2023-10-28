@@ -10,11 +10,12 @@ import HomeServicesContent, { getByKey } from './HomeServicesContent'
 const HomeServices = props => {
   const [activeListKey, setActiveListKey] = useState('aplicativos')
   const isMobile = useMobile()
-  const content = useMemo(() => getByKey(activeListKey) || {}, [activeListKey])
-  const onListKeySelected = useCallback(
-    key => setActiveListKey(key),
-    [setActiveListKey]
-  )
+  const content = useMemo(() => getByKey(activeListKey), [activeListKey])
+  const onListKeySelected = key => setActiveListKey(key)
+
+  if (!content) {
+    return <></>
+  }
 
   return (
     <Box
@@ -45,27 +46,22 @@ const HomeServices = props => {
         {content.content}
         <br />
         <br />
-        <Button
-          onClick={props.onContact}
-        >
-          Entre em contato comigo
-        </Button>
+        <Button onClick={props.onContact}>Entre em contato comigo</Button>
       </BoxContent>
     </Box>
   )
 }
 
-const HomeServicesAside = ({ activeListKey, onListKeySelected = () => {} }) => {
+const HomeServicesAside = ({
+  activeListKey,
+  onListKeySelected = key => {}
+}) => {
   const list = HomeServicesContent
 
-  const content = useMemo(() => getByKey(activeListKey) || {}, [activeListKey])
+  const content = useMemo(() => getByKey(activeListKey), [activeListKey])
 
-  const _onListKeySelected = useCallback(
-    content => {
-      onListKeySelected(content?.key)
-    },
-    [onListKeySelected]
-  )
+  const _onListKeySelected = content => onListKeySelected(content?.key)
+
   return (
     <>
       <img

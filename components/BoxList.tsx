@@ -1,16 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 
-const BoxList = ({
-  list,
-  onItemSelected = key => {},
-  color = 'primary',
-  activeItem
-}) => {
-  const _onItemSelected = useCallback(key => {
+const BoxList = ({ list, onItemSelected = key => {}, activeItem }) => {
+  const _onItemSelected = key => {
     setActiveItem(key)
     onItemSelected(key)
-  })
+  }
 
   const [_activeItem, setActiveItem] = useState(activeItem)
 
@@ -31,7 +26,7 @@ const BoxList = ({
     <StyledBoxList>
       {list.map(({ key, label }) => (
         <StyledBoxListItem
-          tabIndex="0"
+          tabIndex={0}
           role="button"
           onClick={() => _onItemSelected({ key, label })}
           key={key}

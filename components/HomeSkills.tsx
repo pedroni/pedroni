@@ -1,14 +1,12 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Box from './Box'
-import Title from './Title'
 import BoxContent from './BoxContent'
+import Title from './Title'
 
-import { Swiper, SwiperSlide } from 'swiper/react'
 import styled from 'styled-components'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 const HomeSkills = props => {
-  const [activeListItem, setActiveListItem] = useState('')
-
   return (
     <Box
       {...props}
@@ -20,12 +18,7 @@ const HomeSkills = props => {
           textAlign: 'left'
         }
       }}
-      aside={
-        <HomeSkillsAside
-          activeListItem={activeListItem}
-          onListItemSelected={key => setActiveListItem(key)}
-        />
-      }
+      aside={<HomeSkillsAside />}
       bottom={<HomeSkillsSwiper />}
     >
       <Title
@@ -43,7 +36,7 @@ const HomeSkills = props => {
   )
 }
 
-const HomeSkillsAside = ({ activeListItem, onListItemSelected = () => {} }) => {
+const HomeSkillsAside = () => {
   return (
     <>
       <img

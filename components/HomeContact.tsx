@@ -1,13 +1,11 @@
-import React, { useState } from 'react'
 import Box from './Box'
-import Title from './Title'
 import BoxContent from './BoxContent'
 import HomeContactForm from './HomeContactForm'
+import Title from './Title'
 
 import useMobile from '../hooks/useMobile'
 
 const HomeContact = props => {
-  const [activeListItem, setActiveListItem] = useState('')
   const isMobile = useMobile()
 
   return (
@@ -21,14 +19,7 @@ const HomeContact = props => {
           textAlign: 'left'
         }
       }}
-      aside={
-        !isMobile && (
-          <HomeContactAside
-            activeListItem={activeListItem}
-            onListItemSelected={key => setActiveListItem(key)}
-          />
-        )
-      }
+      aside={!isMobile && <HomeContactAside />}
     >
       <Title
         direction="right"
@@ -39,22 +30,14 @@ const HomeContact = props => {
       <BoxContent>
         Está pensando em criar algo novo? Precisa de um desenvolvedor para fazer
         isso? Entre em contato comigo.
-        {isMobile && (
-          <HomeContactAside
-            activeListItem={activeListItem}
-            onListItemSelected={key => setActiveListItem(key)}
-          />
-        )}
+        {isMobile && <HomeContactAside />}
         <HomeContactForm style={{ marginTop: 32 }} />
       </BoxContent>
     </Box>
   )
 }
 
-const HomeContactAside = ({
-  activeListItem,
-  onListItemSelected = () => {}
-}) => {
+const HomeContactAside = () => {
   return (
     <>
       <img

@@ -1,19 +1,22 @@
-import React, { useCallback, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
+import useMobile from '../hooks/useMobile'
 import Box from './Box'
-import Title from './Title'
 import BoxContent from './BoxContent'
 import BoxList from './BoxList'
 import Button from './Button'
-import useMobile from '../hooks/useMobile'
 import HomeAboutContent, { getByKey } from './HomeAboutContent'
+import Title from './Title'
+
 const HomeAbout = props => {
   const [activeListKey, setActiveListKey] = useState('ola')
   const isMobile = useMobile()
-  const content = useMemo(() => getByKey(activeListKey) || {}, [activeListKey])
-  const onListItemSelected = useCallback(
-    key => setActiveListKey(key),
-    [setActiveListKey]
-  )
+  const content = useMemo(() => getByKey(activeListKey), [activeListKey])
+  const onListItemSelected = key => setActiveListKey(key)
+
+  if (!content) {
+    return <></>
+  }
+
   return (
     <Box
       {...props}
@@ -43,16 +46,12 @@ const HomeAbout = props => {
   )
 }
 
-const HomeAboutAside = ({ activeListKey, onListItemSelected = () => {} }) => {
+const HomeAboutAside = ({ activeListKey, onListItemSelected = key => {} }) => {
   const list = HomeAboutContent
   const content = useMemo(() => getByKey(activeListKey) || {}, [activeListKey])
 
-  const _onListItemSelected = useCallback(
-    content => {
-      onListItemSelected(content?.key)
-    },
-    [onListItemSelected]
-  )
+  const _onListItemSelected = content => onListItemSelected(content?.key)
+
   return (
     <>
       <img

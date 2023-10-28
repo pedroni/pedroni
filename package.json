@@ -16,6 +16,7 @@
   "devDependencies": {
     "@types/node": "20.8.9",
     "@types/react": "18.2.33",
+    "@types/react-scrollspy": "^3.3.7",
     "@types/rellax": "^1.7.6",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.52.0",

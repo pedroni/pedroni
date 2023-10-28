@@ -1,19 +1,14 @@
-import React from 'react'
-import Header from './Header'
-import Footer from './Footer'
 import styled from 'styled-components'
-import Head from 'next/head'
+import Footer from './Footer'
+import Header from './Header'
 
 export const Layout = ({ children, nav = [] }) => {
   return (
-    <>
-      <Head></Head>
-      <LayoutStyled>
-        <Header nav={nav} />
-        {children}
-        <Footer />
-      </LayoutStyled>
-    </>
+    <LayoutStyled>
+      <Header nav={nav} />
+      {children}
+      <Footer />
+    </LayoutStyled>
   )
 }
 

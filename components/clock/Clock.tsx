@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import dayjs from 'dayjs'
 
 export default function Clock() {
-  const [now, setNow] = useState()
+  const [now, setNow] = useState<Date>()
   useEffect(() => {
     setNow(new Date())
     setInterval(() => {

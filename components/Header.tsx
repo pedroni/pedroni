@@ -1,19 +1,19 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import styled from 'styled-components'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import Scrollspy from 'react-scrollspy'
+import styled from 'styled-components'
 import { scrollTo } from '../helpers'
 
 export const Header = ({ nav }) => {
   const [small, setSmall] = useState(false)
 
-  const handleScroll = useCallback(ev => {
+  const handleScroll = () => {
     if (window.scrollY > 120) {
       setSmall(true)
     } else {
       setSmall(false)
     }
-  })
+  }
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
