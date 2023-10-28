@@ -4,25 +4,12 @@ import Header from './Header'
 
 export const Layout = ({ children, nav = [] }) => {
   return (
-    <LayoutStyled>
+    <div className="pt-[var(--header-height)] min-h-screen bg-[url(/img/background.jpg)] bg-cover bg-[top_center] z-[1] relative max-w-full">
       <Header nav={nav} />
       {children}
       <Footer />
-    </LayoutStyled>
+    </div>
   )
 }
-
-const LayoutStyled = styled.div`
-  padding-top: var(--header-height);
-  min-height: 100vh;
-  background-image: url(/img/background.jpg);
-  background-size: cover;
-  background-position: top center;
-  z-index: 1;
-  position: relative;
-  @media (max-width: 1280px) {
-    max-width: 100vw;
-  }
-`
 
 export default Layout

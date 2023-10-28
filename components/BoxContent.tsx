@@ -1,16 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
 
 const BoxContent = ({ children }) => {
-  return <StyledBoxContent>{children}</StyledBoxContent>
+  return <div className="text-base leading-7">{children}</div>
 }
-
-const StyledBoxContent = styled.div`
-  font-size: 16px;
-  line-height: 28px;
-  a {
-    color: var(--color-primary-light);
-  }
-`
 
 export default BoxContent
