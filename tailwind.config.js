@@ -9,13 +9,14 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   theme: {
-    extend: {},
-    colors: {
-      primary: {
-        default: '#7f20ac',
-        light: '#af14b8',
-        dark: '#5929a3',
-        contrast: '#fff'
+    extend: {
+      colors: {
+        primary: {
+          default: '#7f20ac',
+          light: '#af14b8',
+          dark: '#5929a3',
+          contrast: '#fff'
+        }
       }
     }
   },

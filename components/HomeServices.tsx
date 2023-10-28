@@ -20,12 +20,6 @@ const HomeServices = props => {
   return (
     <Box
       {...props}
-      asideProps={{
-        style: {
-          width: 240,
-          flex: '0 240 240px'
-        }
-      }}
       aside={
         !isMobile && (
           <HomeServicesAside

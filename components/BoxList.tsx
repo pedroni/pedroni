@@ -45,7 +45,7 @@ const StyledBoxListItem = styled.li`
   cursor: pointer;
   padding-top: 6px;
   padding-bottom: 6px;
-  opacity: 0.3;
+  opacity: 0.6;
   transition: 0.3s;
   &.active {
     opacity: 1;

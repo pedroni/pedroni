@@ -1,5 +1,4 @@
-import React from 'react'
-import styled from 'styled-components'
+import classNames from 'classnames'
 
 const Box = ({
   aside,
@@ -13,114 +12,63 @@ const Box = ({
   ...props
 }) => {
   return (
-    <StyledBoxWrapper {...props} className={`${direction}`}>
-      <StyledBox {...boxProps}>
-        <StyledBoxMain>
-          {aside && <StyledBoxAside {...asideProps}>{aside}</StyledBoxAside>}
-          <StyledBoxCenter {...centerProps}>{children}</StyledBoxCenter>
-        </StyledBoxMain>
-        {bottom && <StyledBoxBottom {...bottomProps}>{bottom}</StyledBoxBottom>}
-      </StyledBox>
-    </StyledBoxWrapper>
+    <section
+      className={classNames(
+        'relative mx-auto w-[var(--container-width)] max-w-full flex justify-center',
+        {
+          'xl:justify-end': direction.includes('right')
+        }
+      )}
+      {...props}
+    >
+      <div
+        className={classNames(
+          'text-white text-opacity-70 w-full p-[calc(var(--box-padding)_*_2)] md:shadow-lg md:bg-[#101010] xl:w-[80%] xl:flex xl:flex-col xl:p-[var(--box-padding)]',
+          {
+            'rounded-tr-3xl':
+              direction.includes('top') && direction.includes('right'),
+            'rounded-tl-3xl':
+              direction.includes('top') && direction.includes('left'),
+            'rounded-br-3xl':
+              direction.includes('bottom') && direction.includes('right'),
+            'rounded-bl-3xl':
+              direction.includes('bottom') && direction.includes('left')
+          }
+        )}
+        {...boxProps}
+      >
+        <div
+          className={classNames('flex flex-wrap xl:flex-nowrap ', {
+            'xl:flex-row-reverse': direction.includes('right')
+          })}
+        >
+          {aside && (
+            <div
+              className="w-full shrink-0 text-left text-base leading-7 xl:w-48 xl:text-right [& img]:max-w-none"
+              {...asideProps}
+            >
+              {aside}
+            </div>
+          )}
+
+          <div
+            className={classNames('w-full xl:w-auto', {
+              'text-right xl:pr-16': direction.includes('right'),
+              'xl:pl-16': !direction.includes('right')
+            })}
+            {...centerProps}
+          >
+            {children}
+          </div>
+        </div>
+        {bottom && (
+          <div className="max-w-full w-full" {...bottomProps}>
+            {bottom}
+          </div>
+        )}
+      </div>
+    </section>
   )
 }
-
-const StyledBoxBottom = styled.div`
-  flex: 0 0 100%;
-  max-width: 100%;
-  width: 100%;
-`
-const StyledBoxMain = styled.div`
-  display: flex;
-  @media (max-width: 1280px) {
-    flex-wrap: wrap;
-  }
-`
-const StyledBox = styled.section`
-  color: rgba(255, 255, 255, 0.7);
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-  padding: var(--box-padding);
-  @media (max-width: 1280px) {
-    width: 100%;
-    display: block;
-    padding-top: calc(var(--box-padding) * 2);
-    padding-bottom: calc(var(--box-padding) * 2);
-  }
-  @media (min-width: 768px) {
-    background-color: #101010;
-    box-shadow: 0 0 30px black;
-  }
-`
-
-const StyledBoxCenter = styled.div`
-  padding-left: 64px;
-  @media (max-width: 1280px) {
-    padding-left: 0;
-    width: 100%;
-  }
-`
-
-const StyledBoxWrapper = styled.section`
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  width: var(--container-width);
-  max-width: 100%;
-  display: flex;
-  @media (min-width: 1280px) {
-    &.right {
-      justify-content: flex-end;
-      ${StyledBox} {
-        ${StyledBoxMain} {
-          flex-direction: row-reverse;
-        }
-        ${StyledBoxCenter} {
-          padding-left: 0;
-          padding-right: 64px;
-
-          text-align: right;
-        }
-      }
-    }
-  }
-  &.top.left {
-    ${StyledBox} {
-      border-top-left-radius: 24px;
-    }
-  }
-  &.top.right {
-    ${StyledBox} {
-      border-top-right-radius: 24px;
-    }
-  }
-  &.bottom.left {
-    ${StyledBox} {
-      border-bottom-left-radius: 24px;
-    }
-  }
-  &.bottom.right {
-    ${StyledBox} {
-      border-bottom-right-radius: 24px;
-    }
-  }
-`
-
-const StyledBoxAside = styled.aside`
-  width: 200px;
-  flex: 0 0 200px;
-  text-align: right;
-  font-size: 16px;
-  line-height: 28px;
-  @media (max-width: 1280px) {
-    width: 100%;
-    flex: 0 0 100%;
-    text-align: left;
-  }
-  img {
-    max-width: none;
-  }
-`
 
 export default Box
