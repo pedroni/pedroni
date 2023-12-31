@@ -13,7 +13,7 @@ export default function Clock() {
 
   return (
     <div
-      className="text-primary-light text-[16vw] text-center flex justify-center items-center mx-auto font-mono h-[calc(100vh_-_380px)]"
+      className="text-primary-light text-[16vw] text-center flex justify-center items-center mx-auto font-mono h-[calc(100vh_-_380px)] mt-32"
       style={{
         textShadow: '0 0 1000px white, 0 0 2px white'
       }}

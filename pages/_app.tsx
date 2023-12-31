@@ -22,12 +22,12 @@ export default function App({ Component, pageProps }) {
           content="Dando vida a ideias. Desenvolvimento de sites, aplicativos e sistemas sob medida. Tecnologias utilizadas: PHP; Laravel; JavaScript; Angular; Ionic; React e muito mais."
         />
 
-        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="msapplication-TileColor" content="#7f20ac" />
         <meta
           name="msapplication-TileImage"
           content="/img/favicon/mstile-144x144.png"
         />
-        <meta name="theme-color" content="#000000" />
+        <meta name="theme-color" content="#7f20ac" />
         <meta property="og:image:url" content="https://pedroni.dev/image.jpg" />
         <Analytics />
       </Head>
