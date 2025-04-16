@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 
 const Box = ({
+  background = false,
   aside = undefined,
   children,
   direction = 'top left',
@@ -25,7 +26,7 @@ const Box = ({
     >
       <div
         className={classNames(
-          'text-white text-opacity-70 w-full p-[calc(var(--box-padding)_*_2)] md:shadow-lg md:bg-[#101010] xl:w-[80%] xl:flex xl:flex-col xl:p-[var(--box-padding)]',
+          'text-white text-opacity-70 w-full p-[calc(var(--box-padding)_*_2)] md:shadow-lg  xl:w-[80%] xl:flex xl:flex-col xl:p-[var(--box-padding)]',
           {
             'rounded-tr-3xl':
               direction.includes('top') && direction.includes('right'),
@@ -34,8 +35,9 @@ const Box = ({
             'rounded-br-3xl':
               direction.includes('bottom') && direction.includes('right'),
             'rounded-bl-3xl':
-              direction.includes('bottom') && direction.includes('left')
-          }
+              direction.includes('bottom') && direction.includes('left'),
+          },
+          background ? 'bg-[#101010]' : 'md:bg-[#101010]'
         )}
         {...boxProps}
       >

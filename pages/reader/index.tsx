@@ -266,7 +266,7 @@ export default function ReaderPage() {
   return (
     <Layout>
       <div className="my-24">
-        <Box>
+        <Box background>
           <Title subTitle="Ler artigo" title={<h2>Copie e cole uma URL</h2>} />
           <div className="w-full">
             <BoxContent>
@@ -286,9 +286,9 @@ export default function ReaderPage() {
         </Box>
 
         {article && (
-          <Box direction="right" className="mt-10">
+          <Box background direction="right" className="mt-10">
             <div
-              className="w-full flex-grow text-left prose prose-invert mx-auto lg:prose-lg"
+              className="w-full my-20 flex-grow text-left prose prose-invert mx-auto lg:prose-lg"
               dangerouslySetInnerHTML={{ __html: article }}
             ></div>
           </Box>
