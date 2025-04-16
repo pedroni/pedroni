@@ -1,11 +1,24 @@
 import React from 'react'
+
+const calculateAge = (birthDate: string) => {
+  const birth = new Date(birthDate)
+  const today = new Date()
+  let age = today.getFullYear() - birth.getFullYear()
+  const monthDiff = today.getMonth() - birth.getMonth()
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+    age--
+  }
+  return age
+}
+
 const contents = [
   {
     key: 'ola',
     label: 'Sobre',
     title: 'Olá, me chamo Lucas Pedroni',
-    content:
-      'Desde os 13 anos, apaixonado por programação. Tenho 25 anos e sou um desenvolvedor de software com um forte conhecmento em front-end e back-end. Atualmente construo interfaces pixel-perfect com APIs de alto desempenho, com código bem projetado, testável e eficiente.'
+    content: `Desde os 13 anos, apaixonado por programação. Tenho ${calculateAge(
+      '1997-03-30'
+    )} anos e sou um desenvolvedor de software com um forte conhecmento em front-end e back-end. Atualmente construo interfaces pixel-perfect com APIs de alto desempenho, com código bem projetado, testável e eficiente.`
   },
   {
     key: 'estudos',
