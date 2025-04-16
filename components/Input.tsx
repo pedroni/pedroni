@@ -1,13 +1,21 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 
 const Input = ({ label, name, ...props }) => {
   const [active, setActive] = useState(props.defaultValue ? true : false)
-  const inputRef = useRef()
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const onFocus = ev => setActive(true)
   const onBlur = ev =>
     ev.target.value.trim() ? setActive(true) : setActive(false)
+
+  useEffect(() => {
+    if (props.autoFocus) {
+      if (inputRef.current) {
+        inputRef.current.focus()
+      }
+    }
+  }, [inputRef, props.autoFocus])
 
   return (
     <StyledInputWrapper className={active ? 'active' : undefined}>

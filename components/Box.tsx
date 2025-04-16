@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 
 const Box = ({
-  aside,
+  aside = undefined,
   children,
   direction = 'top left',
   asideProps = {},
@@ -9,6 +9,7 @@ const Box = ({
   centerProps = {},
   bottomProps = {},
   bottom = '',
+  className = '',
   ...props
 }) => {
   return (
@@ -17,7 +18,8 @@ const Box = ({
         'relative mx-auto w-[var(--container-width)] max-w-full flex justify-center',
         {
           'xl:justify-end': direction.includes('right')
-        }
+        },
+        className
       )}
       {...props}
     >
@@ -52,7 +54,7 @@ const Box = ({
           )}
 
           <div
-            className={classNames('w-full xl:w-auto', {
+            className={classNames('w-full flex-grow xl:w-auto', {
               'text-right xl:pr-16': direction.includes('right'),
               'xl:pl-16': !direction.includes('right')
             })}
