@@ -8,20 +8,18 @@ const Analytics = () => {
     <>
       <Script
         strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=UA-121297636-1"
+        src="https://www.googletagmanager.com/gtag/js?id=G-TGW6ED8GWF"
       ></Script>
       <Script
         id="google-analytics"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
-      window.dataLayer = window.dataLayer || []
-      function gtag() {
-        window.dataLayer.push(arguments)
-      }
-      gtag('js', new Date())
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-      gtag('config', 'UA-121297636-1')
+  gtag('config', 'G-TGW6ED8GWF');
   `
         }}
       ></Script>
