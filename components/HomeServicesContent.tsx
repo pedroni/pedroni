@@ -1,5 +1,19 @@
 const contents = [
   {
+    key: 'Serviços',
+    label: 'Serviços',
+    title: 'Em busca de resultados',
+    content: (
+      <>
+        Atualmente atuo como Team Lead, coordenando e apoiando minha equipe para
+        que cada projeto seja entregue com qualidade e{' '}
+        <strong className="text-white">dentro dos prazos</strong>. Incentivo o pensamento crítico nas
+        revisões de código, promovo a autonomia da minha equipe e garanto que
+        todos entreguem resultado.
+      </>
+    )
+  },
+  {
     key: 'aplicativos',
     label: 'Aplicativos',
     title: 'Aplicativos Android e iOS',
