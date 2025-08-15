@@ -1,15 +1,16 @@
 const contents = [
   {
-    key: 'Serviços',
+    key: 'servicos',
     label: 'Serviços',
     title: 'Em busca de resultados',
     content: (
       <>
-        Atualmente atuo como Team Lead, coordenando e apoiando minha equipe para
+        <p className="mb-4">Atualmente atuo como Team Lead, coordenando e apoiando minha equipe para
         que cada projeto seja entregue com qualidade e{' '}
         <strong className="text-white">dentro dos prazos</strong>. Incentivo o pensamento crítico nas
         revisões de código, promovo a autonomia da minha equipe e garanto que
-        todos entreguem resultado.
+        todos entreguem resultado.</p>
+        <p>No menu ao lado você pode conferir um pouco mais do que faço.</p>
       </>
     )
   },

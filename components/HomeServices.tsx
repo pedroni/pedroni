@@ -8,7 +8,7 @@ import useMobile from '../hooks/useMobile'
 import HomeServicesContent, { getByKey } from './HomeServicesContent'
 
 const HomeServices = props => {
-  const [activeListKey, setActiveListKey] = useState('aplicativos')
+  const [activeListKey, setActiveListKey] = useState('servicos')
   const isMobile = useMobile()
   const content = useMemo(() => getByKey(activeListKey), [activeListKey])
   const onListKeySelected = key => setActiveListKey(key)
