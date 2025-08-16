@@ -14,17 +14,17 @@
     "swiper": "^11.0.3"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.12",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "20.8.9",
     "@types/react": "19.1.10",
     "@types/rellax": "^1.7.6",
-    "autoprefixer": "^10.4.16",
     "eslint": "^8.52.0",
     "eslint-config-next": "15.4.6",
     "eslint-plugin-unused-imports": "^3.0.0",
     "postcss": "^8.4.31",
     "sass": "^1.69.5",
-    "tailwindcss": "^3.3.5"
+    "tailwindcss": "^4.1.12"
   },
   "engines": {
     "node": "^18.18.2",
