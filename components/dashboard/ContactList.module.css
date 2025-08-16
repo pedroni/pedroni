@@ -1,0 +1,32 @@
+.contactList {
+}
+
+.contactListItem:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.contactListHeader {
+  padding: 16px;
+  cursor: pointer;
+}
+
+.contactListContent {
+  padding: 8px 16px 24px;
+}
+
+.contactListItem:not(:global(.opened)) .contactListContent {
+  display: none;
+}
+
+.contactListMessage {
+  padding: 8px 0;
+}
+
+.contactListMessage strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.contactListMessage strong em {
+  font-weight: 300;
+}

@@ -2,8 +2,7 @@ import { useState } from 'react'
 import Box from './Box'
 import BoxContent from './BoxContent'
 import Title from './Title'
-
-import styled from 'styled-components'
+import styles from './HomeSkills.module.css'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 const HomeSkills = props => {
@@ -112,7 +111,7 @@ export const HomeSkillsSwiper = () => {
     }
   ]
   return (
-    <StyledSwiperWrapper>
+    <div className={styles.swiperWrapper}>
       <Swiper
         spaceBetween={16}
         style={{
@@ -135,113 +134,16 @@ export const HomeSkillsSwiper = () => {
       >
         {list.map(({ background, icon, label }) => (
           <SwiperSlide key={icon}>
-            <StyledSkillCard>
+            <div className={styles.skillCard}>
               <img src={background} alt={label} />
               <i className={icon}></i>
               <span>{label}</span>
-            </StyledSkillCard>
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
-    </StyledSwiperWrapper>
+    </div>
   )
 }
-
-const StyledSwiperWrapper = styled.div`
-  --swiper-navigation-size: 24px;
-  margin-left: calc(-1 * var(--box-padding));
-  width: calc(100% + (2 * var(--box-padding)));
-  .swiper-wrapper {
-    @media (max-width: 768px) {
-      padding-top: 24px;
-      padding-bottom: 24px;
-    }
-  }
-  .swiper-container {
-    padding-left: var(--box-padding);
-    padding-right: var(--box-padding);
-  }
-  .swiper-button-next,
-  .swiper-button-prev {
-    color: inherit;
-    height: 100%;
-    top: 16px;
-  }
-  .swiper-button-next {
-  }
-`
-
-const StyledSkillCard = styled.div`
-  --skill-card-height: 280px;
-  height: var(--skill-card-height);
-  position: relative;
-  z-index: 1;
-  border-radius: 8px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  flex-direction: column;
-  @media (max-width: 768px) {
-    box-shadow: 0 0 15px 0 rgba(255, 255, 255, 0.25);
-  }
-  &::after,
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    transition: 0.3s;
-  }
-  &::after {
-    background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
-  }
-  span {
-    font-size: 18px;
-    color: white;
-    z-index: 10;
-    margin-bottom: 16px;
-    text-align: center;
-    opacity: 0;
-    transition: 0.3s;
-    transform: translateY(16px);
-  }
-  i {
-    z-index: 2;
-    font-size: 48px;
-    color: var(--color-secondary-light);
-    transition: all ease-in-out 0.3s;
-    margin-bottom: calc(var(--skill-card-height) * 0.3);
-  }
-  img {
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    pointer-events: none;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    z-index: -1;
-  }
-  &:hover {
-    &::before {
-      opacity: 0;
-    }
-    i {
-      /* margin-bottom: 16px; */
-      font-size: 44px;
-    }
-    span {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-`
 
 export default HomeSkills

@@ -1,8 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
+import styles from './Table.module.css'
 
 const Table = ({ children, ...props }) => {
-  return <StyledTable {...props}>{children}</StyledTable>
+  return <table className={styles.table} {...props}>{children}</table>
 }
-const StyledTable = styled.table``
+
 export default Table

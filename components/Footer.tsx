@@ -1,9 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
+import styles from './Footer.module.css'
 
 const Footer = () => {
   return (
-    <StyledFooter>
+    <footer className={styles.footer}>
       <div>
         <div>
           <img
@@ -29,62 +29,8 @@ const Footer = () => {
           </a>
         </div>
       </div>
-    </StyledFooter>
+    </footer>
   )
 }
-
-const StyledFooter = styled.footer`
-  position: relative;
-  width: 100%;
-  padding-bottom: 26px;
-  min-height: 700px;
-  padding-top: 528px;
-  margin-top: -400px;
-  background-image: linear-gradient(transparent, black);
-  z-index: -1;
-  color: rgba(255, 255, 255, 0.7);
-  & > div {
-    width: var(--container-width);
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    @media (max-width: 1280px) {
-      flex-wrap: wrap;
-      padding-left: 16px;
-      padding-right: 16px;
-    }
-    & > div {
-      flex: 0 0 25%;
-      line-height: 180%;
-      @media (max-width: 1280px) {
-        flex: 0 0 100%;
-        margin-bottom: 16px;
-      }
-      strong {
-        color: var(--color-primary-light);
-      }
-      a {
-        color: inherit;
-      }
-      .logo {
-        width: 90px;
-      }
-    }
-  }
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 10px;
-    width: 100%;
-    background: linear-gradient(
-      135deg,
-      var(--color-primary-light),
-      var(--color-primary-dark)
-    );
-    border-top-left-radius: 10px;
-  }
-`
 
 export default Footer

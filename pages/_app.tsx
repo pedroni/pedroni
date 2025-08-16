@@ -4,7 +4,7 @@ import 'swiper/css/navigation'
 import SwiperCore from 'swiper'
 import { Navigation } from 'swiper/modules'
 
-import '../styles/global.scss'
+import '../styles/global.css'
 
 import Head from 'next/head'
 import Script from 'next/script'

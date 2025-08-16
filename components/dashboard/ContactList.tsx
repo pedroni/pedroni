@@ -1,21 +1,20 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styles from './ContactList.module.css'
 
 const ContactList = ({ list, ...props }) => {
   const [opened, setOpened] = useState(null)
   return (
-    <StyledContactList>
+    <div className={styles.contactList}>
       {list.map((item, index) => (
-        <StyledContactListItem
+        <div
           key={index}
-          className={`${opened === item._id && 'opened'}`}
-        >
-          <StyledContactListHeader onClick={() => setOpened(item._id)}>
+          className={`${styles.contactListItem} ${opened === item._id && styles.opened}`}>
+          <div className={styles.contactListHeader} onClick={() => setOpened(item._id)}>
             {item.email}
-          </StyledContactListHeader>
-          <StyledContactListContent>
+          </div>
+          <div className={styles.contactListContent}>
             {item.messages.map((message, index) => (
-              <StyledContactListMessage key={index}>
+              <div className={styles.contactListMessage} key={index}>
                 <strong>
                   {message.name} |{' '}
                   <em>
@@ -24,46 +23,13 @@ const ContactList = ({ list, ...props }) => {
                   </em>
                 </strong>
                 <p>{message.subject}</p>
-              </StyledContactListMessage>
+              </div>
             ))}
-          </StyledContactListContent>
-        </StyledContactListItem>
+          </div>
+        </div>
       ))}
-    </StyledContactList>
+    </div>
   )
 }
-
-const StyledContactList = styled.div``
-
-const StyledContactListHeader = styled.div`
-  padding: 16px;
-  cursor: pointer;
-`
-
-const StyledContactListContent = styled.div`
-  padding: 8px 16px 24px;
-`
-const StyledContactListMessage = styled.div`
-  padding: 8px 0;
-  strong {
-    display: block;
-    margin-bottom: 8px;
-    em {
-      font-weight: 300;
-    }
-  }
-`
-
-const StyledContactListItem = styled.div`
-  &:nth-child(odd) {
-    background: rgba(255, 255, 255, 0.03);
-  }
-  &:not(.opened) ${StyledContactListContent} {
-    display: none;
-  }
-  &.opened ${StyledContactListHeader} {
-    /* color: red; */
-  }
-`
 
 export default ContactList

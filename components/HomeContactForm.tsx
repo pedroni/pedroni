@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Input from './Input'
 import Button from './Button'
-import styled from 'styled-components'
+import styles from './HomeContactForm.module.css'
 import { formDataToJson } from '../helpers'
 
 const HomeContactForm = props => {
@@ -49,7 +49,7 @@ const HomeContactForm = props => {
   }
 
   return (
-    <StyledContactForm onSubmit={handleSubmit} {...props}>
+    <form className={styles.contactForm} onSubmit={handleSubmit} {...props}>
       <div>
         <Input
           required
@@ -85,15 +85,8 @@ const HomeContactForm = props => {
           </div>
         )}
       </div>
-    </StyledContactForm>
+    </form>
   )
 }
-
-const StyledContactForm = styled.form`
-  text-align: left;
-  & > div {
-    margin-bottom: 16px;
-  }
-`
 
 export default HomeContactForm

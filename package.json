@@ -10,7 +10,6 @@
     "react": "19.1.1",
     "react-dom": "19.1.1",
     "rellax": "^1.12.1",
-    "styled-components": "^6.1.0",
     "swiper": "^11.0.3"
   },
   "devDependencies": {
@@ -23,7 +22,6 @@
     "eslint-config-next": "15.4.6",
     "eslint-plugin-unused-imports": "^3.0.0",
     "postcss": "^8.4.31",
-    "sass": "^1.69.5",
     "tailwindcss": "^4.1.12"
   },
   "engines": {
