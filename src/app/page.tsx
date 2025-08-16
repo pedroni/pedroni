@@ -1,22 +1,14 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import Rellax from 'rellax'
 import HomeAbout from '../components/HomeAbout'
 import HomeBanner from '../components/HomeBanner'
 import HomeContact from '../components/HomeContact'
 import HomeServices from '../components/HomeServices'
 import HomeSkills from '../components/HomeSkills'
-import Layout from '../components/Layout'
 import useMobile from '../hooks/useMobile'
 
 const Home = () => {
-  const bannerAnchorRef = useRef(undefined)
-  const aboutAnchorRef = useRef(undefined)
-  const skillsAnchorRef = useRef(undefined)
-  const servicesAnchorRef = useRef(undefined)
-  const contactAnchorRef = useRef(undefined)
-
-  const [nav, setNav] = useState([])
   const rellax = useRef(null)
   const isMobile = useMobile()
 
@@ -31,66 +23,24 @@ const Home = () => {
     }
   }, [isMobile])
 
-  useEffect(() => {
-    setNav([
-      {
-        label: 'Início',
-        ref: bannerAnchorRef
-      },
-      {
-        label: 'Sobre',
-        ref: aboutAnchorRef
-      },
-      {
-        label: 'Conhecimentos',
-        ref: skillsAnchorRef
-      },
-      {
-        label: 'Serviços',
-        ref: servicesAnchorRef
-      },
-      {
-        label: 'Contato',
-        ref: contactAnchorRef
-      }
-    ])
-  }, [])
   return (
-    <Layout nav={nav}>
-      <div id="bannerAnchor" ref={bannerAnchorRef}>
-        <HomeBanner scrollToRef={aboutAnchorRef} />
+    <>
+      <div id="banner">
+        <HomeBanner />
       </div>
-      <div
-        className="homeRellax"
-        data-rellax-speed="-2"
-        id="aboutAnchor"
-        ref={aboutAnchorRef}
-      >
-        <HomeAbout onContact={() => scrollTo(contactAnchorRef.current)} />
+      <div className="homeRellax" data-rellax-speed="-2" id="about">
+        <HomeAbout />
       </div>
-      <div id="skillsAnchor" ref={skillsAnchorRef}>
-        <HomeSkills
-          style={{
-            marginTop: isMobile ? 16 : 64
-          }}
-        />
+      <div id="skills" className="pt-4 xl:pt-16">
+        <HomeSkills />
       </div>
-      <div
-        className="homeRellax"
-        data-rellax-speed="2"
-        id="servicesAnchor"
-        ref={servicesAnchorRef}
-      >
-        <HomeServices onContact={() => scrollTo(contactAnchorRef.current)} />
+      <div className="homeRellax" data-rellax-speed="2" id="services">
+        <HomeServices />
       </div>
-      <div id="contactAnchor" ref={contactAnchorRef}>
-        <HomeContact
-          style={{
-            marginTop: isMobile ? 16 : 64
-          }}
-        />
+      <div id="contact" className="pt-4 xl:pt-16">
+        <HomeContact />
       </div>
-    </Layout>
+    </>
   )
 }
 

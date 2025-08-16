@@ -1,30 +1,35 @@
-'use client'
+'use client';
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
 import styles from './Header.module.css'
 import { scrollTo } from '../helpers'
 
-export const Header = ({ nav }) => {
-  const [small, setSmall] = useState(false)
+export const Header = () => {
 
-  const handleScroll = () => {
-    if (window.scrollY > 120) {
-      setSmall(true)
-    } else {
-      setSmall(false)
+  const nav = [
+    {
+      label: 'Início',
+      id: 'banner'
+    },
+    {
+      label: 'Sobre',
+      id: 'about'
+    },
+    {
+      label: 'Conhecimentos',
+      id: 'skills'
+    },
+    {
+      label: 'Serviços',
+      id: 'services'
+    },
+    {
+      label: 'Contato',
+      id: 'contact'
     }
-  }
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
+  ];
 
   return (
-    <header className={`${styles.header} ${small ? styles.small : ''}`}>
+    <header className={`${styles.header}`}>
       <div>
         <Link href="/">
           <span className={styles.headerLogo}>
@@ -37,13 +42,18 @@ export const Header = ({ nav }) => {
               <li
                 key={link.label}
                 onClick={ev => {
-                  ev.preventDefault()
-                  scrollTo(link.ref)
+                  if (document.getElementById(link.id)){
+                    ev.preventDefault()
+                    scrollTo(`#${link.id}`)
+                  }
                 }}
               >
-                <a href={`#${link.ref.current.id}`}>{link.label}</a>
+                <a href={`/#${link.id}`}>{link.label}</a>
               </li>
             ))}
+            <li>
+              <Link href="/blog">Blog</Link>
+            </li>
           </ul>
           <ul className="social">
             <li>

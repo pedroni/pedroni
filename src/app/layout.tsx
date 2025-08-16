@@ -7,6 +7,8 @@ import { Montserrat } from 'next/font/google'
 import './global.css'
 
 import Script from 'next/script'
+import Footer from '../components/Footer'
+import Header from '../components/Header'
 // eslint-disable-next-line react-hooks/rules-of-hooks
 SwiperCore.use([Navigation])
 
@@ -81,7 +83,11 @@ export default function Layout(props: Readonly<{ children: ReactNode }>) {
         }}
       />
       <body className={`${montserrat.variable} font-sans`}>
-        {props.children}
+        <div className="min-h-screen bg-[url(/img/background.jpg)] bg-cover bg-[top_center] z-[1] relative max-w-full">
+          <Header></Header>
+          {props.children}
+          <Footer />
+        </div>
       </body>
     </html>
   )

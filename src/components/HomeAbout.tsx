@@ -6,11 +6,9 @@ import Button from './Button'
 import HomeAboutContent, { getByKey } from './HomeAboutContent'
 import Title from './Title'
 import useMobile from '../hooks/useMobile'
+import { scrollTo } from '../helpers'
 
-type HomeAboutProps = {
-  onContact: () => void
-}
-const HomeAbout = (props: HomeAboutProps) => {
+const HomeAbout = () => {
   const [activeListKey, setActiveListKey] = useState('ola')
   const isMobile = useMobile()
   const content = useMemo(() => getByKey(activeListKey), [activeListKey])
@@ -42,7 +40,7 @@ const HomeAbout = (props: HomeAboutProps) => {
         {content.content}
         <br />
         <br />
-        <Button onClick={props.onContact}>Entre em contato comigo</Button>
+        <Button onClick={() => scrollTo('#contact')}>Entre em contato comigo</Button>
       </BoxContent>
     </Box>
   )

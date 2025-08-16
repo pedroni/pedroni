@@ -6,16 +6,12 @@ import BoxList from './BoxList'
 import Button from './Button'
 import useMobile from '../hooks/useMobile'
 import HomeServicesContent, { getByKey } from './HomeServicesContent'
+import { scrollTo } from '../helpers'
 
-type HomeServicesProps = {
-  onContact: () => void
-}
-
-const HomeServices = (props: HomeServicesProps) => {
+const HomeServices = () => {
   const [activeListKey, setActiveListKey] = useState('servicos')
   const isMobile = useMobile()
   const content = useMemo(() => getByKey(activeListKey), [activeListKey])
-  const onListKeySelected = key => setActiveListKey(key)
 
   if (!content) {
     return <></>
@@ -30,7 +26,7 @@ const HomeServices = (props: HomeServicesProps) => {
         !isMobile && (
           <HomeServicesAside
             activeListKey={activeListKey}
-            onListKeySelected={onListKeySelected}
+            onListKeySelected={setActiveListKey}
           />
         )
       }
@@ -39,14 +35,14 @@ const HomeServices = (props: HomeServicesProps) => {
       {isMobile && (
         <HomeServicesAside
           activeListKey={activeListKey}
-          onListKeySelected={onListKeySelected}
+          onListKeySelected={setActiveListKey}
         />
       )}
       <BoxContent>
         {content.content}
         <br />
         <br />
-        <Button onClick={props.onContact}>Entre em contato comigo</Button>
+        <Button onClick={() => scrollTo('#contact')}>Entre em contato comigo</Button>
       </BoxContent>
     </Box>
   )
@@ -54,7 +50,10 @@ const HomeServices = (props: HomeServicesProps) => {
 
 const HomeServicesAside = ({
   activeListKey,
-  onListKeySelected = key => {}
+  onListKeySelected = () => {}
+}: {
+  activeListKey: string,
+  onListKeySelected: (param: string) => void;
 }) => {
   const list = HomeServicesContent
 

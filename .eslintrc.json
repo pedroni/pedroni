@@ -1,8 +1,11 @@
 {
-  "extends": "next/core-web-vitals",
-  "plugins": ["unused-imports"],
+  "extends": ["next/core-web-vitals", "@typescript-eslint/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["unused-imports", "@typescript-eslint"],
   "rules": {
     "space-before-function-paren": 0,
+    "no-unused-vars": "error",
+    "@typescript-eslint/no-unused-vars": "error",
     "react/prop-types": 0,
     "@next/next/no-img-element": 0,
     "unused-imports/no-unused-imports": "error",

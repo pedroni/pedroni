@@ -6,10 +6,13 @@
   "dependencies": {
     "classnames": "^2.3.2",
     "dayjs": "^1.11.10",
+    "gray-matter": "^4.0.3",
     "next": "15.4.6",
     "react": "19.1.1",
     "react-dom": "19.1.1",
     "rellax": "^1.12.1",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1",
     "swiper": "^11.0.3"
   },
   "devDependencies": {
