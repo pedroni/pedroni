@@ -16,10 +16,10 @@ export interface BlogPost {
 export function getSortedPosts(): BlogPost[] {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory)
-  
+
   const allPostsData = fileNames
     .filter(fileName => fileName.endsWith('.md'))
-    .map(fileName => {
+    .map((fileName): BlogPost => {
       // Remove ".md" from file name to get slug
       const slug = fileName.replace(/\.md$/, '')
 
@@ -33,9 +33,9 @@ export function getSortedPosts(): BlogPost[] {
       // Combine the data with the slug
       return {
         slug,
-        ...(matterResult.data as Omit<BlogPost, 'slug' | 'content'>),
+        ...matterResult.data,
         content: matterResult.content,
-      }
+      } as BlogPost
     })
     // Sort posts by date
     .sort((a, b) => {
@@ -45,7 +45,7 @@ export function getSortedPosts(): BlogPost[] {
         return -1
       }
     })
-    
+
   return allPostsData
 }
 
@@ -68,5 +68,5 @@ export function getPostBySlug(slug: string): BlogPost {
     slug,
     ...(matterResult.data as Omit<BlogPost, 'slug' | 'content'>),
     content: matterResult.content,
-  }
+  } as BlogPost
 }
