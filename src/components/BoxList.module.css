@@ -25,6 +25,9 @@
   padding-bottom: 6px;
   opacity: 0.6;
   transition: 0.3s;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  font-family: var(--font-mono);
 }
 
 .boxListItem.active {

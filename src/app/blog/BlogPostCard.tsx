@@ -12,8 +12,8 @@ export default function BlogPostCard({ post }: { post: BlogPost }) {
             year: 'numeric'
           })}
         </p>{' '}
-        <h2 className="text-2xl font-bold mb-2">{post.title}</h2>
-        {post.excerpt && <p className="text-white/70 font-serif">{post.excerpt}</p>}
+        <h2 className="text-2xl font-bold font-mono mb-2">{post.title}</h2>
+        {post.excerpt && <p className="text-white/70 tracking-wider font-light font-serif">{post.excerpt}</p>}
       </SimpleBox>
     </a>
   )

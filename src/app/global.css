@@ -1,9 +1,7 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
-
-:root {
-  /** Colors */
+@theme {
   --color-primary: #7f20ac;
   --color-primary-light: #af14b8;
   --color-primary-dark: #5929a3;
@@ -13,11 +11,9 @@
   --color-secondary-light: #5ede00;
   --color-secondary-dark: #44910d;
   --color-secondary-contrast: #ffffff;
+}
 
-  --color-danger-light: #ff2a2a;
-  --color-danger-dark: #ed4b4b;
-  --color-danger-contrast: #ffffff;
-
+:root {
   /** Header */
   --header-height: 80px;
 
@@ -27,9 +23,6 @@
   /** Box */
   --box-padding: 64px;
 
-  /** Input */
-  --input-border: 1px solid rgba(255, 255, 255, 0.15);
-  --input-height: 50px;
 }
 
 @media (max-width: 1280px) {
@@ -41,18 +34,13 @@
 
 @media (max-width: 768px) {
   :root {
-    --container-width: 100%;
+    --container-width: calc(100% - 24px);
   }
 }
 
 html {
   @apply text-white/70;
   background-color: black;
-}
-
-a {
-  text-decoration: none;
-  color: var(--color-primary-light);
 }
 
 strong {

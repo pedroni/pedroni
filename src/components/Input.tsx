@@ -23,7 +23,7 @@ const Input = ({ label, name, ...props }) => {
         {label}
       </label>
       <input
-        className={styles.input}
+        className={`${styles.input} rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-black/90`}
         onFocus={onFocus}
         onBlur={onBlur}
         ref={inputRef}

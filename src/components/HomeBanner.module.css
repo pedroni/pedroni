@@ -4,9 +4,7 @@
   min-height: 720px;
   max-height: calc(750px + var(--header-height));
   position: relative;
-  margin-top: calc(-1 * var(--header-height));
   padding-top: var(--header-height);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), transparent);
   position: relative;
 }
 

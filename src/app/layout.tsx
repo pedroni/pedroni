@@ -3,7 +3,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import SwiperCore from 'swiper'
 import { Navigation } from 'swiper/modules'
-import { Montserrat } from 'next/font/google'
+import { Merriweather, Montserrat, JetBrains_Mono } from 'next/font/google'
 import './global.css'
 
 import Script from 'next/script'
@@ -11,6 +11,16 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 // eslint-disable-next-line react-hooks/rules-of-hooks
 SwiperCore.use([Navigation])
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: '--font-mono',
+  subsets: ['latin']
+})
+
+const merriweather = Merriweather({
+  variable: '--font-serif',
+  subsets: ['latin']
+})
 
 const montserrat = Montserrat({
   variable: '--font-sans',
@@ -82,10 +92,12 @@ export default function Layout(props: Readonly<{ children: ReactNode }>) {
             `
         }}
       />
-      <body className={`${montserrat.variable} font-sans`}>
-        <div className="min-h-screen bg-[url(/img/background.jpg)] bg-cover bg-[top_center] z-[1] relative max-w-full">
+      <body
+        className={`${montserrat.variable} ${merriweather.variable} ${jetbrainsMono.variable} font-sans`}
+      >
+        <div className="min-h-screen bg-[url(/img/background.jpg)] bg-cover bg-[top_center] z-[1] relative max-w-full flex flex-col">
           <Header></Header>
-          {props.children}
+          <div className="grow"> {props.children}</div>
           <Footer />
         </div>
       </body>

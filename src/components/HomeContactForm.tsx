@@ -81,7 +81,7 @@ const HomeContactForm = props => {
           {loading ? 'Enviando...' : 'Enviar mensagem'}
         </Button>
         {messageError && (
-          <div style={{ marginTop: 12, color: 'var(--color-danger-dark)' }}>
+          <div className='mt-3 text-rose-500'>
             {messageError}
           </div>
         )}

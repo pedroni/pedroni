@@ -7,9 +7,8 @@
 .label {
   position: absolute;
   font-size: 16px;
-  color: white;
   left: 24px;
-  top: calc(var(--input-height) * 0.3);
+  top: calc(54px * 0.3);
   transition: 0.3s;
 }
 
@@ -21,9 +20,9 @@
 
 .input {
   appearance: none;
-  border: var(--input-border);
-  background: transparent;
-  height: var(--input-height);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0,0,0,0.2);
+  height: 54px;
   padding-left: 24px;
   padding-right: 24px;
   color: white;
@@ -33,16 +32,6 @@
   width: 100%;
   padding-top: 16.8px;
   transition: 0.3s;
-}
-
-.input:focus {
-  outline: none;
-  border-color: var(--color-primary);
-}
-
-.inputWrapper.active .input {
-  border-bottom-color: var(--color-primary);
-  border-bottom-width: 2px;
 }
 
 .inputWrapper.active .label {

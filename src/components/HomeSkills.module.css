@@ -1,7 +1,10 @@
 .swiperWrapper {
   --swiper-navigation-size: 24px;
   margin-left: calc(-1 * var(--box-padding));
+  margin-bottom: calc(-1 * var(--box-padding));
   width: calc(100% + (2 * var(--box-padding)));
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
 }
 
 .swiperWrapper :global(.swiper-wrapper) {
@@ -28,19 +31,13 @@
   height: var(--skill-card-height);
   position: relative;
   z-index: 1;
-  border-radius: 8px;
+  border-radius: 4px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   flex-wrap: wrap;
   flex-direction: column;
-}
-
-@media (max-width: 768px) {
-  .skillCard {
-    box-shadow: 0 0 15px 0 rgba(255, 255, 255, 0.25);
-  }
 }
 
 .skillCard::after,

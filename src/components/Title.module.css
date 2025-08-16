@@ -46,9 +46,11 @@
 .subTitle {
   font-size: 18px;
   color: var(--color-primary);
-  letter-spacing: 10px;
+  letter-spacing: 4px;
   text-transform: uppercase;
   margin-bottom: 8px;
+  font-family: var(--font-mono);
+  font-weight: var(--font-weight-light);
 }
 
 /*

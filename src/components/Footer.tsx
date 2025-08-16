@@ -3,7 +3,7 @@ import styles from './Footer.module.css'
 
 const Footer = () => {
   return (
-    <footer className={styles.footer}>
+    <footer className={`${styles.footer} mt-auto`}>
       <div>
         <div>
           <img
