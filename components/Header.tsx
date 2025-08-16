@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import Scrollspy from 'react-scrollspy'
 import styled from 'styled-components'
 import { scrollTo } from '../helpers'
 
@@ -32,12 +31,7 @@ export const Header = ({ nav }) => {
           </StyledHeaderLogo>
         </Link>
         <StyledHeaderNav>
-          <Scrollspy
-            items={nav.map(({ ref }) => ref.current.id)}
-            className="pages"
-            currentClassName="active"
-            offset={-100}
-          >
+          <ul className="pages">
             {nav.map(link => (
               <li
                 key={link.label}
@@ -49,7 +43,7 @@ export const Header = ({ nav }) => {
                 <a href={`#${link.ref.current.id}`}>{link.label}</a>
               </li>
             ))}
-          </Scrollspy>
+          </ul>
           <ul className="social">
             <li>
               <a target="blank" href="http://github.com/pedroni">

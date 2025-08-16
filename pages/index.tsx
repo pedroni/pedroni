@@ -9,11 +9,11 @@ import Layout from '../components/Layout'
 import useMobile from '../hooks/useMobile'
 
 const Home = () => {
-  const bannerAnchorRef = useRef()
-  const aboutAnchorRef = useRef()
-  const skillsAnchorRef = useRef()
-  const servicesAnchorRef = useRef()
-  const contactAnchorRef = useRef()
+  const bannerAnchorRef = useRef(undefined)
+  const aboutAnchorRef = useRef(undefined)
+  const skillsAnchorRef = useRef(undefined)
+  const servicesAnchorRef = useRef(undefined)
+  const contactAnchorRef = useRef(undefined)
 
   const [nav, setNav] = useState([])
   const rellax = useRef(null)
