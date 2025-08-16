@@ -1,3 +1,5 @@
+/** eslint-disable no-unused-vars */
+/** eslint-disable no-unused-vars */
 import { useMemo, useState } from 'react'
 import Box from './Box'
 import BoxContent from './BoxContent'
@@ -46,6 +48,7 @@ const HomeAbout = () => {
   )
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
 const HomeAboutAside = ({ activeListKey, onListItemSelected = key => {} }) => {
   const list = HomeAboutContent
   const content = useMemo(() => getByKey(activeListKey) || {}, [activeListKey])

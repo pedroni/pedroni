@@ -3,7 +3,7 @@ import Button from './Button'
 import { scrollTo } from '../helpers'
 import styles from './HomeBanner.module.css'
 
-const HomeBanner = props => {
+const HomeBanner = () => {
   return (
     <section className={styles.homeBanner}>
       <div>
@@ -41,6 +41,7 @@ const HomeBanner = props => {
             }
             src="/icon/scroll-down.svg"
             role="button"
+            alt='Scroll down'
           />
         </div>
       </div>

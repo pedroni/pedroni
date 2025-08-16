@@ -1,10 +1,13 @@
+/** eslint-disable @typescript-eslint/no-unused-vars */
+/** eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
 import styles from './BoxList.module.css'
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const BoxList = ({ list, onItemSelected = key => {}, activeItem }) => {
-  const _onItemSelected = key => {
-    setActiveItem(key)
-    onItemSelected(key)
+  const _onItemSelected = item => {
+    setActiveItem(item)
+    onItemSelected(item)
   }
 
   const [_activeItem, setActiveItem] = useState(activeItem)
@@ -13,14 +16,14 @@ const BoxList = ({ list, onItemSelected = key => {}, activeItem }) => {
     if (!_activeItem) {
       setActiveItem(list[0]?.key)
     }
-  })
+  }, [_activeItem, list])
 
   useEffect(() => {
     if (activeItem !== _activeItem) {
       setActiveItem(activeItem)
       onItemSelected(activeItem)
     }
-  }, [activeItem])
+  }, [activeItem, _activeItem, onItemSelected])
 
   return (
     <ul className={styles.boxList}>

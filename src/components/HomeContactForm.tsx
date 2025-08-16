@@ -3,19 +3,19 @@ import React, { useState } from 'react'
 import Input from './Input'
 import Button from './Button'
 import styles from './HomeContactForm.module.css'
-import { formDataToJson } from '../helpers'
+// import { formDataToJson } from '../helpers'
 
 const HomeContactForm = props => {
-  const [messageSent, setMessageSent] = useState('')
+  const [messageSent, ] = useState('')
   const [messageError, setMessageError] = useState('')
-  const [loading, setLoading] = useState(false)
+  const [loading, ] = useState(false)
   const handleSubmit = async event => {
     event.preventDefault()
     // if (loading) {
     //   return
     // }
-    const body = formDataToJson(new FormData(event.target))
-    setLoading(true)
+    // const body = formDataToJson(new FormData(event.target))
+    // setLoading(true)
     // try {
     //   // make api call here
     //   console.error('Not implemented')

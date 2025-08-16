@@ -3,7 +3,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import SwiperCore from 'swiper'
 import { Navigation } from 'swiper/modules'
-import { Merriweather, Montserrat, JetBrains_Mono } from 'next/font/google'
+import { JetBrains_Mono, Merriweather, Montserrat } from 'next/font/google'
 import './global.css'
 
 import Script from 'next/script'

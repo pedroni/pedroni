@@ -1,13 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { FocusEvent, useEffect, useRef, useState } from 'react'
 import styles from './Input.module.css'
 
 const Input = ({ label, name, ...props }) => {
   const [active, setActive] = useState(props.defaultValue ? true : false)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  const onFocus = ev => setActive(true)
-  const onBlur = ev =>
+  const onFocus = () => setActive(true)
+  const onBlur = (ev: FocusEvent<HTMLInputElement>) => {
     ev.target.value.trim() ? setActive(true) : setActive(false)
+  }
 
   useEffect(() => {
     if (props.autoFocus) {
