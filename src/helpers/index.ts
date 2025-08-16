@@ -1,6 +1,6 @@
 
 
-export function scrollTo(selector: string, offset = 0) {
+export function scrollTo(selector: string, offset = 80) {
   let element: HTMLElement | null = null;
   if (typeof selector === 'string'){
     element = document.querySelector(selector)
@@ -8,7 +8,7 @@ export function scrollTo(selector: string, offset = 0) {
 
   if (element) {
     window.scroll({
-      top: element.offsetTop - offset,
+      top: Math.max(0, element.offsetTop - offset),
       left: 0,
       behavior: 'smooth'
     })

@@ -27,7 +27,7 @@ const HomeBanner = props => {
           <Button
             className="mt-8"
             onClick={() =>
-              scrollTo(props.scrollToRef.current || props.scrollToRef)
+              scrollTo('#about')
             }
           >
             Me conheça
@@ -37,7 +37,7 @@ const HomeBanner = props => {
           <img
             className={styles.homeBannerScrollDown}
             onClick={() =>
-              scrollTo(props.scrollToRef.current || props.scrollToRef)
+              scrollTo('#about')
             }
             src="/icon/scroll-down.svg"
             role="button"

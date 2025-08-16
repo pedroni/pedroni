@@ -36,10 +36,9 @@ export const Header = () => {
       "
     >
       <div
-        className=" absolute w-[calc(100%-4px)] h-[calc(100%-4px)]  left-0.5 top-0.5
-        backdrop-blur-2xl bg-white/10
-        rounded-xl
-        "
+        className="absolute w-[calc(100%-4px)] h-[calc(100%-4px)]  left-0.5 top-0.5
+        backdrop-blur-2xl bg-white/5
+        rounded-xl"
       ></div>
       <div className="relative gap-8 flex items-center justify-center">
         <Link href="/">
@@ -61,9 +60,12 @@ export const Header = () => {
               {link.label}
             </Link>
           ))}
-          <Link className='flex gap-2 items-center transition text-white/50 hover:text-white' href="/blog">
+          <Link
+            className="flex gap-2 items-center transition text-white/50 hover:text-white"
+            href="/blog"
+          >
             Blog
-            <div className='w-1.5 h-1.5 bg-primary-light rounded-full animate-pulse'></div>
+            <div className="w-1.5 h-1.5 bg-primary-light rounded-full animate-pulse"></div>
           </Link>
         </nav>
         <ul className="flex items-center gap-2">
