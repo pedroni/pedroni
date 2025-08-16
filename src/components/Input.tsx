@@ -1,0 +1,36 @@
+import React, { useEffect, useRef, useState } from 'react'
+import styles from './Input.module.css'
+
+const Input = ({ label, name, ...props }) => {
+  const [active, setActive] = useState(props.defaultValue ? true : false)
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  const onFocus = ev => setActive(true)
+  const onBlur = ev =>
+    ev.target.value.trim() ? setActive(true) : setActive(false)
+
+  useEffect(() => {
+    if (props.autoFocus) {
+      if (inputRef.current) {
+        inputRef.current.focus()
+      }
+    }
+  }, [inputRef, props.autoFocus])
+
+  return (
+    <div className={`${styles.inputWrapper} ${active ? styles.active : ''}`}>
+      <label className={styles.label} htmlFor={name}>{label}</label>
+      <input
+        className={styles.input}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        ref={inputRef}
+        id={name}
+        name={name}
+        {...props}
+      />
+    </div>
+  )
+}
+
+export default Input
