@@ -1,8 +1,6 @@
 {
   "extends": "next/core-web-vitals",
-  "plugins": [
-    "unused-imports"
-  ],
+  "plugins": ["unused-imports"],
   "rules": {
     "space-before-function-paren": 0,
     "react/prop-types": 0,

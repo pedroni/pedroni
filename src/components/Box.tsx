@@ -35,7 +35,7 @@ const Box = ({
             'rounded-br-3xl':
               direction.includes('bottom') && direction.includes('right'),
             'rounded-bl-3xl':
-              direction.includes('bottom') && direction.includes('left'),
+              direction.includes('bottom') && direction.includes('left')
           },
           background ? 'bg-[#101010]' : 'md:bg-[#101010]'
         )}

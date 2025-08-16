@@ -15,7 +15,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.12",
     "@tailwindcss/typography": "^0.5.16",
-    "@types/node": "20.8.9",
+    "@types/node": "^22",
     "@types/react": "19.1.10",
     "@types/rellax": "^1.7.6",
     "eslint": "^8.52.0",
@@ -25,13 +25,15 @@
     "tailwindcss": "^4.1.12"
   },
   "engines": {
-    "node": "^18.18.2",
-    "npm": "^10.2.1"
+    "node": "^22",
+    "npm": "^10"
   },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "npm install && next build && next start"
+    "start": "npm install && next build && next start",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "author": "pedroni",
   "license": "ISC"

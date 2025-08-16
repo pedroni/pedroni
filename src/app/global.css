@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   /** Colors */
@@ -46,7 +46,6 @@
 html {
   @apply text-white/70;
   background-color: black;
-
 }
 
 a {
@@ -89,10 +88,11 @@ strong {
 img {
   max-width: 100%;
 }
-[disabled], .disabled {
+[disabled],
+.disabled {
   pointer-events: none;
   cursor: not-allowed;
-  opacity: .7;
+  opacity: 0.7;
 }
 @media (max-width: 1280px) {
   .hide-mobile {

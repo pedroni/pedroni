@@ -1,9 +1,9 @@
-'use client';
+'use client'
 import React, { useState } from 'react'
 import Input from './Input'
 import Button from './Button'
 import styles from './HomeContactForm.module.css'
-import { formDataToJson } from '../helpers';
+import { formDataToJson } from '../helpers'
 
 const HomeContactForm = props => {
   const [messageSent, setMessageSent] = useState('')

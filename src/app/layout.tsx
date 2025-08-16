@@ -80,7 +80,9 @@ export default function Layout(props: Readonly<{ children: ReactNode }>) {
             `
         }}
       />
-      <body className={`${montserrat.variable} font-sans`}>{props.children}</body>
+      <body className={`${montserrat.variable} font-sans`}>
+        {props.children}
+      </body>
     </html>
   )
 }

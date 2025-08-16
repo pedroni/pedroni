@@ -19,7 +19,9 @@ const Input = ({ label, name, ...props }) => {
 
   return (
     <div className={`${styles.inputWrapper} ${active ? styles.active : ''}`}>
-      <label className={styles.label} htmlFor={name}>{label}</label>
+      <label className={styles.label} htmlFor={name}>
+        {label}
+      </label>
       <input
         className={styles.input}
         onFocus={onFocus}

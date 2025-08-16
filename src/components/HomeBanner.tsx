@@ -25,6 +25,7 @@ const HomeBanner = props => {
           <br />
 
           <Button
+            className="mt-8"
             onClick={() =>
               scrollTo(props.scrollToRef.current || props.scrollToRef)
             }

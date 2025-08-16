@@ -8,7 +8,7 @@ import useMobile from '../hooks/useMobile'
 import HomeServicesContent, { getByKey } from './HomeServicesContent'
 
 type HomeServicesProps = {
- onContact: () => void
+  onContact: () => void
 }
 
 const HomeServices = (props: HomeServicesProps) => {

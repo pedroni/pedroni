@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import { useEffect, useRef, useState } from 'react'
 import Rellax from 'rellax'
 import HomeAbout from '../components/HomeAbout'
@@ -81,9 +81,7 @@ const Home = () => {
         id="servicesAnchor"
         ref={servicesAnchorRef}
       >
-        <HomeServices
-          onContact={() => scrollTo(contactAnchorRef.current)}
-        />
+        <HomeServices onContact={() => scrollTo(contactAnchorRef.current)} />
       </div>
       <div id="contactAnchor" ref={contactAnchorRef}>
         <HomeContact

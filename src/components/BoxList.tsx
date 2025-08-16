@@ -30,7 +30,8 @@ const BoxList = ({ list, onItemSelected = key => {}, activeItem }) => {
           role="button"
           onClick={() => _onItemSelected({ key, label })}
           key={key}
-          className={`${styles.boxListItem} ${_activeItem?.key === key ? styles.active : ''}`}>
+          className={`${styles.boxListItem} ${_activeItem?.key === key ? styles.active : ''}`}
+        >
           {label}
         </li>
       ))}

@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import styles from './Header.module.css'
@@ -47,7 +47,11 @@ export const Header = ({ nav }) => {
           </ul>
           <ul className="social">
             <li>
-              <a target="_blank" href="http://github.com/pedroni" rel="noreferrer">
+              <a
+                target="_blank"
+                href="http://github.com/pedroni"
+                rel="noreferrer"
+              >
                 <img width="19" height="19" src="/icon/github.svg" alt="" />
               </a>
             </li>
@@ -62,7 +66,11 @@ export const Header = ({ nav }) => {
               </a>
             </li>
             <li>
-              <a target="_blank" href="mailto:lucas@pedroni.dev" rel="noreferrer">
+              <a
+                target="_blank"
+                href="mailto:lucas@pedroni.dev"
+                rel="noreferrer"
+              >
                 <img width="19" height="14" src="/icon/mail.svg" alt="" />
               </a>
             </li>

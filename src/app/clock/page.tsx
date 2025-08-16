@@ -1,5 +1,5 @@
 import Layout from '../../components/Layout'
-import Clock from '../../components/clock/Clock'
+import Clock from './Clock'
 
 export default function ClockPage() {
   return (

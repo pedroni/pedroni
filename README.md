@@ -3,11 +3,12 @@
 Veja como está ficando https://pedroni.dev
 
 ## Principais tecnologias utilizadas
-* HTML
-* CSS
-* JavaScript
-* React
-* Next.js
+
+- HTML
+- CSS
+- JavaScript
+- React
+- Next.js
 
 ## Como iniciar
 

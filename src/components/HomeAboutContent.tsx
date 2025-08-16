@@ -32,7 +32,7 @@ const contents = [
     title: 'Em constante aprendizado',
     content: (
       <>
-        <p className='mb-4'>
+        <p className="mb-4">
           Hoje estou estudando <strong>C++</strong> por hobby. Acompanhe meu
           progresso em:{' '}
           <a
