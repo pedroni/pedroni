@@ -5,6 +5,9 @@ import SwiperCore from 'swiper'
 import { Navigation } from 'swiper/modules'
 import { JetBrains_Mono, Merriweather, Montserrat } from 'next/font/google'
 import './global.css'
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
 
 import Script from 'next/script'
 import Footer from '../components/Footer'
@@ -93,11 +96,11 @@ export default function Layout(props: Readonly<{ children: ReactNode }>) {
         }}
       />
       <body
-        className={`${montserrat.variable} ${merriweather.variable} ${jetbrainsMono.variable} font-sans`}
+        className={`${montserrat.variable} ${merriweather.variable} ${jetbrainsMono.variable} font-sans bg-[#0b0221]`}
       >
-        <div className="min-h-screen bg-[url(/img/background.jpg)] bg-cover bg-[top_center] z-[1] relative max-w-full flex flex-col">
+        <div className="min-h-screen z-[1] relative max-w-full flex flex-col">
           <Header></Header>
-          <div className="grow"> {props.children}</div>
+          <div className="grow pt-32"> {props.children}</div>
           <Footer />
         </div>
       </body>

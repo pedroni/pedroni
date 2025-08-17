@@ -1,15 +1,28 @@
+import classNames from 'classnames'
 import { BlogPost } from '../../lib/blog'
 
-export default function BlogPostCard({ post }: { post: BlogPost }) {
+export default function BlogPostCard({
+  post,
+  className
+}: {
+  className?: string
+  post: BlogPost
+}) {
   return (
     <a
       href={`/blog/${post.slug}`}
-      className="rounded-2xl
+      className={classNames(
+        `rounded-2xl
           border border-white/20
-          shadow-2xl
+          shadow-lg
           relative
           group
-      "
+          transition
+          hover:border-primary-light/50
+          hover:shadow-primary/30
+          hover:-translate-y-0.5`,
+        className
+      )}
     >
       <div
         className="absolute w-[calc(100%-4px)] h-[calc(100%-4px)]
@@ -29,7 +42,7 @@ export default function BlogPostCard({ post }: { post: BlogPost }) {
             year: 'numeric'
           })}
         </p>{' '}
-        <h2 className="text-2xl font-bold font-mono mb-2">{post.title}</h2>
+        <h2 className="text-lg font-normal font-mono mb-2 group-hover:text-white">{post.title}</h2>
         {post.excerpt && (
           <p className="text-white/70 tracking-wider font-light font-serif">
             {post.excerpt}

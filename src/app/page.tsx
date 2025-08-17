@@ -25,6 +25,7 @@ const Home = () => {
 
   return (
     <>
+      <div className='absolute bg-[url(/img/background.jpg)] bg-cover bg-[50%_15%] top-0 w-full h-full left-0'></div>
       <div id="banner">
         <HomeBanner />
       </div>

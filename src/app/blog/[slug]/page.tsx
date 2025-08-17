@@ -1,7 +1,9 @@
 import { BlogPost, getPostBySlug } from '../../../lib/blog'
 import { remark } from 'remark'
 import html from 'remark-html'
+import gfm from 'remark-gfm'
 import { notFound } from 'next/navigation'
+import BlogAuthor from '../BlogAuthor'
 
 export default async function PostPage(props: {
   params: Promise<{ slug: string }>
@@ -13,30 +15,56 @@ export default async function PostPage(props: {
   try {
     post = getPostBySlug(slug)
 
-    // Process markdown content to HTML
-    const processedContent = await remark().use(html).process(post.content)
-    contentHtml = processedContent.toString()
+    // Process markdown content to HTML with GFM support
+    const processedContent = await remark()
+      .use(html)
+      .use(gfm)
+      .process(post.content)
+    contentHtml = processedContent
+      .toString()
+      .replace(/user-content-user-content-/g, 'user-content-')
   } catch (error) {
     console.error('Error fetching post:', error)
     notFound()
   }
 
   return (
-    <div className="bg-gradient-to-b to-transparent from-black">
-      <div className="text-center py-20 ">
-        <h1 className="text-3xl font-bold text-white mb-4">{post.title}</h1>
-        <p className="mb-6">
-          {new Date(post.date).toLocaleDateString('en-US', {
-            month: 'long',
-            day: 'numeric',
-            year: 'numeric'
-          })}
-        </p>
+      <div className="">
+        <div className="max-w-3xl w-full mx-auto flex flex-col relative pt-20 pb-10">
+          <div className="flex gap-4">
+            <p className="font-mono text-sm font-light mb-2">
+              Lucas Pedroni,{' '}
+              {new Date(post.date).toLocaleDateString('en-US', {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric'
+              })}
+            </p>
+          </div>{' '}
+          <h1 className="text-3xl font-mono font-bold text-white mb-6">
+            {post.title}
+          </h1>
+        </div>
+
+        <div
+          className="
+          mx-auto
+        max-w-3xl
+        shadow-4xl
+        relative
+        group
+        py-4
+    "
+        >
+          <div
+            className="relative max-w-none text-left prose prose-invert mx-auto"
+            dangerouslySetInnerHTML={{ __html: contentHtml }}
+          ></div>
+        </div>
+
+      <div className="max-w-3xl mx-auto pt-20">
+        <BlogAuthor></BlogAuthor>
       </div>
-      <div
-        className="w-full py-20 flex-grow text-left prose prose-invert mx-auto lg:prose-lg"
-        dangerouslySetInnerHTML={{ __html: contentHtml }}
-      ></div>
     </div>
   )
 }

@@ -30,10 +30,7 @@ export default function BlogPage() {
 
   return (
     <div className="relative min-h-[calc(100vh-600px)] py-20 px-4">
-      <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-transparent to-black pointer-events-none"></div>
-      <div className="absolute left-0 top-full w-full h-[230px] bg-gradient-to-b from-black to-transparent"></div>
-
-      <div className="relative container mx-auto">
+      <div className="relative max-w-4xl mx-auto">
         {postsByYear.map(({ year, posts }) => (
           <div
             key={year}
@@ -42,7 +39,7 @@ export default function BlogPage() {
             <div className="mb-6">
               <h2 className="text-primary-light font-mono text-3xl">{year}</h2>
             </div>
-            <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
               {posts.map(post => (
                 <BlogPostCard key={post.slug} post={post} />
               ))}
