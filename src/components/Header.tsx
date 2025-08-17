@@ -1,37 +1,48 @@
 'use client'
 import Link from 'next/link'
-import { scrollTo } from '../helpers'
+import { usePathname } from 'next/navigation'
+import { MouseEvent, ReactNode } from 'react'
+import classNames from 'classnames'
 
-export const Header = () => {
-  const nav = [
-    {
-      label: 'Início',
-      id: 'banner'
-    },
-    {
-      label: 'Sobre',
-      id: 'about'
-    },
-    {
-      label: 'Conhecimentos',
-      id: 'skills'
-    },
-    {
-      label: 'Serviços',
-      id: 'services'
-    },
-    {
-      label: 'Contato',
-      id: 'contact'
-    }
-  ]
+const HeaderLink = (props: {
+  href: string
+  className?: string
+  onClick?: (ev: MouseEvent<HTMLAnchorElement>) => void
+  children: ReactNode
+}) => {
+  const pathname = usePathname()
+  const href = props.href.split('#')[0]
+  const active = href == '/' ? pathname == href : pathname.startsWith(href)
 
   return (
+    <div className="relative h-full flex flex-col items-center justify-center">
+      <Link
+        href={props.href}
+        onClick={props.onClick}
+        className={classNames(
+          'transition  px-2.5 py-1 rounded-sm hover:bg-white/10 hover:text-white',
+          active ? 'text-white' : 'text-white/50',
+          props.className
+        )}
+      >
+        {props.children}
+
+        {active && (
+          <div className="absolute w-[calc(100%-20px)] h-px bg-primary-light left-2.5 bottom-px"></div>
+        )}
+      </Link>
+    </div>
+  )
+}
+
+export const Header = () => {
+  return (
     <header
-      className="  z-10 mt-6 rounded-2xl  mx-auto px-12 py-4
+      className="  z-10 mt-6 rounded-2xl  mx-auto px-12
      border border-white/20
      shadow-2xl
-     sticky top-4
+     fixed left-1/2 -translate-x-1/2 top-4
+     h-16
       "
     >
       <div
@@ -39,33 +50,15 @@ export const Header = () => {
         backdrop-blur-2xl bg-white/5
         rounded-xl"
       ></div>
-      <div className="relative gap-8 flex items-center justify-center">
+      <div className="h-16 relative gap-8 flex items-center justify-center">
         <Link href="/">
           <img width={50} src="/img/isotipo.svg" alt="logo pedroni.dev" />
         </Link>
-        <nav className="flex gap-4 font-mono">
-          {nav.map(link => (
-            <Link
-              className="hidden transition text-white/50 hover:text-white lg:block"
-              key={link.label}
-              href={`/#${link.id}`}
-              onClick={ev => {
-                if (document.getElementById(link.id)) {
-                  ev.preventDefault()
-                  scrollTo(`#${link.id}`)
-                }
-              }}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link
-            className="flex gap-2 items-center transition text-white/50 hover:text-white"
-            href="/blog"
-          >
+        <nav className="h-full flex font-mono">
+          <HeaderLink href="/">Home</HeaderLink>
+          <HeaderLink className="flex gap-2 items-center" href="/blog">
             Blog
-            <div className="w-1.5 h-1.5 bg-primary-light rounded-full animate-pulse"></div>
-          </Link>
+          </HeaderLink>
         </nav>
         <ul className="flex items-center gap-2">
           <li>
