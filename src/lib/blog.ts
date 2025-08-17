@@ -10,7 +10,6 @@ export interface BlogPost {
   date: string
   excerpt?: string
   content: string
-  [key: string]: any
 }
 
 export function getSortedPosts(): BlogPost[] {

@@ -15,7 +15,7 @@ const Box = ({
   return (
     <section
       className={classNames(
-        'relative mx-auto w-[var(--container-width)] max-w-full flex justify-center',
+        'relative mx-auto w-[var(--container-width)] max-w-full flex justify-center [&_a]:font-semibold [&_a]:text-secondary-light',
         {
           'xl:justify-end': direction.includes('right')
         },

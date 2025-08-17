@@ -1,23 +1,53 @@
 import BlogPostCard from './BlogPostCard'
-import { getSortedPosts } from '../../lib/blog'
+import { BlogPost, getSortedPosts } from '../../lib/blog'
 
+type PostsByYear = { year: number; posts: BlogPost[] }
 export default function BlogPage() {
-  const posts = getSortedPosts()
+
+  const postsByYear: PostsByYear[] = getSortedPosts().reduce(
+    (acc: PostsByYear[], post: BlogPost) => {
+      const year = new Date(post.date).getFullYear()
+      const yearGroup = acc.find(group => group.year === year)
+      if (yearGroup) {
+        yearGroup.posts.push(post)
+      } else {
+        acc.push({ year, posts: [post] })
+      }
+      return acc
+    },
+    []
+  )
 
   if (process.env.NODE_ENV === 'production') {
     return (
       <div className="py-20 text-center">
-        <h1 className='text-6xl text-primary font-mono uppercase tracking-widest'>Em breve...</h1>
+        <h1 className="text-6xl text-primary font-mono uppercase tracking-widest">
+          Em breve...
+        </h1>
       </div>
     )
   }
-  return (
-    <div>
-      <h1 className="text-4xl font-bold text-gray-800 mb-8">Blog</h1>
 
-      <div className="container mx-auto grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {posts.map(post => (
-          <BlogPostCard key={post.slug} post={post} />
+  return (
+    <div className="relative min-h-[calc(100vh-600px)] py-20 px-4">
+      <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-transparent to-black pointer-events-none"></div>
+      <div className="absolute left-0 top-full w-full h-[230px] bg-gradient-to-b from-black to-transparent"></div>
+
+      <div className="relative container mx-auto">
+        {postsByYear.map(({ year, posts }) => (
+          <div
+            key={year}
+            className="pb-10 mb-10 not-last:border-b border-b-white/10"
+          >
+            <div className="mb-6">
+              <h2 className="text-primary-light font-mono text-3xl">{year}</h2>
+            </div>
+            <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+              {posts.map(post => (
+                <BlogPostCard key={post.slug} post={post} />
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     </div>
