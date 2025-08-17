@@ -30,7 +30,7 @@ export default async function PostPage(props: {
 
   return (
       <div className="">
-        <div className="max-w-3xl w-full mx-auto flex flex-col relative pt-20 pb-10">
+        <div className="px-4 max-w-3xl w-full mx-auto flex flex-col relative pt-20 pb-10 mb-8 border-b border-white/20">
           <div className="flex gap-4">
             <p className="font-mono text-sm font-light mb-2">
               Lucas Pedroni,{' '}
@@ -41,7 +41,7 @@ export default async function PostPage(props: {
               })}
             </p>
           </div>{' '}
-          <h1 className="text-3xl font-mono font-bold text-white mb-6">
+          <h1 className="text-3xl font-mono font-bold text-white">
             {post.title}
           </h1>
         </div>
@@ -53,16 +53,16 @@ export default async function PostPage(props: {
         shadow-4xl
         relative
         group
-        py-4
+        p-4
     "
         >
           <div
-            className="relative max-w-none text-left prose prose-invert mx-auto"
+            className="relative max-w-none text-left prose prose-invert prose-headings:font-mono prose-headings:tracking-normal font-light font-serif tracking-wide mx-auto"
             dangerouslySetInnerHTML={{ __html: contentHtml }}
           ></div>
         </div>
 
-      <div className="max-w-3xl mx-auto pt-20">
+      <div className="max-w-5xl px-4 xl:px-20 border-t border-white/15  mx-auto pt-10 mt-10 -mb-10">
         <BlogAuthor></BlogAuthor>
       </div>
     </div>

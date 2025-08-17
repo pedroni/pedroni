@@ -3,7 +3,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import SwiperCore from 'swiper'
 import { Navigation } from 'swiper/modules'
-import { JetBrains_Mono, Merriweather, Montserrat } from 'next/font/google'
+import { Besley, JetBrains_Mono, Montserrat } from 'next/font/google'
 import './global.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
@@ -15,17 +15,17 @@ import Header from '../components/Header'
 // eslint-disable-next-line react-hooks/rules-of-hooks
 SwiperCore.use([Navigation])
 
-const jetbrainsMono = JetBrains_Mono({
+const mono = JetBrains_Mono({
   variable: '--font-mono',
   subsets: ['latin']
 })
 
-const merriweather = Merriweather({
+const serif = Besley({
   variable: '--font-serif',
   subsets: ['latin']
 })
 
-const montserrat = Montserrat({
+const sans = Montserrat({
   variable: '--font-sans',
   subsets: ['latin']
 })
@@ -96,7 +96,7 @@ export default function Layout(props: Readonly<{ children: ReactNode }>) {
         }}
       />
       <body
-        className={`${montserrat.variable} ${merriweather.variable} ${jetbrainsMono.variable} font-sans bg-[#0b0221]`}
+        className={`${sans.variable} ${serif.variable} ${mono.variable} font-sans bg-[#0b0221]`}
       >
         <div className="min-h-screen z-[1] relative max-w-full flex flex-col">
           <Header></Header>
