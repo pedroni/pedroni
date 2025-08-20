@@ -14,4 +14,30 @@ I had finally found a language that made me passionate again, C++, yes, C++. The
 
 I tried learning a few things here and there by looking up on Google, just like I did with Lua, but that wasn't enough with C++. The codebase was huge, and old it was written in the C++98 standard. Simply looking up on Google how to do certain things wasn't enough. I wanted to truly understand what I was reading. I want the same level of understanding that I have with PHP and JavaScript, where I could within a few minutes reading the source file I wanted to be able to understand and edit it, I don't want to simply edit a code and hope for the best.
 
+First I searched on the internet the best reasource to learn C++, there was several free resources and videos available scattered across many search results. I started a few, but soon gave up. Watching videos felt too slow because I already knew how to code. Eventually, I found a book "A Tour of C++" by Bjarne Stroustrup. This was new for me. I never read books to learn. So I thought why not give it a try?
 
+The book "A Tour of C++" was a good choice for me. There was both the challenge to learn a new programming language as well as reading. These two were enough to activate my brain and make me excited about what was comming next. In the book there was several things that I wasn't aware. The most confusing were the pointers and references, eventually I got the hang of it. It was nice to learn a new concept. Then I learned that we could create or own operators, for example I could write my own implementation for the `++` operator.
+
+```cpp
+TrafficLight& operator++(TrafficLight& t) {
+  switch (t) {
+    case TrafficLight::green: return t=TrafficLight::yellow;
+    case TrafficLight::yellow: return t=TrafficLight::red;
+    case TrafficLight::red: return t=TrafficLight::green;
+  }
+}
+
+TrafficLight next = ++light; // next becomes TrafficLight::green
+```
+
+Simply mind blowing.
+
+After getting a good grasp of the language I set up myself to practice. I didn't know exactly how to practice, but I always heard of "Binary Trees" and "Leet Code", but I never went far to see what that was about. But after hearing about these terms for so long I decided to give Leet Code a try, I was able to solve a few Easy problems, with toons of while loops and if statements, after submitting my solution, I'd look the other solutions, and oh boy, they were so short! Sure I was missing something, it was a nightmare for me to solve it. Then I started searching on how to solve Leet Code problems more easily because I was stuck, they felt way too complicated, I saw that the recommendation was to learn "DSA".
+
+DSA stands for Data Structures and Algorithms, something that one would have learnt at a college course. I skipped college. So that was one more challenge that I can face. Learning DSA. I saw that one of the topics was "Binary Trees" something that I always had heard of but never looked into. I watched a [Youtube video](https://www.youtube.com/watch?v=fAAZixBzIA), Binary Tree Algorithms from freeCodeCamp.org by AlvinTheProgrammer. The video was on JavaScript but it was enough so that I could "translate" it into C++. It was interesting, it was a topic about programming that I didn't know of, and that I would probably not pay attention if I were at a classroom. It was a good practice, I got my first segfault error.
+
+Now I'll continue on learning more about DSA, [I found this course on Udemy](https://www.udemy.com/course/data-structures-algorithms-python/) by Scott Barrett, the lessons are well presented, with nice smooth animations, the exercises are fun and challenging to do. At this point I was finally happy and passionate about programming again. Every step of learning C++ was a fun. I got my hobby back.
+
+Here's the first time I solved a problem on my own after learning the Tortoise and the Hare algorithm. Solving this made my day. The happines from solving this was trully rewarding.
+
+![Whiteboard Solution for Linked List Find Kth Node From End](https://github.com/pedroni/learning-cpp/blob/main/dsa/linked-list-find-kth-node-from-end.png)

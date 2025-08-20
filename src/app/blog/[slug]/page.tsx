@@ -57,7 +57,10 @@ export default async function PostPage(props: {
     "
         >
           <div
-            className="relative max-w-none text-left prose prose-invert prose-headings:font-mono prose-headings:tracking-normal font-light font-serif tracking-wide mx-auto"
+            className="relative max-w-none text-left prose prose-invert font-light font-serif tracking-wide mx-auto
+
+            prose-headings:font-mono prose-headings:tracking-normal
+            prose-a:font-light prose-a:text-[#dd7de3]"
             dangerouslySetInnerHTML={{ __html: contentHtml }}
           ></div>
         </div>
