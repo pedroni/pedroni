@@ -1,10 +1,15 @@
 import { BlogPost, getPostBySlug } from '../../../lib/blog'
-import { remark } from 'remark'
-import html from 'remark-html'
-import gfm from 'remark-gfm'
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypeStringify from 'rehype-stringify'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import { notFound } from 'next/navigation'
 import BlogAuthor from '../BlogAuthor'
 import TableOfContents from '../../../components/TableOfContents'
+import rehypeDocument from 'rehype-document'
+import rehypeFormat from 'rehype-format'
+import rehypeSlug from 'rehype-slug'
 
 interface Heading {
   id: string
@@ -23,17 +28,22 @@ export default async function PostPage(props: {
   try {
     post = getPostBySlug(slug)
 
-    // Process markdown content to HTML with GFM support
-    const processedContent = await remark()
-      .use(html)
-      .use(gfm)
-      .process(post.content)
-    contentHtml = processedContent
-      .toString()
-      .replace(/user-content-user-content-/g, 'user-content-')
+    // Process markdown content to HTML with GFM support and autolink headings
+    const processedContent = await unified()
+      .use(remarkParse)
+      .use(remarkRehype)
+      .use(rehypeFormat)
+      .use(rehypeSlug)
+      .use(rehypeAutolinkHeadings)
+      .use(rehypeStringify)
+      .process(post.content);
 
-    // Extract headings from markdown content
-    const headingProcessor = remark()
+    contentHtml = processedContent.toString()
+
+    // Extract headings from markdown content using the same unified processor
+    const headingProcessor = unified()
+      .use(remarkParse)
+
     const headingTree = headingProcessor.parse(post.content)
 
     headings = headingTree.children
