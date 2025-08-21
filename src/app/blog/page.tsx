@@ -3,7 +3,6 @@ import { BlogPost, getSortedPosts } from '../../lib/blog'
 
 type PostsByYear = { year: number; posts: BlogPost[] }
 export default function BlogPage() {
-
   const postsByYear: PostsByYear[] = getSortedPosts().reduce(
     (acc: PostsByYear[], post: BlogPost) => {
       const year = new Date(post.date).getFullYear()
@@ -18,6 +17,8 @@ export default function BlogPage() {
     []
   )
 
+  const firstPost = postsByYear[0].posts.shift()
+
   if (process.env.NODE_ENV === 'production') {
     return (
       <div className="py-20 text-center">
@@ -31,6 +32,20 @@ export default function BlogPage() {
   return (
     <div className="relative min-h-[calc(100vh-600px)] py-20 px-4">
       <div className="relative max-w-4xl mx-auto">
+        {firstPost && (
+          <div className="pb-10 mb-10 not-last:border-b border-b-white/10">
+            <div className="mb-6">
+              <h2 className="text-primary-light font-mono text-3xl">
+                Latest Post
+              </h2>
+            </div>
+            <div>
+
+              <BlogPostCard post={firstPost} />
+            </div>
+          </div>
+        )}
+
         {postsByYear.map(({ year, posts }) => (
           <div
             key={year}

@@ -12,7 +12,8 @@ export default function BlogPostCard({
     <a
       href={`/blog/${post.slug}`}
       className={classNames(
-        `rounded-2xl
+        `block
+        rounded-2xl
           border border-white/20
           shadow-lg
           relative
