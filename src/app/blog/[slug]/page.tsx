@@ -40,38 +40,38 @@ export default async function PostPage(props: {
       .use(rehypeSlug)
       .use(rehypeAutolinkHeadings)
       .use(() => (tree) => {
-        // Simple traversal to extract headings from the processed AST
-        const traverse = (node: any) => {
-          if (node.type === 'element' && (node.tagName === 'h2' || node.tagName === 'h3')) {
-            const id = node.properties?.id as string;
-            // Extract text content from all text nodes within the heading
-            let text = '';
-            const extractText = (childNode: any) => {
-              if (childNode.type === 'text') {
-                text += childNode.value;
-              } else if (childNode.children) {
-                childNode.children.forEach(extractText);
+        // Extract only top-level h2 headings from the processed AST
+        if (tree && tree.children && Array.isArray(tree.children)) {
+          extractedHeadings = tree.children
+            .filter((node: any) =>
+              node.type === 'element' &&
+              node.tagName === 'h2' &&
+              node.properties?.id
+            )
+            .map((node: any) => {
+              // Extract text content from direct text children only
+              let text = '';
+              if (node.children && Array.isArray(node.children)) {
+                node.children.forEach((child: any) => {
+                  if (child.type === 'text' && child.value) {
+                    text += child.value;
+                  }
+                });
               }
-            };
-            node.children?.forEach(extractText);
-            text = text.trim();
 
-            if (text && id) {
-              extractedHeadings.push({
-                id,
-                text,
-                level: parseInt(node.tagName.substring(1))
-              });
-            }
-          }
+              text = text.trim();
 
-          // Recursively traverse children
-          if (node.children) {
-            node.children.forEach(traverse);
-          }
-        };
-        
-        traverse(tree);
+              if (text) {
+                return {
+                  id: node.properties.id,
+                  text,
+                  level: 2
+                };
+              }
+              return null;
+            })
+            .filter(Boolean) as Heading[];
+        }
       })
       .use(rehypeStringify)
       .process(post.content);
