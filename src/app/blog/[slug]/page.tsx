@@ -7,9 +7,10 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import { notFound } from 'next/navigation'
 import BlogAuthor from '../BlogAuthor'
 import TableOfContents from '../../../components/TableOfContents'
-import rehypeDocument from 'rehype-document'
+
 import rehypeFormat from 'rehype-format'
 import rehypeSlug from 'rehype-slug'
+
 
 interface Heading {
   id: string
@@ -29,53 +30,54 @@ export default async function PostPage(props: {
     post = getPostBySlug(slug)
 
     // Process markdown content to HTML with GFM support and autolink headings
+    // while extracting headings during the processing phase
+    let extractedHeadings: Heading[] = [];
+
     const processedContent = await unified()
       .use(remarkParse)
       .use(remarkRehype)
       .use(rehypeFormat)
       .use(rehypeSlug)
       .use(rehypeAutolinkHeadings)
+      .use(() => (tree) => {
+        // Simple traversal to extract headings from the processed AST
+        const traverse = (node: any) => {
+          if (node.type === 'element' && (node.tagName === 'h2' || node.tagName === 'h3')) {
+            const id = node.properties?.id as string;
+            // Extract text content from all text nodes within the heading
+            let text = '';
+            const extractText = (childNode: any) => {
+              if (childNode.type === 'text') {
+                text += childNode.value;
+              } else if (childNode.children) {
+                childNode.children.forEach(extractText);
+              }
+            };
+            node.children?.forEach(extractText);
+            text = text.trim();
+
+            if (text && id) {
+              extractedHeadings.push({
+                id,
+                text,
+                level: parseInt(node.tagName.substring(1))
+              });
+            }
+          }
+
+          // Recursively traverse children
+          if (node.children) {
+            node.children.forEach(traverse);
+          }
+        };
+        
+        traverse(tree);
+      })
       .use(rehypeStringify)
       .process(post.content);
 
-    contentHtml = processedContent.toString()
-
-    // Extract headings from markdown content using the same unified processor
-    const headingProcessor = unified()
-      .use(remarkParse)
-
-    const headingTree = headingProcessor.parse(post.content)
-
-    headings = headingTree.children
-      .filter((node: any) => node.type === 'heading' && (node.depth === 2 || node.depth === 3))
-      .map((node: any) => {
-        // Extract text from all text nodes, including those nested in links, emphasis, etc.
-        const extractText = (children: any[]): string => {
-          return children.map((child: any) => {
-            if (child.type === 'text') {
-              return child.value
-            } else if (child.children && Array.isArray(child.children)) {
-              return extractText(child.children)
-            }
-            return ''
-          }).join('').trim()
-        }
-
-        const text = extractText(node.children)
-
-        const id = text.toLowerCase()
-          .replace(/[^a-z0-9\s]+/g, '') // Remove special characters first
-          .trim()
-          .replace(/\s+/g, '-') // Replace spaces with hyphens
-          .replace(/(^-|-$)/g, '') // Remove leading/trailing hyphens
-
-        return {
-          id,
-          text,
-          level: node.depth
-        }
-      })
-      .filter((heading: Heading) => heading.text.length > 0) // Filter out empty headings
+    contentHtml = processedContent.toString();
+    headings = extractedHeadings;
   } catch (error) {
     console.error('Error fetching post:', error)
     notFound()
