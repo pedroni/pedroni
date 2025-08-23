@@ -23,7 +23,7 @@ const HomeBanner = () => {
             srcSet="/img/banner/name.png 1x, /img/banner/name@2x.png 2x"
             alt="Lucas Pedroni, nome"
           />
-          <span className="subtitle">DESENVOLVEDOR FULL STACK</span>
+          <span className="text-primary font-extralight tracking-wider font-mono" >Software Engineer</span>
           <br />
 
           <Button
@@ -32,7 +32,7 @@ const HomeBanner = () => {
               scrollTo('#about')
             }
           >
-            Me conheça
+            About me
           </Button>
 
           <br />

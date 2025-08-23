@@ -93,20 +93,6 @@
   margin: 0 auto 32px;
 }
 
-.homeBannerRight :global(.subtitle) {
-  color: var(--color-primary);
-  font-size: 14px;
-  letter-spacing: 10px;
-  text-transform: uppercase;
-}
-
-@media (max-width: 768px) {
-  .homeBannerRight :global(.subtitle) {
-    font-size: 9px;
-    letter-spacing: 4px;
-  }
-}
-
 .homeBannerRight > :global(.button) {
   margin-top: 32px;
 }

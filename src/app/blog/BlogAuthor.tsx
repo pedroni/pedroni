@@ -1,3 +1,4 @@
+import { calculateYears } from '../../helpers'
 import BlogAuthorPicture from './BlogAuthorPicture'
 
 export default function BlogAuthor() {
@@ -10,9 +11,9 @@ export default function BlogAuthor() {
           Lucas Pedroni
         </div>
         <div className="font-serif tracking-wide font-light">
-          Especialista em desenvolvimento front-end (com um pézinho no
-          back-end). Desenvolvo software com atenção ao detalhe. Atualmente Team
-          Lead na{' '}
+          Front-end development specialist (with a foot in back-end). I develop software with attention to detail. Over{' '}
+          {calculateYears('2017-03-01')} years of experience. Currently Team
+          Lead at{' '}
           <a
             href="https://voxie.com"
             className="text-white font-bold"
@@ -21,8 +22,7 @@ export default function BlogAuthor() {
           >
             Voxie Inc.
           </a>{' '}
-          Onde eu oriento, planejo, reviso e desenvolvo uma plataforma de
-          automação de SMS Marketing.
+          an SMS automation platform.
         </div>
       </div>
     </div>

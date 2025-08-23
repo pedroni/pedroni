@@ -71,7 +71,6 @@ export const Header = () => {
           px-4
            lg:px-8
            ">
-          <HeaderLink href="/">Home</HeaderLink>
           <HeaderLink className="flex gap-2 items-center" href="/blog">
             Blog
           </HeaderLink>

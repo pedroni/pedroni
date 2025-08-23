@@ -1,4 +1,14 @@
 
+export const calculateYears = (fromDate: string) => {
+  const from = new Date(fromDate)
+  const today = new Date()
+  let years = today.getFullYear() - from.getFullYear()
+  const monthDiff = today.getMonth() - from.getMonth()
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < from.getDate())) {
+    years--
+  }
+  return years
+}
 
 export function scrollTo(selector: string, offset = 80) {
   let element: HTMLElement | null = null;

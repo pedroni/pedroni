@@ -1,15 +1,6 @@
 import React from 'react'
+import { calculateYears } from '../helpers'
 
-const calculateAge = (birthDate: string) => {
-  const birth = new Date(birthDate)
-  const today = new Date()
-  let age = today.getFullYear() - birth.getFullYear()
-  const monthDiff = today.getMonth() - birth.getMonth()
-  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
-    age--
-  }
-  return age
-}
 
 const contents = [
   {
@@ -19,9 +10,9 @@ const contents = [
     content: (
       <>
         Desde os 13 anos, apaixonado por programação. Tenho{' '}
-        {calculateAge('1997-03-30')} anos e trabalho com desenvolvimento de web
+        {calculateYears('1997-03-30')} anos e trabalho com desenvolvimento de web
         sites, web apps, apps híbridos além de sistemas sob-medida. Atualmente
-        sou Team Lead na Voxie Inc. Tenho mais de {calculateAge('2017-03-01')}{' '}
+        sou Team Lead na Voxie Inc. Tenho mais de {calculateYears('2017-03-01')}{' '}
         anos de experiência profissional em desenvolvimento full-stack.
       </>
     )
