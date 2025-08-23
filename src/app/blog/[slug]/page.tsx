@@ -46,9 +46,15 @@ export default async function PostPage(props: {
       .use(remarkParse)
       .use(remarkRehype)
       .use(rehypeFormat)
+      .use(rehypeShiki, {
+        themes: {
+          dark: 'gruvbox-dark-hard',
+          light: 'gruvbox-dark-hard',
+        },
+      })
       .use(rehypeSlug)
       .use(rehypeAddClasses, {
-        'h1, h2, h3, h4, h5, h6': 'group'
+        'h1, h2, h3, h4, h5, h6': 'group pl-4 -ml-4'
       })
       .use(rehypeAutolinkHeadings, {
         content() {
