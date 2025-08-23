@@ -7,13 +7,17 @@ import { Crimson_Pro, JetBrains_Mono, Quicksand } from 'next/font/google'
 import './global.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
-config.autoAddCss = false
+
 
 import Script from 'next/script'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import { NextIntlClientProvider } from 'next-intl'
+import { routing } from '../i18n/routing'
+
 // eslint-disable-next-line react-hooks/rules-of-hooks
 SwiperCore.use([Navigation])
+config.autoAddCss = false
 
 const mono = JetBrains_Mono({
   variable: '--font-mono',
@@ -30,10 +34,15 @@ const sans = Quicksand({
   subsets: ['latin']
 })
 
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({locale}));
+}
+
 // This default export is required in a new `pages/_app.js` file.
 export default function Layout(props: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang='en'>
+    <html lang="en">
       <head>
         <link
           rel="stylesheet"
@@ -68,11 +77,13 @@ export default function Layout(props: Readonly<{ children: ReactNode }>) {
       <body
         className={`${sans.variable} ${serif.variable} ${mono.variable} tracking-wider font-light font-sans bg-[url(/img/bg-pattern.jpg)] bg-repeat`}
       >
-        <div className="min-h-screen z-[1] relative max-w-full flex flex-col">
-          <Header></Header>
-          <div className="grow pt-32"> {props.children}</div>
-          <Footer />
-        </div>
+        <NextIntlClientProvider>
+          <div className="min-h-screen z-[1] relative max-w-full flex flex-col">
+            <Header></Header>
+            <div className="grow pt-32"> {props.children}</div>
+            <Footer />
+          </div>
+        </NextIntlClientProvider>
       </body>
     </html>
   )

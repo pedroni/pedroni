@@ -1,4 +1,4 @@
-import { calculateYears } from '../../helpers'
+import { calculateYears } from '../../../helpers'
 import BlogAuthorPicture from './BlogAuthorPicture'
 
 export default function BlogAuthor() {

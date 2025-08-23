@@ -10,8 +10,8 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import { unified } from 'unified'
 import rehypeShiki from '@shikijs/rehype'
-import TableOfContents from '../../../components/TableOfContents'
-import { BlogPost, getAllPostSlugs, getPostBySlug } from '../../../lib/blog'
+import TableOfContents from '../../../../components/TableOfContents'
+import { BlogPost, getAllPostSlugs, getPostBySlug } from '../../../../lib/blog'
 import BlogAuthor from '../BlogAuthor'
 
 interface Heading {

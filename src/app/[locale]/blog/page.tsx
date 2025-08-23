@@ -1,5 +1,5 @@
 import BlogPostCard from './BlogPostCard'
-import { BlogPost, getSortedPosts } from '../../lib/blog'
+import { BlogPost, getSortedPosts } from '../../../lib/blog'
 
 type PostsByYear = { year: number; posts: BlogPost[] }
 export default function BlogPage() {

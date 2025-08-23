@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { BlogPost } from '../../lib/blog'
+import { BlogPost } from '../../../lib/blog'
 
 export default function BlogPostCard({
   post,

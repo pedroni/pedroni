@@ -2,8 +2,10 @@ import React from 'react'
 import Button from './Button'
 import { scrollTo } from '../helpers'
 import styles from './HomeBanner.module.css'
+import { useTranslations } from 'next-intl'
 
 const HomeBanner = () => {
+  const t = useTranslations('HomeBanner');
   return (
     <section className={styles.homeBanner}>
       <div>
@@ -23,7 +25,9 @@ const HomeBanner = () => {
             srcSet="/img/banner/name.png 1x, /img/banner/name@2x.png 2x"
             alt="Lucas Pedroni, nome"
           />
-          <span className="text-primary font-extralight tracking-wider font-mono" >Software Engineer</span>
+          <span className="text-primary font-extralight tracking-wider font-mono" >
+            {t('title')}
+          </span>
           <br />
 
           <Button
