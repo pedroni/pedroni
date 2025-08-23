@@ -11,6 +11,7 @@ import TableOfContents from '../../../components/TableOfContents'
 import rehypeFormat from 'rehype-format'
 import rehypeSlug from 'rehype-slug'
 import classNames from 'classnames'
+import { h } from 'hastscript'
 
 interface Heading {
   id: string
@@ -88,7 +89,7 @@ export default async function PostPage(props: {
     <div className="flex flex-col lg:flex-row">
       {/* Main content */}
       <div className="flex-1 max-w-[991px] mx-auto">
-        <div className="px-4 w-full flex flex-col relative pt-20 pb-10 mb-8 border-b border-dashed border-white/15">
+        <div className="w-full flex flex-col relative pt-20 mb-8">
           <div className="flex gap-4">
             <p className="font-mono text-sm font-light mb-2">
               Lucas Pedroni,{' '}
@@ -102,6 +103,11 @@ export default async function PostPage(props: {
           <h1 className="text-3xl font-mono font-light text-primary">
             {post.title}
           </h1>
+          <div className="overflow-hidden w-full mt-4 flex gap-2 h-4">
+            {Array.from({ length: 70 }).map((_, index) => (
+              <div key={index} className="shrink-0 h-px w-2 bg-white/20"></div>
+            ))}
+          </div>
         </div>
 
         <div
@@ -133,6 +139,7 @@ export default async function PostPage(props: {
             lg:prose-img:w-full
 
             prose-headings:border-b
+            prose-headings:border-dashed
             prose-headings:border-white/10
             prose-headings:font-light
             prose-headings:pb-3
@@ -145,11 +152,16 @@ export default async function PostPage(props: {
             dangerouslySetInnerHTML={{ __html: contentHtml }}
           ></div>
 
-            <div className="hidden xl:block col-span-1">
-              <TableOfContents className="sticky top-10" headings={headings} />
-            </div>
+          <div className="hidden xl:block col-span-1">
+            <TableOfContents className="sticky top-10" headings={headings} />
+          </div>
         </div>
-        <div className="w-full px-4 xl:px-20 border-t border-white/15 mx-auto pt-10 mt-10 -mb-10">
+        <div className="overflow-hidden w-full mt-20 flex gap-2 h-4">
+          {Array.from({ length: 70 }).map((_, index) => (
+            <div key={index} className="shrink-0 h-px w-2 bg-white/20"></div>
+          ))}
+        </div>
+        <div className="w-full px-4 xl:px-20 mx-auto pt-10 ">
           <BlogAuthor></BlogAuthor>
         </div>
       </div>

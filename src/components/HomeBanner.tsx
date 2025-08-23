@@ -10,6 +10,7 @@ const HomeBanner = () => {
         <div className="w-full h-screen absolute left-0 top bg-gradient-to-t from-black to-transparent"></div>
         <div className={styles.homeBannerLeft}>
           <img
+          className='opacity-50'
             src="/img/banner/me.png"
             srcSet="/img/banner/me.png 1x, /img/banner/me@2x.png 2x"
             alt="Lucas Pedroni, foto de perfil"
