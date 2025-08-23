@@ -10,13 +10,20 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import { unified } from 'unified'
 import TableOfContents from '../../../components/TableOfContents'
-import { BlogPost, getPostBySlug } from '../../../lib/blog'
+import { BlogPost, getAllPostSlugs, getPostBySlug } from '../../../lib/blog'
 import BlogAuthor from '../BlogAuthor'
 
 interface Heading {
   id: string
   text: string
   level: number
+}
+
+export async function generateStaticParams() {
+  const slugs = getAllPostSlugs();
+  return slugs.map((slug) => ({
+    slug,
+  }))
 }
 
 export default async function PostPage(props: {

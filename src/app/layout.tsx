@@ -26,7 +26,8 @@ const serif = Crimson_Pro({
 })
 
 const sans = Quicksand({
-  variable: '--font-sans'
+  variable: '--font-sans',
+  subsets: ['latin']
 })
 
 // This default export is required in a new `pages/_app.js` file.
