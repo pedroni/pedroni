@@ -2,7 +2,7 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faCopyright } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { SocialButton } from './SocialButton'
-import { Logo } from '../../Logo'
+import { Logo } from './Logo'
 import Link from 'next/link'
 
 const Footer = () => {

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { MouseEvent, ReactNode } from 'react'
 import classNames from 'classnames'
-import { Logo } from '../../Logo'
+import { Logo } from './Logo'
 import { SocialButton } from './SocialButton'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 

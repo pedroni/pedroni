@@ -1,4 +1,9 @@
-export function Logo() {
+import { SVGProps } from 'react'
+
+const light = '#ff8904'
+const dark = '#bb4d00'
+
+export function Logo(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       version="1.1"
@@ -6,10 +11,11 @@ export function Logo() {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 445 356"
       // @ts-ignore
-      style={{ enableBackground: "new 0 0 445 356" }}
+      style={{ enableBackground: 'new 0 0 445 356' }}
       xmlSpace="preserve"
+      {...props}
     >
-      <style>
+      <style style={{ display: 'none' }}>
         {`
           .st0{fill:url(#XMLID_2_);}
           .st1{fill:url(#XMLID_3_);}
@@ -26,11 +32,11 @@ export function Logo() {
         x2="229.0138"
         y2="281.5992"
       >
-        <stop offset="0" style={{ stopColor: "var(--color-primary-light)" }} />
-        <stop offset="1" style={{ stopColor: "var(--color-primary-dark)" }} />
+        <stop offset="0" style={{ stopColor: light }} />
+        <stop offset="1" style={{ stopColor: dark }} />
       </linearGradient>
       <path
-        id="XMLID_61_"
+        fill={light}
         className="st0"
         d="M100.35,328.45h-50c-27.61,0-50-22.39-50-50v-250h50c27.61,0,50,22.39,50,50V328.45z"
       />
@@ -42,11 +48,11 @@ export function Logo() {
         x2="440.0367"
         y2="269.1633"
       >
-        <stop offset="0" style={{ stopColor: "var(--color-primary-light)" }} />
-        <stop offset="1" style={{ stopColor: "var(--color-primary-dark)" }} />
+        <stop offset="0" style={{ stopColor: light }} />
+        <stop offset="1" style={{ stopColor: dark }} />
       </linearGradient>
       <path
-        id="XMLID_60_"
+        fill={light}
         className="st1"
         d="M279.73,326.61h-50v-250c0-27.61,22.39-50,50-50h50v250
           C329.73,304.22,307.34,326.61,279.73,326.61z"
@@ -59,11 +65,11 @@ export function Logo() {
         x2="270.9682"
         y2="341.6059"
       >
-        <stop offset="0" style={{ stopColor: "var(--color-primary-light)" }} />
-        <stop offset="1" style={{ stopColor: "var(--color-primary-dark)" }} />
+        <stop offset="0" style={{ stopColor: light }} />
+        <stop offset="1" style={{ stopColor: dark }} />
       </linearGradient>
       <path
-        id="XMLID_41_"
+        fill={light}
         className="st2"
         d="M157.93,355.45h-42.9v-150h100v92.9C215.04,329.88,189.47,355.45,157.93,355.45z"
       />
@@ -75,11 +81,11 @@ export function Logo() {
         x2="518.1743"
         y2="157.5147"
       >
-        <stop offset="0" style={{ stopColor: "var(--color-primary-light)" }} />
-        <stop offset="1" style={{ stopColor: "var(--color-primary-dark)" }} />
+        <stop offset="0" style={{ stopColor: light }} />
+        <stop offset="1" style={{ stopColor: dark }} />
       </linearGradient>
       <path
-        id="XMLID_40_"
+        fill={light}
         className="st3"
         d="M444.42,150.5h-100V0.5h50c27.61,0,50,22.39,50,50V150.5z"
       />
@@ -91,16 +97,10 @@ export function Logo() {
         x2="481.2791"
         y2="328.5975"
       >
-        <stop offset="0" style={{ stopColor: "var(--color-primary-light)" }} />
-        <stop offset="1" style={{ stopColor: "var(--color-primary-dark)" }} />
+        <stop offset="0" style={{ stopColor: light }} />
+        <stop offset="1" style={{ stopColor: dark }} />
       </linearGradient>
-      <circle
-        id="XMLID_39_"
-        className="st4"
-        cx="394.42"
-        cy="278.45"
-        r="50"
-      />
+      <circle fill={light} className="st4"  cx="394.42" cy="278.45" r="50" />
     </svg>
-  );
+  )
 }
