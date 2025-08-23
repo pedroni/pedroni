@@ -49,6 +49,8 @@ export const Header = () => {
      w-[calc(100%-32px)]
      lg:w-auto
      lg:top-10
+
+     print:hidden
       "
     >
       <div

@@ -1,17 +1,17 @@
-import { BlogPost, getPostBySlug } from '../../../lib/blog'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import { notFound } from 'next/navigation'
-import BlogAuthor from '../BlogAuthor'
-import TableOfContents from '../../../components/TableOfContents'
-
-import rehypeFormat from 'rehype-format'
-import rehypeSlug from 'rehype-slug'
 import classNames from 'classnames'
 import { h } from 'hastscript'
+import { notFound } from 'next/navigation'
+import rehypeAddClasses from 'rehype-add-classes'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeFormat from 'rehype-format'
+import rehypeSlug from 'rehype-slug'
+import rehypeStringify from 'rehype-stringify'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import { unified } from 'unified'
+import TableOfContents from '../../../components/TableOfContents'
+import { BlogPost, getPostBySlug } from '../../../lib/blog'
+import BlogAuthor from '../BlogAuthor'
 
 interface Heading {
   id: string
@@ -39,13 +39,17 @@ export default async function PostPage(props: {
       .use(remarkRehype)
       .use(rehypeFormat)
       .use(rehypeSlug)
+      .use(rehypeAddClasses, {
+        'h1, h2, h3, h4, h5, h6': 'group'
+      })
       .use(rehypeAutolinkHeadings, {
         content() {
           return [
             h(
               'div',
               {
-                class: 'social-button absolute right-full top-2 text-base px-2.5! transition opacity-0 group-hover:opacity-100'
+                class:
+                  'no-underline rounded-lg py-1 border bg-white/10 border-white/20 absolute right-full top-2 text-base px-2.5 transition opacity-0 group-hover:opacity-100'
               },
               '🔗'
             )
@@ -62,7 +66,7 @@ export default async function PostPage(props: {
                 node.tagName === 'h2' &&
                 node.properties?.id
             )
-            .map((node: any) => {
+            .map((node: any): Heading | null => {
               // Extract text content from direct text children only
               let text = ''
               if (node.children && Array.isArray(node.children)) {
@@ -84,7 +88,7 @@ export default async function PostPage(props: {
               }
               return null
             })
-            .filter(Boolean) as Heading[]
+            .filter(Boolean)
         }
       })
       .use(rehypeStringify)
@@ -103,7 +107,7 @@ export default async function PostPage(props: {
       <div className="flex-1 max-w-[991px] mx-auto">
         <div className="w-full flex flex-col relative pt-20 mb-8">
           <div className="flex gap-4">
-            <p className="font-mono text-sm font-light mb-2">
+            <p className="font-mono text-sm font-light mb-2 not-print:opacity-60">
               Lucas Pedroni,{' '}
               {new Date(post.date).toLocaleDateString('en-US', {
                 month: 'long',
@@ -111,8 +115,8 @@ export default async function PostPage(props: {
                 year: 'numeric'
               })}
             </p>
-          </div>{' '}
-          <h1 className="text-3xl font-mono font-light text-primary">
+          </div>
+          <h1 className="text-5xl font-mono font-light text-primary">
             {post.title}
           </h1>
           <div className="overflow-hidden w-full mt-4 flex gap-2 h-4">
@@ -125,21 +129,20 @@ export default async function PostPage(props: {
         <div
           className="
           grid
-        xl:grid-cols-4
+          xl:grid-cols-4
           gap-10
           mx-auto
-        w-full
-        relative
-    "
+          w-full
+          relative
+        "
         >
           <div
             className={classNames(`
-              col-span-3
+            col-span-3
             relative max-w-none text-left prose prose-invert font-extralight tracking-wide mx-auto
 
             font-serif
             text-2xl
-
 
             px-6
             prose-img:-mx-6

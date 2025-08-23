@@ -7,7 +7,7 @@ export default function BlogAuthorPicture(props: {
   return (
     <div
       className={classNames(
-        'rounded-full shrink-0 p-0.5 border overflow-hidden shadow-lg transition border-primary-light shadow-primary-light/30  hover:shadow-primary-light/80',
+        'rounded-full shrink-0 p-0.5 border overflow-hidden shadow-lg transition border-primary-light shadow-primary-light/30 group hover:shadow-primary-light/80',
         props.className
       )}
       style={{
@@ -17,7 +17,7 @@ export default function BlogAuthorPicture(props: {
     >
       <img
         src="/img/lucas-pedroni-profile.jpeg"
-        className="rounded-full"
+        className="rounded-full transition opacity-60 group-hover:opacity-100"
         alt="Lucas Pedroni Profile Picture"
       ></img>
     </div>
