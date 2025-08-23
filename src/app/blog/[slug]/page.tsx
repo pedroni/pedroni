@@ -9,6 +9,7 @@ import rehypeStringify from 'rehype-stringify'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import { unified } from 'unified'
+import rehypeShiki from '@shikijs/rehype'
 import TableOfContents from '../../../components/TableOfContents'
 import { BlogPost, getAllPostSlugs, getPostBySlug } from '../../../lib/blog'
 import BlogAuthor from '../BlogAuthor'
@@ -56,7 +57,7 @@ export default async function PostPage(props: {
               'div',
               {
                 class:
-                  'no-underline rounded-lg py-1 border bg-white/10 border-white/20 absolute right-full top-2 text-base px-2.5 transition opacity-0 group-hover:opacity-100'
+                  'no-underline rounded-lg py-1 border bg-white/10 border-white/20 absolute right-full top-0 text-base px-2.5 transition opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0'
               },
               '🔗'
             )
@@ -148,8 +149,6 @@ export default async function PostPage(props: {
             col-span-3
             relative max-w-none text-left prose prose-invert font-extralight tracking-wide mx-auto
 
-            font-serif
-            text-2xl
 
             px-6
             prose-img:-mx-6
@@ -166,11 +165,16 @@ export default async function PostPage(props: {
             prose-headings:border-white/10
             prose-headings:font-light
             prose-headings:pb-3
-            [&_a]:no-underline
+            [&_h1,h2,h3,h4,h5,h6_a]:no-underline
             prose-headings:text-orange-400
             prose-headings:font-mono prose-headings:tracking-normal
 
-            prose-a:font-extralight prose-a:text-primary prose-a:underline
+            prose-p:font-serif
+            prose-p:text-2xl
+
+            [&_p_code]:text-lg
+
+            prose-a:font-extralight prose-a:text-primary
 
             `)}
             dangerouslySetInnerHTML={{ __html: contentHtml }}
