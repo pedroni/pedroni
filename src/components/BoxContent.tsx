@@ -1,7 +1,7 @@
 import React from 'react'
 
 const BoxContent = ({ children }) => {
-  return <div className="text-base leading-7">{children}</div>
+  return <div className="text-base prose prose-invert max-w-full">{children}</div>
 }
 
 export default BoxContent

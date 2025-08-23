@@ -1,5 +1,25 @@
 {
   "HomeBanner": {
     "title": "Desenvolvedor de Software"
+  },
+  "HomeAboutContent": {
+    "ola": {
+      "label": "Sobre",
+      "title": "Olá, me chamo Lucas Pedroni",
+      "content": "Desde os 13 anos, apaixonado por programação. Tenho {age, number} anos e trabalho com desenvolvimento de web sites, web apps, apps híbridos além de sistemas sob-medida. Atualmente sou Team Lead na Voxie Inc. Tenho mais de {experience, number} anos de experiência profissional em desenvolvimento full-stack."
+    },
+    "estudos": {
+      "label": "Estudos",
+      "title": "Em constante aprendizado",
+      "content": "Hoje estou estudando **C++** por hobby. Acompanhe meu progresso em: [pedroni/learning-cpp](https://github.com/pedroni/learning-cpp) onde coloco os algoritimos que estou aprendendo. Documento cada parte através de comentários no código e também com step-by-step em diagramas/whiteboard digital.\n\nTambém tenho sólidos conhecimentos em diversas tecnologias como JavaScript, React, Vue, Angular, HTML, CSS, PHP, Laravel, MySQL, Servidores Linux, Docker, AWS."
+    },
+    "objetivos": {
+      "label": "Objetivos",
+      "title": "Entregar sempre o melhor",
+      "content": "Busco sempre evoluir em meu trabalho, e, por isso, meus objetivos também estão sempre mudando. Mas um deles é certo: entregar sempre o melhor. Para mim, não basta apenas entregar, quero sempre entregar o melhor que posso oferecer."
+    }
+  },
+  "HomeAbout": {
+    "contactButton": "Entre em contato comigo"
   }
 }

@@ -1,5 +1,25 @@
 {
   "HomeBanner": {
     "title": "Software Engineer"
+  },
+  "HomeAboutContent": {
+    "ola": {
+      "label": "About",
+      "title": "Hello, I'm Lucas Pedroni",
+      "content": "Passionate about programming since I was 13 years old. I'm {age, number} years old and I work with web development, web apps, hybrid apps, and custom systems. Currently I'm a Team Lead at Voxie Inc. I have more than {experience, number} years of professional experience in software development."
+    },
+    "estudos": {
+      "label": "Studies",
+      "title": "Constantly learning",
+      "content": "Today I'm studying **C++** as a hobby. Follow my progress at: [pedroni/learning-cpp](https://github.com/pedroni/learning-cpp) where I put the algorithms I'm learning. I document each part through code comments and also with step-by-step digital diagrams/whiteboard.\n\nI also have solid knowledge in various technologies like JavaScript, React, Vue, Angular, HTML, CSS, PHP, Laravel, MySQL, Linux Servers, Docker, AWS."
+    },
+    "objetivos": {
+      "label": "Goals",
+      "title": "Always deliver the best",
+      "content": "I always seek to evolve in my field, and therefore, my goals are also always changing. But one of them is certain: always deliver the best. For me, it's not enough to just deliver, I always want to deliver the best I can offer."
+    }
+  },
+  "HomeAbout": {
+    "contactButton": "Contact me"
   }
 }

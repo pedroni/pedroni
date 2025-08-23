@@ -5,15 +5,19 @@ import Box from './Box'
 import BoxContent from './BoxContent'
 import BoxList from './BoxList'
 import Button from './Button'
-import HomeAboutContent, { getByKey } from './HomeAboutContent'
+import { useHomeAboutContent } from './HomeAboutContent'
 import Title from './Title'
 import useMobile from '../hooks/useMobile'
 import { scrollTo } from '../helpers'
+import { useTranslations } from 'next-intl'
 
 const HomeAbout = () => {
   const [activeListKey, setActiveListKey] = useState('ola')
   const isMobile = useMobile()
-  const content = useMemo(() => getByKey(activeListKey), [activeListKey])
+  const { getContentWithHtml, getAllContent } = useHomeAboutContent()
+  const t = useTranslations('HomeAbout')
+  const content = useMemo(() => getContentWithHtml(activeListKey), [activeListKey, getContentWithHtml])
+  const list = getAllContent()
   const onListItemSelected = key => setActiveListKey(key)
 
   if (!content) {
@@ -27,6 +31,7 @@ const HomeAbout = () => {
           <HomeAboutAside
             activeListKey={activeListKey}
             onListItemSelected={onListItemSelected}
+            list={list}
           />
         )
       }
@@ -36,22 +41,21 @@ const HomeAbout = () => {
         <HomeAboutAside
           activeListKey={activeListKey}
           onListItemSelected={onListItemSelected}
+          list={list}
         />
       )}
+
       <BoxContent>
-        {content.content}
-        <br />
-        <br />
-        <Button onClick={() => scrollTo('#contact')}>Entre em contato comigo</Button>
+        <div dangerouslySetInnerHTML={{ __html: content.content }} />
+        <Button className='mt-6' onClick={() => scrollTo('#contact')}>{t('contactButton')}</Button>
       </BoxContent>
     </Box>
   )
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
-const HomeAboutAside = ({ activeListKey, onListItemSelected = key => {} }) => {
-  const list = HomeAboutContent
-  const content = useMemo(() => getByKey(activeListKey) || {}, [activeListKey])
+const HomeAboutAside = ({ activeListKey, onListItemSelected = key => {}, list }) => {
+  const content = useMemo(() => list.find(item => item.key === activeListKey) || {}, [activeListKey, list])
 
   const _onListItemSelected = content => onListItemSelected(content?.key)
 

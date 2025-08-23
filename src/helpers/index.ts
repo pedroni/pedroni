@@ -1,4 +1,5 @@
 import remarkHtml from 'remark-html'
+import remarkParse from 'remark-parse'
 import { unified } from 'unified'
 
 export const calculateYears = (fromDate: string) => {
@@ -9,7 +10,8 @@ export const calculateYears = (fromDate: string) => {
   if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < from.getDate())) {
     years--
   }
-  return years
+
+  return years;
 }
 
 export function scrollTo(selector: string, offset = 80) {
@@ -42,13 +44,7 @@ export function markdownToHtml(markdown?: string): string {
     return ''
   }
 
-  try {
-    const processor = unified().use(remarkHtml)
-    return processor
-      .processSync(markdown)
-      .toString()
-      .replaceAll('<a ', '<a target="_blank" ')
-  } catch {
-    return ''
-  }
+  const processed = unified().use(remarkParse).use(remarkHtml).processSync(markdown)
+
+  return processed.toString().replaceAll('<a ', '<a target="_blank" ')
 }
