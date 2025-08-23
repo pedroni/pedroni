@@ -40,7 +40,7 @@ const HomeContactForm = props => {
             marginTop: 64,
             textAlign: 'center',
             whiteSpace: 'pre-wrap',
-            color: 'var(--color-secondary-light)'
+            color: 'var(--color-primary)'
           }}
         >
           {messageSent}

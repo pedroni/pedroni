@@ -3,6 +3,9 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { MouseEvent, ReactNode } from 'react'
 import classNames from 'classnames'
+import { Logo } from '../../Logo'
+import { SocialButton } from './SocialButton'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 const HeaderLink = (props: {
   href: string
@@ -28,7 +31,7 @@ const HeaderLink = (props: {
         {props.children}
 
         {active && (
-          <div className="absolute w-[calc(100%-20px)] h-px bg-primary-light left-2.5 bottom-px"></div>
+          <div className="absolute w-[calc(100%-20px)] h-px bg-primary left-2.5 bottom-px"></div>
         )}
       </Link>
     </div>
@@ -38,11 +41,14 @@ const HeaderLink = (props: {
 export const Header = () => {
   return (
     <header
-      className="  z-10 mt-6 rounded-2xl  mx-auto px-12
+      className=" z-10 rounded-2xl  mx-auto px-12
      border border-white/20
      shadow-2xl
-     fixed left-1/2 -translate-x-1/2 top-4
-     h-16
+     fixed left-1/2 -translate-x-1/2
+     top-2
+     w-[calc(100%-32px)]
+     lg:w-auto
+     lg:top-10
       "
     >
       <div
@@ -50,42 +56,36 @@ export const Header = () => {
         backdrop-blur-2xl bg-white/5
         rounded-xl"
       ></div>
-      <div className="h-16 relative gap-8 flex items-center justify-center">
-        <Link href="/">
-          <img width={50} src="/img/isotipo.svg" alt="logo pedroni.dev" />
+      <div className="relative gap-4 flex items-center justify-center
+
+        h-14
+        lg:h-16">
+        <Link href="/" className='shrink-0 w-10 pr-1 lg:w-20 lg:pr-8'>
+          <Logo></Logo>
         </Link>
-        <nav className="h-full flex font-mono">
+        <nav className="h-full border-x border-white/10
+           flex font-mono
+
+          px-4
+           lg:px-8
+           ">
           <HeaderLink href="/">Home</HeaderLink>
           <HeaderLink className="flex gap-2 items-center" href="/blog">
             Blog
           </HeaderLink>
         </nav>
-        <ul className="flex items-center gap-2">
-          <li>
-            <a
-              target="_blank"
-              href="http://github.com/pedroni"
-              rel="noreferrer"
-            >
-              <img width="19" height="19" src="/icon/github.svg" alt="" />
-            </a>
-          </li>
 
-          <li>
-            <a
-              target="_blank"
-              href="https://www.linkedin.com/in/lucaspedroni/"
-              rel="noreferrer"
-            >
-              <img width="17" height="17" src="/icon/linkedin.svg" alt="" />
-            </a>
-          </li>
-          <li>
-            <a target="_blank" href="mailto:lucas@pedroni.dev" rel="noreferrer">
-              <img width="19" height="14" src="/icon/mail.svg" alt="" />
-            </a>
-          </li>
-        </ul>
+        <div className='flex'>
+          <SocialButton
+            href="https://www.linkedin.com/in/lucaspedroni/"
+            icon={faLinkedin}
+          ></SocialButton>
+          <SocialButton
+            href="https://github.com/pedroni"
+            icon={faGithub}
+          ></SocialButton>
+
+        </div>
       </div>
     </header>
   )

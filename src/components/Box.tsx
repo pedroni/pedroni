@@ -15,7 +15,7 @@ const Box = ({
   return (
     <section
       className={classNames(
-        'relative mx-auto w-[var(--container-width)] max-w-full flex justify-center [&_a]:font-semibold [&_a]:text-secondary-light',
+        'relative mx-auto w-[var(--container-width)] max-w-full flex justify-center [&_a]:font-semibold [&_a]:text-primary',
         {
           'xl:justify-end': direction.includes('right')
         },
@@ -25,7 +25,7 @@ const Box = ({
     >
       <div
         className={classNames(
-          'w-full p-[calc(var(--box-padding)_*_2)] rounded-md md:shadow-lg xl:w-[80%] xl:flex xl:flex-col xl:p-[var(--box-padding)]',
+          'w-full p-[calc(var(--box-padding)_*_2)]  md:shadow-lg xl:w-[80%] xl:flex xl:flex-col xl:p-[var(--box-padding)]',
           {
             'rounded-tr-3xl':
               direction.includes('top') && direction.includes('right'),

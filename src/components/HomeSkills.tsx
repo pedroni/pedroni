@@ -22,7 +22,6 @@ const HomeSkills = props => {
     >
       <Title
         direction="right"
-        color="secondary"
         subTitle="Conhecimentos"
         title={<h2>Desenvolvedor full stack</h2>}
       />

@@ -10,6 +10,7 @@ import TableOfContents from '../../../components/TableOfContents'
 
 import rehypeFormat from 'rehype-format'
 import rehypeSlug from 'rehype-slug'
+import classNames from 'classnames'
 
 interface Heading {
   id: string
@@ -87,7 +88,7 @@ export default async function PostPage(props: {
     <div className="flex flex-col lg:flex-row">
       {/* Main content */}
       <div className="flex-1 max-w-[991px] mx-auto">
-        <div className="px-4 w-full flex flex-col relative pt-20 pb-10 mb-8 border-b border-white/20">
+        <div className="px-4 w-full flex flex-col relative pt-20 pb-10 mb-8 border-b border-dashed border-white/15">
           <div className="flex gap-4">
             <p className="font-mono text-sm font-light mb-2">
               Lucas Pedroni,{' '}
@@ -98,7 +99,7 @@ export default async function PostPage(props: {
               })}
             </p>
           </div>{' '}
-          <h1 className="text-3xl font-mono font-bold text-white">
+          <h1 className="text-3xl font-mono font-light text-primary">
             {post.title}
           </h1>
         </div>
@@ -106,34 +107,48 @@ export default async function PostPage(props: {
         <div
           className="
           grid
-          grid-cols-4
+        xl:grid-cols-4
           gap-10
           mx-auto
         w-full
         relative
         group
-        p-4
-
     "
         >
           <div
-            className="
-            col-span-3
+            className={classNames(`
+              col-span-3
             relative max-w-none text-left prose prose-invert font-extralight tracking-wide mx-auto
 
             font-serif
-            text-xl
-            prose-headings:text-fuchsia-400
+            text-2xl
+
+
+            px-6
+            prose-img:-mx-6
+            prose-img:max-w-[calc(100%+48px)]!
+            lg:px-0
+            lg:prose-img:mx-0
+            lg:prose-img:max-w-full
+            lg:prose-img:w-full
+
+            prose-headings:border-b
+            prose-headings:border-white/10
+            prose-headings:font-light
+            prose-headings:pb-3
+            prose-headings:text-orange-400
             prose-headings:font-mono prose-headings:tracking-normal
-            prose-a:font-extralight prose-a:text-violet-400"
+
+            prose-a:font-extralight prose-a:text-primary
+
+            `)}
             dangerouslySetInnerHTML={{ __html: contentHtml }}
           ></div>
-          {/* Sidebar with Table of Contents */}
-          <div className="col-span-1">
-              <TableOfContents className='sticky top-10' headings={headings} />
-          </div>
-        </div>
 
+            <div className="hidden xl:block col-span-1">
+              <TableOfContents className="sticky top-10" headings={headings} />
+            </div>
+        </div>
         <div className="w-full px-4 xl:px-20 border-t border-white/15 mx-auto pt-10 mt-10 -mb-10">
           <BlogAuthor></BlogAuthor>
         </div>

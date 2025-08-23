@@ -1,4 +1,4 @@
-import { faBookmark, faFolderOpen } from "@fortawesome/free-regular-svg-icons"
+import { faFolderOpen } from "@fortawesome/free-regular-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 export interface Heading {
@@ -25,12 +25,12 @@ export default function TableOfContents({
       <h3 className="font-mono text-xs font-extralight mb-2">
         <FontAwesomeIcon icon={faFolderOpen} fixedWidth></FontAwesomeIcon> Table of Contents
       </h3>
-      <nav className="flex flex-col gap-2 pl-[18px] py-2 ml-2 border-l border-l-white/10">
+      <nav className="flex flex-col gap-3 pl-[18px] py-2 ml-2 border-l border-l-white/10">
         {headings.map(heading => (
           <a
             key={heading.id}
             href={`#${heading.id}`}
-            className={`block font-extralight text-sm transition-all underline decoration-white/20 decoration-1 hover:translate-x-2 text-violet-300`}
+            className={`block font-extralight text-sm transition-all underline decoration-white/20 decoration-1 hover:translate-x-2 text-primary`}
             style={{
               marginLeft: `${heading.level - 1 * 4}px`
             }}

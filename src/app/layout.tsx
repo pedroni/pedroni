@@ -3,7 +3,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import SwiperCore from 'swiper'
 import { Navigation } from 'swiper/modules'
-import { Besley, JetBrains_Mono, Montserrat } from 'next/font/google'
+import { Crimson_Pro, JetBrains_Mono, Quicksand } from 'next/font/google'
 import './global.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
@@ -20,14 +20,13 @@ const mono = JetBrains_Mono({
   subsets: ['latin']
 })
 
-const serif = Besley({
+const serif = Crimson_Pro({
   variable: '--font-serif',
   subsets: ['latin']
 })
 
-const sans = Montserrat({
-  variable: '--font-sans',
-  subsets: ['latin']
+const sans = Quicksand({
+  variable: '--font-sans'
 })
 
 // This default export is required in a new `pages/_app.js` file.
@@ -96,7 +95,7 @@ export default function Layout(props: Readonly<{ children: ReactNode }>) {
         }}
       />
       <body
-        className={`${sans.variable} ${serif.variable} ${mono.variable} font-sans bg-[#0b0221]`}
+        className={`${sans.variable} ${serif.variable} ${mono.variable} tracking-wider font-light font-sans bg-[url(/img/bg-pattern.jpg)] bg-repeat`}
       >
         <div className="min-h-screen z-[1] relative max-w-full flex flex-col">
           <Header></Header>

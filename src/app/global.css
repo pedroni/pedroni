@@ -2,15 +2,10 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-primary: #7f20ac;
-  --color-primary-light: #af14b8;
-  --color-primary-dark: #5929a3;
+  --color-primary: var(--color-orange-400);
+  --color-primary-light: var(--color-orange-400);
+  --color-primary-dark: var(--color-amber-700);
   --color-primary-contrast: #ffffff;
-
-  --color-secondary: #4bb200;
-  --color-secondary-light: #5ede00;
-  --color-secondary-dark: #44910d;
-  --color-secondary-contrast: #ffffff;
 }
 
 :root {

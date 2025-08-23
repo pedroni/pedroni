@@ -25,7 +25,6 @@ const Home = () => {
 
   return (
     <>
-      <div className='absolute bg-[url(/img/background.jpg)] bg-cover bg-[50%_15%] top-0 w-full h-full left-0'></div>
       <div id="banner">
         <HomeBanner />
       </div>
@@ -38,7 +37,7 @@ const Home = () => {
       <div className="homeRellax" data-rellax-speed="2" id="services">
         <HomeServices />
       </div>
-      <div id="contact" className="pt-4 xl:pt-16">
+      <div id="contact" className="pt-4 mb-20 xl:pt-16">
         <HomeContact />
       </div>
     </>

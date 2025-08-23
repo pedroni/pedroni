@@ -23,7 +23,6 @@ const HomeContact = props => {
     >
       <Title
         direction="right"
-        color="secondary"
         subTitle="Contato"
         title={<h2>Me mande uma mensagem</h2>}
       />

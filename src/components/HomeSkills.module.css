@@ -70,7 +70,6 @@
 .skillCard i {
   z-index: 2;
   font-size: 48px;
-  color: var(--color-secondary-light);
   transition: all ease-in-out 0.3s;
   margin-bottom: calc(var(--skill-card-height) * 0.3);
 }
@@ -95,6 +94,7 @@
 .skillCard:hover i {
   /* margin-bottom: 16px; */
   font-size: 44px;
+  color: var(--color-primary);
 }
 
 .skillCard:hover span {

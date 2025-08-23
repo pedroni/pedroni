@@ -13,15 +13,21 @@ export default function BlogPostCard({
       href={`/blog/${post.slug}`}
       className={classNames(
         `block
-        rounded-2xl
+        rounded-tl-2xl
+        rounded-br-2xl
           border border-white/20
           shadow-lg
           relative
           group
           transition
+
           hover:border-primary-light/50
           hover:shadow-primary/30
-          hover:-translate-y-0.5`,
+          hover:-translate-y-0.5
+
+          focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-black/90
+
+          `,
         className
       )}
     >
@@ -30,7 +36,8 @@ export default function BlogPostCard({
           top-0.5
           left-0.5
           backdrop-blur-2xl bg-white/5
-          rounded-xl
+          rounded-tl-xl
+          rounded-br-xl
           transition
          group-hover:bg-white/10
       "
