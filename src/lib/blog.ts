@@ -12,12 +12,16 @@ export interface BlogPost {
   content: string
 }
 
+const filterFileNames = (fileName: string): boolean => {
+  return fileName.endsWith('.md') && !fileName.endsWith('.raw.md');
+}
+
 export function getSortedPosts(): BlogPost[] {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory)
 
   const allPostsData = fileNames
-    .filter(fileName => fileName.endsWith('.md'))
+    .filter(filterFileNames)
     .map((fileName): BlogPost => {
       // Remove ".md" from file name to get slug
       const slug = fileName.replace(/\.md$/, '')
@@ -51,7 +55,7 @@ export function getSortedPosts(): BlogPost[] {
 export function getAllPostSlugs(): string[] {
   const fileNames = fs.readdirSync(postsDirectory)
   return fileNames
-    .filter(fileName => fileName.endsWith('.md'))
+    .filter(filterFileNames)
     .map(fileName => fileName.replace(/\.md$/, ''))
 }
 

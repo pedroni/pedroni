@@ -17,17 +17,17 @@ export default function BlogPage() {
     []
   )
 
-  const firstPost = postsByYear[0].posts.shift()
-
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === 'production' || !postsByYear.length) {
     return (
       <div className="py-20 text-center">
-        <h1 className="text-6xl text-primary font-mono uppercase tracking-widest">
-          Em breve...
+        <h1 className="text-6xl text-primary font-mono tracking-widest">
+          No posts yet
         </h1>
       </div>
     )
   }
+
+  const firstPost = postsByYear[0].posts.shift()
 
   return (
     <div className="relative min-h-[calc(100vh-600px)] py-20 px-4">
