@@ -11,7 +11,6 @@ import TableOfContents from '../../../components/TableOfContents'
 import rehypeFormat from 'rehype-format'
 import rehypeSlug from 'rehype-slug'
 
-
 interface Heading {
   id: string
   text: string
@@ -31,7 +30,7 @@ export default async function PostPage(props: {
 
     // Process markdown content to HTML with GFM support and autolink headings
     // while extracting headings during the processing phase
-    let extractedHeadings: Heading[] = [];
+    let extractedHeadings: Heading[] = []
 
     const processedContent = await unified()
       .use(remarkParse)
@@ -39,45 +38,46 @@ export default async function PostPage(props: {
       .use(rehypeFormat)
       .use(rehypeSlug)
       .use(rehypeAutolinkHeadings)
-      .use(() => (tree) => {
+      .use(() => tree => {
         // Extract only top-level h2 headings from the processed AST
         if (tree && tree.children && Array.isArray(tree.children)) {
           extractedHeadings = tree.children
-            .filter((node: any) =>
-              node.type === 'element' &&
-              node.tagName === 'h2' &&
-              node.properties?.id
+            .filter(
+              (node: any) =>
+                node.type === 'element' &&
+                node.tagName === 'h2' &&
+                node.properties?.id
             )
             .map((node: any) => {
               // Extract text content from direct text children only
-              let text = '';
+              let text = ''
               if (node.children && Array.isArray(node.children)) {
                 node.children.forEach((child: any) => {
                   if (child.type === 'text' && child.value) {
-                    text += child.value;
+                    text += child.value
                   }
-                });
+                })
               }
 
-              text = text.trim();
+              text = text.trim()
 
               if (text) {
                 return {
                   id: node.properties.id,
                   text,
                   level: 2
-                };
+                }
               }
-              return null;
+              return null
             })
-            .filter(Boolean) as Heading[];
+            .filter(Boolean) as Heading[]
         }
       })
       .use(rehypeStringify)
-      .process(post.content);
+      .process(post.content)
 
-    contentHtml = processedContent.toString();
-    headings = extractedHeadings;
+    contentHtml = processedContent.toString()
+    headings = extractedHeadings
   } catch (error) {
     console.error('Error fetching post:', error)
     notFound()
@@ -86,7 +86,7 @@ export default async function PostPage(props: {
   return (
     <div className="flex flex-col lg:flex-row">
       {/* Main content */}
-      <div className="flex-1 max-w-4xl mx-auto">
+      <div className="flex-1 max-w-[991px] mx-auto">
         <div className="px-4 w-full flex flex-col relative pt-20 pb-10 mb-8 border-b border-white/20">
           <div className="flex gap-4">
             <p className="font-mono text-sm font-light mb-2">
@@ -105,35 +105,37 @@ export default async function PostPage(props: {
 
         <div
           className="
+          grid
+          grid-cols-4
+          gap-10
           mx-auto
         w-full
-        shadow-4xl
         relative
         group
         p-4
+
     "
         >
           <div
-            className="relative max-w-none text-left prose prose-invert font-extralight font-serif tracking-wide mx-auto
+            className="
+            col-span-3
+            relative max-w-none text-left prose prose-invert font-extralight tracking-wide mx-auto
 
+            font-serif
+            text-xl
+            prose-headings:text-fuchsia-400
             prose-headings:font-mono prose-headings:tracking-normal
-            prose-a:font-extralight prose-a:text-[#dd7de3]"
+            prose-a:font-extralight prose-a:text-violet-400"
             dangerouslySetInnerHTML={{ __html: contentHtml }}
           ></div>
+          {/* Sidebar with Table of Contents */}
+          <div className="col-span-1">
+              <TableOfContents className='sticky top-10' headings={headings} />
+          </div>
         </div>
 
         <div className="w-full px-4 xl:px-20 border-t border-white/15 mx-auto pt-10 mt-10 -mb-10">
           <BlogAuthor></BlogAuthor>
-        </div>
-      </div>
-
-      {/* Sidebar with Table of Contents */}
-      <div className="hidden lg:block w-80 flex-shrink-0 sticky top-20 h-fit ml-8 mt-20">
-        <div className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/15 shadow-xl">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/5 rounded-xl"></div>
-          <div className="relative z-10">
-            <TableOfContents headings={headings} />
-          </div>
         </div>
       </div>
     </div>
