@@ -1,11 +1,11 @@
 'use client'
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { MouseEvent, ReactNode } from 'react'
 import classNames from 'classnames'
 import { Logo } from './Logo'
 import { SocialButton } from './SocialButton'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { Link } from '../i18n/navigation'
 
 const HeaderLink = (props: {
   href: string
@@ -58,25 +58,29 @@ export const Header = () => {
         backdrop-blur-2xl bg-white/5
         rounded-xl"
       ></div>
-      <div className="relative gap-4 flex items-center justify-center
+      <div
+        className="relative gap-4 flex items-center justify-center
 
         h-14
-        lg:h-16">
-        <Link href="/" className='shrink-0 w-10 pr-1 lg:w-20 lg:pr-8'>
+        lg:h-16"
+      >
+        <Link href="/" className="shrink-0 w-10 pr-1 lg:w-20 lg:pr-8">
           <Logo></Logo>
         </Link>
-        <nav className="h-full border-x border-white/10
+        <nav
+          className="h-full border-x border-white/10
            flex font-mono
 
           px-4
            lg:px-8
-           ">
+           "
+        >
           <HeaderLink className="flex gap-2 items-center" href="/blog">
             Blog
           </HeaderLink>
         </nav>
 
-        <div className='flex'>
+        <div className="flex">
           <SocialButton
             href="https://www.linkedin.com/in/lucaspedroni/"
             icon={faLinkedin}
@@ -85,7 +89,6 @@ export const Header = () => {
             href="https://github.com/pedroni"
             icon={faGithub}
           ></SocialButton>
-
         </div>
       </div>
     </header>

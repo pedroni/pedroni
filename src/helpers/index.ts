@@ -1,3 +1,5 @@
+import remarkHtml from 'remark-html'
+import { unified } from 'unified'
 
 export const calculateYears = (fromDate: string) => {
   const from = new Date(fromDate)
@@ -11,8 +13,8 @@ export const calculateYears = (fromDate: string) => {
 }
 
 export function scrollTo(selector: string, offset = 80) {
-  let element: HTMLElement | null = null;
-  if (typeof selector === 'string'){
+  let element: HTMLElement | null = null
+  if (typeof selector === 'string') {
     element = document.querySelector(selector)
   }
 
@@ -33,4 +35,20 @@ export function formDataToJson(formData: FormData) {
     }),
     {}
   )
+}
+
+export function markdownToHtml(markdown?: string): string {
+  if (!markdown) {
+    return ''
+  }
+
+  try {
+    const processor = unified().use(remarkHtml)
+    return processor
+      .processSync(markdown)
+      .toString()
+      .replaceAll('<a ', '<a target="_blank" ')
+  } catch {
+    return ''
+  }
 }
