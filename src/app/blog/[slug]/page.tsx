@@ -39,7 +39,19 @@ export default async function PostPage(props: {
       .use(remarkRehype)
       .use(rehypeFormat)
       .use(rehypeSlug)
-      .use(rehypeAutolinkHeadings)
+      .use(rehypeAutolinkHeadings, {
+        content() {
+          return [
+            h(
+              'div',
+              {
+                class: 'social-button absolute right-full top-2 text-base px-2.5! transition opacity-0 group-hover:opacity-100'
+              },
+              '🔗'
+            )
+          ]
+        }
+      })
       .use(() => tree => {
         // Extract only top-level h2 headings from the processed AST
         if (tree && tree.children && Array.isArray(tree.children)) {
@@ -118,7 +130,6 @@ export default async function PostPage(props: {
           mx-auto
         w-full
         relative
-        group
     "
         >
           <div
@@ -138,15 +149,18 @@ export default async function PostPage(props: {
             lg:prose-img:max-w-full
             lg:prose-img:w-full
 
+            prose-headings:group
+            prose-headings:relative
             prose-headings:border-b
             prose-headings:border-dashed
             prose-headings:border-white/10
             prose-headings:font-light
             prose-headings:pb-3
+            [&_a]:no-underline
             prose-headings:text-orange-400
             prose-headings:font-mono prose-headings:tracking-normal
 
-            prose-a:font-extralight prose-a:text-primary
+            prose-a:font-extralight prose-a:text-primary prose-a:underline
 
             `)}
             dangerouslySetInnerHTML={{ __html: contentHtml }}
