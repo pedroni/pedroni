@@ -5,19 +5,40 @@ import Box from './Box'
 import BoxContent from './BoxContent'
 import BoxList from './BoxList'
 import Button from './Button'
-import { useHomeAboutContent } from './HomeAboutContent'
 import Title from './Title'
 import useMobile from '../hooks/useMobile'
-import { scrollTo } from '../helpers'
-import { useTranslations } from 'next-intl'
+import { calculateYears, markdownToHtml, scrollTo } from '../helpers'
+import { useMessages, useTranslations } from 'next-intl'
 
 const HomeAbout = () => {
-  const [activeListKey, setActiveListKey] = useState('ola')
+  const [activeListKey, setActiveListKey] = useState('about')
   const isMobile = useMobile()
-  const { getContentWithHtml, getAllContent } = useHomeAboutContent()
   const t = useTranslations('HomeAbout')
-  const content = useMemo(() => getContentWithHtml(activeListKey), [activeListKey, getContentWithHtml])
-  const list = getAllContent()
+  const messages = useMessages()
+  
+  const list = useMemo(() => {
+    const contentKeys = Object.keys(messages.HomeAbout?.content || {})
+    return contentKeys.map(key => ({
+      key,
+      label: t(`content.${key}.label`),
+      title: t(`content.${key}.title`),
+      content: t(`content.${key}.content`, {
+        age: calculateYears('1997-03-30'),
+        experience: calculateYears('2017-03-01')
+      })
+    }))
+  }, [t, messages])
+
+  const content = useMemo(() => {
+    const item = list.find(item => item.key === activeListKey)
+    if (!item) return undefined
+    
+    return {
+      ...item,
+      content: markdownToHtml(item.content)
+    }
+  }, [activeListKey, list])
+
   const onListItemSelected = key => setActiveListKey(key)
 
   if (!content) {
