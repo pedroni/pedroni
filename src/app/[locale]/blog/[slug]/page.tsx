@@ -14,7 +14,6 @@ import TableOfContents from '../../../../components/TableOfContents'
 import { BlogPost, getAllPostSlugs, getPostBySlug } from '../../../../lib/blog'
 import BlogAuthor from '../BlogAuthor'
 import { routing } from '../../../../i18n/routing'
-import PoolRefresh from './PoolRefresh'
 
 interface Heading {
   id: string
@@ -74,7 +73,7 @@ export default async function PostPage(props: PostPageProps) {
       })
       .use(rehypeSlug)
       .use(rehypeAddClasses, {
-        'h1, h2, h3, h4, h5, h6': 'group pl-4 -ml-4'
+        'h1, h2, h3, h4, h5, h6': 'group'
       })
       .use(rehypeAutolinkHeadings, {
         content() {
@@ -137,7 +136,6 @@ export default async function PostPage(props: PostPageProps) {
 
   return (
     <div className="flex flex-col lg:flex-row">
-      <PoolRefresh></PoolRefresh>
       {/* Main content */}
       <div className="flex-1 max-w-[991px] mx-auto">
         <div className="w-full flex flex-col relative pt-20 mb-8">

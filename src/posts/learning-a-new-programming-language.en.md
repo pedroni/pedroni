@@ -4,23 +4,27 @@ date: "2025-08-18"
 excerpt: "I've been programming professionaly for over 8 years. I've limited myself to mainly PHP and JavaScript. How could I after all these years learn a new language?"
 ---
 
-I've been programming professionaly for over 8 years. I've limited myself to mainly PHP and JavaScript. How could I after all these years learn a new language?
+For a few months, maybe years, I started losing my passion for programming. What used to be really exciting had become just a regular job, doing the same tasks over and over. I missed how excited I felt when I first started learning, those times when something finally made sense, or when I would work on a problem for hours but it felt like no time had passed at all. The fun of figuring things out was gone, it now became a repetitive task.
+
+I want to bring back my passion. But how could I do that? I think I need to go back to the start. I need to learn something new. I've been programming professionaly for over 8 years. I've limited myself to mainly PHP and JavaScript. How could I after all these years learn a new language?
 
 ## The False Start: When Everything Looks the Same
 
 I looked at some Python code and it felt awful, my eyes hurted. Then I saw Lua, it looked so simple, so beautiful, and there I went to learn Lua. I learned Lua while attempting to setup Neovim (I spent countless hours trying to setup LSPs). Eventually I felt comfortable with Lua, the language was easy.
 
-But I didn't feel like I was learning.
+But I didn't feel like I was learning. _Something felt off_.
 
-I thought about giving Python a shot again, and then I realized these are all scripting languages. Why learn a new scripting language? Besides I already know PHP and JavaScript.
+I gave Python a another chance, and after a while, I realized. Python and Lua are scripting languages. Why learn a new scripting language when I already know PHP and JavaScript?
 
-Learning a new scripting language felt boring, they were very similar, their syntax and functions were very similar as well. I wasn't really learning something new, everything felt the same. Except, I didn't know how certain functions were called in each individual language. Learning Lua became more of a memory game than a learning experience. I was consistently on Google searching how to do `x` in Lua, at some point I knew the basic functions and the LSP helped with autocompletes.
+Learning a new scripting language felt boring, they were very similar, their syntax and functions were very similar as well. I was on a loop, repeating the same thing that I already knew. **I wasn't learning**.
 
-But again, it didn't feel like learning. I didn't get the thrill of learning something new.
+## Trying Something Different
 
-## The Moment of Realization
+That was when it hit me. I had to try something different.
 
-That was when it hit me. I had to try something different. Something that can make me passionate again, afterall programming for me is a hobby, a hobby in which I was slowly losing interest into, a hobby that had became a Job. I even considered finding a new hobby and I didn't want a new hobby. I liked programming. I enjoy the comfort of my home and my computer.
+Something that can make me passionate again, afterall programming for me is a hobby, a hobby in which I was slowly losing interest into, a hobby that had became a Job.
+
+I even considered finding a new hobby and I didn't want a new hobby. I like programming. I enjoy the comfort of my home and my computer.
 
 But I felt I needed something that could activate my brain. PHP and JavaScript was so automatic to me that I didn't have to think anymore. Any problem or project that I had to do I just did it. I didn't have to think on how anymore, I didn't have to put any thoughts into it. Even when I had a "brilliant" idea and was excited to execute it, after a few hours the excitement was gone, I was just doing the same thing all over again, nothing new just repeating the same code, again and again.
 
