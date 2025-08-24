@@ -1,11 +1,10 @@
 'use client'
-import { usePathname } from 'next/navigation'
 import { MouseEvent, ReactNode } from 'react'
 import classNames from 'classnames'
 import { Logo } from './Logo'
 import { SocialButton } from './SocialButton'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import { Link } from '../i18n/navigation'
+import { Link, usePathname } from '../i18n/navigation'
 
 const HeaderLink = (props: {
   href: string

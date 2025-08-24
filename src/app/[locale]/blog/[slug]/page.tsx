@@ -13,30 +13,44 @@ import rehypeShiki from '@shikijs/rehype'
 import TableOfContents from '../../../../components/TableOfContents'
 import { BlogPost, getAllPostSlugs, getPostBySlug } from '../../../../lib/blog'
 import BlogAuthor from '../BlogAuthor'
+import { routing } from '../../../../i18n/routing'
 
 interface Heading {
   id: string
   text: string
   level: number
 }
-
+type PostPageProps = {
+  params: Promise<{ locale: string; slug: string }>
+}
 export async function generateStaticParams() {
-  const slugs = getAllPostSlugs();
-  return slugs.map((slug) => ({
-    slug,
-  }))
+  const params: {
+    locale: string
+    slug: string
+  }[] = []
+
+  routing.locales.forEach(locale => {
+    const slugs = getAllPostSlugs(locale)
+    slugs.forEach(slug => {
+      params.push({
+        locale,
+        slug
+      })
+    })
+  })
+
+  return params
 }
 
-export default async function PostPage(props: {
-  params: Promise<{ slug: string }>
-}) {
-  const { slug } = await props.params
+export default async function PostPage(props: PostPageProps) {
+  const { locale, slug } = await props.params
+
   let post: BlogPost
   let contentHtml = ''
   let headings: Heading[] = []
 
   try {
-    post = getPostBySlug(slug)
+    post = getPostBySlug(locale, slug)
 
     // Process markdown content to HTML with GFM support and autolink headings
     // while extracting headings during the processing phase
@@ -49,8 +63,8 @@ export default async function PostPage(props: {
       .use(rehypeShiki, {
         themes: {
           dark: 'gruvbox-dark-hard',
-          light: 'gruvbox-dark-hard',
-        },
+          light: 'gruvbox-dark-hard'
+        }
       })
       .use(rehypeSlug)
       .use(rehypeAddClasses, {

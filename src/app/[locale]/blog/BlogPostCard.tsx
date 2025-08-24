@@ -50,9 +50,9 @@ export default function BlogPostCard({
             year: 'numeric'
           })}
         </p>{' '}
-        <h2 className="text-lg font-normal font-mono mb-2 group-hover:text-white">{post.title}</h2>
+        <h2 className="text-xl font-normal font-serif mb-2 group-hover:text-primary">{post.title}</h2>
         {post.excerpt && (
-          <p className="text-white/70 tracking-wider font-light font-serif">
+          <p className="text-white/70 tracking-wider font-light font-sans leading-relaxed">
             {post.excerpt}
           </p>
         )}

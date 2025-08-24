@@ -12,16 +12,20 @@ export interface BlogPost {
   content: string
 }
 
-const filterFileNames = (fileName: string): boolean => {
-  return fileName.endsWith('.md') && !fileName.endsWith('.raw.md');
+function listPostFileNames(locale: string) {
+  return fs
+    .readdirSync(postsDirectory)
+    .filter(
+      fileName =>
+        fileName.endsWith(`${locale}.md`) && !fileName.endsWith('.draft.md')
+    )
 }
 
-export function getSortedPosts(): BlogPost[] {
+export function getSortedPosts(locale: string): BlogPost[] {
   // Get file names under /posts
-  const fileNames = fs.readdirSync(postsDirectory)
+  const fileNames = listPostFileNames(locale)
 
   const allPostsData = fileNames
-    .filter(filterFileNames)
     .map((fileName): BlogPost => {
       // Remove ".md" from file name to get slug
       const slug = fileName.replace(/\.md$/, '')
@@ -37,7 +41,7 @@ export function getSortedPosts(): BlogPost[] {
       return {
         slug,
         ...matterResult.data,
-        content: matterResult.content,
+        content: matterResult.content
       } as BlogPost
     })
     // Sort posts by date
@@ -52,15 +56,14 @@ export function getSortedPosts(): BlogPost[] {
   return allPostsData
 }
 
-export function getAllPostSlugs(): string[] {
-  const fileNames = fs.readdirSync(postsDirectory)
-  return fileNames
-    .filter(filterFileNames)
-    .map(fileName => fileName.replace(/\.md$/, ''))
+export function getAllPostSlugs(locale: string): string[] {
+  return listPostFileNames(locale).map(fileName =>
+    fileName.replace(/\.md$/, '')
+  )
 }
 
-export function getPostBySlug(slug: string): BlogPost {
-  const fullPath = path.join(postsDirectory, `${slug}.md`)
+export function getPostBySlug(locale: string, slug: string): BlogPost {
+  const fullPath = path.join(postsDirectory, `${slug}.${locale}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
 
   // Use gray-matter to parse the post metadata section
@@ -70,6 +73,6 @@ export function getPostBySlug(slug: string): BlogPost {
   return {
     slug,
     ...(matterResult.data as Omit<BlogPost, 'slug' | 'content'>),
-    content: matterResult.content,
+    content: matterResult.content
   } as BlogPost
 }

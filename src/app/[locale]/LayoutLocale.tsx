@@ -6,7 +6,7 @@ import { setRequestLocale } from 'next-intl/server'
 
 export default async function LayoutLocale(props: {
   children: ReactNode
-  params: Promise<Record<string, unknown>>
+  params: Promise<{locale: string}>
 }) {
   const { locale } = await props.params
   if (!hasLocale(routing.locales, locale)) {

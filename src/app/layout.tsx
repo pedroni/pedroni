@@ -1,10 +1,9 @@
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
-import { NextIntlClientProvider, hasLocale } from 'next-intl'
-import { setRequestLocale } from 'next-intl/server'
+import { NextIntlClientProvider } from 'next-intl'
 import { Crimson_Pro, JetBrains_Mono, Quicksand } from 'next/font/google'
-import { notFound } from 'next/navigation'
 import Script from 'next/script'
+import { ReactNode } from 'react'
 import SwiperCore from 'swiper'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -13,7 +12,6 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import { routing } from '../i18n/routing'
 import './global.css'
-import { ReactNode } from 'react'
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
 SwiperCore.use([Navigation])

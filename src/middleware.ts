@@ -9,7 +9,7 @@ export const config = {
   // - … the ones containing a dot (e.g. `favicon.ico`)
   matcher: [
     '/((?!api|trpc|_next|_vercel|.*\\..*).*)',
-    // Necessary for handling .raw suffixes, match all pathnames within `{/:locale}/blog`
+    // Necessary for handling .draft suffixes, match all pathnames within `{/:locale}/blog`
     '/([\\w-]+)?/blog/(.+)'
   ]
 }

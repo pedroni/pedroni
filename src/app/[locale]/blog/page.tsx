@@ -2,8 +2,12 @@ import BlogPostCard from './BlogPostCard'
 import { BlogPost, getSortedPosts } from '../../../lib/blog'
 
 type PostsByYear = { year: number; posts: BlogPost[] }
-export default function BlogPage() {
-  const postsByYear: PostsByYear[] = getSortedPosts().reduce(
+export default async function BlogPage(props: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await props.params
+
+  const postsByYear: PostsByYear[] = getSortedPosts(locale).reduce(
     (acc: PostsByYear[], post: BlogPost) => {
       const year = new Date(post.date).getFullYear()
       const yearGroup = acc.find(group => group.year === year)
@@ -40,7 +44,6 @@ export default function BlogPage() {
               </h2>
             </div>
             <div>
-
               <BlogPostCard post={firstPost} />
             </div>
           </div>
