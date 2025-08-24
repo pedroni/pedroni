@@ -130,7 +130,7 @@ export default async function PostPage(props: {
               })}
             </p>
           </div>
-          <h1 className="text-5xl font-mono font-light text-primary">
+          <h1 className="text-5xl font-serif font-light text-primary">
             {post.title}
           </h1>
           <div className="overflow-hidden w-full mt-4 flex gap-2 h-4">
@@ -175,8 +175,9 @@ export default async function PostPage(props: {
             prose-headings:text-orange-400
             prose-headings:font-mono prose-headings:tracking-normal
 
-            prose-p:font-serif
-            prose-p:text-2xl
+            prose-p:font-sans
+            prose-p:text-lg
+            prose-p:leading-relaxed
 
             [&_p_code]:text-lg
 

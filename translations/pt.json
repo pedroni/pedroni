@@ -65,5 +65,8 @@
     "sendButton": "Enviar mensagem",
     "sending": "Enviando...",
     "errorMessage": "Não foi possível enviar a mensagem. Por favor envie um e-mail para lucas@pedroni.dev"
+  },
+  "BlogAuthor": {
+    "description": "Especializado em desenvolvimento front-end (com um pézinho no back-end). Desenvolvo software com atenção aos detalhes. Mais de {years, number} anos de experiência. Atualmente Team Lead na <company>Voxie Inc.</company> uma plataforma de automação de SMS."
   }
 }

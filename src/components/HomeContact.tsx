@@ -54,12 +54,12 @@ const HomeContactAside = () => {
         {t.rich('asideContent', {
           email: (chunks) => (
             <a href="mailto:lucas@pedroni.dev">
-              <strong>{chunks}</strong>
+              {chunks}
             </a>
           ),
           linkedin: (chunks) => (
             <a href="https://www.linkedin.com/in/lucaspedroni/" target="blank">
-              <strong>{chunks}</strong>
+              {chunks}
             </a>
           )
         })}

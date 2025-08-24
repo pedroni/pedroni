@@ -65,5 +65,8 @@
     "sendButton": "Send message",
     "sending": "Sending...",
     "errorMessage": "Could not send the message. Please send an email to lucas@pedroni.dev"
+  },
+  "BlogAuthor": {
+    "description": "Specialized in front-end development (with a foot in back-end). I build software with attention to detail. Over {years, number} years of experience. Currently Team Lead at <company>Voxie Inc.</company> an SMS automation platform."
   }
 }
