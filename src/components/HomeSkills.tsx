@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { useTranslations } from 'next-intl'
 
 const HomeSkills = props => {
-  const t = useTranslations('HomeAbout.HomeSkills')
+  const t = useTranslations('HomeSkills')
   return (
     <Box
       {...props}

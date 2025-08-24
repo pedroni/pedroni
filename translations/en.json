@@ -14,17 +14,42 @@
         "label": "Studies",
         "title": "Constantly learning",
         "content": "Today I'm studying **C++** as a hobby. Follow my progress at: [pedroni/learning-cpp](https://github.com/pedroni/learning-cpp) where I put the algorithms I'm learning. I document each part through code comments and also with step-by-step digital diagrams/whiteboard.\n\nI also have solid knowledge in various technologies like JavaScript, React, Vue, Angular, HTML, CSS, PHP, Laravel, MySQL, Linux Servers, Docker, AWS."
-      },
-      "goals": {
-        "label": "Goals",
-        "title": "Always deliver the best",
-        "content": "I always seek to evolve in my field, and therefore, my goals are also always changing. But one of them is certain: always deliver the best. For me, it's not enough to just deliver, I always want to deliver the best I can offer."
       }
-    },
-    "HomeSkills": {
-      "subTitle": "Skills",
-      "title": "My stack",
-      "content": "I build web applications from 0 to 1. That means I'm comfortable jumping between React, Vue and Angular components, Node and Laravel APIs, MySQL queries, and AWS deployments."
+    }
+  },
+  "HomeSkills": {
+    "subTitle": "Skills",
+    "title": "My stack",
+    "content": "I build web applications from 0 to 1. That means I'm comfortable jumping between React, Vue and Angular components, Node and Laravel APIs, MySQL queries, and AWS deployments."
+  },
+  "HomeServices": {
+    "contactButton": "Contact me",
+    "content": {
+      "services": {
+        "label": "Services",
+        "title": "Results-driven approach",
+        "content": "Currently I work as a Team Lead, coordinating and supporting my team so that each project is delivered with quality and **within deadlines**. I encourage critical thinking in code reviews, promote my team's autonomy, and ensure everyone delivers results.\n\nIn the menu on the side you can check out more of what I do."
+      },
+      "apps": {
+        "label": "Apps",
+        "title": "Android and iOS applications",
+        "content": "I develop applications for iOS and Android, created in a hybrid way, meaning the same application will have the same functionalities on iOS and Android, being programmed only once and ensuring quality on both platforms. Additionally, because it's created in a hybrid way, your application can also have a web version to be quickly accessed in a browser like Chrome on your preferred smartphone or even on your computer."
+      },
+      "websites": {
+        "label": "Websites",
+        "title": "Institutional websites",
+        "content": "Institutional websites are extremely important for any business. It's through them that you (your business) will be found on Google more easily and, with that, you'll be able to show all the work done by your company in a quick, attractive, and effective way. Your website will be custom-built, meeting all your needs, and will be fully responsive - meaning it can be accessed by both mobile phones and computers or tablets."
+      },
+      "ecommerce": {
+        "label": "Online stores",
+        "title": "E-commerce",
+        "content": "Whether you're a large or small company, you need to sell, and the best way to do that these days is online. More and more people search for what they want in the online environment instead of going to a physical store. All this for practicality. Therefore, your e-commerce is the ideal showcase for your business. Your e-commerce will be fully responsive - meaning it can be accessed by both mobile phones and computers or tablets."
+      },
+      "systems": {
+        "label": "Systems",
+        "title": "Custom systems",
+        "content": "Do you need to control your company's inventory? Or have a schedule that can be accessed by all your employees? Maybe you need to create and delegate tasks that need to be done, right? Any of these solutions can be done through programming. For this, I create custom systems where your needs will turn into a complete system, making your life (and also your business) easier and more organized."
+      }
     }
   }
 }

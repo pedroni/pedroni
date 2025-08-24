@@ -5,13 +5,34 @@ import BoxContent from './BoxContent'
 import BoxList from './BoxList'
 import Button from './Button'
 import useMobile from '../hooks/useMobile'
-import HomeServicesContent, { getByKey } from './HomeServicesContent'
-import { scrollTo } from '../helpers'
+import { markdownToHtml, scrollTo } from '../helpers'
+import { useMessages, useTranslations } from 'next-intl'
 
 const HomeServices = () => {
-  const [activeListKey, setActiveListKey] = useState('servicos')
+  const [activeListKey, setActiveListKey] = useState('services')
   const isMobile = useMobile()
-  const content = useMemo(() => getByKey(activeListKey), [activeListKey])
+  const t = useTranslations('HomeServices')
+  const messages = useMessages()
+
+  const list = useMemo(() => {
+    const contentKeys = Object.keys(messages.HomeServices?.content || {})
+    return contentKeys.map(key => ({
+      key,
+      label: t(`content.${key}.label`),
+      title: t(`content.${key}.title`),
+      content: t(`content.${key}.content`)
+    }))
+  }, [t, messages])
+
+  const content = useMemo(() => {
+    const item = list.find(item => item.key === activeListKey)
+    if (!item) return undefined
+
+    return {
+      ...item,
+      content: markdownToHtml(item.content)
+    }
+  }, [activeListKey, list])
 
   if (!content) {
     return <></>
@@ -39,10 +60,10 @@ const HomeServices = () => {
         />
       )}
       <BoxContent>
-        {content.content}
+        <div dangerouslySetInnerHTML={{ __html: content.content }} />
         <br />
         <br />
-        <Button onClick={() => scrollTo('#contact')}>Entre em contato comigo</Button>
+        <Button onClick={() => scrollTo('#contact')}>{t('contactButton')}</Button>
       </BoxContent>
     </Box>
   )
@@ -55,9 +76,20 @@ const HomeServicesAside = ({
   activeListKey: string,
   onListKeySelected: (param: string) => void;
 }) => {
-  const list = HomeServicesContent
+  const t = useTranslations('HomeServices.content')
+  const messages = useMessages()
 
-  const content = useMemo(() => getByKey(activeListKey), [activeListKey])
+  const list = useMemo(() => {
+    const contentKeys = Object.keys(messages.HomeServices?.content || {})
+    return contentKeys.map(key => ({
+      key,
+      label: t(`${key}.label`),
+      title: t(`${key}.title`),
+      content: t(`${key}.content`)
+    }))
+  }, [t, messages])
+
+  const content = useMemo(() => list.find(item => item.key === activeListKey), [activeListKey, list])
 
   const _onListKeySelected = content => onListKeySelected(content?.key)
 
