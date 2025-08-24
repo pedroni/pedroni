@@ -6,13 +6,12 @@ import BoxContent from './BoxContent'
 import BoxList from './BoxList'
 import Button from './Button'
 import Title from './Title'
-import useMobile from '../hooks/useMobile'
 import { calculateYears, markdownToHtml, scrollTo } from '../helpers'
 import { useMessages, useTranslations } from 'next-intl'
 
 const HomeAbout = () => {
   const [activeListKey, setActiveListKey] = useState('about')
-  const isMobile = useMobile()
+
   const t = useTranslations('HomeAbout')
   const messages = useMessages()
   
@@ -48,23 +47,23 @@ const HomeAbout = () => {
   return (
     <Box
       aside={
-        !isMobile && (
+        <div className="hidden xl:block">
           <HomeAboutAside
             activeListKey={activeListKey}
             onListItemSelected={onListItemSelected}
             list={list}
           />
-        )
+        </div>
       }
     >
       <Title subTitle={content.label} title={<h2>{content.title}</h2>} />
-      {isMobile && (
+      <div className="xl:hidden">
         <HomeAboutAside
           activeListKey={activeListKey}
           onListItemSelected={onListItemSelected}
           list={list}
         />
-      )}
+      </div>
 
       <BoxContent>
         <div dangerouslySetInnerHTML={{ __html: content.content }} />

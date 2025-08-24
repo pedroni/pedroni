@@ -3,10 +3,10 @@ import BoxContent from './BoxContent'
 import HomeContactForm from './HomeContactForm'
 import Title from './Title'
 
-import useMobile from '../hooks/useMobile'
+
 
 const HomeContact = props => {
-  const isMobile = useMobile()
+
 
   return (
     <Box
@@ -19,7 +19,7 @@ const HomeContact = props => {
           textAlign: 'left'
         }
       }}
-      aside={!isMobile && <HomeContactAside />}
+      aside={<div className="hidden xl:block"><HomeContactAside /></div>}
     >
       <Title
         direction="right"
@@ -29,7 +29,7 @@ const HomeContact = props => {
       <BoxContent>
         Está pensando em criar algo novo? Precisa de um desenvolvedor para fazer
         isso? Entre em contato comigo.
-        {isMobile && <HomeContactAside />}
+        <div className="xl:hidden"><HomeContactAside /></div>
         <HomeContactForm style={{ marginTop: 32 }} />
       </BoxContent>
     </Box>

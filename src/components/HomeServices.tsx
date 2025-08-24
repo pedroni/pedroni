@@ -4,13 +4,13 @@ import Title from './Title'
 import BoxContent from './BoxContent'
 import BoxList from './BoxList'
 import Button from './Button'
-import useMobile from '../hooks/useMobile'
+
 import { markdownToHtml, scrollTo } from '../helpers'
 import { useMessages, useTranslations } from 'next-intl'
 
 const HomeServices = () => {
   const [activeListKey, setActiveListKey] = useState('services')
-  const isMobile = useMobile()
+
   const t = useTranslations('HomeServices')
   const messages = useMessages()
 
@@ -40,25 +40,23 @@ const HomeServices = () => {
 
   return (
     <Box
-      style={{
-        marginTop: isMobile ? 16 : 64
-      }}
+      className="mt-4 xl:mt-16"
       aside={
-        !isMobile && (
+        <div className="hidden xl:block">
           <HomeServicesAside
             activeListKey={activeListKey}
             onListKeySelected={setActiveListKey}
           />
-        )
+        </div>
       }
     >
       <Title subTitle={content.label} title={<h2>{content.title}</h2>} />
-      {isMobile && (
+      <div className="xl:hidden">
         <HomeServicesAside
           activeListKey={activeListKey}
           onListKeySelected={setActiveListKey}
         />
-      )}
+      </div>
       <BoxContent>
         <div dangerouslySetInnerHTML={{ __html: content.content }} />
         <br />
