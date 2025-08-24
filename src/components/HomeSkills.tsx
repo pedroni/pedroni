@@ -42,7 +42,7 @@ const HomeSkillsAside = () => {
         height="160"
         srcSet="/img/02.png 1x, /img/02@2x.png 2x,"
         alt=""
-        className="brightness--2 hidden xl:block"
+        className="brightness--2 hidden lg:block"
         style={{ marginBottom: 16 }}
       />
     </>
@@ -123,12 +123,9 @@ export const HomeSkillsSwiper = () => {
           400: {
             slidesPerView: 1.3
           },
-          1279: {
-            slidesPerView: 3
-          },
-          1281: {
+          1024: {
             slidesPerView: 4
-          }
+          },
         }}
       >
         {list.map(({ background, icon, label }) => (

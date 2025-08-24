@@ -31,13 +31,13 @@ const Home = () => {
       <div className="homeRellax" data-rellax-speed="-2" id="about">
         <HomeAbout />
       </div>
-      <div id="skills" className="pt-4 xl:pt-16">
+      <div id="skills" className="pt-4 lg:pt-16">
         <HomeSkills />
       </div>
       <div className="homeRellax" data-rellax-speed="2" id="services">
         <HomeServices />
       </div>
-      <div id="contact" className="pt-4 mb-20 xl:pt-16">
+      <div id="contact" className="pt-4 mb-20 lg:pt-16">
         <HomeContact />
       </div>
     </>

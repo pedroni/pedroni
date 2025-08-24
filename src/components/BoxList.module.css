@@ -2,12 +2,10 @@
   list-style: none;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1024px) {
   .boxList {
     display: flex;
     width: calc(100% + (var(--box-padding) * 2));
-    margin-left: calc(-1 * var(--box-padding));
-    padding-left: var(--box-padding);
     flex-wrap: nowrap;
     overflow-x: auto;
     margin-bottom: 16px;
@@ -44,7 +42,7 @@
   outline: none;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1024px) {
   .boxListItem.active {
     border-bottom: 2px solid var(--color-primary);
   }

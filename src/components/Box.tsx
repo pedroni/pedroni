@@ -17,7 +17,7 @@ const Box = ({
       className={classNames(
         'relative mx-auto w-[var(--container-width)] max-w-full flex justify-center [&_a]:font-semibold [&_a]:text-primary',
         {
-          'xl:justify-end': direction.includes('right')
+          'lg:justify-end': direction.includes('right')
         },
         className
       )}
@@ -25,7 +25,7 @@ const Box = ({
     >
       <div
         className={classNames(
-          'w-full p-[calc(var(--box-padding)_*_2)]  md:shadow-lg xl:w-[80%] xl:flex xl:flex-col xl:p-[var(--box-padding)]',
+          'w-full p-[calc(var(--box-padding)_*_2)]  md:shadow-lg lg:w-[80%] lg:flex lg:flex-col lg:p-[var(--box-padding)]',
           {
             'rounded-tr-3xl':
               direction.includes('top') && direction.includes('right'),
@@ -41,13 +41,13 @@ const Box = ({
         {...boxProps}
       >
         <div
-          className={classNames('flex flex-wrap xl:flex-nowrap ', {
-            'xl:flex-row-reverse': direction.includes('right')
+          className={classNames('flex flex-wrap lg:flex-nowrap ', {
+            'lg:flex-row-reverse': direction.includes('right')
           })}
         >
           {aside && (
             <div
-              className="w-full shrink-0 text-left text-base leading-7 xl:w-48 xl:text-right [& img]:max-w-none"
+              className="w-full shrink-0 text-left text-base leading-7 lg:w-48 lg:text-right [& img]:max-w-none"
               {...asideProps}
             >
               {aside}
@@ -55,9 +55,9 @@ const Box = ({
           )}
 
           <div
-            className={classNames('w-full flex-grow xl:w-auto', {
-              'text-right xl:pr-16': direction.includes('right'),
-              'xl:pl-16': !direction.includes('right')
+            className={classNames('w-full flex-grow lg:w-auto', {
+              'lg:text-right lg:pr-16': direction.includes('right'),
+              'lg:pl-16': !direction.includes('right')
             })}
             {...centerProps}
           >

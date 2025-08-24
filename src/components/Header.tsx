@@ -46,7 +46,7 @@ export const Header = () => {
      shadow-2xl
      fixed left-1/2 -translate-x-1/2
      top-2
-     w-[calc(100%-32px)]
+     max-w-[calc(100%-32px)]
      lg:w-auto
      lg:top-10
 

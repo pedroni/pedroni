@@ -10,7 +10,7 @@ const Footer = () => {
     <footer className="-z-10 relative">
       <div className="w-full h-screen pointer-events-none absolute left-0 bottom-0 bg-gradient-to-t from-black to-transparent"></div>
 
-      <div className="relative max-w-5xl px-4 xl:px-20 border-t border-white/15 mt-20 py-4 mx-auto flex items-center justify-between">
+      <div className="relative max-w-5xl px-4 lg:px-20 border-t border-white/15 mt-20 py-4 mx-auto flex items-center justify-between">
         <div className="flex font-mono text-xs items-center gap-1">
           <Link
             href="/"

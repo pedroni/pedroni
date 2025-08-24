@@ -14,7 +14,7 @@ const HomeAbout = () => {
 
   const t = useTranslations('HomeAbout')
   const messages = useMessages()
-  
+
   const list = useMemo(() => {
     const contentKeys = Object.keys(messages.HomeAbout?.content || {})
     return contentKeys.map(key => ({
@@ -31,7 +31,7 @@ const HomeAbout = () => {
   const content = useMemo(() => {
     const item = list.find(item => item.key === activeListKey)
     if (!item) return undefined
-    
+
     return {
       ...item,
       content: markdownToHtml(item.content)
@@ -47,7 +47,7 @@ const HomeAbout = () => {
   return (
     <Box
       aside={
-        <div className="hidden xl:block">
+        <div className="hidden lg:block">
           <HomeAboutAside
             activeListKey={activeListKey}
             onListItemSelected={onListItemSelected}
@@ -56,14 +56,15 @@ const HomeAbout = () => {
         </div>
       }
     >
-      <Title subTitle={content.label} title={<h2>{content.title}</h2>} />
-      <div className="xl:hidden">
+      <div className="lg:hidden">
         <HomeAboutAside
           activeListKey={activeListKey}
           onListItemSelected={onListItemSelected}
           list={list}
         />
       </div>
+
+      <Title subTitle={content.label} title={<h2>{content.title}</h2>} />
 
       <BoxContent>
         <div dangerouslySetInnerHTML={{ __html: content.content }} />
@@ -86,9 +87,9 @@ const HomeAboutAside = ({ activeListKey, onListItemSelected = key => {}, list })
         height="160"
         srcSet="/img/01.png 1x, /img/01@2x.png 2x,"
         alt=""
-        className="brightness--2 hidden xl:block"
-        style={{ marginBottom: 16 }}
+        className="brightness--2 mb-4 hidden lg:block"
       />
+
       <BoxList
         list={list}
         onItemSelected={_onListItemSelected}

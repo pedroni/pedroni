@@ -21,7 +21,7 @@ const HomeContact = props => {
           textAlign: 'left'
         }
       }}
-      aside={<div className="hidden xl:block"><HomeContactAside /></div>}
+      aside={<div className="hidden lg:block"><HomeContactAside /></div>}
     >
       <Title
         direction="right"
@@ -30,7 +30,7 @@ const HomeContact = props => {
       />
       <BoxContent>
         {t('content')}
-        <div className="xl:hidden"><HomeContactAside /></div>
+        <div className="lg:hidden"><HomeContactAside /></div>
         <HomeContactForm style={{ marginTop: 32 }} />
       </BoxContent>
     </Box>
@@ -47,7 +47,7 @@ const HomeContactAside = () => {
         height="160"
         srcSet="/img/04.png 1x, /img/04@2x.png 2x,"
         alt=""
-        className="brightness--2 hidden xl:block"
+        className="brightness--2 hidden lg:block"
         style={{ marginBottom: 16 }}
       />
       <div>

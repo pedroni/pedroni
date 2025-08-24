@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl'
 export default function BlogAuthor() {
   const t = useTranslations('BlogAuthor')
   return (
-    <div className="relative z-10 flex  gap-6 xl:gap-14 items-center flex-row">
+    <div className="relative z-10 flex  gap-6 lg:gap-14 items-center flex-row">
       <BlogAuthorPicture className="hidden lg:block"></BlogAuthorPicture>
       <div className="text-left">
         <BlogAuthorPicture className="block float-left mr-4 mt-4 mb-4 lg:hidden"></BlogAuthorPicture>

@@ -143,7 +143,7 @@ export default async function PostPage(props: {
         <div
           className="
           grid
-          xl:grid-cols-4
+          lg:grid-cols-4
           gap-10
           mx-auto
           w-full
@@ -187,7 +187,7 @@ export default async function PostPage(props: {
             dangerouslySetInnerHTML={{ __html: contentHtml }}
           ></div>
 
-          <div className="hidden xl:block col-span-1">
+          <div className="hidden lg:block col-span-1">
             <TableOfContents className="sticky top-10" headings={headings} />
           </div>
         </div>
@@ -196,7 +196,7 @@ export default async function PostPage(props: {
             <div key={index} className="shrink-0 h-px w-2 bg-white/20"></div>
           ))}
         </div>
-        <div className="w-full px-4 xl:px-20 mx-auto pt-10 ">
+        <div className="w-full px-4 lg:px-20 mx-auto pt-10 ">
           <BlogAuthor></BlogAuthor>
         </div>
       </div>

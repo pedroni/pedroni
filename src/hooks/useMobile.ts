@@ -5,7 +5,7 @@ export default function useMobile() {
   const [isMobile, setIsMobile] = useState(false)
 
   const handleResize = useCallback(
-    () => setIsMobile(window.matchMedia('(max-width: 1280px)').matches),
+    () => setIsMobile(window.matchMedia('(max-width: 1024px)').matches),
     []
   )
 
