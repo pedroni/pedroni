@@ -20,6 +20,11 @@
         "title": "Always deliver the best",
         "content": "I always seek to evolve in my field, and therefore, my goals are also always changing. But one of them is certain: always deliver the best. For me, it's not enough to just deliver, I always want to deliver the best I can offer."
       }
+    },
+    "HomeSkills": {
+      "subTitle": "Skills",
+      "title": "My stack",
+      "content": "I build web applications from 0 to 1. That means I'm comfortable jumping between React, Vue and Angular components, Node and Laravel APIs, MySQL queries, and AWS deployments."
     }
   }
 }

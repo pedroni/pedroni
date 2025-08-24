@@ -14,12 +14,12 @@
         "label": "Estudos",
         "title": "Em constante aprendizado",
         "content": "Hoje estou estudando **C++** por hobby. Acompanhe meu progresso em: [pedroni/learning-cpp](https://github.com/pedroni/learning-cpp) onde coloco os algoritimos que estou aprendendo. Documento cada parte através de comentários no código e também com step-by-step em diagramas/whiteboard digital.\n\nTambém tenho sólidos conhecimentos em diversas tecnologias como JavaScript, React, Vue, Angular, HTML, CSS, PHP, Laravel, MySQL, Servidores Linux, Docker, AWS."
-      },
-      "goals": {
-        "label": "Objetivos",
-        "title": "Entregar sempre o melhor",
-        "content": "Busco sempre evoluir em meu trabalho, e, por isso, meus objetivos também estão sempre mudando. Mas um deles é certo: entregar sempre o melhor. Para mim, não basta apenas entregar, quero sempre entregar o melhor que posso oferecer."
       }
+    },
+    "HomeSkills": {
+      "subTitle": "Conhecimentos",
+      "title": "Desenvolvedor full stack",
+      "content": "Eu desenvolvo aplicações web do inicio ao fim. Isso significa que me sinto confortável alternando entre componentes React, Vue e Angular, APIs em Node e Laravel, queries MySQL e deployments na AWS."
     }
   }
 }

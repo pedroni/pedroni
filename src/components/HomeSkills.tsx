@@ -4,8 +4,10 @@ import BoxContent from './BoxContent'
 import Title from './Title'
 import styles from './HomeSkills.module.css'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { useTranslations } from 'next-intl'
 
 const HomeSkills = props => {
+  const t = useTranslations('HomeAbout.HomeSkills')
   return (
     <Box
       {...props}
@@ -22,13 +24,11 @@ const HomeSkills = props => {
     >
       <Title
         direction="right"
-        subTitle="Conhecimentos"
-        title={<h2>Desenvolvedor full stack</h2>}
+        subTitle={t('subTitle')}
+        title={<h2>{t('title')}</h2>}
       />
       <BoxContent>
-        Um desenvolvedor full stack está sempre a procura de novos
-        conhecimentos. Por isso possuo uma grande variadedade de técnologias
-        disponíveis para qualquer situação.
+        {t('content')}
       </BoxContent>
     </Box>
   )
