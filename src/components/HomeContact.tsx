@@ -44,7 +44,7 @@ const HomeContactAside = () => {
         height="160"
         srcSet="/img/04.png 1x, /img/04@2x.png 2x,"
         alt=""
-        className="brightness--2 hide-mobile"
+        className="brightness--2 hidden xl:block"
         style={{ marginBottom: 16 }}
       />
       <div>

@@ -42,7 +42,7 @@ const HomeSkillsAside = () => {
         height="160"
         srcSet="/img/02.png 1x, /img/02@2x.png 2x,"
         alt=""
-        className="brightness--2 hide-mobile"
+        className="brightness--2 hidden xl:block"
         style={{ marginBottom: 16 }}
       />
     </>

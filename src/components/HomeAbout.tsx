@@ -86,7 +86,7 @@ const HomeAboutAside = ({ activeListKey, onListItemSelected = key => {}, list })
         height="160"
         srcSet="/img/01.png 1x, /img/01@2x.png 2x,"
         alt=""
-        className="brightness--2 hide-mobile"
+        className="brightness--2 hidden xl:block"
         style={{ marginBottom: 16 }}
       />
       <BoxList
