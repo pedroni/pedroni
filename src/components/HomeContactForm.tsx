@@ -4,8 +4,10 @@ import Input from './Input'
 import Button from './Button'
 import styles from './HomeContactForm.module.css'
 // import { formDataToJson } from '../helpers'
+import { useTranslations } from 'next-intl'
 
 const HomeContactForm = props => {
+  const t = useTranslations('HomeContactForm')
   const [messageSent, ] = useState('')
   const [messageError, setMessageError] = useState('')
   const [loading, ] = useState(false)
@@ -25,7 +27,7 @@ const HomeContactForm = props => {
     //     setMessageError(err.response.data.message)
     //   } else {
     setMessageError(
-      'Não foi possível enviar a mensagem. Por favor envie um e-mail para lucas@pedroni.dev'
+      t('errorMessage')
     )
     // }
     // } finally {
@@ -58,12 +60,12 @@ const HomeContactForm = props => {
             borderTopLeftRadius: 16
           }}
           name="name"
-          label="Nome"
+          label={t('nameLabel')}
           type="text"
         />
       </div>
       <div>
-        <Input required name="email" label="WhatsApp ou e-mail" type="text" />
+        <Input required name="email" label={t('contactLabel')} type="text" />
       </div>
       <div>
         <Input
@@ -72,13 +74,13 @@ const HomeContactForm = props => {
             borderBottomRightRadius: 16
           }}
           name="subject"
-          label="Sobre o que você quer conversar?"
+          label={t('subjectLabel')}
           type="text"
         />
       </div>
       <div>
         <Button disabled={loading} type="submit">
-          {loading ? 'Enviando...' : 'Enviar mensagem'}
+          {loading ? t('sending') : t('sendButton')}
         </Button>
         {messageError && (
           <div className='mt-3 text-rose-500'>

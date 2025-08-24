@@ -2,11 +2,13 @@ import Box from './Box'
 import BoxContent from './BoxContent'
 import HomeContactForm from './HomeContactForm'
 import Title from './Title'
-
+import { useTranslations } from 'next-intl'
 
 
 const HomeContact = props => {
 
+
+  const t = useTranslations('HomeContact')
 
   return (
     <Box
@@ -23,12 +25,11 @@ const HomeContact = props => {
     >
       <Title
         direction="right"
-        subTitle="Contato"
-        title={<h2>Me mande uma mensagem</h2>}
+        subTitle={t('subTitle')}
+        title={<h2>{t('title')}</h2>}
       />
       <BoxContent>
-        Está pensando em criar algo novo? Precisa de um desenvolvedor para fazer
-        isso? Entre em contato comigo.
+        {t('content')}
         <div className="xl:hidden"><HomeContactAside /></div>
         <HomeContactForm style={{ marginTop: 32 }} />
       </BoxContent>
@@ -37,6 +38,8 @@ const HomeContact = props => {
 }
 
 const HomeContactAside = () => {
+  const t = useTranslations('HomeContact')
+
   return (
     <>
       <img
@@ -48,15 +51,18 @@ const HomeContactAside = () => {
         style={{ marginBottom: 16 }}
       />
       <div>
-        Quer uma resposta mais rápida? Envie um e-mail para{' '}
-        <a href="mailto:lucas@pedroni.dev">
-          <strong>lucas@pedroni.dev</strong>
-        </a>
-        . Você também pode me mandar uma mensagem no{' '}
-        <a href="https://www.linkedin.com/in/lucaspedroni/" target="blank">
-          <strong>LinkedIn</strong>
-        </a>
-        .
+        {t.rich('asideContent', {
+          email: (chunks) => (
+            <a href="mailto:lucas@pedroni.dev">
+              <strong>{chunks}</strong>
+            </a>
+          ),
+          linkedin: (chunks) => (
+            <a href="https://www.linkedin.com/in/lucaspedroni/" target="blank">
+              <strong>{chunks}</strong>
+            </a>
+          )
+        })}
       </div>
     </>
   )

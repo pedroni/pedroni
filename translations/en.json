@@ -51,5 +51,19 @@
         "content": "Do you need to control your company's inventory? Or have a schedule that can be accessed by all your employees? Maybe you need to create and delegate tasks that need to be done, right? Any of these solutions can be done through programming. For this, I create custom systems where your needs will turn into a complete system, making your life (and also your business) easier and more organized."
       }
     }
+  },
+  "HomeContact": {
+    "subTitle": "Contact",
+    "title": "Send me a message",
+    "content": "Thinking about creating something new? Need a developer to make it happen? Get in touch with me.",
+    "asideContent": "Want a faster response? Send an email to <email>lucas@pedroni.dev</email>. You can also send me a message on <linkedin>LinkedIn</linkedin>."
+  },
+  "HomeContactForm": {
+    "nameLabel": "Name",
+    "contactLabel": "WhatsApp or email",
+    "subjectLabel": "What do you want to talk about?",
+    "sendButton": "Send message",
+    "sending": "Sending...",
+    "errorMessage": "Could not send the message. Please send an email to lucas@pedroni.dev"
   }
 }
