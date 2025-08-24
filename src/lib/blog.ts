@@ -21,14 +21,18 @@ function listPostFileNames(locale: string) {
     )
 }
 
+function formatSlug(fileName: string) {
+  return fileName.split('.')[0]
+}
+
 export function getSortedPosts(locale: string): BlogPost[] {
   // Get file names under /posts
   const fileNames = listPostFileNames(locale)
 
   const allPostsData = fileNames
     .map((fileName): BlogPost => {
-      // Remove ".md" from file name to get slug
-      const slug = fileName.replace(/\.md$/, '')
+      // Remove locale and ".md" from file name to get slug
+      const slug = formatSlug(fileName)
 
       // Read markdown file as string
       const fullPath = path.join(postsDirectory, fileName)
@@ -57,13 +61,18 @@ export function getSortedPosts(locale: string): BlogPost[] {
 }
 
 export function getAllPostSlugs(locale: string): string[] {
-  return listPostFileNames(locale).map(fileName =>
-    fileName.replace(/\.md$/, '')
-  )
+  return listPostFileNames(locale).map(formatSlug)
 }
 
 export function getPostBySlug(locale: string, slug: string): BlogPost {
-  const fullPath = path.join(postsDirectory, `${slug}.${locale}.md`)
+  let fullPath: string
+
+  if (slug.endsWith('.draft')) {
+    fullPath = path.join(postsDirectory, `${slug}.md`)
+  } else {
+    fullPath = path.join(postsDirectory, `${slug}.${locale}.md`)
+  }
+
   const fileContents = fs.readFileSync(fullPath, 'utf8')
 
   // Use gray-matter to parse the post metadata section

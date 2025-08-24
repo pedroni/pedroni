@@ -14,6 +14,7 @@ import TableOfContents from '../../../../components/TableOfContents'
 import { BlogPost, getAllPostSlugs, getPostBySlug } from '../../../../lib/blog'
 import BlogAuthor from '../BlogAuthor'
 import { routing } from '../../../../i18n/routing'
+import PoolRefresh from './PoolRefresh'
 
 interface Heading {
   id: string
@@ -22,7 +23,9 @@ interface Heading {
 }
 type PostPageProps = {
   params: Promise<{ locale: string; slug: string }>
+  searchParams: Promise<{ draft: string }>
 }
+
 export async function generateStaticParams() {
   const params: {
     locale: string
@@ -44,13 +47,16 @@ export async function generateStaticParams() {
 
 export default async function PostPage(props: PostPageProps) {
   const { locale, slug } = await props.params
+  const { draft } = await props.searchParams
+
+  const isDraft = draft === 'true' || draft === '1'
 
   let post: BlogPost
   let contentHtml = ''
   let headings: Heading[] = []
 
   try {
-    post = getPostBySlug(locale, slug)
+    post = getPostBySlug(locale, isDraft ? `${slug}.draft` : slug)
 
     // Process markdown content to HTML with GFM support and autolink headings
     // while extracting headings during the processing phase
@@ -131,6 +137,7 @@ export default async function PostPage(props: PostPageProps) {
 
   return (
     <div className="flex flex-col lg:flex-row">
+      <PoolRefresh></PoolRefresh>
       {/* Main content */}
       <div className="flex-1 max-w-[991px] mx-auto">
         <div className="w-full flex flex-col relative pt-20 mb-8">
@@ -147,6 +154,7 @@ export default async function PostPage(props: PostPageProps) {
           <h1 className="text-5xl font-serif font-light text-primary">
             {post.title}
           </h1>
+
           <div className="overflow-hidden w-full mt-4 flex gap-2 h-4">
             {Array.from({ length: 70 }).map((_, index) => (
               <div key={index} className="shrink-0 h-px w-2 bg-white/20"></div>
