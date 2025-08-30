@@ -34,7 +34,7 @@ export default function TableOfContents({
         <FontAwesomeIcon icon={faFolderOpen} fixedWidth></FontAwesomeIcon> Table
         of Contents
       </h3>
-      <nav className="flex flex-col gap-3 pl-[18px] py-2 ml-2 border-l border-l-white/10">
+      <nav className="flex flex-col gap-3 pl-[18px] py-2 ml-2 border-l border-dashed border-l-white/10">
         {headings.map(heading => (
           <a
             key={heading.id}
