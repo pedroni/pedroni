@@ -26,7 +26,7 @@ export default function TableOfContents({
   const handleHeadingClick =
     (heading: Heading) => (event: MouseEvent<HTMLAnchorElement>) => {
       event.preventDefault()
-      scrollTo(`#${heading.id}`, -120)
+      scrollTo(`#${heading.id}`, 1)
     }
   return (
     <div className={`${className}`}>
