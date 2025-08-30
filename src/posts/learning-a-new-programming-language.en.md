@@ -1,14 +1,14 @@
 ---
 title: "Learning a New Programming Language After 8 Years of Experience"
-date: "2025-08-18"
-excerpt: "I've been programming professionaly for over 8 years. I've limited myself to mainly PHP and JavaScript. How could I after all these years learn a new language?"
+date: "2025-08-30"
+excerpt: "I've been programming professionally for over 8 years, programming was my hobby, but somewhere along the way I started losing my passion. Sticking to PHP and JavaScript made my work feel repetitive, like I was stuck in an infinite loop, repeating the same patterns. I want to go back to the beginning. Back to when I was exciting of learning something new. I want a fresh start. I want to learn a new language. But how?"
 ---
 
-For a few months, maybe years, I started losing my passion for programming. What used to be really exciting had become just a regular job, doing the same tasks over and over. I missed how excited I felt when I first started learning.
+For the past 8 years, programming has been my profission, but it started as a hobby, that I was passionated about. For a few months, maybe years, I started losing my passion for programming. What used to be really exciting had become just a regular job, doing the same tasks over and over. I missed how excited I felt when I first started learning.
 
-I miss those times when something finally made sense, or when I would work on a problem for hours but it felt like no time had passed at all. The fun of figuring things out was gone, it now became a repetitive task.
+I miss those times when a concept finally made sense, or when I would work on a problem for hours, but it felt like a minute. The fun of figuring things out was gone. PHP and JavaScript is so confortable to me that now programming had become a repetitive task. I was rebuilding things in the same pattern over and over.
 
-I want to bring back my passion. But how could I do that? I think I need to go back to the start. I need to learn something new. I've been programming professionaly for over 8 years. I've limited myself to mainly PHP and JavaScript. How could I after all these years learn a new language?
+I want to bring back the passion I once hard. I think I need to go back to the beginning. I need to learn something new. But how could I learn a new language?
 
 ## They all look the same
 
@@ -42,7 +42,7 @@ I wanted to understand C++. Understanding it was challenging. I had finally foun
 
 I tried learning a few things here and there by looking up on Google, just like I did with Lua, but that wasn't enough with C++. The codebase was huge, and old—it was written in the C++98 standard. Simply looking up on Google how to do certain things wasn't enough. I wanted to truly understand what I was reading.
 
-I want the same level of understanding that I have with PHP and JavaScript, where I could within a few minutes reading the source file I wanted to be able to understand and edit it. I don't want to simply edit a code and hope for the best. How could I learn a new language?
+I want the same level of understanding that I have with PHP and JavaScript: within a few minutes of reading the source file I wanted to be able to understand and edit it. I don't want to simply edit a code and hope for the best.
 
 ### Finding the right learning path
 
@@ -86,14 +86,14 @@ I saw that one of the topics was "Binary Trees", something that I always had hea
 
 This was good practice. I got my first segfault error.
 
-## Figuring it out
+## Breaking the loop
 
 Learning a new programming language takes time. I first needed to find my purpose which was understanding an old codebase written in C++. To learn C++, I needed a fast and comprehensive introduction, the book "A Tour of C++" gave me just that.
 
 Now I need to practice, for DSA [I found this course on Udemy](https://www.udemy.com/course/data-structures-algorithms-cpp/) by Scott Barrett, the lessons are well presented, with nice smooth animations, the exercises are fun and challenging to do. After I get bored with it, I'll start a personal project so that I can build something from 0 to 1. Doing that will certainly put me in a good level of understading of the language.
 
-I'm feeling happy and passionate about programming again. Every step of learning C++ and DSA was fun. **I got my hobby back.**.
+I'm feeling happy and passionate about programming again. Every step of learning C++ and DSA was fun. **I got my hobby back!**.
 
-Here's the first time I solved a problem on my own after learning the Tortoise and the Hare algorithm. Solving this made my day. The happiness from solving this was truly rewarding.
+Here's the first time I solved a problem on my own after learning the Tortoise and the Hare algorithm. Solving this made my day. The happiness from solving this was truly rewarding!
 
 ![Whiteboard Solution for Linked List Find Kth Node From End](https://github.com/pedroni/learning-cpp/blob/main/dsa/linked-list-find-kth-node-from-end.png)
