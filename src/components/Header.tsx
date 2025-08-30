@@ -118,12 +118,12 @@ export const Header = () => {
               })}
             >
               <SocialButton
-                onClick={() => (window.location.href = '/en/' + pathname)}
+                href={'/en/' + pathname}
               >
                 EN
               </SocialButton>
               <SocialButton
-                onClick={() => (window.location.href = '/pt/' + pathname)}
+                href={'/pt/' + pathname}
               >
                 PT
               </SocialButton>
