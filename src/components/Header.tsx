@@ -1,9 +1,10 @@
 'use client'
-import { MouseEvent, ReactNode } from 'react'
+import { MouseEvent, ReactNode, useState } from 'react'
 import classNames from 'classnames'
 import { Logo } from './Logo'
 import { SocialButton } from './SocialButton'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faEarth, faLanguage } from '@fortawesome/free-solid-svg-icons'
 import { Link, usePathname } from '../i18n/navigation'
 
 const HeaderLink = (props: {
@@ -38,6 +39,9 @@ const HeaderLink = (props: {
 }
 
 export const Header = () => {
+  const pathname = usePathname()
+  const [choosingLanguage, setChoosingLanguage] = useState(false)
+
   return (
     <header
       className=" z-10 rounded-2xl  mx-auto px-12
@@ -80,14 +84,51 @@ export const Header = () => {
         </nav>
 
         <div className="flex">
-          <SocialButton
-            href="https://www.linkedin.com/in/lucaspedroni/"
-            icon={faLinkedin}
-          ></SocialButton>
-          <SocialButton
-            href="https://github.com/pedroni"
-            icon={faGithub}
-          ></SocialButton>
+          <div
+            className={classNames('flex transition', {
+              'opacity-0': choosingLanguage
+            })}
+          >
+            <SocialButton
+              href="https://www.linkedin.com/in/lucaspedroni/"
+              icon={faLinkedin}
+            ></SocialButton>
+            <SocialButton
+              href="https://github.com/pedroni"
+              icon={faGithub}
+            ></SocialButton>
+          </div>
+
+          <div
+            className={classNames('relative flex gap-2 transition', {
+              '-translate-x-16': choosingLanguage
+            })}
+          >
+            <SocialButton
+              onClick={ev => {
+                ev.preventDefault()
+                setChoosingLanguage(!choosingLanguage)
+              }}
+              icon={faLanguage}
+            ></SocialButton>
+            <div
+              className={classNames('flex absolute translate-x-10', {
+                'opacity-100': choosingLanguage,
+                'opacity-0 pointer-events-none': !choosingLanguage
+              })}
+            >
+              <SocialButton
+                onClick={() => (window.location.href = '/en/' + pathname)}
+              >
+                EN
+              </SocialButton>
+              <SocialButton
+                onClick={() => (window.location.href = '/pt/' + pathname)}
+              >
+                PT
+              </SocialButton>
+            </div>
+          </div>
         </div>
       </div>
     </header>

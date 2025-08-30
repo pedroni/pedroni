@@ -1,16 +1,24 @@
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import classNames from 'classnames';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import classNames from 'classnames'
+import { MouseEvent, ReactNode } from 'react'
 
-export const SocialButton = (props: { href: string; icon: IconDefinition; }) => {
-    return (
-        <a
-            href={props.href}
-            className={classNames(
-                'rounded-lg px-1.5 py-1 transition border border-transparent hover:bg-white/10 hover:border-white/20 hover:text-primary-light'
-            )}
-        >
-            <FontAwesomeIcon icon={props.icon}></FontAwesomeIcon>
-        </a>
-    );
-};
+export const SocialButton = (props: {
+  onClick?: (ev: MouseEvent<HTMLAnchorElement>) => void
+  href?: string
+  icon?: IconDefinition
+  children?: ReactNode,
+}) => {
+  return (
+    <a
+      onClick={props.onClick}
+      href={props.href}
+      className={classNames(
+        'cursor-pointer flex items-center justify-center font-bold font-mono rounded-lg px-1.5 py-1 transition border border-transparent text-sm w-8 h-7 hover:bg-white/10 hover:border-white/20 hover:text-primary-light'
+      )}
+    >
+      {props.icon && <FontAwesomeIcon icon={props.icon} className='text-base'></FontAwesomeIcon>}
+      {props.children}
+    </a>
+  )
+}
