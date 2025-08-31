@@ -36,7 +36,7 @@ const HomeBanner = () => {
               scrollTo('#about')
             }
           >
-            About me
+            {t('actionButton')}
           </Button>
 
           <br />

@@ -1,7 +1,7 @@
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faCopyright } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { SocialButton } from './SocialButton'
+import { IconButton } from './IconButton'
 import { Logo } from './Logo'
 import Link from 'next/link'
 
@@ -26,15 +26,15 @@ const Footer = () => {
             pedroni.dev
           </span>
         </div>
-        <div>
-          <SocialButton
+        <div className='flex'>
+          <IconButton
             href="https://www.linkedin.com/in/lucaspedroni/"
             icon={faLinkedin}
-          ></SocialButton>
-          <SocialButton
+          ></IconButton>
+          <IconButton
             href="https://github.com/pedroni"
             icon={faGithub}
-          ></SocialButton>
+          ></IconButton>
         </div>
       </div>
       <div className="relative h-2 w-full bg-gradient-to-br from-primary-light to-primary-dark"></div>

@@ -30,9 +30,11 @@ export default function TableOfContents({
     }
   return (
     <div className={`${className}`}>
-      <h3 className="font-mono text-xs font-extralight mb-2">
-        <FontAwesomeIcon icon={faFolderOpen} fixedWidth></FontAwesomeIcon> Table
-        of Contents
+      <h3 className="font-mono flex items-center gap-2 text-xs font-extralight mb-2">
+        <FontAwesomeIcon icon={faFolderOpen} fixedWidth></FontAwesomeIcon>
+        <span>
+          Table of contents
+        </span>
       </h3>
       <nav className="flex flex-col gap-3 pl-[18px] py-2 ml-2 border-l border-dashed border-l-white/10">
         {headings.map(heading => (

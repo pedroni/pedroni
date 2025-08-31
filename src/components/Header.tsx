@@ -2,9 +2,9 @@
 import { MouseEvent, ReactNode, useState } from 'react'
 import classNames from 'classnames'
 import { Logo } from './Logo'
-import { SocialButton } from './SocialButton'
+import { IconButton } from './IconButton'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import { faEarth, faLanguage } from '@fortawesome/free-solid-svg-icons'
+import { faLanguage } from '@fortawesome/free-solid-svg-icons'
 import { Link, usePathname } from '../i18n/navigation'
 
 const HeaderLink = (props: {
@@ -23,7 +23,7 @@ const HeaderLink = (props: {
         href={props.href}
         onClick={props.onClick}
         className={classNames(
-          'transition  px-2.5 py-1 rounded-sm hover:bg-white/10 hover:text-white',
+          'transition px-2.5 py-1 rounded-sm hover:bg-white/10 hover:text-white',
           active ? 'text-white' : 'text-white/50',
           props.className
         )}
@@ -86,47 +86,45 @@ export const Header = () => {
         <div className="flex">
           <div
             className={classNames('flex transition', {
-              'opacity-0': choosingLanguage
+              'opacity-0 pointer-events-none': choosingLanguage
             })}
           >
-            <SocialButton
+            <IconButton
               href="https://www.linkedin.com/in/lucaspedroni/"
               icon={faLinkedin}
-            ></SocialButton>
-            <SocialButton
+            ></IconButton>
+            <IconButton
               href="https://github.com/pedroni"
               icon={faGithub}
-            ></SocialButton>
+            ></IconButton>
           </div>
 
           <div
-            className={classNames('relative flex gap-2 transition', {
-              '-translate-x-16': choosingLanguage
+            className={classNames('ml-2 pl-2 relative flex gap-2 transition', {
+              '-translate-x-16': choosingLanguage,
+              'border-l border-white/10': !choosingLanguage
             })}
           >
-            <SocialButton
+            <IconButton
               onClick={ev => {
                 ev.preventDefault()
                 setChoosingLanguage(!choosingLanguage)
               }}
               icon={faLanguage}
-            ></SocialButton>
+            ></IconButton>
             <div
               className={classNames('flex absolute translate-x-10', {
                 'opacity-100': choosingLanguage,
                 'opacity-0 pointer-events-none': !choosingLanguage
               })}
             >
-              <SocialButton
-                href={'/en/' + pathname}
-              >
-                EN
-              </SocialButton>
-              <SocialButton
-                href={'/pt/' + pathname}
-              >
-                PT
-              </SocialButton>
+              <Link href={pathname} locale="en" scroll={false}>
+                <IconButton>EN</IconButton>
+              </Link>
+
+              <Link href={pathname} locale="pt" scroll={false}>
+                <IconButton>PT</IconButton>
+              </Link>
             </div>
           </div>
         </div>

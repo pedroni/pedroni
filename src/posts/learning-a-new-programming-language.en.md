@@ -76,7 +76,7 @@ After reading the book I was like, ok, now what? I still didn't feel like I full
 
 I had the game source to practice. But that was still too difficult. I always heard of LeetCode, but never attempted it. It felt like it would be a good practice.
 
-With tons of while loops and if statements, I was able to solve a few Easy Problems. After submitting my solution, I'd look at other solutions, and oh boy, they were so short! Sure I was missing something! It was a nightmare for me to solve it. Now there was another question: How could I solve LeetCode problems more easily? They felt way too complicated.
+With tons of while loops and if statements, I was able to solve a few Easy Problems. After submitting my solution, I'd look at other solutions, and oh boy, they were so short! Sure I was missing something! It was a nightmare for me to solve it. Now there was another question: How could I solve LeetCode problems more easily? They felt way too complicated. That's when I discovered DSA.
 
 ### Discovering DSA
 

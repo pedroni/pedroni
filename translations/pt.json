@@ -1,6 +1,7 @@
 {
   "HomeBanner": {
-    "title": "Desenvolvedor de Software"
+    "title": "Desenvolvedor de Software",
+    "actionButton": "Me conheça"
   },
   "HomeAbout": {
     "contactButton": "Entre em contato comigo",
@@ -13,7 +14,7 @@
       "studies": {
         "label": "Estudos",
         "title": "Em constante aprendizado",
-        "content": "Hoje estou estudando **C++** por hobby. Acompanhe meu progresso em: [pedroni/learning-cpp](https://github.com/pedroni/learning-cpp) onde coloco os algoritimos que estou aprendendo. Documento cada parte através de comentários no código e também com step-by-step em diagramas/whiteboard digital.\n\nTambém tenho sólidos conhecimentos em diversas tecnologias como JavaScript, React, Vue, Angular, HTML, CSS, PHP, Laravel, MySQL, Servidores Linux, Docker, AWS."
+        "content": "Hoje estou estudando **C++** por hobby. Acompanhe meu progresso em: [pedroni/learning-cpp](https://github.com/pedroni/learning-cpp) onde coloco os algoritimos que estou aprendendo. Documento cada parte através de comentários no código e também com step-by-step em diagramas/whiteboard digital.\n\nTambém tenho sólidos conhecimentos em diversas tecnologias como JavaScript, React, Vue, Angular, HTML, CSS, PHP, Laravel, MySQL, Servidores Linux, Docker, AWS e outras mais."
       }
     }
   },
@@ -64,7 +65,11 @@
     "subjectLabel": "Sobre o que você quer conversar?",
     "sendButton": "Enviar mensagem",
     "sending": "Enviando...",
-    "errorMessage": "Não foi possível enviar a mensagem. Por favor envie um e-mail para lucas@pedroni.dev"
+    "errorMessage": "Desabilitei. Eu estava recebendo muitos spams. Por favor envie um e-mail para lucas@pedroni.dev"
+  },
+  "BlogPost": {
+    "draftButton": "Ver Rascunho",
+    "publishedButton": "Versão Publicada"
   },
   "BlogAuthor": {
     "description": "Especializado em desenvolvimento front-end (com um pézinho no back-end). Desenvolvo software com atenção aos detalhes. Mais de {years, number} anos de experiência. Atualmente Team Lead na <company>Voxie Inc.</company> uma plataforma de automação de SMS."

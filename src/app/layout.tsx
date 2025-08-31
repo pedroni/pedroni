@@ -12,6 +12,7 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import { routing } from '../i18n/routing'
 import './global.css'
+import { getLocale } from 'next-intl/server'
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
 SwiperCore.use([Navigation])
@@ -36,10 +37,13 @@ export function generateStaticParams() {
   return routing.locales.map(locale => ({ locale }))
 }
 
-// This default export is required in a new `pages/_app.js` file.
-export default function Layout(props: Readonly<{ children: ReactNode }>) {
+export default async function Layout(
+  props: Readonly<{ params: Promise<{ locale: string }>; children: ReactNode }>,
+) {
+  const locale = await getLocale();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <head>
         <link
           rel="stylesheet"

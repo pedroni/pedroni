@@ -1,6 +1,7 @@
 {
   "HomeBanner": {
-    "title": "Software Engineer"
+    "title": "Software Engineer",
+    "actionButton": "About me"
   },
   "HomeAbout": {
     "contactButton": "Contact me",
@@ -13,7 +14,7 @@
       "studies": {
         "label": "Studies",
         "title": "Constantly learning",
-        "content": "Today I'm studying **C++** as a hobby. Follow my progress at: [pedroni/learning-cpp](https://github.com/pedroni/learning-cpp) where I put the algorithms I'm learning. I document each part through code comments and also with step-by-step digital diagrams/whiteboard.\n\nI also have solid knowledge in various technologies like JavaScript, React, Vue, Angular, HTML, CSS, PHP, Laravel, MySQL, Linux Servers, Docker, AWS."
+        "content": "Today I'm studying **C++** as a hobby. Follow my progress at: [pedroni/learning-cpp](https://github.com/pedroni/learning-cpp) where I put the algorithms I'm learning. I document each part through code comments and also with step-by-step digital diagrams/whiteboard.\n\nI have solid knowledge in various technologies like JavaScript, React, Vue, Angular, HTML, CSS, PHP, Laravel, MySQL, Linux Servers, Docker, AWS, and some others."
       }
     }
   },
@@ -64,7 +65,11 @@
     "subjectLabel": "What do you want to talk about?",
     "sendButton": "Send message",
     "sending": "Sending...",
-    "errorMessage": "Could not send the message. Please send an email to lucas@pedroni.dev"
+    "errorMessage": "That doesn't work. I was receiving too many spams, please send me an email to: lucas@pedroni.dev"
+  },
+  "BlogPost": {
+    "draftButton": "View Draft",
+    "publishedButton": "View Published"
   },
   "BlogAuthor": {
     "description": "Specialized in front-end development (with a foot in back-end). I build software with attention to detail. Over {years, number} years of experience. Currently Team Lead at <company>Voxie Inc.</company> an SMS automation platform."

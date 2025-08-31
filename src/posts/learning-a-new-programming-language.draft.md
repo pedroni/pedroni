@@ -1,6 +1,6 @@
 ---
-title: "Learning a new programming language after 8 years of experience"
-date: "2025-08-18"
+title: "Learning a New Programming Language After 8 Years of Experience"
+date: "2025-08-30"
 excerpt: "I've been programming professionaly for over 8 years. I've limited myself to mainly PHP and JavaScript. How could I after all these years learn a new language?"
 ---
 

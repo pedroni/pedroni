@@ -1,3 +1,7 @@
+import { faCalendar, faFile, faUser } from '@fortawesome/free-regular-svg-icons'
+import { faLongArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import rehypeShiki from '@shikijs/rehype'
 import classNames from 'classnames'
 import { h } from 'hastscript'
 import { notFound } from 'next/navigation'
@@ -9,11 +13,13 @@ import rehypeStringify from 'rehype-stringify'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import { unified } from 'unified'
-import rehypeShiki from '@shikijs/rehype'
+import { SimpleButton } from '../../../../components/SimpleButton'
 import TableOfContents from '../../../../components/TableOfContents'
+import { Link } from '../../../../i18n/navigation'
+import { routing } from '../../../../i18n/routing'
 import { BlogPost, getAllPostSlugs, getPostBySlug } from '../../../../lib/blog'
 import BlogAuthor from '../BlogAuthor'
-import { routing } from '../../../../i18n/routing'
+import { getTranslations } from 'next-intl/server'
 
 interface Heading {
   id: string
@@ -47,6 +53,7 @@ export async function generateStaticParams() {
 export default async function PostPage(props: PostPageProps) {
   const { locale, slug } = await props.params
   const { draft } = await props.searchParams
+  const t = await getTranslations('BlogPost')
 
   const isDraft = draft === 'true' || draft === '1'
 
@@ -139,15 +146,37 @@ export default async function PostPage(props: PostPageProps) {
       {/* Main content */}
       <div className="flex-1 w-full max-w-[991px] mx-auto">
         <div className="w-full flex flex-col relative pt-20 px-6 mb-10 lg:px-0">
-          <div className="flex gap-4">
-            <p className="font-mono text-sm font-light mb-2 not-print:opacity-60">
-              Lucas Pedroni,{' '}
-              {new Date(post.date).toLocaleDateString('en-US', {
-                month: 'long',
-                day: 'numeric',
-                year: 'numeric'
-              })}
-            </p>
+          {isDraft && (
+            <div className="left-1/2 z-10 -translate-1/2 top-32 fixed flex items-center font-mono text-primary gap-2">
+              <Link href="?" className='-ml-6'>
+                <SimpleButton icon={faLongArrowLeft}>
+                  {t('publishedButton')}
+                </SimpleButton>
+              </Link>
+            </div>
+          )}
+
+          <div className="font-mono flex gap-2 text-sm font-light mt-2 not-print:opacity-80">
+            <div className="flex items-center gap-1">
+              <FontAwesomeIcon fixedWidth icon={faUser}></FontAwesomeIcon>
+              <span className="text-xs">Lucas Pedroni</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <FontAwesomeIcon fixedWidth icon={faCalendar}></FontAwesomeIcon>
+              <span className="text-xs">
+                {new Date(post.date).toLocaleDateString(locale, {
+                  month: 'long',
+                  day: 'numeric',
+                  year: 'numeric'
+                })}
+              </span>
+            </div>
+            {!isDraft && (
+              <Link href="?draft=true" className="flex items-center gap-1 hover:text-primary">
+                <FontAwesomeIcon fixedWidth icon={faFile}></FontAwesomeIcon>
+                <span className="text-xs">{t('draftButton')}</span>
+              </Link>
+            )}
           </div>
           <h1 className="text-5xl font-serif font-light text-primary">
             {post.title}
