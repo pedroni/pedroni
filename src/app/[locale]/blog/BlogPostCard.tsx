@@ -1,16 +1,16 @@
 import classNames from 'classnames'
 import { BlogPost } from '../../../lib/blog'
+import { getLocale } from 'next-intl/server'
 
-export default function BlogPostCard({
-  post,
-  className
-}: {
+export default async function BlogPostCard(props: {
   className?: string
   post: BlogPost
+  small?: boolean
 }) {
+  const locale = await getLocale();
   return (
     <a
-      href={`/blog/${post.slug}`}
+      href={`/blog/${props.post.slug}`}
       className={classNames(
         `block
         rounded-tl-2xl
@@ -28,7 +28,7 @@ export default function BlogPostCard({
           focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-black/90
 
           `,
-        className
+        props.className
       )}
     >
       <div
@@ -44,16 +44,16 @@ export default function BlogPostCard({
       ></div>
       <div className="relative px-6 py-4">
         <p className="text-white/50 text-xs font-mono mb-1">
-          {new Date(post.date).toLocaleDateString('en-US', {
+          {new Date(props.post.date).toLocaleDateString(locale, {
             month: 'long',
             day: 'numeric',
             year: 'numeric'
           })}
         </p>{' '}
-        <h2 className="text-2xl font-normal font-serif mb-2 group-hover:text-primary">{post.title}</h2>
-        {post.excerpt && (
+        <h2 className="text-2xl font-normal font-serif mb-2 group-hover:text-primary">{props.post.title}</h2>
+        {!props.small && props.post.excerpt && (
           <p className="text-white/70 tracking-wider font-light font-sans leading-relaxed">
-            {post.excerpt}
+            {props.post.excerpt}
           </p>
         )}
       </div>

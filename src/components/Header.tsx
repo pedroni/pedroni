@@ -40,6 +40,7 @@ const HeaderLink = (props: {
 
 export const Header = () => {
   const pathname = usePathname()
+  console.log(pathname)
   const [choosingLanguage, setChoosingLanguage] = useState(false)
 
   return (
@@ -118,13 +119,13 @@ export const Header = () => {
                 'opacity-0 pointer-events-none': !choosingLanguage
               })}
             >
-              <Link href={pathname} locale="en" scroll={false}>
+              <a href={`/en/${pathname}`}>
                 <IconButton>EN</IconButton>
-              </Link>
+              </a>
 
-              <Link href={pathname} locale="pt" scroll={false}>
+              <a href={`/pt/${pathname}`}>
                 <IconButton>PT</IconButton>
-              </Link>
+              </a>
             </div>
           </div>
         </div>

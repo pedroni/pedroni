@@ -1,31 +1,16 @@
 import { faCalendar, faFile, faUser } from '@fortawesome/free-regular-svg-icons'
 import { faLongArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import rehypeShiki from '@shikijs/rehype'
 import classNames from 'classnames'
-import { h } from 'hastscript'
-import { notFound } from 'next/navigation'
-import rehypeAddClasses from 'rehype-add-classes'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import rehypeFormat from 'rehype-format'
-import rehypeSlug from 'rehype-slug'
-import rehypeStringify from 'rehype-stringify'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import { unified } from 'unified'
+import { getTranslations } from 'next-intl/server'
 import { SimpleButton } from '../../../../components/SimpleButton'
 import TableOfContents from '../../../../components/TableOfContents'
 import { Link } from '../../../../i18n/navigation'
 import { routing } from '../../../../i18n/routing'
-import { BlogPost, getAllPostSlugs, getPostBySlug } from '../../../../lib/blog'
+import { getAllPostSlugs } from '../../../../lib/blog'
 import BlogAuthor from '../BlogAuthor'
-import { getTranslations } from 'next-intl/server'
+import getParsedPost from './get-parsed-post.function'
 
-interface Heading {
-  id: string
-  text: string
-  level: number
-}
 type PostPageProps = {
   params: Promise<{ locale: string; slug: string }>
   searchParams: Promise<{ draft: string }>
@@ -57,89 +42,7 @@ export default async function PostPage(props: PostPageProps) {
 
   const isDraft = draft === 'true' || draft === '1'
 
-  let post: BlogPost
-  let contentHtml = ''
-  let headings: Heading[] = []
-
-  try {
-    post = getPostBySlug(locale, isDraft ? `${slug}.draft` : slug)
-
-    // Process markdown content to HTML with GFM support and autolink headings
-    // while extracting headings during the processing phase
-    let extractedHeadings: Heading[] = []
-
-    const processedContent = await unified()
-      .use(remarkParse)
-      .use(remarkRehype)
-      .use(rehypeFormat)
-      .use(rehypeShiki, {
-        themes: {
-          dark: 'gruvbox-dark-hard',
-          light: 'gruvbox-dark-hard'
-        }
-      })
-      .use(rehypeSlug)
-      .use(rehypeAddClasses, {
-        'h1, h2, h3, h4, h5, h6': 'group'
-      })
-      .use(rehypeAutolinkHeadings, {
-        content() {
-          return [
-            h(
-              'div',
-              {
-                class:
-                  'no-underline rounded-lg py-1 border bg-white/10 border-white/20 absolute right-full top-0 text-base px-2.5 transition opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0'
-              },
-              '🔗'
-            )
-          ]
-        }
-      })
-      .use(() => tree => {
-        // Extract only top-level h2 headings from the processed AST
-        if (tree && tree.children && Array.isArray(tree.children)) {
-          extractedHeadings = tree.children
-            .filter(
-              (node: any) =>
-                node.type === 'element' &&
-                node.tagName === 'h2' &&
-                node.properties?.id
-            )
-            .map((node: any): Heading | null => {
-              // Extract text content from direct text children only
-              let text = ''
-              if (node.children && Array.isArray(node.children)) {
-                node.children.forEach((child: any) => {
-                  if (child.type === 'text' && child.value) {
-                    text += child.value
-                  }
-                })
-              }
-
-              text = text.trim()
-
-              if (text) {
-                return {
-                  id: node.properties.id,
-                  text,
-                  level: 2
-                }
-              }
-              return null
-            })
-            .filter(Boolean)
-        }
-      })
-      .use(rehypeStringify)
-      .process(post.content)
-
-    contentHtml = processedContent.toString()
-    headings = extractedHeadings
-  } catch (error) {
-    console.error('Error fetching post:', error)
-    notFound()
-  }
+  const { post, headings, html } = await getParsedPost(locale, slug, isDraft)
 
   return (
     <div className="flex flex-col lg:flex-row">
@@ -148,7 +51,7 @@ export default async function PostPage(props: PostPageProps) {
         <div className="w-full flex flex-col relative pt-20 px-6 mb-10 lg:px-0">
           {isDraft && (
             <div className="left-1/2 z-10 -translate-1/2 top-32 fixed flex items-center font-mono text-primary gap-2">
-              <Link href="?" className='-ml-6'>
+              <Link href="?" className="-ml-6">
                 <SimpleButton icon={faLongArrowLeft}>
                   {t('publishedButton')}
                 </SimpleButton>
@@ -172,7 +75,10 @@ export default async function PostPage(props: PostPageProps) {
               </span>
             </div>
             {!isDraft && (
-              <Link href="?draft=true" className="flex items-center gap-1 hover:text-primary">
+              <Link
+                href="?draft=true"
+                className="flex items-center gap-1 hover:text-primary"
+              >
                 <FontAwesomeIcon fixedWidth icon={faFile}></FontAwesomeIcon>
                 <span className="text-xs">{t('draftButton')}</span>
               </Link>
@@ -234,7 +140,7 @@ export default async function PostPage(props: PostPageProps) {
             prose-a:font-extralight prose-a:text-primary
 
             `)}
-            dangerouslySetInnerHTML={{ __html: contentHtml }}
+            dangerouslySetInnerHTML={{ __html: html }}
           ></div>
 
           <div className="hidden lg:block col-span-1">
