@@ -9,6 +9,7 @@ import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { Logo } from '../../../../components/Logo'
 import { getPostBySlug } from '../../../../lib/blog'
+import OpenGraphIcon from '../../../../components/OpenGraphIcon'
 
 export const alt = 'Lucas Pedroni'
 export const size = {
@@ -105,50 +106,27 @@ export default async function Image(props: {
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <svg
-                style={{
-                  boxSizing: 'content-box',
-                  display: 'flex',
-                  height: 16,
-                  width: 16,
-                  overflow: 'visible',
-                  marginRight: 16
-                }}
-              >
-                <path fill="white" d={faUser.icon[4]}></path>
-              </svg>
+              <OpenGraphIcon
+                style={{ marginRight: 12 }}
+                iconPath={faUser.icon[4]}
+              ></OpenGraphIcon>
               <span>Lucas Pedroni</span>
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <svg
-                style={{
-                  boxSizing: 'content-box',
-                  display: 'flex',
-                  height: 16,
-                  width: 16,
-                  overflow: 'visible',
-                  marginRight: 16
-                }}
-              >
-                <path fill="white" d={faCalendar.icon[4]}></path>
-              </svg>
+              <OpenGraphIcon
+                style={{ marginRight: 12 }}
+                iconPath={faCalendar.icon[4]}
+              ></OpenGraphIcon>
               <span>{new Date(post.date).toLocaleDateString(locale)}</span>
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <svg
-                style={{
-                  boxSizing: 'content-box',
-                  display: 'flex',
-                  height: 16,
-                  width: 16,
-                  overflow: 'visible',
-                  marginRight: 16
-                }}
-              >
-                <path fill="white" d={faClock.icon[4]}></path>
-              </svg>
+              <OpenGraphIcon
+                style={{ marginRight: 12 }}
+                iconPath={faClock.icon[4]}
+              ></OpenGraphIcon>
+
               <span>
                 {post.readingTime} {t('Words.minutes')}
               </span>
