@@ -1,13 +1,17 @@
 import classNames from 'classnames'
 import { BlogPost } from '../../../lib/blog'
-import { getLocale } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
+import BlogMetadata from './[slug]/BlogMetadata'
+import { faCalendar, faClock } from '@fortawesome/free-regular-svg-icons'
 
 export default async function BlogPostCard(props: {
   className?: string
   post: BlogPost
   small?: boolean
 }) {
-  const locale = await getLocale();
+  const locale = await getLocale()
+  const t = await getTranslations()
+
   return (
     <a
       href={`/blog/${props.post.slug}`}
@@ -43,22 +47,35 @@ export default async function BlogPostCard(props: {
       "
       ></div>
       <div className="relative px-6 py-4">
-        <p className="text-white/50 text-xs font-mono mb-1">
-          {new Date(props.post.date).toLocaleDateString(locale, {
-            month: 'long',
-            day: 'numeric',
-            year: 'numeric'
-          })}
-        </p>{' '}
-        <h2 className={classNames(" font-normal font-serif group-hover:text-primary", {
-          'text-xl': props.small,
-          'mb-2 text-2xl': !props.small
-        })}>{props.post.title}</h2>
+        <h2
+          className={classNames(
+            ' font-normal font-serif group-hover:text-primary',
+            {
+              'text-xl': props.small,
+              'mb-2 text-2xl': !props.small
+            }
+          )}
+        >
+          {props.post.title}
+        </h2>
         {!props.small && props.post.excerpt && (
           <p className="text-white/70 tracking-wider font-light font-sans leading-relaxed">
             {props.post.excerpt}
           </p>
         )}
+        <div className="flex gap-4 opacity-75">
+          <BlogMetadata icon={faCalendar}>
+            {new Date(props.post.date).toLocaleDateString(locale, {
+              month: 'long',
+              day: 'numeric',
+              year: 'numeric'
+            })}
+          </BlogMetadata>
+
+          <BlogMetadata icon={faClock}>
+            {props.post.readingTime} {t('Words.minutes')}
+          </BlogMetadata>
+        </div>{' '}
       </div>
     </a>
   )

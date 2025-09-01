@@ -17,6 +17,7 @@ import BlogAuthor from '../BlogAuthor'
 import getParsedPost from './get-parsed-post.function'
 import { getUrl } from '../../../../helpers'
 import BlogMetadata from './BlogMetadata'
+import Dashes from '../../../../components/Dashes'
 
 type PostPageProps = {
   params: Promise<{ locale: string; slug: string }>
@@ -183,14 +184,7 @@ export default async function PostPage(props: PostPageProps) {
               {post.title}
             </h1>
 
-            <div className="overflow-hidden w-full mt-10 flex gap-2 h-4">
-              {Array.from({ length: 70 }).map((_, index) => (
-                <div
-                  key={index}
-                  className="shrink-0 h-px w-2 bg-white/20"
-                ></div>
-              ))}
-            </div>
+            <div className="mt-10"><Dashes></Dashes></div>
           </div>
 
           <div

@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server'
 import BlogPostCard from './BlogPostCard'
 import { BlogPost, getSortedPosts } from '../../../lib/blog'
 import { getUrl } from '../../../helpers'
+import Dashes from '../../../components/Dashes'
 
 type PostsByYear = { year: number; posts: BlogPost[] }
 
@@ -17,23 +18,12 @@ export async function generateMetadata(
   const t = await getTranslations('Blog')
 
   const title = `Blog | Lucas Pedroni`
-  const description = `Read Lucas Pedroni's thoughts on programming, software development, web technologies, and career insights. A collection of articles about PHP, JavaScript, Python, and more.`
+  const description = t('metaDescription')
 
   return {
     title,
     description,
-    keywords: [
-      'programming blog',
-      'software development',
-      'web development',
-      'PHP',
-      'JavaScript',
-      'Python',
-      'tech articles',
-      'Lucas Pedroni',
-      'programming tutorials',
-      'coding insights'
-    ],
+    keywords: t('keywords'),
     authors: [{ name: 'Lucas Pedroni' }],
     creator: 'Lucas Pedroni',
     publisher: 'Lucas Pedroni',
@@ -65,6 +55,7 @@ export async function generateMetadata(
 
 export default async function BlogPage(props: BlogPageProps) {
   const { locale } = await props.params
+  const t = await getTranslations('Blog')
 
   const postsByYear: PostsByYear[] = getSortedPosts(locale).reduce(
     (acc: PostsByYear[], post: BlogPost) => {
@@ -111,28 +102,26 @@ export default async function BlogPage(props: BlogPageProps) {
       />
       <div className="relative min-h-[calc(100vh-600px)] py-20 px-4">
         <div className="relative max-w-4xl mx-auto">
-          <header className="mb-12 text-center">
-            <h1 className="text-6xl font-serif font-light text-primary mb-4">
+          <header className="mb-14 text-center">
+            <h1 className="sr-only">
               Blog
             </h1>
             <p className="text-lg text-white/80 max-w-2xl mx-auto">
-              Thoughts on programming, software development, and technology.
-              Join me as I share insights from my journey as a software
-              engineer.
+              {t('description')}
             </p>
           </header>
+
           {firstPost && (
-            <div className="pb-10 mb-10 not-last:border-b border-b-white/10">
-              <div className="mb-6">
-                <h2 className="text-primary-light font-mono text-3xl">
-                  Latest Post
-                </h2>
-              </div>
+            <div className="pb-10 mb-10">
               <div>
                 <BlogPostCard post={firstPost} />
               </div>
             </div>
           )}
+
+          <div className='my-12'>
+            <Dashes></Dashes>
+          </div>
 
           {postsByYear.map(({ year, posts }) => (
             <div
