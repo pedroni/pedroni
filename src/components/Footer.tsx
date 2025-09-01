@@ -28,10 +28,12 @@ const Footer = () => {
         </div>
         <div className='flex'>
           <IconButton
+            title="LinkedIn Lucas Pedroni"
             href="https://www.linkedin.com/in/lucaspedroni/"
             icon={faLinkedin}
           ></IconButton>
           <IconButton
+            title="Github Pedroni"
             href="https://github.com/pedroni"
             icon={faGithub}
           ></IconButton>

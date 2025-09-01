@@ -6,12 +6,14 @@ import { MouseEvent, ReactNode } from 'react'
 export const IconButton = (props: {
   onClick?: (ev: MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => void
   href?: string
+  title?: string
   icon?: IconDefinition
   children?: ReactNode
 }) => {
   const Element = props.href ? 'a' : 'button'
   return (
     <Element
+      title={props.title}
       onClick={props.onClick}
       href={props.href}
       className={classNames(

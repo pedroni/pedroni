@@ -68,7 +68,7 @@ export const Header = () => {
         h-14
         lg:h-16"
       >
-        <Link href="/" className="shrink-0 w-10 pr-1 lg:w-20 lg:pr-8">
+        <Link title='Home Lucas Pedroni' href="/" className="shrink-0 w-10 pr-1 lg:w-20 lg:pr-8">
           <Logo></Logo>
         </Link>
         <nav
@@ -91,10 +91,12 @@ export const Header = () => {
             })}
           >
             <IconButton
+              title="LinkedIn Lucas Pedroni"
               href="https://www.linkedin.com/in/lucaspedroni/"
               icon={faLinkedin}
             ></IconButton>
             <IconButton
+              title="Github Pedroni"
               href="https://github.com/pedroni"
               icon={faGithub}
             ></IconButton>
@@ -107,6 +109,7 @@ export const Header = () => {
             })}
           >
             <IconButton
+              title="Choose a Language"
               onClick={ev => {
                 ev.preventDefault()
                 setChoosingLanguage(!choosingLanguage)
