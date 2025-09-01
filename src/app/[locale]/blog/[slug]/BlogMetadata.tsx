@@ -7,7 +7,7 @@ export default function BlogMetadata(props: {
   children: ReactNode
 }) {
   return (
-    <div className="font-mono text-sm font-light mt-2 not-print:opacity-80 flex items-center gap-1">
+    <div className="font-mono text-sm font-light mt-2 not-print:opacity-80 flex flex-nowrap text-nowrap items-center gap-1">
       <FontAwesomeIcon fixedWidth icon={props.icon}></FontAwesomeIcon>
       <span>{props.children}</span>
     </div>

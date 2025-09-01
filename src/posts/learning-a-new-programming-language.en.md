@@ -95,8 +95,8 @@ Learning a new programming language takes time. I first needed to find my purpos
 
 Now I need to practice, for DSA [I found this course on Udemy](https://www.udemy.com/course/data-structures-algorithms-cpp/) by Scott Barrett, the lessons are well presented, with nice smooth animations, the exercises are fun and challenging to do. After I get bored with it, I'll start a personal project so that I can build something from 0 to 1. Doing that will certainly put me in a good level of understading of the language.
 
-I'm feeling happy and passionate about programming again. Every step of learning C++ and DSA was fun. **I got my hobby back!**.
+I'm feeling happy and passionate about programming again. Every step of learning C++ and DSA was fun. **I got my hobby back!**
 
 Here's the first time I solved a problem on my own after learning the Tortoise and the Hare algorithm. Solving this made my day. The happiness from solving this was truly rewarding!
 
-![Whiteboard Solution for Linked List Find Kth Node From End](https://github.com/pedroni/learning-cpp/blob/main/dsa/linked-list-find-kth-node-from-end.png)
+![Whiteboard Solution for Linked List Find Kth Node From End](/img/blog/learning-a-new-programming-language/01.png)

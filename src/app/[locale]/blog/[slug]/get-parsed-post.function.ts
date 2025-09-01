@@ -9,6 +9,7 @@ import rehypeStringify from 'rehype-stringify'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import { unified } from 'unified'
+import { visit } from 'unist-util-visit'
 import { BlogPost, getPostBySlug } from '../../../../lib/blog'
 import { Heading } from '../../../../components/TableOfContents'
 
@@ -40,8 +41,53 @@ export default async function getParsedPost(
         }
       })
       .use(rehypeSlug)
+      .use(() => tree => {
+        // Simple plugin to wrap images in clickable links
+        visit(tree, 'element', (node, index, parent) => {
+          if (
+            node.tagName === 'img' &&
+            node.properties?.src &&
+            parent &&
+            index !== undefined
+          ) {
+            const linkNode = {
+              type: 'element',
+              tagName: 'a',
+              properties: {
+                href: node.properties.src,
+                target: '_blank',
+                rel: 'noopener noreferrer'
+              },
+              children: [node]
+            }
+            parent.children[index] = linkNode
+          }
+        })
+      })
       .use(rehypeAddClasses, {
         'h1, h2, h3, h4, h5, h6': 'group'
+      })
+      .use(() => tree => {
+        visit(tree, 'element', node => {
+          if (
+            ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(node.tagName) &&
+            node.properties?.id
+          ) {
+            let text = ''
+            visit(node, 'text', textNode => {
+              text += textNode.value
+            })
+            text = text.trim()
+            if (text) {
+              const level = parseInt(node.tagName.substring(1))
+              extractedHeadings.push({
+                id: node.properties.id,
+                text,
+                level
+              })
+            }
+          }
+        })
       })
       .use(rehypeAutolinkHeadings, {
         content() {
@@ -57,41 +103,7 @@ export default async function getParsedPost(
           ]
         }
       })
-      .use(() => tree => {
-        // Extract only top-level h2 headings from the processed AST
-        if (tree && tree.children && Array.isArray(tree.children)) {
-          extractedHeadings = tree.children
-            .filter(
-              (node: any) =>
-                node.type === 'element' &&
-                node.tagName === 'h2' &&
-                node.properties?.id
-            )
-            .map((node: any): Heading | null => {
-              // Extract text content from direct text children only
-              let text = ''
-              if (node.children && Array.isArray(node.children)) {
-                node.children.forEach((child: any) => {
-                  if (child.type === 'text' && child.value) {
-                    text += child.value
-                  }
-                })
-              }
 
-              text = text.trim()
-
-              if (text) {
-                return {
-                  id: node.properties.id,
-                  text,
-                  level: 2
-                }
-              }
-              return null
-            })
-            .filter(Boolean)
-        }
-      })
       .use(rehypeStringify)
       .process(post.content)
 

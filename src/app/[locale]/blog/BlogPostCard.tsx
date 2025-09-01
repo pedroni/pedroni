@@ -50,7 +50,10 @@ export default async function BlogPostCard(props: {
             year: 'numeric'
           })}
         </p>{' '}
-        <h2 className="text-2xl font-normal font-serif mb-2 group-hover:text-primary">{props.post.title}</h2>
+        <h2 className={classNames(" font-normal font-serif group-hover:text-primary", {
+          'text-xl': props.small,
+          'mb-2 text-2xl': !props.small
+        })}>{props.post.title}</h2>
         {!props.small && props.post.excerpt && (
           <p className="text-white/70 tracking-wider font-light font-sans leading-relaxed">
             {props.post.excerpt}

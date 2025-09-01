@@ -159,7 +159,7 @@ export default async function PostPage(props: PostPageProps) {
       />
       <div className="flex flex-col lg:flex-row">
         <div className="flex-1 w-full max-w-[991px] mx-auto">
-          <div className="w-full flex flex-col relative pt-20 px-6 mb-10 lg:px-0">
+          <div className="w-full flex flex-col relative lg:pt-20 px-6 mb-10 lg:px-0">
             {isDraft && (
               <div className="left-1/2 z-10 -translate-1/2 bottom-2 fixed flex items-center font-mono text-primary gap-2 lg:bottom-auto lg:top-32">
                 <Link href="?" className="-ml-6">
@@ -170,7 +170,7 @@ export default async function PostPage(props: PostPageProps) {
               </div>
             )}
 
-            <div className="font-mono flex gap-4 text-sm font-light mt-2 not-print:opacity-80">
+            <div className="font-mono flex flex-wrap gap-x-4 text-sm font-light mt-2 not-print:opacity-80">
               <BlogMetadata icon={faUser}>Lucas Pedroni</BlogMetadata>
               <BlogMetadata icon={faCalendar}>
                 {new Date(post.date).toLocaleDateString(locale, {
@@ -229,6 +229,7 @@ export default async function PostPage(props: PostPageProps) {
 
 
               px-6
+              prose-img:rounded-lg
               prose-img:-mx-6
               prose-img:max-w-[calc(100%+48px)]!
               lg:px-0

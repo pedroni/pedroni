@@ -3,6 +3,7 @@ import { faFolderOpen } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { scrollTo } from '../helpers'
 import { MouseEvent } from 'react'
+import classNames from 'classnames';
 
 export interface Heading {
   id: string
@@ -36,15 +37,15 @@ export default function TableOfContents({
           Table of contents
         </span>
       </h3>
-      <nav className="flex flex-col gap-3 pl-[18px] py-2 ml-2 border-l border-dashed border-l-white/10">
+      <nav className="flex flex-col gap-3 pl-0 py-2 ml-2 border-l border-dashed border-l-white/10 max-h-screen overflow-auto">
         {headings.map(heading => (
           <a
             key={heading.id}
             onClick={handleHeadingClick(heading)}
             href={`#${heading.id}`}
-            className={`block font-extralight text-sm transition-all underline decoration-white/20 decoration-1 hover:translate-x-2 text-primary`}
+            className={classNames(`block font-extralight text-sm transition-all underline decoration-white/20 decoration-1 hover:translate-x-2 text-primary`,)}
             style={{
-              marginLeft: `${heading.level - 1 * 4}px`
+              marginLeft: `${heading.level * 8}px`
             }}
           >
             {heading.text}
