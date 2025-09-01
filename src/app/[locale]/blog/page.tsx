@@ -1,10 +1,78 @@
+import { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 import BlogPostCard from './BlogPostCard'
 import { BlogPost, getSortedPosts } from '../../../lib/blog'
+import { getUrl } from '../../../helpers'
 
 type PostsByYear = { year: number; posts: BlogPost[] }
-export default async function BlogPage(props: {
+
+type BlogPageProps = {
   params: Promise<{ locale: string }>
-}) {
+}
+
+export async function generateMetadata(
+  props: BlogPageProps
+): Promise<Metadata> {
+  const { locale } = await props.params
+  const t = await getTranslations('Blog')
+
+  const title = `Blog | Lucas Pedroni`
+  const description = `Read Lucas Pedroni's thoughts on programming, software development, web technologies, and career insights. A collection of articles about PHP, JavaScript, Python, and more.`
+
+  return {
+    title,
+    description,
+    keywords: [
+      'programming blog',
+      'software development',
+      'web development',
+      'PHP',
+      'JavaScript',
+      'Python',
+      'tech articles',
+      'Lucas Pedroni',
+      'programming tutorials',
+      'coding insights'
+    ],
+    authors: [{ name: 'Lucas Pedroni' }],
+    creator: 'Lucas Pedroni',
+    publisher: 'Lucas Pedroni',
+    metadataBase: new URL(getUrl()),
+    alternates: {
+      canonical: `/${locale}/blog`,
+      languages: {
+        en: '/en/blog',
+        pt: '/pt/blog'
+      }
+    },
+    openGraph: {
+      title,
+      description,
+      url: getUrl(`/${locale}/blog`),
+      siteName: 'Lucas Pedroni',
+      locale,
+      type: 'website',
+      images: [
+        {
+          url: '/og-image.jpg',
+          width: 1200,
+          height: 630,
+          alt: 'Lucas Pedroni Blog'
+        }
+      ]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      creator: '@pedronidev',
+      images: ['/og-image.jpg']
+    },
+    robots: 'index, follow'
+  }
+}
+
+export default async function BlogPage(props: BlogPageProps) {
   const { locale } = await props.params
 
   const postsByYear: PostsByYear[] = getSortedPosts(locale).reduce(
@@ -21,40 +89,79 @@ export default async function BlogPage(props: {
     []
   )
 
-  const firstPost = postsByYear[0].posts[0];
+  const firstPost = postsByYear[0]?.posts[0]
+
+  // JSON-LD structured data for blog listing
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: 'Lucas Pedroni Blog',
+    description:
+      'Programming and software development insights by Lucas Pedroni',
+    url: getUrl(`${locale}/blog`),
+    author: {
+      '@type': 'Person',
+      name: 'Lucas Pedroni',
+      url: getUrl()
+    },
+    publisher: {
+      '@type': 'Person',
+      name: 'Lucas Pedroni',
+      url: getUrl()
+    },
+    inLanguage: locale
+  }
 
   return (
-    <div className="relative min-h-[calc(100vh-600px)] py-20 px-4">
-      <div className="relative max-w-4xl mx-auto">
-        {firstPost && (
-          <div className="pb-10 mb-10 not-last:border-b border-b-white/10">
-            <div className="mb-6">
-              <h2 className="text-primary-light font-mono text-3xl">
-                Latest Post
-              </h2>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="relative min-h-[calc(100vh-600px)] py-20 px-4">
+        <div className="relative max-w-4xl mx-auto">
+          <header className="mb-12 text-center">
+            <h1 className="text-6xl font-serif font-light text-primary mb-4">
+              Blog
+            </h1>
+            <p className="text-lg text-white/80 max-w-2xl mx-auto">
+              Thoughts on programming, software development, and technology.
+              Join me as I share insights from my journey as a software
+              engineer.
+            </p>
+          </header>
+          {firstPost && (
+            <div className="pb-10 mb-10 not-last:border-b border-b-white/10">
+              <div className="mb-6">
+                <h2 className="text-primary-light font-mono text-3xl">
+                  Latest Post
+                </h2>
+              </div>
+              <div>
+                <BlogPostCard post={firstPost} />
+              </div>
             </div>
-            <div>
-              <BlogPostCard post={firstPost} />
-            </div>
-          </div>
-        )}
+          )}
 
-        {postsByYear.map(({ year, posts }) => (
-          <div
-            key={year}
-            className="pb-10 mb-10 not-last:border-b border-b-white/10"
-          >
-            <div className="mb-6">
-              <h2 className="text-primary-light font-mono text-3xl">{year}</h2>
+          {postsByYear.map(({ year, posts }) => (
+            <div
+              key={year}
+              className="pb-10 mb-10 not-last:border-b border-b-white/10"
+            >
+              <div className="mb-6">
+                <h2 className="text-primary-light font-mono text-3xl">
+                  {year}
+                </h2>
+              </div>
+              <div className="grid gap-4 grid-cols-1 md:grid-cols-1">
+                {posts.map(post => (
+                  <BlogPostCard key={post.slug} post={post} small={true} />
+                ))}
+              </div>
             </div>
-            <div className="grid gap-4 grid-cols-1 md:grid-cols-1">
-              {posts.map(post => (
-                <BlogPostCard key={post.slug} post={post} small={true} />
-              ))}
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   )
 }

@@ -8,8 +8,13 @@ export interface BlogPost {
   slug: string
   title: string
   date: string
+  updatedAt?: string
   excerpt?: string
   content: string
+  tags?: string[]
+  keywords?: string[]
+  image?: string
+  category?: string
 }
 
 function listPostFileNames(locale: string) {

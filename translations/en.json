@@ -73,5 +73,9 @@
   },
   "BlogAuthor": {
     "description": "Specialized in front-end development (with a foot in back-end). I build software with attention to detail. Over {years, number} years of experience. Currently Team Lead at <company>Voxie Inc.</company> an SMS automation platform."
+  },
+  "SEO": {
+    "siteTitle": "Lucas Pedroni - Software Engineer",
+    "siteDescription": "Specialized in front-end development (with a foot in back-end). I build software with attention to detail. Over {years, number} years of experience. Currently Team Lead at Voxie Inc. an SMS automation platform."
   }
 }

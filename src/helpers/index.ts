@@ -11,7 +11,7 @@ export const calculateYears = (fromDate: string) => {
     years--
   }
 
-  return years;
+  return years
 }
 
 export function scrollTo(selector: string, offset = 80) {
@@ -44,7 +44,17 @@ export function markdownToHtml(markdown?: string): string {
     return ''
   }
 
-  const processed = unified().use(remarkParse).use(remarkHtml).processSync(markdown)
+  const processed = unified()
+    .use(remarkParse)
+    .use(remarkHtml)
+    .processSync(markdown)
 
   return processed.toString().replaceAll('<a ', '<a target="_blank" ')
+}
+
+export function getUrl(string?: string) {
+  string = string ?? ''
+  string = !string.startsWith('/') ? `/${string}` : string
+  string = string.startsWith('/en') ? string.slice(3) : string
+  return `https://pedroni.dev${string}`
 }

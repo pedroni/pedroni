@@ -50,12 +50,6 @@ export default async function Layout(
           href="https://cdn.jsdelivr.net/gh/konpa/devicon@master/devicon.min.css"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Lucas Pedroni, desenvolvedor full stack</title>
-        <meta
-          name="description"
-          content="Dando vida a ideias. Desenvolvimento de sites, aplicativos e sistemas sob medida. Tecnologias utilizadas: PHP; Laravel; JavaScript; Angular; Ionic; React e muito mais."
-        />
-
         <meta name="theme-color" content="#000000" />
       </head>
 

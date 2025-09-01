@@ -101,9 +101,9 @@ export const Header = () => {
           </div>
 
           <div
-            className={classNames('ml-2 pl-2 relative flex gap-2 transition', {
-              '-translate-x-16': choosingLanguage,
-              'border-l border-white/10': !choosingLanguage
+            className={classNames('border-l ml-2 pl-2 relative flex gap-2 transition', {
+              '-translate-x-16 border-transparent': choosingLanguage,
+              'border-white/10': !choosingLanguage
             })}
           >
             <IconButton
