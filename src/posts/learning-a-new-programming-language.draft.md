@@ -40,4 +40,4 @@ Now I'll continue on learning more about DSA, [I found this course on Udemy](htt
 
 Here's the first time I solved a problem on my own after learning the Tortoise and the Hare algorithm. Solving this made my day. The happines from solving this was trully rewarding.
 
-![Whiteboard Solution for Linked List Find Kth Node From End](https://github.com/pedroni/learning-cpp/blob/main/dsa/linked-list-find-kth-node-from-end.png)
+![Whiteboard Solution for Linked List Find Kth Node From End](/img/blog/learning-a-new-programming-language/01.png)
