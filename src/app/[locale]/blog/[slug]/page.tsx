@@ -87,22 +87,13 @@ export async function generateMetadata(
       locale,
       type: 'article',
       publishedTime,
-      authors: ['Lucas Pedroni'],
-      images: [
-        {
-          url: post.image || '/og-image.jpg',
-          width: 1200,
-          height: 630,
-          alt: post.title
-        }
-      ]
+      authors: ['Lucas Pedroni']
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      creator: '@pedronidev',
-      images: [post.image || '/og-image.jpg']
+      creator: '@pedronidev'
     },
     robots: 'index, follow'
   }
@@ -111,15 +102,11 @@ export async function generateMetadata(
 export default async function PostPage(props: PostPageProps) {
   const { locale, slug } = await props.params
   const { draft } = await props.searchParams
-  const t = await getTranslations('BlogPost')
+  const t = await getTranslations()
 
   const isDraft = draft === 'true' || draft === '1'
 
-  const { post, headings, html, readingTime } = await getParsedPost(
-    locale,
-    slug,
-    isDraft
-  )
+  const { post, headings, html } = await getParsedPost(locale, slug, isDraft)
 
   // JSON-LD structured data for SEO
   const jsonLd = {
@@ -127,7 +114,6 @@ export default async function PostPage(props: PostPageProps) {
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.excerpt || `Read ${post.title} by Lucas Pedroni`,
-    image: getUrl(`${post.image || '/og-image.jpg'}`),
     author: {
       '@type': 'Person',
       name: 'Lucas Pedroni',
@@ -164,7 +150,7 @@ export default async function PostPage(props: PostPageProps) {
               <div className="left-1/2 z-10 -translate-1/2 bottom-2 fixed flex items-center font-mono text-primary gap-2 lg:bottom-auto lg:top-32">
                 <Link href="?" className="-ml-6">
                   <SimpleButton icon={faLongArrowLeft}>
-                    {t('publishedButton')}
+                    {t('BlogPost.publishedButton')}
                   </SimpleButton>
                 </Link>
               </div>
@@ -180,16 +166,15 @@ export default async function PostPage(props: PostPageProps) {
                 })}
               </BlogMetadata>
 
-              {readingTime && (
-                <BlogMetadata icon={faClock}>{readingTime} minutes</BlogMetadata>
-              )}
+              <BlogMetadata icon={faClock}>
+                {post.readingTime} {t('Words.minutes')}
+              </BlogMetadata>
 
               {!isDraft && (
-                <Link
-                  href="?draft=true"
-                  className="hover:text-primary"
-                >
-                  <BlogMetadata icon={faFile}>{t('draftButton')}</BlogMetadata>
+                <Link href="?draft=true" className="hover:text-primary">
+                  <BlogMetadata icon={faFile}>
+                    {t('BlogPost.draftButton')}
+                  </BlogMetadata>
                 </Link>
               )}
             </div>

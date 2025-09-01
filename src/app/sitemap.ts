@@ -4,8 +4,6 @@ import { routing } from '../i18n/routing'
 import { getSortedPosts } from '../lib/blog'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = getUrl()
-
   const staticPages: MetadataRoute.Sitemap = []
 
   routing.locales.forEach(locale => {

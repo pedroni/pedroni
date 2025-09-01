@@ -12,7 +12,9 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import { routing } from '../i18n/routing'
 import './global.css'
-import { getLocale } from 'next-intl/server'
+import { getLocale, getTranslations, setRequestLocale } from 'next-intl/server'
+import { Metadata } from 'next'
+import { calculateYears } from '../helpers'
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
 SwiperCore.use([Navigation])
@@ -37,10 +39,26 @@ export function generateStaticParams() {
   return routing.locales.map(locale => ({ locale }))
 }
 
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await props.params
+  setRequestLocale(locale);
+
+  const t = await getTranslations('SEO')
+
+  return {
+    title: t('siteTitle'),
+    description: t('siteDescription', {
+      years: calculateYears('2017-03-01')
+    })
+  }
+}
+
 export default async function Layout(
-  props: Readonly<{ params: Promise<{ locale: string }>; children: ReactNode }>,
+  props: Readonly<{ params: Promise<{ locale: string }>; children: ReactNode }>
 ) {
-  const locale = await getLocale();
+  const locale = await getLocale()
 
   return (
     <html lang={locale}>
@@ -49,7 +67,6 @@ export default async function Layout(
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/konpa/devicon@master/devicon.min.css"
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#000000" />
       </head>
 

@@ -21,7 +21,6 @@ export default async function getParsedPost(
   post: BlogPost
   html: string
   headings: Heading[]
-  readingTime: number
 }> {
   try {
     const post = getPostBySlug(locale, draft ? `${slug}.draft` : slug)
@@ -111,10 +110,6 @@ export default async function getParsedPost(
       post: post,
       html: processedContent.toString(),
       headings: extractedHeadings,
-      readingTime: Math.max(
-        1,
-        Math.ceil(post.content.split(/\s+/).length / 250)
-      )
     }
   } catch (error) {
     console.error('Error fetching post:', error)

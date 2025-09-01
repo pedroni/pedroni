@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "description": "pedroni.dev",
   "main": "pages/index.js",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "npm install && next build && next start",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.0.0",
     "@fortawesome/free-brands-svg-icons": "^7.0.0",
@@ -52,13 +59,6 @@
   "engines": {
     "node": "^22",
     "npm": "^10"
-  },
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "npm install && next build && next start",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
   },
   "author": "pedroni",
   "license": "ISC"

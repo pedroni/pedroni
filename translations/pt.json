@@ -77,5 +77,8 @@
   "SEO": {
     "siteTitle": "Lucas Pedroni - Desenvolvedor de Software",
     "siteDescription": "Especializado em desenvolvimento front-end (com um pézinho no back-end). Desenvolvo software com atenção aos detalhes. Mais de {years, number} anos de experiência. Atualmente Team Lead na Voxie Inc. uma plataforma de automação de SMS."
+  },
+  "Words": {
+    "minutes": "minutos"
   }
 }

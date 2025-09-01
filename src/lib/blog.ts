@@ -15,6 +15,7 @@ export interface BlogPost {
   keywords?: string[]
   image?: string
   category?: string
+  readingTime: number
 }
 
 function listPostFileNames(locale: string) {
@@ -30,6 +31,19 @@ function formatSlug(fileName: string) {
   return fileName.split('.')[0]
 }
 
+function readMarkdown(slug: string, fileContents: string) {
+  const matterResult = matter(fileContents)
+  return {
+    slug,
+    ...(matterResult.data as Omit<BlogPost, 'slug' | 'content'>),
+    content: matterResult.content,
+    readingTime: Math.max(
+      1,
+      Math.ceil(matterResult.content.split(/\s+/).length / 250)
+    )
+  } as BlogPost
+}
+
 export function getSortedPosts(locale: string): BlogPost[] {
   // Get file names under /posts
   const fileNames = listPostFileNames(locale)
@@ -43,15 +57,7 @@ export function getSortedPosts(locale: string): BlogPost[] {
       const fullPath = path.join(postsDirectory, fileName)
       const fileContents = fs.readFileSync(fullPath, 'utf8')
 
-      // Use gray-matter to parse the post metadata section
-      const matterResult = matter(fileContents)
-
-      // Combine the data with the slug
-      return {
-        slug,
-        ...matterResult.data,
-        content: matterResult.content
-      } as BlogPost
+      return readMarkdown(slug, fileContents)
     })
     // Sort posts by date
     .sort((a, b) => {
@@ -80,13 +86,5 @@ export function getPostBySlug(locale: string, slug: string): BlogPost {
 
   const fileContents = fs.readFileSync(fullPath, 'utf8')
 
-  // Use gray-matter to parse the post metadata section
-  const matterResult = matter(fileContents)
-
-  // Combine the data with the slug
-  return {
-    slug,
-    ...(matterResult.data as Omit<BlogPost, 'slug' | 'content'>),
-    content: matterResult.content
-  } as BlogPost
+  return readMarkdown(slug, fileContents)
 }
