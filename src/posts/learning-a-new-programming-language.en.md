@@ -7,11 +7,11 @@ keywords: ["programming languages", "learn", "software engineering", "hobby"]
 category: "Programming"
 ---
 
-For the past 8 years, programming has been my profission, but it started as a hobby, that I was passionated about. For a few months, maybe years, I started losing my passion for programming. What used to be really exciting had become just a regular job, doing the same tasks over and over. I missed how excited I felt when I first started learning.
+For the past 8 years, programming has been my profession, but it started as a hobby, that I was passionated about. For a few months, maybe years, I started losing my passion for programming.
 
-I miss those times when a concept finally made sense, or when I would work on a problem for hours, but it felt like a minute. The fun of figuring things out was gone. PHP and JavaScript is so confortable to me that now programming had become a repetitive task. I was rebuilding things in the same pattern over and over.
+I miss those times when a concept finally made sense, or when I would work on a problem for hours, but it felt like a minute. The fun of figuring things out was gone. PHP and JavaScript is so comfortable to me that now programming had become a repetitive task. Repeating the same pattern over and over. It feels like I'm in an infinite loop.
 
-I want to bring back the passion I once hard. I think I need to go back to the beginning. I need to learn something new. But how could I learn a new language?
+I want to bring back the passion I once had. I think I need to go back to the beginning. I need to learn something new. But how could I learn a new language?
 
 ## They all look the same
 
@@ -21,7 +21,7 @@ But I didn't feel like I was learning. All I did was search "How to do X in Lua?
 
 I decided to give Python another chance, and after a while, I realized. Python and Lua are scripting languages. Why learn a new scripting language when I already know PHP and JavaScript?
 
-Learning a new scripting language felt boring, they were very similar, their syntax and functions were very similar as well. I was on a loop, repeating the same thing that I already knew. **I wasn't learning**.
+Learning a new scripting language felt boring, they were very similar, their syntax and functions were very similar as well. And again I was on a loop, repeating the same thing that I already knew. **I wasn't learning**.
 
 ## Trying something different
 
@@ -29,13 +29,13 @@ That was when it hit me. I had to try something different. Something that could 
 
 At times I even considered finding a new hobby, a new passion, a hobby that could make me excited. However, I didn't want a new hobby, I like programming.
 
-I felt I needed something that could activate my brain. PHP and JavaScript was so automatic to me that I didn't have to think anymore. Any problem or project that I had to do I just did it. I didn't have to put any thoughts into it. Even when I had a "brilliant" idea and was excited to execute it, after a few hours the excitement was gone, I was just doing the same thing all over again, nothing new. Just repeating the same code, again and again.
+I felt I needed something that could activate my brain and make me excited again. PHP and JavaScript was so automatic to me that I didn't have to think anymore. Any problem or project that I had to do I just did it. I didn't have to put any thoughts into it. Even when I had a "brilliant" idea and was excited to execute it, after a few hours the excitement was gone, I was just doing the same thing all over again, nothing new. Just repeating the same code, again and again.
 
 ## Finding something different
 
 There was a game that I really enjoyed playing when I was a kid, it was called Forsaken World. The servers have been shutdown in Brazil in 2017 and the US/EU servers were shutdown in 2022. The community was left with nothing. The only thing left was private servers.
 
-The game source code was written in C++. With my knowledge I was able to edit the game source and alter some mechanics. At some point I built my own private server with the help of some good friends.
+The game was written in C++. With my knowledge I was able to edit the game source and alter some mechanics. At some point I built my own private server with the help of some good friends.
 
 Changing a few lines of code and making it work wasn't enough. I didn't fully understand what I was changing or what was written in the source files. The source code looked like 5 different projects, each with and it's own folder, each folder compiled into a single binary. It looked like a modular monolith. I couldn't wrap my head on how these binaries communicated with each other.
 
@@ -45,19 +45,19 @@ I wanted to understand C++. Understanding it was challenging. I had finally foun
 
 I tried learning a few things here and there by looking up on Google, just like I did with Lua, but that wasn't enough with C++. The codebase was huge, and old—it was written in the C++98 standard. Simply looking up on Google how to do certain things wasn't enough. I wanted to truly understand what I was reading.
 
-I want the same level of understanding that I have with PHP and JavaScript: within a few minutes of reading the source file I wanted to be able to understand and edit it. I don't want to simply edit a code and hope for the best.
+I want the same level of understanding that I have with PHP and JavaScript: within a few minutes of reading the source file I wanted to be able to understand and edit it. I don't want to simply edit a code block and hope for the best.
 
 ### Finding the right learning path
 
-First I searched on the internet the best resource to learn C++. There were several free resources and videos available scattered across many search results. I started a few, but soon gave up. Watching videos felt too slow because I already knew how to code.
+First I searched on the internet the best resource to learn C++. There were several free resources and videos available scattered across many search results. I started watching some tutorials, but soon gave up. Watching videos felt too slow because I already knew how to code.
 
-Eventually, I found a book: **"A Tour of C++"** by Bjarne Stroustrup. I never read a book to learn something. So I thought why not give it a try? It was both the challenge to learn a new programming language as well as reading. These two were enough to activate my brain and make me excited about what was coming next.
+Eventually, I found a book: **"A Tour of C++"** by Bjarne Stroustrup. I never read a book to learn something. So I thought why not give it a try? Now I had two challenges: to learn a new programming language, and to read a book. These two were enough to activate my brain and make me excited about what was coming next.
 
 ### Learning new concepts
 
-In the book there were several things that I wasn't aware of. There was a confusing concept about pointers and references, when I finally understood it. It was rewarding to learn a new concept.
+In the book there were several things that I wasn't aware of. There was a confusing concept about pointers and references. When I finally grasped it, learning this new concept felt rewarding.
 
-I also learned that we could create our own operators, for example I could write my own implementation for the `++` operator.
+I also learned that we could create our own operators, for example I could write my own implementation of the `++` operator for the `TrafficLight` class.
 
 ```cpp
 TrafficLight& operator++(TrafficLight& t) {
@@ -85,18 +85,20 @@ With tons of while loops and if statements, I was able to solve a few Easy Probl
 
 DSA stands for Data Structures and Algorithms, something that one would have learnt at a college course. I skipped college. So that was one more challenge that I can face: Learning DSA.
 
-I saw that one of the topics was "Binary Trees", something that I always had heard of but never looked into. I watched a [YouTube video](https://www.youtube.com/watch?v=fAAZixBzIA), Binary Tree Algorithms from freeCodeCamp.org by AlvinTheProgrammer. It was interesting, it was a topic about programming that I didn't know of, and that I would probably not pay attention to if I were in a classroom.
+I saw that one of the topics was "Binary Trees", something that I always had heard of but never looked into. I watched a [YouTube video](https://www.youtube.com/watch?v=fAAZixBzIAI), Binary Tree Algorithms from freeCodeCamp.org by AlvinTheProgrammer. It was interesting, it was a topic about programming that I didn't know of, and that I would probably not pay attention to if I were in a classroom.
 
-This was good practice. I got my first segfault error.
+This was good practice. I got my first segfault error in C++.
 
 ## Breaking the loop
 
-Learning a new programming language takes time. I first needed to find my purpose which was understanding an old codebase written in C++. To learn C++, I needed a fast and comprehensive introduction, the book "A Tour of C++" gave me just that.
+Learning a new programming language takes time. I first needed to find my purpose: understanding an old codebase written in C++. To learn C++, I needed a fast and comprehensive introduction, the book "A Tour of C++" gave me just that. And then I need to pratice it.
 
-Now I need to practice, for DSA [I found this course on Udemy](https://www.udemy.com/course/data-structures-algorithms-cpp/) by Scott Barrett, the lessons are well presented, with nice smooth animations, the exercises are fun and challenging to do. After I get bored with it, I'll start a personal project so that I can build something from 0 to 1. Doing that will certainly put me in a good level of understading of the language.
+I'll practice while learning DSA [I found this course on Udemy](https://www.udemy.com/course/data-structures-algorithms-cpp/) by Scott Barrett, the lessons are well presented, with nice smooth animations, the exercises are fun and challenging to do. After I get bored with it, I'll start a personal project so that I can build something from 0 to 1. Doing that will certainly put me in a good level of understading of the language.
 
 I'm feeling happy and passionate about programming again. Every step of learning C++ and DSA was fun. **I got my hobby back!**
 
 Here's the first time I solved a problem on my own after learning the Tortoise and the Hare algorithm. Solving this made my day. The happiness from solving this was truly rewarding!
 
 ![Whiteboard Solution for Linked List Find Kth Node From End](/img/blog/learning-a-new-programming-language/01.png)
+
+[pedroni/learning-cpp](https://github.com/pedroni/learning-cpp)

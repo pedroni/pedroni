@@ -1,63 +1,63 @@
 ---
-title: "Learning a New Programming Language After 8 Years of Experience"
+title: "Aprendendo uma Nova Linguagem de Programação Após 8 Anos de Experiência"
 date: "2025-08-30"
-excerpt: "I've been programming professionally for over 8 years, programming was my hobby, but somewhere along the way I started losing my passion. Sticking to PHP and JavaScript made my work feel repetitive, like I was stuck in an infinite loop, repeating the same patterns. I want to go back to the beginning. Back to when I was exciting of learning something new. I want a fresh start. I want to learn a new language. But how?"
-tags: ["programming", "learning", "languages", "hobby"]
-keywords: ["programming languages", "learn", "software engineering", "hobby"]
-category: "Programming"
+excerpt: "Eu programo profissionalmente há mais de 8 anos. Programação pra mim é um hobby, mas em algum momento, comecei a perder minha paixão. Usar somente PHP e JavaScript fez meu trabalho parecer repetitivo, como se eu estivesse preso em um loop infinito, repetindo os mesmos padrões. Eu quero voltar ao começo. De volta à época em que eu ficava empolgado em aprender algo novo. Eu quero iniciar denovo. Eu quero aprender uma nova linguagem. Mas como?"
+tags: ["programação", "aprendizado", "linguagens", "hobby"]
+keywords: ["linguagens de programação", "aprender", "engenharia de software", "hobby"]
+category: "Programação"
 ---
 
-For the past 8 years, programming has been my profission, but it started as a hobby, that I was passionated about. For a few months, maybe years, I started losing my passion for programming. What used to be really exciting had become just a regular job, doing the same tasks over and over. I missed how excited I felt when I first started learning.
+Por oito anos, a programação foi minha profissão, mas tudo começou como um hobby pelo qual eu era apaixonado. Aos poucos, ao longo de meses ou talvez anos, fui perdendo esse amor pela programação.
 
-I miss those times when a concept finally made sense, or when I would work on a problem for hours, but it felt like a minute. The fun of figuring things out was gone. PHP and JavaScript is so confortable to me that now programming had become a repetitive task. I was rebuilding things in the same pattern over and over.
+Sinto falta daqueles momentos em que um conceito finalmente fazia sentido, ou quando eu trabalhava em um problema por horas, mas parecia um minuto. A diversão de descobrir algo novo tinha sumido. PHP e JavaScript são tão confortáveis para mim que agora programar havia se tornado uma tarefa repetitiva. Repetindo o mesmo padrão denovo e denovo. Como se eu estivesse em um loop infinito.
 
-I want to bring back the passion I once hard. I think I need to go back to the beginning. I need to learn something new. But how could I learn a new language?
+Eu quero recuperar a paixão que eu tinha. Acho que preciso voltar ao começo. Preciso aprender algo novo. Mas como posso aprender uma nova linguagem?
 
-## They all look the same
+## Todas parecem iguais
 
-I looked at some Python code and it felt awful, my eyes hurted. Then I saw Lua, it looked so simple, so beautiful, and there I went to learn Lua. I learned Lua while attempting to setup Neovim (I spent countless hours trying to setup LSPs). Eventually I felt comfortable with Lua, the language was easy.
+Eu tentei aprender Python e foi horrível, meus olhos doíam. Então eu fui pra Lua, parecia tão simples, tão bonito, e então decidi aprender Lua. Aprendi Lua enquanto tentava configurar o Neovim (passei muitas horas tentando configurar LSPs). Eventualmente, me senti confortável com Lua, a linguagem era fácil.
 
-But I didn't feel like I was learning. All I did was search "How to do X in Lua?" on Google. _Something felt off_.
+Mas eu não parecia que eu tava aprendendo. Tudo que eu fazia era pesquisar no Google "Como fazer X em Lua?". *Algo parecia errado*.
 
-I decided to give Python another chance, and after a while, I realized. Python and Lua are scripting languages. Why learn a new scripting language when I already know PHP and JavaScript?
+Decidi dar outra chance pra Python, e depois de um tempo, percebi. Python e Lua são linguagens de script. Por que aprender uma nova linguagem de script se eu já sei PHP e JavaScript?
 
-Learning a new scripting language felt boring, they were very similar, their syntax and functions were very similar as well. I was on a loop, repeating the same thing that I already knew. **I wasn't learning**.
+Aprender uma nova linguagem de script foi entediante, elas eram muito similares, sua sintaxe e funções também eram muito parecidas. Eu estava em um loop, novamente, repetindo a mesma coisa que eu já sabia. **Eu não estava aprendendo**.
 
-## Trying something different
+## Tentando algo diferente
 
-That was when it hit me. I had to try something different. Something that could make me passionate again. After all, programming is a hobby for me, a hobby in which I was slowly losing interest into, a hobby that had become a job.
+Foi aí que me dei conta. Eu tinha que tentar algo diferente. Algo que pudesse me deixar apaixonado novamente. Afinal, programar é um hobby para mim, um hobby no qual eu estava lentamente perdendo o interesse, um hobby que havia se tornado um trabalho.
 
-At times I even considered finding a new hobby, a new passion, a hobby that could make me excited. However, I didn't want a new hobby, I like programming.
+Às vezes, até considerei encontrar um novo hobby, uma nova paixão, um hobby que pudesse me empolgar. Só que, eu não queria um novo hobby, eu gosto de mesmo de programar.
 
-I felt I needed something that could activate my brain. PHP and JavaScript was so automatic to me that I didn't have to think anymore. Any problem or project that I had to do I just did it. I didn't have to put any thoughts into it. Even when I had a "brilliant" idea and was excited to execute it, after a few hours the excitement was gone, I was just doing the same thing all over again, nothing new. Just repeating the same code, again and again.
+Eu precisava de algo que pudesse ativar meu cérebro e me deixar animado novamente. PHP e JavaScript eram tão automáticos para mim que eu não precisava mais pensar. Qualquer problema ou projeto que eu tinha para fazer, eu simplesmente fazia. Não precisava pensar muito. Mesmo quando eu tinha uma ideia "brilhante" e ficava motivado para colocar em prática, após algumas horas a motivação sumia, eu estava apenas fazendo a mesma coisa de novo, nada novo. Apenas repetindo o mesmo código, de novo e de novo.
 
-## Finding something different
+## Encontrando algo diferente
 
-There was a game that I really enjoyed playing when I was a kid, it was called Forsaken World. The servers have been shutdown in Brazil in 2017 and the US/EU servers were shutdown in 2022. The community was left with nothing. The only thing left was private servers.
+Havia um jogo que eu gostava muito de jogar quando era criança, chamado Forsaken World. Os servidores foram desligados no Brasil em 2017 e os servidores dos EUA/Europa foram desligados em 2022. Quem jogava ficou sem nada. A única coisa que restou foram servidores privados.
 
-The game source code was written in C++. With my knowledge I was able to edit the game source and alter some mechanics. At some point I built my own private server with the help of some good friends.
+Esse jogo foi escrito em C++. Com o que eu sabia, consegui editar o código do jogo e alterar algumas mecânicas. Eu até construí meu próprio servidor privado com a ajuda de alguns bons amigos.
 
-Changing a few lines of code and making it work wasn't enough. I didn't fully understand what I was changing or what was written in the source files. The source code looked like 5 different projects, each with and it's own folder, each folder compiled into a single binary. It looked like a modular monolith. I couldn't wrap my head on how these binaries communicated with each other.
+Mudar algumas linhas de código e fazê-lo funcionar não era o suficiente. Eu não entendia por inteiro o que estava alterando ou o que estava escrito nos código-fonte. O código-fonte parecia 5 projetos diferentes, cada um com sua própria pasta, cada pasta compilada em um único binário. Parecia um monolito modular. Eu não conseguia entender como aqueles binários se comunicavam entre si.
 
-I wanted to understand C++. Understanding it was challenging. I had finally found a language that could make me passionate again: **C++**.
+Eu queria entender C++. Entender era desafiador. Eu finalmente encontrei uma linguagem que iria me deixar apaixonado novamente: **C++**.
 
-## How could I learn a new language?
+## Como eu poderia aprender uma nova linguagem?
 
-I tried learning a few things here and there by looking up on Google, just like I did with Lua, but that wasn't enough with C++. The codebase was huge, and old—it was written in the C++98 standard. Simply looking up on Google how to do certain things wasn't enough. I wanted to truly understand what I was reading.
+Tentei aprender algumas coisas aqui e ali pesquisando no Google, assim como fiz com Lua, mas isso não foi suficiente com C++. O código-fonte era muito grande e antiga. Ela foi escrita no padrão C++98. Simplesmente pesquisar no Google como fazer certas coisas não era suficiente. Eu queria entender de verdade o que eu tava lendo.
 
-I want the same level of understanding that I have with PHP and JavaScript: within a few minutes of reading the source file I wanted to be able to understand and edit it. I don't want to simply edit a code and hope for the best.
+Quero o mesmo nível de entendimento que tenho com PHP e JavaScript: em poucos minutos olhando o código-fonte, eu quero ser capaz de entender e alterar. Não quero simplesmente alterar uma parte do código e torcer para dar certo.
 
-### Finding the right learning path
+### Encontrando o caminho de aprendizado certo
 
-First I searched on the internet the best resource to learn C++. There were several free resources and videos available scattered across many search results. I started a few, but soon gave up. Watching videos felt too slow because I already knew how to code.
+Primeiro, pesquisei na internet a melhor forma para aprender C++. Havia vários conteúdos e vídeos gratuitos disponíveis, espalhados por muitos resultados de busca. Comecei assintindo alguns tutoriais, mas logo desisti. Assistir tutoriais parecia muito lento porque eu já sabia programar.
 
-Eventually, I found a book: **"A Tour of C++"** by Bjarne Stroustrup. I never read a book to learn something. So I thought why not give it a try? It was both the challenge to learn a new programming language as well as reading. These two were enough to activate my brain and make me excited about what was coming next.
+Eventualmente, encontrei um livro: **"A Tour of C++"** de Bjarne Stroustrup. Eu nunca li um livro para aprender algo. Então pensei, por que não tentar? Agora eu tinha dois desafios: Aprender uma nova linguagem de programação e ler um livro. Esses dois foram suficientes para ativar meu cérebro e me deixar animado com o que viria a seguir.
 
-### Learning new concepts
+### Aprendendo novos conceitos
 
-In the book there were several things that I wasn't aware of. There was a confusing concept about pointers and references, when I finally understood it. It was rewarding to learn a new concept.
+No livro tinha várias coisas que eu não sabia. Tinha um conceito meio confuso sobre ponteiros e referências. Quando finalmente entendi, foi muito satisfatório aprender esse conceito novo.
 
-I also learned that we could create our own operators, for example I could write my own implementation for the `++` operator.
+Também aprendi que poderíamos criar nossos próprios operadores, por exemplo, eu poderia escrever minha própria implementação para o operador `++` para a classe `TrafficLight`:
 
 ```cpp
 TrafficLight& operator++(TrafficLight& t) {
@@ -71,32 +71,34 @@ TrafficLight& operator++(TrafficLight& t) {
 TrafficLight next = ++light; // next becomes TrafficLight::green
 ```
 
-Simply mind blowing.
+Muito louco.
 
-## Ok, now what?
+## Ta, e agora?
 
-After reading the book I was like, ok, now what? I still didn't feel like I fully understood the language. How do I get to a good level of understanding? I need to practice. I didn't know exactly how to practice.
+Depois de ler o livro, fiquei tipo: ta, e agora? Ainda não sentia que entendia completamente a linguagem. Como chego a um bom nível de compreensão? Preciso praticar. Não sabia exatamente como praticar.
 
-I had the game source to practice. But that was still too difficult. I always heard of LeetCode, but never attempted it. It felt like it would be a good practice.
+Eu tinha o código-fonte do jogo para praticar. Mas ainda era muito difícil. Sempre ouvi falar do LeetCode, mas nunca tentei. Me pareceu uma boa coisa para praticar.
 
-With tons of while loops and if statements, I was able to solve a few Easy Problems. After submitting my solution, I'd look at other solutions, and oh boy, they were so short! Sure I was missing something! It was a nightmare for me to solve it. Now there was another question: How could I solve LeetCode problems more easily? They felt way too complicated. That's when I discovered DSA.
+Depois de muitos de loops e ifs, consegui resolver alguns Problemas Fáceis. E quando eu enviava minha solução, eu também olhava as soluções dos outros, e nossa, elas eram muito curtas! Eu com certeza tava fazendo algo errado. Foi um pesadelo para mim resolver, muito difícil. Agora havia outra questão: Como eu poderia resolver os problemas do LeetCode mais facilmente? Eles pareciam complicados demais. Foi aí que descobri DSA.
 
-### Discovering DSA
+### Descobrindo DSA
 
-DSA stands for Data Structures and Algorithms, something that one would have learnt at a college course. I skipped college. So that was one more challenge that I can face: Learning DSA.
+DSA significa Estruturas de Dados e Algoritmos (Data Structures and Algorithms), algo que se aprenderia na faculdade. Eu pulei a faculdade. Então esse era mais um desafio que eu poderia enfrentar: Aprender DSA.
 
-I saw that one of the topics was "Binary Trees", something that I always had heard of but never looked into. I watched a [YouTube video](https://www.youtube.com/watch?v=fAAZixBzIA), Binary Tree Algorithms from freeCodeCamp.org by AlvinTheProgrammer. It was interesting, it was a topic about programming that I didn't know of, and that I would probably not pay attention to if I were in a classroom.
+Vi que um dos tópicos era "Árvores Binárias", algo que eu sempre ouvi falar, mas nunca procurei saber. Assisti a um [vídeo do YouTube](https://www.youtube.com/watch?v=fAAZixBzIAI), Binary Tree Algorithms do freeCodeCamp.org por AlvinTheProgrammer. Foi interessante, era um tópico sobre programação que eu não conhecia e que provavelmente não prestaria atenção se estivesse em uma sala de aula.
 
-This was good practice. I got my first segfault error.
+Foi um bom exercício pra praticar C++. Eu consegui meu primeiro erro de segfault.
 
-## Breaking the loop
+## Quebrando o loop
 
-Learning a new programming language takes time. I first needed to find my purpose which was understanding an old codebase written in C++. To learn C++, I needed a fast and comprehensive introduction, the book "A Tour of C++" gave me just that.
+Aprender uma nova linguagem de programação leva tempo. Primeiro, precisei encontrar meu propósito: entender um código-fonte antigo escrito em C++. Para aprender C++, eu precisava de uma introdução rápida e abrangente, o livro "A Tour of C++" me deu exatamente isso. E depois preciso praticar.
 
-Now I need to practice, for DSA [I found this course on Udemy](https://www.udemy.com/course/data-structures-algorithms-cpp/) by Scott Barrett, the lessons are well presented, with nice smooth animations, the exercises are fun and challenging to do. After I get bored with it, I'll start a personal project so that I can build something from 0 to 1. Doing that will certainly put me in a good level of understading of the language.
+Vou praticar enquanto aprendo DSA. [Encontrei este curso na Udemy](https://www.udemy.com/course/data-structures-algorithms-cpp/) de Scott Barrett, as aulas são bem apresentadas, os exercícios são divertidos e desafiadores de fazer. Depois que me cansar disso, vou iniciar um projeto pessoal para poder construir algo do 0 ao 1. Tenho certeza que depois disso vou ter um bom nível de entendimento da linguagem.
 
-I'm feeling happy and passionate about programming again. Every step of learning C++ and DSA was fun. **I got my hobby back!**
+Estou empolgado e amando programação de novo. Cada etapa para aprender C++ e DSA está sendo muito divertida. **Consegui resgatar meu hobby!**
 
-Here's the first time I solved a problem on my own after learning the Tortoise and the Hare algorithm. Solving this made my day. The happiness from solving this was truly rewarding!
+Essa foi a primeira vez que resolvi um problema sozinho após aprender o algoritmo da "Tartaruga e a Lebre" (Tortoise and the Hare). A satisfação de resolver esse problema foi muit recompensadora!
 
-![Whiteboard Solution for Linked List Find Kth Node From End](/img/blog/learning-a-new-programming-language/01.png)
+![Solução no Quadro Branco para Encontrar o K-ésimo Nó do Fim em uma Lista Ligada](/img/blog/learning-a-new-programming-language/01.png)
+
+[pedroni/learning-cpp](https://github.com/pedroni/learning-cpp)
