@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { Logo } from '../../components/Logo'
 
-export const dynamic = 'force-static';
+export const runtime = "edge"
 
 export const alt = 'Lucas Pedroni'
 export const size = {
