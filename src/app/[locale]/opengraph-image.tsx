@@ -21,10 +21,10 @@ async function imageBase64(path: string) {
 
 export default async function Image() {
   const crimsonPro = await readFile(
-    join(process.cwd(), 'public/fonts/CrimsonPro-Bold.ttf')
+    join(process.cwd(), 'fonts/CrimsonPro-Bold.ttf')
   )
   const jetBrainsMono = await readFile(
-    join(process.cwd(), 'public/fonts/JetBrainsMono-Regular.ttf')
+    join(process.cwd(), 'fonts/JetBrainsMono-Regular.ttf')
   )
 
   const meSrc = await imageBase64('public/img/banner/me.png')
