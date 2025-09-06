@@ -1,11 +1,14 @@
+'use server';
 import React from 'react'
-import Button from './Button'
-import { scrollTo } from '../helpers'
+import HomeBannerAboutButton from './HomeBannerAboutButton'
 import styles from './HomeBanner.module.css'
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
+import HomeBannerScrollImg from './HomeBannerScrollImg'
 
-const HomeBanner = () => {
-  const t = useTranslations('HomeBanner');
+const HomeBanner = async () => {
+
+  const t = await getTranslations('HomeBanner');
+
   return (
     <section className={styles.homeBanner}>
       <div>
@@ -30,25 +33,11 @@ const HomeBanner = () => {
           </span>
           <br />
 
-          <Button
-            className="mt-8"
-            onClick={() =>
-              scrollTo('#about')
-            }
-          >
+          <HomeBannerAboutButton className="mt-8">
             {t('actionButton')}
-          </Button>
+          </HomeBannerAboutButton>
 
-          <br />
-          <img
-            className={styles.homeBannerScrollDown}
-            onClick={() =>
-              scrollTo('#about')
-            }
-            src="/icon/scroll-down.svg"
-            role="button"
-            alt='Scroll down'
-          />
+          <HomeBannerScrollImg className={styles.homeBannerScrollDown} />
         </div>
       </div>
     </section>

@@ -1,3 +1,4 @@
+'use client'
 import { useState } from 'react'
 import Box from './Box'
 import BoxContent from './BoxContent'
