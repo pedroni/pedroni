@@ -43,7 +43,7 @@ export const Header = () => {
 
   const [choosingLanguage, setChoosingLanguage] = useState(false)
 
-  const pathname = realPathname.replace(/^\/(en|pt)\//, '/')
+  const pathname = realPathname.replace(/^\/(en|pt)\/?/, '/')
 
   return (
     <header
@@ -131,11 +131,11 @@ export const Header = () => {
                 'opacity-0 pointer-events-none': !choosingLanguage
               })}
             >
-              <a href={`/en/${pathname}`}>
+              <a href={`/en${pathname}`}>
                 <IconButton>EN</IconButton>
               </a>
 
-              <a href={`/pt/${pathname}`}>
+              <a href={`/pt${pathname}`}>
                 <IconButton>PT</IconButton>
               </a>
             </div>

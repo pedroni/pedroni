@@ -53,7 +53,7 @@ export default async function BlogPostCard(props: {
             ' font-normal font-serif group-hover:text-primary',
             {
               'text-xl': props.small,
-              'mb-2 text-2xl': !props.small
+              'mb-2 text-3xl': !props.small
             }
           )}
         >

@@ -11,6 +11,8 @@ import { Logo } from '../../../../components/Logo'
 import { getPostBySlug } from '../../../../lib/blog'
 import OpenGraphIcon from '../../../../components/OpenGraphIcon'
 
+export const dynamic = 'force-static';
+
 export const alt = 'Lucas Pedroni'
 export const size = {
   width: 1200,

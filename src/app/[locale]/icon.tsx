@@ -1,6 +1,8 @@
 import { ImageResponse } from 'next/og'
 import { Logo } from '../../components/Logo'
 
+export const dynamic = 'force-static';
+
 // Image metadata
 export const size = {
   width: 32,

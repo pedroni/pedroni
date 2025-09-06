@@ -21,7 +21,7 @@ const HomeBanner = async () => {
       <div className="absolute left-0 top-full w-full h-[500px] bg-gradient-to-b from-black to-transparent"></div>
 
       <div className="relative max-w-7xl mx-auto flex flex-col justify-center items-center pt-8 px-4 lg:flex-row">
-        <div className='hidden lg:block'>
+        <div className="hidden lg:block">
           <img
             className="opacity-50   h-[750px] mr-0 ml-auto block object-contain
 "
@@ -50,6 +50,7 @@ const HomeBanner = async () => {
           {posts.length > 0 && (
             <div className="backdrop-blur-lg bg-white/5  border-[2] border-black/50  outline-1 outline-white/10 relative mt-20 text-left p-6 xl:p-8">
               <Title
+                size="sm"
                 subTitle={'Blog'}
                 title={t('HomeBanner.recentPosts')}
               ></Title>
@@ -74,7 +75,9 @@ const HomeBanner = async () => {
                           {post.readingTime} {t('Words.minutes')}
                         </BlogMetadata>
                       </div>
-                      <div className="transition-colors group-hover:text-primary-light text-white/90"> {post.title}</div>
+                      <div className="transition-colors group-hover:text-primary-light text-white/90">
+                        {post.title}
+                      </div>
                     </Link>
                   </li>
                 ))}

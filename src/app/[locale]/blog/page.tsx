@@ -23,7 +23,7 @@ export async function generateMetadata(
   return {
     title,
     description,
-    keywords: t('keywords'),
+    keywords: t('keywords').split(',').map(keyword => keyword.trim()),
     authors: [{ name: 'Lucas Pedroni' }],
     creator: 'Lucas Pedroni',
     publisher: 'Lucas Pedroni',
