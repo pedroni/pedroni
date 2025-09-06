@@ -39,9 +39,11 @@ const HeaderLink = (props: {
 }
 
 export const Header = () => {
-  const pathname = usePathname()
-  console.log(pathname)
+  const realPathname = usePathname()
+
   const [choosingLanguage, setChoosingLanguage] = useState(false)
+
+  const pathname = realPathname.replace(/^\/(en|pt)\//, '/')
 
   return (
     <header
@@ -68,7 +70,11 @@ export const Header = () => {
         h-14
         lg:h-16"
       >
-        <Link title='Home Lucas Pedroni' href="/" className="shrink-0 w-10 pr-1 lg:w-20 lg:pr-8">
+        <Link
+          title="Home Lucas Pedroni"
+          href="/"
+          className="shrink-0 w-10 pr-1 lg:w-20 lg:pr-8"
+        >
           <Logo></Logo>
         </Link>
         <nav
@@ -103,10 +109,13 @@ export const Header = () => {
           </div>
 
           <div
-            className={classNames('border-l ml-2 pl-2 relative flex gap-2 transition', {
-              '-translate-x-16 border-transparent': choosingLanguage,
-              'border-white/10': !choosingLanguage
-            })}
+            className={classNames(
+              'border-l ml-2 pl-2 relative flex gap-2 transition',
+              {
+                '-translate-x-16 border-transparent': choosingLanguage,
+                'border-white/10': !choosingLanguage
+              }
+            )}
           >
             <IconButton
               title="Choose a Language"

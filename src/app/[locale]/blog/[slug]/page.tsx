@@ -19,6 +19,8 @@ import { getUrl } from '../../../../helpers'
 import BlogMetadata from './BlogMetadata'
 import Dashes from '../../../../components/Dashes'
 
+export const dynamic = 'force-static';
+
 type PostPageProps = {
   params: Promise<{ locale: string; slug: string }>
   searchParams: Promise<{ draft: string }>
