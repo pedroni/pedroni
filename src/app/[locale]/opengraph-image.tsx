@@ -3,8 +3,6 @@ import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { Logo } from '../../components/Logo'
 
-export const runtime = "edge"
-
 export const alt = 'Lucas Pedroni'
 export const size = {
   width: 1200,
@@ -21,10 +19,10 @@ async function imageBase64(path: string) {
 
 export default async function Image() {
   const crimsonPro = await readFile(
-    join(process.cwd(), 'fonts/CrimsonPro-Bold.ttf')
+    join(process.cwd(), 'assets/CrimsonPro-Bold.ttf')
   )
   const jetBrainsMono = await readFile(
-    join(process.cwd(), 'fonts/JetBrainsMono-Regular.ttf')
+    join(process.cwd(), 'assets/JetBrainsMono-Regular.ttf')
   )
 
   const meSrc = await imageBase64('public/img/banner/me.png')
