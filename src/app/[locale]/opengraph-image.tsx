@@ -3,6 +3,8 @@ import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { Logo } from '../../components/Logo'
 
+export const dynamic = 'force-static';
+
 export const alt = 'Lucas Pedroni'
 export const size = {
   width: 1200,
@@ -18,15 +20,15 @@ async function imageBase64(path: string) {
 }
 
 export default async function Image() {
-  const crimsonPro = await readFile(
-    join(process.cwd(), 'assets/CrimsonPro-Bold.ttf')
-  )
-  const jetBrainsMono = await readFile(
-    join(process.cwd(), 'assets/JetBrainsMono-Regular.ttf')
-  )
-
   const meSrc = await imageBase64('public/img/banner/me.png')
   const nameSrc = await imageBase64('public/img/banner/name@2x.png')
+
+  const crimsonPro = await readFile(
+    join(process.cwd(), 'src/assets/CrimsonPro-Bold.ttf')
+  )
+  const jetBrainsMono = await readFile(
+    join(process.cwd(), 'src/assets/JetBrainsMono-Regular.ttf')
+  )
 
   return new ImageResponse(
     (

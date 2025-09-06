@@ -11,6 +11,8 @@ import { Logo } from '../../../../components/Logo'
 import { getPostBySlug } from '../../../../lib/blog'
 import OpenGraphIcon from '../../../../components/OpenGraphIcon'
 
+export const dynamic = 'force-static'
+
 export const alt = 'Lucas Pedroni'
 export const size = {
   width: 1200,
@@ -34,14 +36,14 @@ export default async function Image(props: {
 
   const post = getPostBySlug(locale, slug)
 
+  const meSrc = await imageBase64('public/img/banner/me.png')
+
   const crimsonPro = await readFile(
-    join(process.cwd(), 'assets/CrimsonPro-Bold.ttf')
+    join(process.cwd(), 'src/assets/CrimsonPro-Bold.ttf')
   )
   const jetBrainsMono = await readFile(
-    join(process.cwd(), 'assets/JetBrainsMono-Regular.ttf')
+    join(process.cwd(), 'src/assets/JetBrainsMono-Regular.ttf')
   )
-
-  const meSrc = await imageBase64('public/img/banner/me.png')
 
   return new ImageResponse(
     (
