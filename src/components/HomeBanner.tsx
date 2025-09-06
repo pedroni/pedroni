@@ -1,43 +1,92 @@
-'use server';
+'use server'
 import React from 'react'
 import HomeBannerAboutButton from './HomeBannerAboutButton'
-import styles from './HomeBanner.module.css'
-import { getTranslations } from 'next-intl/server'
-import HomeBannerScrollImg from './HomeBannerScrollImg'
+import { getLocale, getTranslations } from 'next-intl/server'
+import { getSortedPosts } from '../lib/blog'
+import { Link } from '../i18n/navigation'
+import Title from './Title'
+import Button from './Button'
+import BlogMetadata from '../app/[locale]/blog/[slug]/BlogMetadata'
+import { faCalendar, faClock } from '@fortawesome/free-regular-svg-icons'
 
 const HomeBanner = async () => {
+  const locale = await getLocale()
 
-  const t = await getTranslations('HomeBanner');
+  const t = await getTranslations()
+  const posts = getSortedPosts(locale).slice(0, 3)
 
   return (
-    <section className={styles.homeBanner}>
-      <div>
-        <div className="w-full h-screen absolute left-0 top bg-gradient-to-t from-black to-transparent"></div>
-        <div className={styles.homeBannerLeft}>
+    <section className="relative w-full min-h-screen lg:min-h-auto">
+      <div className="w-full h-screen absolute left-0 top bg-gradient-to-t from-black to-transparent"></div>
+      <div className="absolute left-0 top-full w-full h-[500px] bg-gradient-to-b from-black to-transparent"></div>
+
+      <div className="relative max-w-7xl mx-auto flex flex-col justify-center items-center pt-8 px-4 lg:flex-row">
+        <div className='hidden lg:block'>
           <img
-          className='opacity-50'
+            className="opacity-50   h-[750px] mr-0 ml-auto block object-contain
+"
             src="/img/banner/me.png"
             srcSet="/img/banner/me.png 1x, /img/banner/me@2x.png 2x"
             alt="Lucas Pedroni, foto de perfil"
           />
         </div>
-        <div className={styles.homeBannerRight}>
+
+        <div className="flex flex-col items-center pb-20">
           <img
-            className="name"
             src="/img/banner/name.png"
             srcSet="/img/banner/name.png 1x, /img/banner/name@2x.png 2x"
             alt="Lucas Pedroni, nome"
           />
-          <span className="text-primary font-extralight tracking-wider font-mono" >
-            {t('title')}
-          </span>
-          <br />
+          <h1 className="sr-only">Lucas Pedroni</h1>
+
+          <div className="mt-4 text-primary font-extralight tracking-wider font-mono">
+            {t('HomeBanner.title')}
+          </div>
 
           <HomeBannerAboutButton className="mt-8">
-            {t('actionButton')}
+            {t('HomeBanner.actionButton')}
           </HomeBannerAboutButton>
 
-          <HomeBannerScrollImg className={styles.homeBannerScrollDown} />
+          {posts.length > 0 && (
+            <div className="backdrop-blur-lg bg-white/5  border-[2] border-black/50  outline-1 outline-white/10 relative mt-20 text-left p-6 xl:p-8">
+              <Title
+                subTitle={'Blog'}
+                title={t('HomeBanner.recentPosts')}
+              ></Title>
+
+              <ul className="flex flex-col gap-2">
+                {posts.map(post => (
+                  <li key={post.slug}>
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="group py-2 hover:text-primary-light transition-colors"
+                    >
+                      <div className="flex gap-4">
+                        <BlogMetadata size="xs" icon={faCalendar}>
+                          {new Date(post.date).toLocaleDateString(locale, {
+                            month: 'short',
+                            day: 'numeric',
+                            year: 'numeric'
+                          })}
+                        </BlogMetadata>
+
+                        <BlogMetadata size="xs" icon={faClock}>
+                          {post.readingTime} {t('Words.minutes')}
+                        </BlogMetadata>
+                      </div>
+                      <div className="transition-colors group-hover:text-primary-light text-white/90"> {post.title}</div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              {posts.length >= 3 && (
+                <Link href="/blog">
+                  <Button>{t('HomeBanner.viewAll')}</Button>
+                </Link>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </section>

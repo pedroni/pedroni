@@ -1,7 +1,9 @@
 {
   "HomeBanner": {
     "title": "Desenvolvedor de Software",
-    "actionButton": "Me conheça"
+    "actionButton": "Me conheça",
+    "recentPosts": "Últimas publicações",
+    "viewAll": "Ver todos"
   },
   "HomeAbout": {
     "contactButton": "Entre em contato comigo",

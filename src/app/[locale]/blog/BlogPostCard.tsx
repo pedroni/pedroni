@@ -3,6 +3,7 @@ import { BlogPost } from '../../../lib/blog'
 import { getLocale, getTranslations } from 'next-intl/server'
 import BlogMetadata from './[slug]/BlogMetadata'
 import { faCalendar, faClock } from '@fortawesome/free-regular-svg-icons'
+import { Link } from '../../../i18n/navigation'
 
 export default async function BlogPostCard(props: {
   className?: string
@@ -13,7 +14,7 @@ export default async function BlogPostCard(props: {
   const t = await getTranslations()
 
   return (
-    <a
+    <Link
       href={`/blog/${props.post.slug}`}
       className={classNames(
         `block
@@ -77,6 +78,6 @@ export default async function BlogPostCard(props: {
           </BlogMetadata>
         </div>{' '}
       </div>
-    </a>
+    </Link>
   )
 }

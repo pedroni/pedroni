@@ -1,7 +1,9 @@
 {
   "HomeBanner": {
     "title": "Software Engineer",
-    "actionButton": "About me"
+    "actionButton": "About me",
+    "recentPosts": "Recent posts",
+    "viewAll": "View all"
   },
   "HomeAbout": {
     "contactButton": "Contact me",

@@ -1,3 +1,4 @@
+'use client'
 import Box from './Box'
 import BoxContent from './BoxContent'
 import HomeContactForm from './HomeContactForm'
