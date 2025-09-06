@@ -14,7 +14,7 @@ import { routing } from '../i18n/routing'
 import './global.css'
 import { getLocale, getTranslations, setRequestLocale } from 'next-intl/server'
 import { Metadata } from 'next'
-import { calculateYears } from '../helpers'
+import { calculateYears, getUrl } from '../helpers'
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
 SwiperCore.use([Navigation])
@@ -49,6 +49,7 @@ export async function generateMetadata(props: {
 
   return {
     title: t('siteTitle'),
+    metadataBase: new URL(getUrl()),
     description: t('siteDescription', {
       years: calculateYears('2017-03-01')
     })
