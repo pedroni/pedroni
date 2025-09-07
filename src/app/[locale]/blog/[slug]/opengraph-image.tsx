@@ -6,8 +6,9 @@ import {
 import { getTranslations } from 'next-intl/server'
 import { ImageResponse } from 'next/og'
 import { Logo } from '../../../../components/Logo'
-import { getPostBySlug } from '../../../../lib/blog'
 import OpenGraphIcon from '../../../../components/OpenGraphIcon'
+import { getUrl } from '../../../../helpers'
+import { BlogPost } from '../../../../lib/blog'
 
 export const alt = 'Lucas Pedroni'
 export const size = {
@@ -24,30 +25,26 @@ export default async function Image(props: {
 
   const t = await getTranslations()
 
-  const post = getPostBySlug(locale, slug)
+  const response: { data: BlogPost } = await fetch(
+    getUrl(`/api/posts/${slug}?locale=${locale}`)
+  ).then(res => res.json())
 
-  let meSrc,  crimsonPro, jetBrainsMono;
-   const mePath = 'img/banner/me.png';
-   const crimsonProPath = 'fonts/CrimsonPro-Bold.ttf'
-   const jetBrainsMonoPath =  'fonts/JetBrainsMono-Regular.ttf'
+  const post = response.data
 
-   // if (process.env.NODE_ENV !== 'production') {
-   //   meSrc = await imageBase64('public/'+mePath)
-   //   nameSrc = await imageBase64('public/'+namePath)
+  let meSrc, crimsonPro, jetBrainsMono
 
-   //   crimsonPro = await readFile(
-   //    join(process.cwd(), 'public/'+crimsonProPath)
-   //  )
-   //   jetBrainsMono = await readFile(
-   //    join(process.cwd(), 'public/'+jetBrainsMonoPath)
-   //  )
-   // } else {
-     const baseUrl = 'https://pedroni.dev'
-     meSrc = await fetch(`${baseUrl}/${mePath}`).then(res => res.arrayBuffer())
+  const mePath = 'img/banner/me.png'
+  const crimsonProPath = 'fonts/CrimsonPro-Bold.ttf'
+  const jetBrainsMonoPath = 'fonts/JetBrainsMono-Regular.ttf'
 
-     crimsonPro = await fetch(`${baseUrl}/${crimsonProPath}`).then(res => res.arrayBuffer())
-     jetBrainsMono = await fetch(`${baseUrl}/${jetBrainsMonoPath}`).then(res => res.arrayBuffer())
-   // }
+  meSrc = await fetch(getUrl(mePath)).then(res => res.arrayBuffer())
+  crimsonPro = await fetch(getUrl(crimsonProPath)).then(res =>
+    res.arrayBuffer()
+  )
+  jetBrainsMono = await fetch(getUrl(jetBrainsMonoPath)).then(res =>
+    res.arrayBuffer()
+  )
+
   return new ImageResponse(
     (
       <div
@@ -123,7 +120,13 @@ export default async function Image(props: {
                 style={{ marginRight: 12 }}
                 iconPath={faCalendar.icon[4]}
               ></OpenGraphIcon>
-              <span>{new Date(post.date).toLocaleDateString(locale)}</span>
+              <span>
+                {new Date(post.date).toLocaleDateString(locale, {
+                  year: 'numeric',
+                  month: 'short',
+                  day: '2-digit'
+                })}
+              </span>
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center' }}>

@@ -1,5 +1,6 @@
 import { ImageResponse } from 'next/og'
 import { Logo } from '../../components/Logo'
+import { getUrl } from '../../helpers'
 
 export const alt = 'Lucas Pedroni'
 export const size = {
@@ -10,32 +11,21 @@ export const size = {
 export const contentType = 'image/png'
 
 export default async function Image() {
-  let meSrc, nameSrc, crimsonPro, jetBrainsMono;
-  const mePath = 'img/banner/me.png';
-  const namePath = 'img/banner/name@2x.png';
+  let meSrc, nameSrc, crimsonPro, jetBrainsMono
+  const mePath = 'img/banner/me.png'
+  const namePath = 'img/banner/name@2x.png'
   const crimsonProPath = 'fonts/CrimsonPro-Bold.ttf'
-  const jetBrainsMonoPath =  'fonts/JetBrainsMono-Regular.ttf'
+  const jetBrainsMonoPath = 'fonts/JetBrainsMono-Regular.ttf'
 
-  // if (process.env.NODE_ENV !== 'production') {
-  //   meSrc = await imageBase64('public/'+mePath)
-  //   nameSrc = await imageBase64('public/'+namePath)
+  meSrc = await fetch(getUrl(mePath)).then(res => res.arrayBuffer())
+  nameSrc = await fetch(getUrl(namePath)).then(res => res.arrayBuffer())
 
-  //   crimsonPro = await readFile(
-  //    join(process.cwd(), 'public/'+crimsonProPath)
-  //  )
-  //   jetBrainsMono = await readFile(
-  //    join(process.cwd(), 'public/'+jetBrainsMonoPath)
-  //  )
-  // } else {
-    const baseUrl = 'https://pedroni.dev'
-    meSrc = await fetch(`${baseUrl}/${mePath}`).then(res => res.arrayBuffer())
-    nameSrc = await fetch(`${baseUrl}/${namePath}`).then(res => res.arrayBuffer())
-
-    crimsonPro = await fetch(`${baseUrl}/${crimsonProPath}`).then(res => res.arrayBuffer())
-    jetBrainsMono = await fetch(`${baseUrl}/${jetBrainsMonoPath}`).then(res => res.arrayBuffer())
-  // }
-
-
+  crimsonPro = await fetch(getUrl(crimsonProPath)).then(res =>
+    res.arrayBuffer()
+  )
+  jetBrainsMono = await fetch(getUrl(jetBrainsMonoPath)).then(res =>
+    res.arrayBuffer()
+  )
 
   return new ImageResponse(
     (
