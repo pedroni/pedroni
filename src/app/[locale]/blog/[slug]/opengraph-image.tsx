@@ -5,13 +5,9 @@ import {
 } from '@fortawesome/free-regular-svg-icons'
 import { getTranslations } from 'next-intl/server'
 import { ImageResponse } from 'next/og'
-import { readFile } from 'node:fs/promises'
-import { join } from 'node:path'
 import { Logo } from '../../../../components/Logo'
 import { getPostBySlug } from '../../../../lib/blog'
 import OpenGraphIcon from '../../../../components/OpenGraphIcon'
-
-export const dynamic = 'force-static'
 
 export const alt = 'Lucas Pedroni'
 export const size = {
@@ -20,12 +16,6 @@ export const size = {
 }
 
 export const contentType = 'image/png'
-
-async function imageBase64(path: string) {
-  const data = await readFile(join(process.cwd(), path), 'base64')
-  const src = `data:image/png;base64,${data}`
-  return src
-}
 
 export default async function Image(props: {
   params: Promise<{ locale: string; slug: string }>
@@ -36,15 +26,28 @@ export default async function Image(props: {
 
   const post = getPostBySlug(locale, slug)
 
-  const meSrc = await imageBase64('public/img/banner/me.png')
+  let meSrc,  crimsonPro, jetBrainsMono;
+   const mePath = 'img/banner/me.png';
+   const crimsonProPath = 'fonts/CrimsonPro-Bold.ttf'
+   const jetBrainsMonoPath =  'fonts/JetBrainsMono-Regular.ttf'
 
-  const crimsonPro = await readFile(
-    join(process.cwd(), 'src/assets/CrimsonPro-Bold.ttf')
-  )
-  const jetBrainsMono = await readFile(
-    join(process.cwd(), 'src/assets/JetBrainsMono-Regular.ttf')
-  )
+   // if (process.env.NODE_ENV !== 'production') {
+   //   meSrc = await imageBase64('public/'+mePath)
+   //   nameSrc = await imageBase64('public/'+namePath)
 
+   //   crimsonPro = await readFile(
+   //    join(process.cwd(), 'public/'+crimsonProPath)
+   //  )
+   //   jetBrainsMono = await readFile(
+   //    join(process.cwd(), 'public/'+jetBrainsMonoPath)
+   //  )
+   // } else {
+     const baseUrl = 'https://pedroni.dev'
+     meSrc = await fetch(`${baseUrl}/${mePath}`).then(res => res.arrayBuffer())
+
+     crimsonPro = await fetch(`${baseUrl}/${crimsonProPath}`).then(res => res.arrayBuffer())
+     jetBrainsMono = await fetch(`${baseUrl}/${jetBrainsMonoPath}`).then(res => res.arrayBuffer())
+   // }
   return new ImageResponse(
     (
       <div
