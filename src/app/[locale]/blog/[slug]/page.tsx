@@ -148,7 +148,7 @@ export default async function PostPage(props: PostPageProps) {
       />
       <div className="flex flex-col lg:flex-row">
         <div className="flex-1 w-full max-w-[991px] mx-auto">
-          <div className="w-full flex flex-col relative lg:pt-20 px-6 mb-10 lg:px-0">
+          <div className="w-full flex flex-col relative lg:pt-20 px-6 lg:px-0">
             {isDraft && (
               <div className="left-1/2 z-10 -translate-1/2 bottom-2 fixed flex items-center font-mono text-primary gap-2 lg:bottom-auto lg:top-32">
                 <Link href="?" className="-ml-6">
@@ -159,7 +159,7 @@ export default async function PostPage(props: PostPageProps) {
               </div>
             )}
 
-            <div className="font-mono flex flex-wrap gap-x-4 text-sm font-light mt-2 not-print:opacity-80">
+            <div className="font-mono flex flex-wrap gap-x-4 text-sm font-light mb-3 not-print:opacity-80">
               <BlogMetadata icon={faUser}>Lucas Pedroni</BlogMetadata>
               <BlogMetadata icon={faCalendar}>
                 {new Date(post.date).toLocaleDateString(locale, {
@@ -186,7 +186,7 @@ export default async function PostPage(props: PostPageProps) {
               {post.title}
             </h1>
 
-            <div className="mt-10"><Dashes></Dashes></div>
+            <div className="my-10"><Dashes></Dashes></div>
           </div>
 
           <div
@@ -259,10 +259,8 @@ export default async function PostPage(props: PostPageProps) {
               <TableOfContents className="sticky top-10" headings={headings} />
             </div>
           </div>
-          <div className="overflow-hidden w-full mt-20 flex gap-2 h-4">
-            {Array.from({ length: 70 }).map((_, index) => (
-              <div key={index} className="shrink-0 h-px w-2 bg-white/20"></div>
-            ))}
+          <div className="overflow-hidden w-full mt-20 flex items-center  gap-2 h-4">
+            <Dashes></Dashes>
           </div>
           <div className="w-full px-4 lg:px-20 mx-auto pt-10 ">
             <BlogAuthor></BlogAuthor>

@@ -23,8 +23,7 @@ const HomeBanner = async () => {
       <div className="relative max-w-7xl mx-auto flex flex-col justify-center items-center pt-8 px-4 lg:flex-row">
         <div className="hidden lg:block">
           <img
-            className="opacity-50   h-[750px] mr-0 ml-auto block object-contain
-"
+            className="opacity-50  w-[632px] h-[750px] mr-0 ml-auto block object-contain"
             src="/img/banner/me.png"
             srcSet="/img/banner/me.png 1x, /img/banner/me@2x.png 2x"
             alt="Lucas Pedroni, foto de perfil"
@@ -33,6 +32,7 @@ const HomeBanner = async () => {
 
         <div className="flex flex-col items-center pb-20">
           <img
+            className="w-[495px] h-[133px] object-contain"
             src="/img/banner/name.png"
             srcSet="/img/banner/name.png 1x, /img/banner/name@2x.png 2x"
             alt="Lucas Pedroni, nome"

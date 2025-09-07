@@ -13,7 +13,9 @@ const HeaderLink = (props: {
   onClick?: (ev: MouseEvent<HTMLAnchorElement>) => void
   children: ReactNode
 }) => {
-  const pathname = usePathname()
+  const realPathname = usePathname()
+  const pathname = realPathname.replace(/^\/(en|pt)\/?/, '/')
+
   const href = props.href.split('#')[0]
   const active = href == '/' ? pathname == href : pathname.startsWith(href)
 

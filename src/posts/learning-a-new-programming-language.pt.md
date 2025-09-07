@@ -1,13 +1,13 @@
 ---
 title: "Aprendendo uma Nova Linguagem de Programação Após 8 Anos de Experiência"
 date: "2025-08-30"
-excerpt: "Eu programo profissionalmente há mais de 8 anos. Programação pra mim é um hobby, mas em algum momento, comecei a perder minha paixão. Usar somente PHP e JavaScript fez meu trabalho parecer repetitivo, como se eu estivesse preso em um loop infinito, repetindo os mesmos padrões. Eu quero voltar ao começo. De volta à época em que eu ficava empolgado em aprender algo novo. Eu quero iniciar denovo. Eu quero aprender uma nova linguagem. Mas como?"
+excerpt: "Eu programo profissionalmente há mais de 8 anos. Programar pra mim é um hobby, mas em algum momento comecei a perder minha paixão. Usar somente PHP e JavaScript fez meu trabalho parecer repetitivo, como se eu estivesse preso em um loop infinito, repetindo os mesmos padrões. Eu quero voltar ao começo. De volta à época em que eu ficava empolgado em aprender algo novo. Eu quero começar do zero. Eu quero aprender uma nova linguagem. Mas como?"
 tags: ["programação", "aprendizado", "linguagens", "hobby"]
 keywords: ["linguagens de programação", "aprender", "engenharia de software", "hobby"]
 category: "Programação"
 ---
 
-Por oito anos, a programação foi minha profissão, mas tudo começou como um hobby pelo qual eu era apaixonado. Aos poucos, ao longo de meses ou talvez anos, fui perdendo esse amor pela programação.
+Por oito anos, programar tem sido minha profissão, mas tudo começou como um hobby pelo qual eu era apaixonado. Aos poucos, ao longo de meses ou talvez anos, fui perdendo esse amor pela programação.
 
 Sinto falta daqueles momentos em que um conceito finalmente fazia sentido, ou quando eu trabalhava em um problema por horas, mas parecia um minuto. A diversão de descobrir algo novo tinha sumido. PHP e JavaScript são tão confortáveis para mim que agora programar havia se tornado uma tarefa repetitiva. Repetindo o mesmo padrão denovo e denovo. Como se eu estivesse em um loop infinito.
 
