@@ -19,11 +19,10 @@ import { getUrl } from '../../../../helpers'
 import BlogMetadata from './BlogMetadata'
 import Dashes from '../../../../components/Dashes'
 
-export const dynamic = 'force-static';
+export const dynamic = 'force-static'
 
 type PostPageProps = {
   params: Promise<{ locale: string; slug: string }>
-  searchParams: Promise<{ draft: string }>
 }
 
 export async function generateStaticParams() {
@@ -35,6 +34,8 @@ export async function generateStaticParams() {
   routing.locales.forEach(locale => {
     const slugs = getAllPostSlugs(locale)
     slugs.forEach(slug => {
+      params.push({ locale, slug: slug + '.draft' })
+
       params.push({
         locale,
         slug
@@ -50,11 +51,18 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { locale, slug } = await props.params
 
-  const post = getPostBySlug(locale, slug.split('.')[0])
+  const isDraft = slug.endsWith('.draft')
 
-  const title = `${post.title} | Lucas Pedroni`
+  const post = getPostBySlug(locale, slug)
+
+  const title = isDraft
+    ? `${post.title} (Draft) | Lucas Pedroni`
+    : `${post.title} | Lucas Pedroni`
+
   const description = post.excerpt || `Read ${post.title} by Lucas Pedroni`
+
   const url = getUrl(`/${locale}/blog/${slug}`)
+
   const publishedTime = new Date(post.date).toISOString()
 
   return {
@@ -89,7 +97,7 @@ export async function generateMetadata(
       siteName: 'Lucas Pedroni',
       locale,
       type: 'article',
-      publishedTime,
+      publishedTime: isDraft ? undefined : publishedTime,
       authors: ['Lucas Pedroni']
     },
     twitter: {
@@ -98,20 +106,23 @@ export async function generateMetadata(
       description,
       creator: '@pedronidev'
     },
-    robots: 'index, follow'
+    robots: isDraft ? 'noindex, nofollow' : 'index, follow'
   }
 }
 
 export default async function PostPage(props: PostPageProps) {
   const { locale, slug } = await props.params
-  const { draft } = await props.searchParams
-  const t = await getTranslations()
+  const t = await getTranslations({locale: locale})
 
-  const isDraft = draft === 'true' || draft === '1'
+  const isDraft = slug.endsWith('.draft')
+  const cleanSlug = isDraft ? slug.replace('.draft', '') : slug
 
-  const { post, headings, html } = await getParsedPost(locale, slug, isDraft)
+  const { post, headings, html } = await getParsedPost(
+    locale,
+    cleanSlug,
+    isDraft
+  )
 
-  // JSON-LD structured data for SEO
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -131,9 +142,9 @@ export default async function PostPage(props: PostPageProps) {
     dateModified: new Date(post.updatedAt || post.date).toISOString(),
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': getUrl(`/${locale}/blog/${slug}`)
+      '@id': getUrl(`/${locale}/blog/${cleanSlug}`)
     },
-    url: getUrl(`/${locale}/blog/${slug}`),
+    url: getUrl(`/${locale}/blog/${cleanSlug}`),
     inLanguage: locale,
     articleBody: post.content,
     ...(post.tags && { keywords: post.tags }),
@@ -142,16 +153,19 @@ export default async function PostPage(props: PostPageProps) {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      {!isDraft && jsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      )}
+
       <div className="flex flex-col lg:flex-row">
         <div className="flex-1 w-full max-w-[991px] mx-auto">
           <div className="w-full flex flex-col relative lg:pt-20 px-6 lg:px-0">
             {isDraft && (
               <div className="left-1/2 z-10 -translate-1/2 bottom-2 fixed flex items-center font-mono text-primary gap-2 lg:bottom-auto lg:top-32">
-                <Link href="?" className="-ml-6">
+                <Link href={`/blog/${cleanSlug}`} className="-ml-6">
                   <SimpleButton icon={faLongArrowLeft}>
                     {t('BlogPost.publishedButton')}
                   </SimpleButton>
@@ -173,8 +187,20 @@ export default async function PostPage(props: PostPageProps) {
                 {post.readingTime} {t('Words.minutes')}
               </BlogMetadata>
 
-              {!isDraft && (
-                <Link href="?draft=true" className="hover:text-primary">
+              {isDraft ? (
+                <Link
+                  href={`/blog/${cleanSlug}`}
+                  className="hover:text-primary"
+                >
+                  <BlogMetadata icon={faFile}>
+                    {t('BlogPost.publishedButton')}
+                  </BlogMetadata>
+                </Link>
+              ) : (
+                <Link
+                  href={`/blog/${cleanSlug}.draft`}
+                  className="hover:text-primary"
+                >
                   <BlogMetadata icon={faFile}>
                     {t('BlogPost.draftButton')}
                   </BlogMetadata>
@@ -184,9 +210,12 @@ export default async function PostPage(props: PostPageProps) {
 
             <h1 className="text-5xl font-serif font-light text-primary">
               {post.title}
+              {isDraft && ' (Draft)'}
             </h1>
 
-            <div className="my-10"><Dashes></Dashes></div>
+            <div className="my-10">
+              <Dashes></Dashes>
+            </div>
           </div>
 
           <div

@@ -22,7 +22,7 @@ export default function TableOfContents({
   className = ''
 }: TableOfContentsProps) {
   const t = useTranslations('Words');
-  
+
   if (headings.length === 0) {
     return null
   }
