@@ -1,10 +1,10 @@
 ---
-title: "Learning a New Programming Language After 8 Years of Experience"
-date: "2025-08-30"
+title: 'Learning a New Programming Language After 8 Years of Experience'
+date: '2025-08-30'
 excerpt: "I've been programming professionally for over 8 years, programming was my hobby, but somewhere along the way I started losing my passion. Sticking to PHP and JavaScript made my work feel repetitive, like I was stuck in an infinite loop, repeating the same patterns. I want to go back to the beginning. Back to when I was exciting of learning something new. I want a fresh start. I want to learn a new language. But how?"
-tags: ["programming", "learning", "languages", "hobby"]
-keywords: ["programming languages", "learn", "software engineering", "hobby"]
-category: "Programming"
+tags: ['programming', 'learning', 'languages', 'hobby']
+keywords: ['programming languages', 'learn', 'software engineering', 'hobby']
+category: 'Programming'
 ---
 
 For the past 8 years, programming has been my profession, but it started as a hobby, that I was passionated about. For a few months, maybe years, I started losing my passion for programming.

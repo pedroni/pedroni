@@ -100,7 +100,7 @@ export function Logo(props: SVGProps<SVGSVGElement>) {
         <stop offset="0" style={{ stopColor: light }} />
         <stop offset="1" style={{ stopColor: dark }} />
       </linearGradient>
-      <circle fill={light} className="st4"  cx="394.42" cy="278.45" r="50" />
+      <circle fill={light} className="st4" cx="394.42" cy="278.45" r="50" />
     </svg>
   )
 }

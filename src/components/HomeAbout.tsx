@@ -69,15 +69,24 @@ const HomeAbout = () => {
 
       <BoxContent>
         <div dangerouslySetInnerHTML={{ __html: content.content }} />
-        <Button className='mt-6' onClick={() => scrollTo('#contact')}>{t('contactButton')}</Button>
+        <Button className="mt-6" onClick={() => scrollTo('#contact')}>
+          {t('contactButton')}
+        </Button>
       </BoxContent>
     </Box>
   )
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
-const HomeAboutAside = ({ activeListKey, onListItemSelected = key => {}, list }) => {
-  const content = useMemo(() => list.find(item => item.key === activeListKey) || {}, [activeListKey, list])
+const HomeAboutAside = ({
+  activeListKey,
+  onListItemSelected = key => {},
+  list
+}) => {
+  const content = useMemo(
+    () => list.find(item => item.key === activeListKey) || {},
+    [activeListKey, list]
+  )
 
   const _onListItemSelected = content => onListItemSelected(content?.key)
 

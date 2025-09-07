@@ -26,7 +26,7 @@ const Footer = () => {
             pedroni.dev
           </span>
         </div>
-        <div className='flex'>
+        <div className="flex">
           <IconButton
             title="LinkedIn Lucas Pedroni"
             href="https://www.linkedin.com/in/lucaspedroni/"

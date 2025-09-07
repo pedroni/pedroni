@@ -12,7 +12,7 @@ export default function BlogAuthorPicture(props: {
       )}
       style={{
         width: props.size || 80,
-        height: props.size || 80,
+        height: props.size || 80
       }}
     >
       <img

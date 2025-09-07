@@ -1,10 +1,11 @@
 ---
-title: "Aprendendo uma Nova Linguagem de Programação Após 8 Anos de Experiência"
-date: "2025-08-30"
-excerpt: "Eu programo profissionalmente há mais de 8 anos. Programar pra mim é um hobby, mas em algum momento comecei a perder minha paixão. Usar somente PHP e JavaScript fez meu trabalho parecer repetitivo, como se eu estivesse preso em um loop infinito, repetindo os mesmos padrões. Eu quero voltar ao começo. De volta à época em que eu ficava empolgado em aprender algo novo. Eu quero começar do zero. Eu quero aprender uma nova linguagem. Mas como?"
-tags: ["programação", "aprendizado", "linguagens", "hobby"]
-keywords: ["linguagens de programação", "aprender", "engenharia de software", "hobby"]
-category: "Programação"
+title: 'Aprendendo uma Nova Linguagem de Programação Após 8 Anos de Experiência'
+date: '2025-08-30'
+excerpt: 'Eu programo profissionalmente há mais de 8 anos. Programar pra mim é um hobby, mas em algum momento comecei a perder minha paixão. Usar somente PHP e JavaScript fez meu trabalho parecer repetitivo, como se eu estivesse preso em um loop infinito, repetindo os mesmos padrões. Eu quero voltar ao começo. De volta à época em que eu ficava empolgado em aprender algo novo. Eu quero começar do zero. Eu quero aprender uma nova linguagem. Mas como?'
+tags: ['programação', 'aprendizado', 'linguagens', 'hobby']
+keywords:
+  ['linguagens de programação', 'aprender', 'engenharia de software', 'hobby']
+category: 'Programação'
 ---
 
 Por oito anos, programar tem sido minha profissão, mas tudo começou como um hobby pelo qual eu era apaixonado. Aos poucos, ao longo de meses ou talvez anos, fui perdendo esse amor pela programação.
@@ -17,7 +18,7 @@ Eu quero recuperar a paixão que eu tinha. Acho que preciso voltar ao começo. P
 
 Eu tentei aprender Python e foi horrível, meus olhos doíam. Então eu fui pra Lua, parecia tão simples, tão bonito, e então decidi aprender Lua. Aprendi Lua enquanto tentava configurar o Neovim (passei muitas horas tentando configurar LSPs). Eventualmente, me senti confortável com Lua, a linguagem era fácil.
 
-Mas eu não parecia que eu tava aprendendo. Tudo que eu fazia era pesquisar no Google "Como fazer X em Lua?". *Algo parecia errado*.
+Mas eu não parecia que eu tava aprendendo. Tudo que eu fazia era pesquisar no Google "Como fazer X em Lua?". _Algo parecia errado_.
 
 Decidi dar outra chance pra Python, e depois de um tempo, percebi. Python e Lua são linguagens de script. Por que aprender uma nova linguagem de script se eu já sei PHP e JavaScript?
 

@@ -1,12 +1,12 @@
 import { ImageResponse } from 'next/og'
 import { Logo } from '../../components/Logo'
 
-export const dynamic = 'force-static';
+export const dynamic = 'force-static'
 
 // Image metadata
 export const size = {
   width: 32,
-  height: 32,
+  height: 32
 }
 export const contentType = 'image/png'
 
@@ -23,7 +23,7 @@ export default function Icon() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: 'orange',
+          color: 'orange'
         }}
       >
         <Logo width={32} height={26}></Logo>
@@ -33,7 +33,7 @@ export default function Icon() {
     {
       // For convenience, we can re-use the exported icons size metadata
       // config to also set the ImageResponse's width and height.
-      ...size,
+      ...size
     }
   )
 }

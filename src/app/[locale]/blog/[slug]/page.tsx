@@ -112,7 +112,7 @@ export async function generateMetadata(
 
 export default async function PostPage(props: PostPageProps) {
   const { locale, slug } = await props.params
-  const t = await getTranslations({locale: locale})
+  const t = await getTranslations({ locale: locale })
 
   const isDraft = slug.endsWith('.draft')
   const cleanSlug = isDraft ? slug.replace('.draft', '') : slug

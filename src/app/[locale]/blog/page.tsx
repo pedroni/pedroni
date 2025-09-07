@@ -23,7 +23,9 @@ export async function generateMetadata(
   return {
     title,
     description,
-    keywords: t('keywords').split(',').map(keyword => keyword.trim()),
+    keywords: t('keywords')
+      .split(',')
+      .map(keyword => keyword.trim()),
     authors: [{ name: 'Lucas Pedroni' }],
     creator: 'Lucas Pedroni',
     publisher: 'Lucas Pedroni',
@@ -41,13 +43,13 @@ export async function generateMetadata(
       url: getUrl(`/${locale}/blog`),
       siteName: 'Lucas Pedroni',
       locale,
-      type: 'website',
+      type: 'website'
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      creator: '@pedronidev',
+      creator: '@pedronidev'
     },
     robots: 'index, follow'
   }
@@ -103,9 +105,7 @@ export default async function BlogPage(props: BlogPageProps) {
       <div className="relative min-h-[calc(100vh-600px)] py-20 px-4">
         <div className="relative max-w-4xl mx-auto">
           <header className="mb-14 text-center">
-            <h1 className="sr-only">
-              Blog
-            </h1>
+            <h1 className="sr-only">Blog</h1>
             <p className="text-lg text-white/80 max-w-2xl mx-auto">
               {t('description')}
             </p>
@@ -119,7 +119,7 @@ export default async function BlogPage(props: BlogPageProps) {
             </div>
           )}
 
-          <div className='my-12'>
+          <div className="my-12">
             <Dashes></Dashes>
           </div>
 

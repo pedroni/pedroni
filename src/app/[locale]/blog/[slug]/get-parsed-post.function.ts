@@ -109,7 +109,7 @@ export default async function getParsedPost(
     return {
       post: post,
       html: processedContent.toString(),
-      headings: extractedHeadings,
+      headings: extractedHeadings
     }
   } catch (error) {
     console.error('Error fetching post:', error)

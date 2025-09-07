@@ -17,7 +17,6 @@
 
   /** Box */
   --box-padding: 64px;
-
 }
 
 @media (max-width: 1024px) {

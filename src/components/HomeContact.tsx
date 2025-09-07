@@ -5,10 +5,7 @@ import HomeContactForm from './HomeContactForm'
 import Title from './Title'
 import { useTranslations } from 'next-intl'
 
-
 const HomeContact = props => {
-
-
   const t = useTranslations('HomeContact')
 
   return (
@@ -22,7 +19,11 @@ const HomeContact = props => {
           textAlign: 'left'
         }
       }}
-      aside={<div className="hidden lg:block"><HomeContactAside /></div>}
+      aside={
+        <div className="hidden lg:block">
+          <HomeContactAside />
+        </div>
+      }
     >
       <Title
         direction="right"
@@ -31,7 +32,9 @@ const HomeContact = props => {
       />
       <BoxContent>
         {t('content')}
-        <div className="lg:hidden"><HomeContactAside /></div>
+        <div className="lg:hidden">
+          <HomeContactAside />
+        </div>
         <HomeContactForm style={{ marginTop: 32 }} />
       </BoxContent>
     </Box>
@@ -53,12 +56,8 @@ const HomeContactAside = () => {
       />
       <div>
         {t.rich('asideContent', {
-          email: (chunks) => (
-            <a href="mailto:lucas@pedroni.dev">
-              {chunks}
-            </a>
-          ),
-          linkedin: (chunks) => (
+          email: chunks => <a href="mailto:lucas@pedroni.dev">{chunks}</a>,
+          linkedin: chunks => (
             <a href="https://www.linkedin.com/in/lucaspedroni/" target="blank">
               {chunks}
             </a>

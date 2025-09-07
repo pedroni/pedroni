@@ -1,4 +1,4 @@
-'use server';
+'use server'
 import HomeAbout from '../../components/HomeAbout'
 import HomeBanner from '../../components/HomeBanner'
 import HomeContact from '../../components/HomeContact'

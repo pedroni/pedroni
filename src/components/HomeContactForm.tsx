@@ -8,9 +8,9 @@ import { useTranslations } from 'next-intl'
 
 const HomeContactForm = props => {
   const t = useTranslations('HomeContactForm')
-  const [messageSent, ] = useState('')
+  const [messageSent] = useState('')
   const [messageError, setMessageError] = useState('')
-  const [loading, ] = useState(false)
+  const [loading] = useState(false)
   const handleSubmit = async event => {
     event.preventDefault()
     // if (loading) {
@@ -26,9 +26,7 @@ const HomeContactForm = props => {
     //   if (err?.response?.data?.message) {
     //     setMessageError(err.response.data.message)
     //   } else {
-    setMessageError(
-      t('errorMessage')
-    )
+    setMessageError(t('errorMessage'))
     // }
     // } finally {
     //   setLoading(false)
@@ -83,9 +81,7 @@ const HomeContactForm = props => {
           {loading ? t('sending') : t('sendButton')}
         </Button>
         {messageError && (
-          <div className='mt-3 text-rose-500'>
-            {messageError}
-          </div>
+          <div className="mt-3 text-rose-500">{messageError}</div>
         )}
       </div>
     </form>

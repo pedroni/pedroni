@@ -28,9 +28,7 @@ const HomeSkills = props => {
         subTitle={t('subTitle')}
         title={<h2>{t('title')}</h2>}
       />
-      <BoxContent>
-        {t('content')}
-      </BoxContent>
+      <BoxContent>{t('content')}</BoxContent>
     </Box>
   )
 }
@@ -126,7 +124,7 @@ export const HomeSkillsSwiper = () => {
           },
           1024: {
             slidesPerView: 4
-          },
+          }
         }}
       >
         {list.map(({ background, icon, label }) => (

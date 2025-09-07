@@ -4,14 +4,17 @@ import classNames from 'classnames'
 import { ReactNode } from 'react'
 
 export default function BlogMetadata(props: {
-  size?: 'xs',
-  icon: IconDefinition,
+  size?: 'xs'
+  icon: IconDefinition
   children: ReactNode
 }) {
   return (
-    <div className={classNames("font-mono text-sm font-light mt-2 not-print:opacity-80 flex flex-nowrap text-nowrap items-center gap-1", [
-      !props.size ? 'text-sm' : 'text-xs'
-    ])}>
+    <div
+      className={classNames(
+        'font-mono text-sm font-light mt-2 not-print:opacity-80 flex flex-nowrap text-nowrap items-center gap-1',
+        [!props.size ? 'text-sm' : 'text-xs']
+      )}
+    >
       <FontAwesomeIcon fixedWidth icon={props.icon}></FontAwesomeIcon>
       <span>{props.children}</span>
     </div>

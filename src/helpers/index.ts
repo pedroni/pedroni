@@ -53,7 +53,10 @@ export function markdownToHtml(markdown?: string): string {
 }
 
 export function getUrl(string?: string) {
-  const baseUrl = process.env.NODE_ENV === 'production' ? 'https://pedroni.dev' : 'http://localhost:3000';
+  const baseUrl =
+    process.env.NODE_ENV === 'production'
+      ? 'https://pedroni.dev'
+      : 'http://localhost:3000'
 
   string = string ?? ''
   string = !string.startsWith('/') ? `/${string}` : string
