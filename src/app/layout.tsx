@@ -43,7 +43,7 @@ export async function generateMetadata(props: {
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await props.params
-  setRequestLocale(locale);
+  setRequestLocale(locale)
 
   const t = await getTranslations('SEO')
 
@@ -68,7 +68,10 @@ export default async function Layout(
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/konpa/devicon@master/devicon.min.css"
         />
-        <meta name="theme-color" content="#000000" />
+
+        <meta name="theme-color" content="#180808" />
+        <meta name="msapplication-navbutton-color" content="#180808" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="#180808" />
       </head>
 
       <Script
