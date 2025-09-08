@@ -77,9 +77,9 @@ const HomeAbout = () => {
   )
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
 const HomeAboutAside = ({
   activeListKey,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
   onListItemSelected = key => {},
   list
 }) => {
