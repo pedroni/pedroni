@@ -10,6 +10,7 @@ export const config = {
   matcher: [
     '/((?!api|trpc|_next|_vercel|.*\\..*).*)',
     // However, match all pathnames within `/blog`, optionally with a locale prefix
-    '/([\\w-]+)?/blog/(.+)'
+    // Allow dots in /blog paths only when followed by .draft
+    '/([\\w-]+)?/blog/(.*\\.draft$|[^.]*)'
   ]
 }
