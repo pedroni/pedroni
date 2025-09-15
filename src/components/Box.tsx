@@ -1,4 +1,5 @@
 import classNames from 'classnames'
+import { ReactNode } from 'react'
 
 const Box = ({
   aside = undefined,
@@ -11,6 +12,17 @@ const Box = ({
   bottom = '',
   className = '',
   ...props
+}: {
+  bottom?: ReactNode
+  children?: ReactNode
+  aside?: ReactNode
+  direction?: string
+  asideProps?: object
+  boxProps?: object
+  centerProps?: object
+  bottomProps?: object
+  className?: string
+  [key: string]: any
 }) => {
   return (
     <section
