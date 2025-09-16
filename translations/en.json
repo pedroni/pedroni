@@ -88,5 +88,11 @@
     "description": "Thoughts on programming, software development, and technology.",
     "metaDescription": "My thoughts on programming and software development.",
     "keywords": "programming blog, software development, web development, tech articles, Lucas Pedroni, programming tutorials, coding insights"
+  },
+  "NotFound": {
+    "subTitle": "PAGE NOT FOUND",
+    "title": "What are you looking for?",
+    "content": "Go back to the home page {homeLink} or contact me using the form below or send an email to",
+    "homeLink": "clicking here"
   }
 }

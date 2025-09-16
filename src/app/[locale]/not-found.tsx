@@ -1,9 +1,12 @@
 import Link from 'next/link'
-import Box from '../components/Box'
-import BoxContent from '../components/BoxContent'
-import HomeContactForm from '../components/HomeContactForm'
-import Title from '../components/Title'
-const Page404 = () => {
+import Box from '../../components/Box'
+import BoxContent from '../../components/BoxContent'
+import HomeContactForm from '../../components/HomeContactForm'
+import Title from '../../components/Title'
+import { getTranslations } from 'next-intl/server'
+
+const Page404 = async () => {
+  const t = await getTranslations('NotFound')
   return (
     <Box
       style={{
@@ -20,13 +23,11 @@ const Page404 = () => {
         />
       }
     >
-      <Title
-        subTitle="PÁGINA NÃO ENCONTRADA"
-        title={<h1>O que você procura?</h1>}
-      ></Title>
+      <Title subTitle={t('subTitle')} title={<h1>{t('title')}</h1>}></Title>
       <BoxContent>
-        Volte para a página inicial <Link href="/">clicando aqui</Link> ou entre
-        em contato comigo no formulário abaixo ou envie um e-mail para{' '}
+        {t.rich('content', {
+          homeLink: chunks => <Link href="/">{chunks}</Link>
+        })}{' '}
         <a href="mailto:lucas@pedroni.dev">
           <strong>lucas@pedroni.dev</strong>
         </a>
