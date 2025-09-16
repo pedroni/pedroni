@@ -1,11 +1,7 @@
 import { getTranslations } from 'next-intl/server'
 import HomeContactFormClient from './HomeContactForm.client'
 
-interface HomeContactFormProps {
-  style?: React.CSSProperties
-}
-
-export default async function HomeContactForm({ style }: HomeContactFormProps) {
+export default async function HomeContactForm() {
   const t = await getTranslations('HomeContactForm')
 
   const translations = {
@@ -17,5 +13,5 @@ export default async function HomeContactForm({ style }: HomeContactFormProps) {
     errorMessage: t('errorMessage')
   }
 
-  return <HomeContactFormClient translations={translations} style={style} />
+  return <HomeContactFormClient translations={translations} />
 }

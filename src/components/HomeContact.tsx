@@ -34,7 +34,9 @@ const HomeContact = async () => {
         <div className="lg:hidden">
           <HomeContactAside />
         </div>
-        <HomeContactForm style={{ marginTop: 32 }} />
+        <div className="mt-6">
+          <HomeContactForm />
+        </div>
       </BoxContent>
     </Box>
   )

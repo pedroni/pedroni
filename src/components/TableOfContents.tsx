@@ -1,3 +1,4 @@
+'use server';
 import { getTranslations } from 'next-intl/server'
 import TableOfContentsClient from './TableOfContents.client'
 import { Heading } from './TableOfContents.client'
