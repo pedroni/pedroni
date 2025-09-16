@@ -21,7 +21,11 @@ interface HomeAboutClientProps {
   contactButtonText: string
 }
 
-const HomeAboutClient = ({ list, initialActiveKey = 'about', contactButtonText }: HomeAboutClientProps) => {
+const HomeAboutClient = ({
+  list,
+  initialActiveKey = 'about',
+  contactButtonText
+}: HomeAboutClientProps) => {
   const [activeListKey, setActiveListKey] = useState(initialActiveKey)
 
   const content = useMemo(() => {

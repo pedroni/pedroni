@@ -44,5 +44,4 @@ const HomeSkillsAside = () => {
   )
 }
 
-
 export default HomeSkills

@@ -16,7 +16,11 @@ interface HomeServicesAsideProps {
   list: ListItem[]
 }
 
-const HomeServicesAside = ({ activeListKey, onListKeySelected, list }: HomeServicesAsideProps) => {
+const HomeServicesAside = ({
+  activeListKey,
+  onListKeySelected,
+  list
+}: HomeServicesAsideProps) => {
   const content = useMemo(
     () => list.find(item => item.key === activeListKey),
     [activeListKey, list]

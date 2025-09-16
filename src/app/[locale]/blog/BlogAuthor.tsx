@@ -1,9 +1,12 @@
+'use server'
+
 import { calculateYears } from '../../../helpers'
 import BlogAuthorPicture from './BlogAuthorPicture'
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 
-export default function BlogAuthor() {
-  const t = useTranslations('BlogAuthor')
+export default async function BlogAuthor() {
+  const t = await getTranslations('BlogAuthor')
+
   return (
     <div className="relative z-10 flex  gap-6 lg:gap-14 items-center flex-row">
       <BlogAuthorPicture className="hidden lg:block"></BlogAuthorPicture>

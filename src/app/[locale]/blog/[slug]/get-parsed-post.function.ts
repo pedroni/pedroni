@@ -11,7 +11,7 @@ import remarkRehype from 'remark-rehype'
 import { unified } from 'unified'
 import { visit } from 'unist-util-visit'
 import { BlogPost, getPostBySlug } from '../../../../lib/blog'
-import { Heading } from '../../../../components/TableOfContents'
+import { Heading } from '../../../../components/TableOfContents.client'
 
 export default async function getParsedPost(
   locale: string,

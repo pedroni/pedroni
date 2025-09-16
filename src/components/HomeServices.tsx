@@ -20,7 +20,9 @@ const HomeServices = async () => {
     content: t(`content.${key}.content`)
   }))
 
-  return <HomeServicesClient list={list} contactButtonText={t('contactButton')} />
+  return (
+    <HomeServicesClient list={list} contactButtonText={t('contactButton')} />
+  )
 }
 
 export default HomeServices

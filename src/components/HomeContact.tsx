@@ -1,16 +1,15 @@
-'use client'
+'use server'
+import { getTranslations } from 'next-intl/server'
 import Box from './Box'
 import BoxContent from './BoxContent'
 import HomeContactForm from './HomeContactForm'
 import Title from './Title'
-import { useTranslations } from 'next-intl'
 
-const HomeContact = props => {
-  const t = useTranslations('HomeContact')
+const HomeContact = async () => {
+  const t = await getTranslations('HomeContact')
 
   return (
     <Box
-      {...props}
       direction="bottom right"
       asideProps={{
         style: {
@@ -41,8 +40,8 @@ const HomeContact = props => {
   )
 }
 
-const HomeContactAside = () => {
-  const t = useTranslations('HomeContact')
+const HomeContactAside = async () => {
+  const t = await getTranslations('HomeContact')
 
   return (
     <>

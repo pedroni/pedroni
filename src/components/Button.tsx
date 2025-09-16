@@ -10,7 +10,13 @@ interface ButtonProps {
   [key: string]: any
 }
 
-const Button = ({ className = '', href, onClick, children, ...props }: ButtonProps) => {
+const Button = ({
+  className = '',
+  href,
+  onClick,
+  children,
+  ...props
+}: ButtonProps) => {
   const buttonClass = classNames(
     `
     cursor-pointer
