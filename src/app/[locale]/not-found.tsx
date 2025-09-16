@@ -1,9 +1,8 @@
-import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
 import Box from '../../components/Box'
 import BoxContent from '../../components/BoxContent'
 import HomeContactForm from '../../components/HomeContactForm'
 import Title from '../../components/Title'
-import { getTranslations } from 'next-intl/server'
 
 const Page404 = async () => {
   const t = await getTranslations('NotFound')
@@ -23,10 +22,10 @@ const Page404 = async () => {
         />
       }
     >
-      <Title subTitle={t('subTitle')} title={<h1>{t('title')}</h1>}></Title>
+      <Title subTitle={t('subTitle')} title={t('title')}></Title>
       <BoxContent>
         {t.rich('content', {
-          homeLink: chunks => <Link href="/">{chunks}</Link>
+          homeLink: chunks => <a href="https://pedroni.dev">{chunks}</a>
         })}{' '}
         <a href="mailto:lucas@pedroni.dev">
           <strong>lucas@pedroni.dev</strong>

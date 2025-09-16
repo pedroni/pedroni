@@ -92,7 +92,6 @@
   "NotFound": {
     "subTitle": "PÁGINA NÃO ENCONTRADA",
     "title": "O que você procura?",
-    "content": "Volte para a página inicial {homeLink} ou entre em contato comigo no formulário abaixo ou envie um e-mail para",
-    "homeLink": "clicando aqui"
+    "content": "Volte para a <homeLink>página inicial</homeLink> ou entre em contato comigo yes formulário abaixo ou envie um e-mail para"
   }
 }
