@@ -59,7 +59,7 @@
     "subTitle": "Contato",
     "title": "Me mande uma mensagem",
     "content": "Está pensando em criar algo novo? Precisa de um desenvolvedor para fazer isso? Entre em contato comigo.",
-    "asideContent": "Quer uma resposta mais rápida? Envie um e-mail para <email>lucas@pedroni.dev</email>. Você também pode me mandar uma mensagem no <linkedin>LinkedIn</linkedin>."
+    "asideContent": "Quer uma resposta mais rápida? Me manda uma mensagem no <linkedin>LinkedIn</linkedin>."
   },
   "HomeContactForm": {
     "nameLabel": "Nome",
@@ -67,7 +67,7 @@
     "subjectLabel": "Sobre o que você quer conversar?",
     "sendButton": "Enviar mensagem",
     "sending": "Enviando...",
-    "errorMessage": "Desabilitei. Eu estava recebendo muitos spams. Por favor envie um e-mail para lucas@pedroni.dev"
+    "errorMessage": "Desabilitei. Eu estava recebendo muitos spams. Me manda uma mensagem no LinkedIn."
   },
   "BlogPost": {
     "draftButton": "Ver Rascunho",

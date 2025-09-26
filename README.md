@@ -13,7 +13,3 @@ Veja como está ficando https://pedroni.dev
 ## Como iniciar
 
 `npm run dev`
-
-## Mais informações
-
-Para mais informações entre em contato comigo pelo e-mail lucas@pedroni.dev

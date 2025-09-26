@@ -59,7 +59,7 @@
     "subTitle": "Contact",
     "title": "Send me a message",
     "content": "Thinking about creating something new? Need a developer to make it happen? Get in touch with me.",
-    "asideContent": "Want a faster response? Send an email to <email>lucas@pedroni.dev</email>. You can also send me a message on <linkedin>LinkedIn</linkedin>."
+    "asideContent": "Want a faster response? Send me a message on <linkedin>LinkedIn</linkedin>."
   },
   "HomeContactForm": {
     "nameLabel": "Name",
@@ -67,7 +67,7 @@
     "subjectLabel": "What do you want to talk about?",
     "sendButton": "Send message",
     "sending": "Sending...",
-    "errorMessage": "That doesn't work. I was receiving too many spams, please send me an email to: lucas@pedroni.dev"
+    "errorMessage": "That doesn't work. I was receiving too many spams, please send me a message on LinkedIn."
   },
   "BlogPost": {
     "draftButton": "View Draft",

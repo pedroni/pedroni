@@ -26,11 +26,7 @@ const Page404 = async () => {
       <BoxContent>
         {t.rich('content', {
           homeLink: chunks => <a href="https://pedroni.dev">{chunks}</a>
-        })}{' '}
-        <a href="mailto:lucas@pedroni.dev">
-          <strong>lucas@pedroni.dev</strong>
-        </a>
-        .
+        })}.
         <br />
         <br />
       </BoxContent>

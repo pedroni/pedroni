@@ -57,7 +57,6 @@ const HomeContactAside = async () => {
       />
       <div>
         {t.rich('asideContent', {
-          email: chunks => <a href="mailto:lucas@pedroni.dev">{chunks}</a>,
           linkedin: chunks => (
             <a href="https://www.linkedin.com/in/lucaspedroni/" target="blank">
               {chunks}
