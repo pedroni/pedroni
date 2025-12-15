@@ -4,25 +4,27 @@ date: '2025-11-30'
 excerpt: '...'
 ---
 
-When I started programming I remember telling myself that I'd learn how to make games by the time I was 25. Now I'm 28.
-
-I still don't know how to make games. I already know some basic C++ from learning DSA and doing some Leetcode. So I decided to search on how to make games.
+A white window. A character walking from left to right. Happiness, excitiment, joy, that is what I felt when I rendered my a character on the screen. I ran to my partner, Bruna, to share what I had just built, i showed it with pride, with a familiar feeling of when I was a kid eager to get a praise from their parents. She saw it, looked at me and smilled without fully understanding what I had just accomplished. I got pixels to move on a screen!
 
 ## First window, first frustration
 
-The first tutorial I did was from [Let's Make Games Youtube channel, it was a tutorial by Carl Birch "How To Make A Game In C++ & SDL2 From Scratch!"](https://www.youtube.com/watch?v=QQzAHcojEKg&list=PLhfAbcv9cehhkG7ZQK0nfIGJC_C-wSLrx) this was a fun first introduction. It gave me an idea of how entertaining programming games is. Using SDL2 I created my first window with C++ and rendered a character on the screen that moved from left to right, with a white background. I remember showing it to my partner, Bruna, with a familiar feeling of when I was a kid eager to get a praise from their parents!
+I got there watching [Let's Make Games Youtube channel, it was a tutorial by Carl Birch "How To Make A Game In C++ & SDL2 From Scratch"](https://www.youtube.com/watch?v=QQzAHcojEKg&list=PLhfAbcv9cehhkG7ZQK0nfIGJC_C-wSLrx) this was a nice first introduction. It gave me an idea of how fun programming games could be. Drawing an image on a window that wasn't a browser, was so fun that I had forgotten I've been writing `<img />` tags for several years now. I had achieved that in less than 30 minutes!
+
+<!--todo: change the gif without the map so that the reader can visualize my first paragraph -->
 
 ![Here's a more polished version, no longer a white background https://github.com/pedroni/learning-cpp-sdl/](https://res.cloudinary.com/dzlxk32wz/video/upload/f_gif,w_500,fps_10,fl_lossy/game_demo_rn4pba.gif)
 
-However, things weren't as fun when I reached the [#7 video "Entity Component System (ECS)"](https://www.youtube.com/watch?v=XsvI8Sng6dk). This was shocking, to say the least. It was more like watching someone just coding than an actual tutorial. We went from a few lines of code to hundreds with barely any explanation of what an ECS was or why we needed it. Basically, it went from 0 to 100 too fast. It was overcomplicated, I didn't know what the hell an ECS and why we even needed an ECS. It jumped into a complex topic too fast. I'm happy to see that I'm not alone there are many frustrated comments there.
+However, things weren't as fun when I reached the [#7 video "Entity Component System (ECS)"](https://www.youtube.com/watch?v=XsvI8Sng6dk). This was shocking, to say the least. It was more like watching someone just coding than an actual tutorial. We went from a few lines of code to hundreds with barely any explanation of what an ECS was or why we needed it. It went from 0 to 100 too fast. It was overcomplicated, I didn't know what the hell an ECS and why we even needed an ECS. I'm happy to see that I'm not alone there are many frustrated comments in this particular video.
 
-Enough complaining. I was exposed to a lot of C++ features that I wasn't aware of such as: inline functions, template functions, static variables inside template functions, argument forwarding, and probably some more. And for that I'm grateful.
+Enough complaining. I was exposed to a lot of C++ features that I wasn't aware of such as: inline functions, template functions, static variables inside template functions, argument forwarding, and many more. And for that I'm grateful.
 
 The nice thing about this is that I faced my first memory leak bug! It was when I was handling textures with SDL2, they return pointers. I was coding random stuff outside the scope of the tutorial, and I kept creating resources in the game loop.
 
 ## Game Programming Patterns
 
 I already had a notion now of how games worked. At least how 2D games worked. We take an image a png and render it on the screen. Turn into a spritesheet and you have animations. Move their X and Y coordinates, make it collide with something and you have interactivity.
+
+<!-- todo: improve this section, just make a small reference to ECS turn the next 3 phrases into a single one? -->
 
 As I mentioned earlier I had a bad experience with the software architecture part. Building an ECS without context or explanation made me frustrated. So I had to search for different resources. That's when I found about [Game Programming Patterns by Robert Nystrom](https://gameprogrammingpatterns.com/) this gave me a much deeper understanding into how game architecture should be.
 
@@ -72,15 +74,17 @@ That said I didn't learn much from here. I had already seen all the concepts pre
 
 After doing all these small tutorials I noticed that I was in a familiar place. I'm in tutorial hell, I was no longer satisfied with making simple demo games from tutorials, all of them were showing me the same thing.
 
-This is a point that everyone learning something reaches, and it's difficult to leave. It's a moment that you can get so frustrated that you quit entirely and never come back. This is scary a moment, psychologically scary. You get bored and saturated, you lose momentum. You don't know where to go.
+This is a point that everyone learning something reaches, and it's difficult to leave. It's a moment that you can get so frustrated that you quit entirely and never come back. This is scary a moment, psychologically scary. You get bored. Saturated. You lose momentum. You don't know where to go.
 
 After reaching tutorial hell, I took a break of about a month without doing any proper study session.
 
-Now I don't know where to go from here. Should I learn `CMake`? All tutorials I did used an odd setup, installing libraries manually or using Windows, I knew better, there had to be something automated for these things. So I asked AI to setup the environments for me, and I blindly trusted AI for that. After all setting up an environment wasn't my goal, my goal currently is to learn C++ and how to make games these I did not delegate to AI. I hate using build tools such as vite, webpack and now CMake. They're great tools, essential tools, don't get me wrong. However, I can't see why I should learn something unfun, especially now with AI. But if I keep thinking like that then eventually I won't see the value in learning anything, AI will do everything.
+<!-- todo: can this be simplified? feels too long -->
+Now I didn't know where to go. Should I learn CMake? Every tutorial I did used an odd setup with manual library installs, some with Windows specific steps. I knew there had to be something better. So I delegated it to AI to set up my environment, it used CMake. I blindly trusted it. My goal was to learn C++ and make games. Those I didn't delegate. I've always hated build tools: webpack, vite, and now CMake. They're essential, don't get me wrong. But it's hard to learn something unfun, especially when AI can just do it for you. The problem is, if I keep thinking that way, eventually I won't see the value in learning anything.
 
-> From future me: I wrote this paragraph in November, now is December and I already started reading the [CMake Tutorial](https://cmake.org/cmake/help/latest/guide/tutorial/).
+> From future me: I wrote this paragraph in November, now is December and I already started reading the [CMake Tutorial](https://cmake.org/cmake/help/latest/guide/tutorial/). I'm pushing myself to consume more written content.
 
 
+<!-- todo: can these two section titles become one? they both feel like ending titles  -->
 ## Where to go from here?
 
 I probably won't try to build an entire game engine by myself. It seems to complex and time consuming, if I go that route I can see my self in rabbit hole. I think I'd rather build game systems like inventory management, RNG to upgrade gears, skills, combat mechanics, in a production ready engine such as Godot.
@@ -99,4 +103,6 @@ I was talking to a friend and he mentioned that I should try to make a multiplay
 
 Now I'm trying to build something on my own, [a chat in the terminal](https://github.com/pedroni/cpp-chat), instead of following a recipe like a tutorial. This makes me in a much more active role, instead of just passively copying code from a video tutorial. I'll have to search for specific functions, code, libraries and whatnot to be able to build it.
 
-I'll have to find the solution and learn how to implement the solution.
+I'm taking a small detour to later continue my game dev journey. This makes me excited to see what challenges I'll face. So far I've already seen that I need to learn multithreading for non-blocking input and sockets for client server communication.
+
+I'll have to find the solution and learn how to implement the solution. I can see my neuorons getting activated.
