@@ -4,27 +4,25 @@ date: '2025-11-30'
 excerpt: '...'
 ---
 
-A white window. A character walking from left to right. Happiness, excitiment, joy, that is what I felt when I rendered my a character on the screen. I ran to my partner, Bruna, to share what I had just built, i showed it with pride, with a familiar feeling of when I was a kid eager to get a praise from their parents. She saw it, looked at me and smilled without fully understanding what I had just accomplished. I got pixels to move on a screen!
+A white window. A character walking from left to right. Happiness, excitement, joy, that's what I felt when I rendered my first character on the screen. I ran to my partner, Bruna, to share what I had just built. I showed it with pride, with a familiar feeling of when I was a kid, eager to get a praise from my parents. She saw it, looked at me and smilled without fully understanding what I had just accomplished.
 
-## First window, first frustration
+[My first white window](https://res.cloudinary.com/dzlxk32wz/video/upload/f_gif,w_700/Screen_Recording_2025-12-21_at_17.50.52_yqbcuu.mov)
 
-I got there watching [Let's Make Games Youtube channel, it was a tutorial by Carl Birch "How To Make A Game In C++ & SDL2 From Scratch"](https://www.youtube.com/watch?v=QQzAHcojEKg&list=PLhfAbcv9cehhkG7ZQK0nfIGJC_C-wSLrx) this was a nice first introduction. It gave me an idea of how fun programming games could be. Drawing an image on a window that wasn't a browser, was so fun that I had forgotten I've been writing `<img />` tags for several years now. I had achieved that in less than 30 minutes!
+When I first started programming I had set an imaginary deadline. I remember telling my friends, and colleagues about it: "When I turn 25 I'll learn how to make games". I'm 28 now. Three years late. But that white window was the start.
 
-<!--todo: change the gif without the map so that the reader can visualize my first paragraph -->
+## First window
 
-![Here's a more polished version, no longer a white background https://github.com/pedroni/learning-cpp-sdl/](https://res.cloudinary.com/dzlxk32wz/video/upload/f_gif,w_500,fps_10,fl_lossy/game_demo_rn4pba.gif)
+I got my first window watching [Let's Make Games Youtube channel, it was a tutorial by Carl Birch "How To Make A Game In C++ & SDL2 From Scratch"](https://www.youtube.com/watch?v=QQzAHcojEKg&list=PLhfAbcv9cehhkG7ZQK0nfIGJC_C-wSLrx) this was a nice first introduction. It gave me an idea of how fun programming games could be. Drawing an image on a window that wasn't a browser, was so fun that I had forgotten I've been writing `<img />` tags for several years now. I had achieved that in less than 30 minutes!
 
-However, things weren't as fun when I reached the [#7 video "Entity Component System (ECS)"](https://www.youtube.com/watch?v=XsvI8Sng6dk). This was shocking, to say the least. It was more like watching someone just coding than an actual tutorial. We went from a few lines of code to hundreds with barely any explanation of what an ECS was or why we needed it. It went from 0 to 100 too fast. It was overcomplicated, I didn't know what the hell an ECS and why we even needed an ECS. I'm happy to see that I'm not alone there are many frustrated comments in this particular video.
+However, things weren't as fun when I reached the [#7 video "Entity Component System (ECS)"](https://www.youtube.com/watch?v=XsvI8Sng6dk). We went from a few lines of code to hundreds with barely any explanation of what an ECS was or why we needed it. It went from 0 to 100 too fast. It was overcomplicated, I didn't know what the hell an ECS and why we even needed an ECS. I was happy to see that I was not alone, there were many frustrated comments in this particular video.
 
-Enough complaining. I was exposed to a lot of C++ features that I wasn't aware of such as: inline functions, template functions, static variables inside template functions, argument forwarding, and many more. And for that I'm grateful.
+Anyways. I was exposed to a lot of C++ features that I wasn't aware of such as: inline functions, template functions, static variables inside template functions, argument forwarding, and many more. And for that I'm grateful.
 
-The nice thing about this is that I faced my first memory leak bug! It was when I was handling textures with SDL2, they return pointers. I was coding random stuff outside the scope of the tutorial, and I kept creating resources in the game loop.
+The nice thing about this is that I faced my first memory leak bug! I was happily playing with sprites and rendering different things on the screen (outside the scope of the tutorials) and that was when it happened. I kept creating resources in the game loop! Looking at the Activity Monitor I saw a spike of over `20GB` of RAM!
 
 ## Game Programming Patterns
 
 I already had a notion now of how games worked. At least how 2D games worked. We take an image a png and render it on the screen. Turn into a spritesheet and you have animations. Move their X and Y coordinates, make it collide with something and you have interactivity.
-
-<!-- todo: improve this section, just make a small reference to ECS turn the next 3 phrases into a single one? -->
 
 As I mentioned earlier I had a bad experience with the software architecture part. Building an ECS without context or explanation made me frustrated. So I had to search for different resources. That's when I found about [Game Programming Patterns by Robert Nystrom](https://gameprogrammingpatterns.com/) this gave me a much deeper understanding into how game architecture should be.
 
@@ -34,17 +32,17 @@ This book has great code snippets/examples and drawings that makes it a bliss to
 
 From what I've seen from Robert Nystrom, I can say that he's a great person and professional. He has a [magnificent blog](https://journal.stuffwithstuff.com/) which now is an inspiration to me.
 
-## Raylib and smaller wins
+## More tutorials
 
-While reading the book I kept looking for more tutorials, the first one from [Let's Make Games](https://www.youtube.com/@CarlBirch) didn't fulfull me. The series ends with an incomplete game.
+While reading the book I kept looking for more tutorials, the first one from [Let's Make Games](https://www.youtube.com/@CarlBirch) didn't fulfull me. The series ends with an incomplete game. And lack explanations.
 
 ### Udemy
 
 So the next step I took was searching for something on Udemy. I found [C++ Fundamentals: Game Programming For Beginners by GameDev.tv Team](https://www.udemy.com/course/cpp-fundamentals/) this was good, it was nice paced, the videos were short and to the point.
 
-I made 2 small games with it. This was when I properly got a good start at understanding physics to make the character jump. It taught me how velocity, acceleration and speed works, and how they are different. My math is not strong, but it was fun to see how they worked. I almost took a left turn and started learning math. I even bought a math for games course. I haven't started it. It's been 2 months now. It's probably going to sit and catch dust with all the other courses in Udemy.
+I made 2 small games with it. This was when I properly got a good start at understanding physics to make the character jump. It taught me how velocity, acceleration and speed works, and how they are different. My math is not strong, but it was fun to see how they worked. I almost took a left turn and started learning math. I even bought a math for games course! I haven't started it. It's been 2 months now. It's probably going to sit and catch dust with all the other courses in Udemy.
 
-These tutorials used Raylib and not SDL2, Raylib is much easier than SDL2, and less error prone, you don't have to manage pointers, though if I only had learnt Raylib I wouldn't have faced a genuine memory leak bug. Which was the thing I remember the most when I think about the Let's Make Games tutorials.
+These tutorials used Raylib and not SDL, Raylib is much easier than SDL2, and less error prone, you don't have to manage pointers, though if I only had learnt Raylib I wouldn't have faced a genuine memory leak bug. Which was the thing I remember the most when I think about the Let's Make Games tutorials.
 
 These are the two games I made with C++ Fundamentals on Udemy:
 
@@ -66,22 +64,22 @@ After finishing these two games on Udemy, I went back to Youtube because I still
 
 I found this one that really struck me when I saw the final result: [Making a game from scratch with C/C++, CMake, SDL3, SDL_image, SDL_mixer, by Constref](https://www.youtube.com/watch?v=Wu2g-N5Z78Y) it looked like a real game, you could shoot, jump, move around, the character slided, it had cool assets, and the tutorial was well edited!
 
-That said I didn't learn much from here. I had already seen all the concepts presented by Constref in the previous tutorials that I had done. Even though, it was the one that gave me the most satisfaction when completing. I had made some changes in the code and assets, which was honestly the best thing I could do because I saw myself writing code and coming with solutions instead of just copying a code that was on a video. I was practicing.
+That said I didn't learn much from here. I had already seen all the concepts presented by Constref in the previous tutorials that I had done. However, it was the one that got me the closets to a real game after completing it. I made some changes in the code and assets, which was honestly the best thing I could do because I saw myself writing code and coming with solutions instead of just copying a code that was on a video. I was practicing.
 
 !["Shooter Platformer", see the source code at: https://github.com/pedroni/gamedev](https://res.cloudinary.com/dzlxk32wz/video/upload/f_gif,w_700/04-shooter-platformer_jiyegx.gif)
 
 ## Tutorial Hell
 
-After doing all these small tutorials I noticed that I was in a familiar place. I'm in tutorial hell, I was no longer satisfied with making simple demo games from tutorials, all of them were showing me the same thing.
+After doing all these small tutorials I noticed that I was in a familiar place. I'm in tutorial hell. I was no longer satisfied with making simple demo games from tutorials, all of them were showing me the same thing.
 
-This is a point that everyone learning something reaches, and it's difficult to leave. It's a moment that you can get so frustrated that you quit entirely and never come back. This is scary a moment, psychologically scary. You get bored. Saturated. You lose momentum. You don't know where to go.
+This is a point that everyone learning something reaches, and it's difficult to leave. It's a moment that you can get so frustrated that you quit entirely and never come back. This is scary a moment, psychologically scary. You get bored. Saturated. You lose momentum. You don't know where to go. Most give up at this point.
 
 After reaching tutorial hell, I took a break of about a month without doing any proper study session.
 
 <!-- todo: can this be simplified? feels too long -->
 Now I didn't know where to go. Should I learn CMake? Every tutorial I did used an odd setup with manual library installs, some with Windows specific steps. I knew there had to be something better. So I delegated it to AI to set up my environment, it used CMake. I blindly trusted it. My goal was to learn C++ and make games. Those I didn't delegate. I've always hated build tools: webpack, vite, and now CMake. They're essential, don't get me wrong. But it's hard to learn something unfun, especially when AI can just do it for you. The problem is, if I keep thinking that way, eventually I won't see the value in learning anything.
 
-> From future me: I wrote this paragraph in November, now is December and I already started reading the [CMake Tutorial](https://cmake.org/cmake/help/latest/guide/tutorial/). I'm pushing myself to consume more written content.
+> From future me: I wrote this paragraph in November, now is December and I already started reading the [CMake Tutorial](https://cmake.org/cmake/help/latest/guide/tutorial/). And I'm pushing myself to consume more written content.
 
 
 <!-- todo: can these two section titles become one? they both feel like ending titles  -->
