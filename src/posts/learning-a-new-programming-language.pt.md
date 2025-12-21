@@ -5,7 +5,7 @@ excerpt: 'Eu programo profissionalmente há mais de 8 anos. Programar pra mim é
 tags: ['programação', 'aprendizado', 'linguagens', 'hobby']
 keywords:
   ['linguagens de programação', 'aprender', 'engenharia de software', 'hobby']
-category: 'Programação'
+category: 'Aprendizado'
 ---
 
 Por oito anos, programar tem sido minha profissão, mas tudo começou como um hobby pelo qual eu era apaixonado. Aos poucos, ao longo de meses ou talvez anos, fui perdendo esse amor pela programação.
