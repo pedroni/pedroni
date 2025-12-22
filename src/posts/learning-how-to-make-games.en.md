@@ -1,6 +1,6 @@
 ---
 title: 'Learning How to Make Games'
-date: '2025-11-30'
+date: '2025-12-21'
 excerpt: 'The late beginning of my journey into game development with C++.'
 category: 'Learning'
 tags: ['gamedev', 'C++', 'SDL', 'Raylib', 'learning', 'tutorial-hell', 'programming']
