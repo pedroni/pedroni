@@ -69,7 +69,7 @@ I found this one that really struck me when I saw the final result: [Making a ga
 
 That said I didn't learn much from here. I had already seen all the concepts presented by Constref in the previous tutorials that I had done. However, it was the one that got me the closets to a real game after completing it. I made some changes in the code and assets, which was honestly the best thing I could do because I saw myself writing code and coming with solutions instead of just copying a code that was on a video. I was practicing.
 
-!["Shooter Platformer", see the source code at: https://github.com/pedroni/gamedev](https://res.cloudinary.com/dzlxk32wz/video/upload/f_gif,w_700/04-shooter-platformer_jiyegx.gif)
+!["Shooter Platformer", see the source code at: https://github.com/pedroni/gamedev](https://res.cloudinary.com/dzlxk32wz/video/upload/f_gif,e_loop,w_700/04-shooter-platformer_jiyegx.gif)
 
 ## Tutorial Hell
 

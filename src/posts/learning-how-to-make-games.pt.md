@@ -9,7 +9,7 @@ keywords: ['game development', 'C++ game programming', 'learning gamedev', 'SDL2
 
 A white window. A character walking from left to right. Happiness, excitement, joy, that's what I felt when I rendered my first character on the screen. I ran to my partner, Bruna, to share what I had just built. I showed it with pride, with a familiar feeling of when I was a kid, eager to get a praise from my parents. She saw it, looked at me and smilled without fully understanding what I had just accomplished.
 
-![My first white window](https://res.cloudinary.com/dzlxk32wz/video/upload/f_gif,w_700/Screen_Recording_2025-12-21_at_17.50.52_yqbcuu.gif)
+![My first white window](https://res.cloudinary.com/dzlxk32wz/video/upload/f_gif,e_loop,w_700/Screen_Recording_2025-12-21_at_17.50.52_yqbcuu.gif)
 
 When I first started programming I had set an imaginary deadline. I remember telling my friends, and colleagues about it: "When I turn 25 I'll learn how to make games". I'm 28 now. Three years late. But that white window was the start.
 
@@ -69,7 +69,7 @@ I found this one that really struck me when I saw the final result: [Making a ga
 
 That said I didn't learn much from here. I had already seen all the concepts presented by Constref in the previous tutorials that I had done. However, it was the one that got me the closets to a real game after completing it. I made some changes in the code and assets, which was honestly the best thing I could do because I saw myself writing code and coming with solutions instead of just copying a code that was on a video. I was practicing.
 
-!["Shooter Platformer", see the source code at: https://github.com/pedroni/gamedev](https://res.cloudinary.com/dzlxk32wz/video/upload/f_gif,w_700/04-shooter-platformer_jiyegx.gif)
+!["Shooter Platformer", see the source code at: https://github.com/pedroni/gamedev](https://res.cloudinary.com/dzlxk32wz/video/upload/f_gif,e_loop,w_700/04-shooter-platformer_jiyegx.gif)
 
 ## Tutorial Hell
 
