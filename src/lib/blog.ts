@@ -21,6 +21,7 @@ export interface BlogPost {
   keywords?: string[]
   image?: string
   category?: string
+  draft?: boolean;
   readingTime: number
 }
 
@@ -133,7 +134,7 @@ export async function getSortedPosts(): Promise<BlogPost[]> {
   )
 
   // Sort posts by date (newest first)
-  return allPostsData.sort((a, b) => {
+  return allPostsData.filter(post => post.draft).sort((a, b) => {
     if (a.date < b.date) {
       return 1
     } else {
