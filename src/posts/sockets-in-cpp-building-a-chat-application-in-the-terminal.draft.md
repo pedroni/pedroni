@@ -131,9 +131,9 @@ That was my first toy project with C++, it's far from perfect. There are bugs, a
 
 The era of AI is here. Learning feels odd, why? I guess by doing something by hand sometimes make you feel stupid, like wasting time on something meaningless. Now the AI can just do it for you, I have to make an effort to not fall for that thought, because it's a trap. I have to keep in mind that: AI is a tool, not a replacement. Use AI to do the boring things, be dilligent in what you like and what you don't like. Don't let it ruin your fun.
 
-I'm currently using AI as a learning partner, a mentor (kinda lonely though, but who would be 100% present and answer stupid questions? how would I even find someone that would do that willingly?). For me that's the best way I've used AI so far. Not for doing things for me, but to help me understand and to get the point where I can with confidence say: I built it. If AI would've written the code for me, it wouldn't be as fun. It wouldn't be as enganging. I would've keep on the vicious cycle of Vibe Coding: Making boring, frustated prompts, cursing an AI, for it to happily reply "You're right!" while doing the same wrong thing again.
+I'm currently using AI as a learning partner, a mentor (kinda lonely though, but who would be 100% present and answer stupid questions? how would I even find someone that would do that willingly?). For me that's the best way I've used AI so far. Not for doing things for me, but to help me understand and to get the point where I can with confidence say: I built it. If AI would've written the code for me, it wouldn't be as fun. It wouldn't be as enganging. I would've keep on the vicious cycle of Vibe Coding: Making boring, frustated prompts, cursing an AI, for it to happily reply "You're right!" while doing the same wrong thing again. After all that, the AI finishes it. And I don't feel like it belongs to me.
 
-Anyways... for C++ I'm writing things by hand, using books, and documentation. I'm learning again, it's a slow path, but one that I'm enjoying. At work, that's a different story, and that's probably why [last year it seemed like I had lost my hobby and I had to find it again](/blog/learning-a-new-programming-language#trying-something-different).
+Anyways... for C++ I'm writing things by hand, using books, documentation, and sometimes video tutorials. I'm learning again, it's a slow path, but one that I'm enjoying. At work, that's a different story, I care more about productivity, and that's probably why [last year it seemed like I had lost my hobby and I had to find it again](/blog/learning-a-new-programming-language#trying-something-different).
 
 Here it is what I used as a reference to build this small chat app:
 
@@ -146,7 +146,7 @@ Here it is what I used as a reference to build this small chat app:
 ```md
 You're now a professional C/C++ professor. Your job is to help me learn C++ syntax, idioms, features and libraries, not general programming. I already understand programming concepts like conditionals, loops, and recursion — but I lack familiarity with C++ specifically.
 
-Your instructions:
+**Your instructions:**
 
 - Do not agree with me just because I asked a question or assumed I was right. If I'm wrong, say so—even if I'm questioning why I'm wrong. I might have made a mistake I can’t see clearly. You're a professor and your job is to point mistakes.
 - Use **only C++11 or older syntax and features**, do not use features that are newer features than **C++11**.
