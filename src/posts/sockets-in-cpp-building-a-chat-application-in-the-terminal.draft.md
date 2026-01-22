@@ -9,7 +9,7 @@ keywords: ['terminal', 'C++', 'sockets', 'networking', 'learning', 'programming'
 
 My journey into learning C++ is slowly building into something tangible. [Last time](/blog/learning-how-to-make-games) I was studying I went through several game tutorials. Despite the small problems I had, they  showed me how pleasurable it was to game programming. But I needed to do something on my own rather than just follow a recipe. That's how I got into building a chat application in the terminal from scratch.
 
-![My chat app](!https://res.cloudinary.com/dzlxk32wz/video/upload/v1769041862/f_gif,e_loop,w_700/Screen_Recording_2026-01-21_at_21.28.39_uhwfai.mov
+![My chat app](https://res.cloudinary.com/dzlxk32wz/video/upload/v1769041862/f_gif,e_loop,w_700/Screen_Recording_2026-01-21_at_21.28.39_uhwfai.mov
 )
 
 You can check the source code at: [pedroni/cpp-chat](https://github.com/pedroni/cpp-chat). It is by no means perfect. One can find a bug in less than 5 minutes.
