@@ -59,7 +59,8 @@ export default async function BlogPage(props: BlogPageProps) {
   const { locale } = await props.params
   const t = await getTranslations('Blog')
 
-  const postsByYear: PostsByYear[] = getSortedPosts(locale).reduce(
+  const posts = await getSortedPosts()
+  const postsByYear: PostsByYear[] = posts.reduce(
     (acc: PostsByYear[], post: BlogPost) => {
       const year = new Date(post.date).getFullYear()
       const yearGroup = acc.find(group => group.year === year)

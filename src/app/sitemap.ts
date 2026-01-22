@@ -3,7 +3,7 @@ import { getUrl } from '../helpers'
 import { routing } from '../i18n/routing'
 import { getSortedPosts } from '../lib/blog'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = []
 
   routing.locales.forEach(locale => {
@@ -23,14 +23,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   })
 
   const blogPages: MetadataRoute.Sitemap = []
+  const posts = await getSortedPosts()
 
   routing.locales.forEach(locale => {
-    const posts = getSortedPosts(locale)
-
     posts.forEach(post => {
       blogPages.push({
         url: getUrl(`${locale}/blog/${post.slug}`),
-        lastModified: new Date(post.date || post.updatedAt),
+        lastModified: new Date(post.updatedAt || post.date),
         changeFrequency: 'monthly',
         priority: 0.7
       })
