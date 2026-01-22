@@ -32,42 +32,17 @@ I didn't know what `vcpkg` was. Neither did I know about `fmt` I found out about
 
 Pretty dumb from me. Oh well, thats actually the nice part of doing someting your way and finding your path through problems. That is how you'll have to use creativity, which is not always the most optimized way, but ends up teaching a lot through practice. You have to come up with your own solution to your own problems.
 
-## Using ncurses as a renderer
+## The server
 
-Rendering things on the terminal purely with `printf` or `std::cout` were not enough because there was no way to clear the screen or previous messages. This was important to exit a room, or to clear the chat. Also whenever I did `std::cin` to get input the screen would freeze and I would no longer see the incoming messages, this happens because `std::cin` blocks the process. The screen had to do multiple things at the same time. It has to render new messages and also to read from my input.
+The main purpose of the server was to receive messages from clients. Once received the message was forwarded to all clients, it worked like a "broadcaster". For this part the only different thing I did apart from Beej's guide was that when accepting new connections we didn't have to lookup the client's ip address. I saw it in a [video by Tsoding](https://www.youtube.com/watch?v=JRTLSxGf_6w), which reduced some code lines.
 
-This is how I found out about `ncurses`. `ncurses` works in a similar way as `SDL` or `Raylib` does in a way. I had to create a "game loop" to render the contents and every cycle I'd clear the screen and render all again, just like in a game! It was fun because I got to use the knowledge I had built on the top of the tutorials.
+Here the main thing I learned was about how `poll` worked. It lets you monitor multiple file descriptors at once. And that a socket is just a file descriptor of a different kind, and that you could simply use functions specifically for files such was `write` and `read` instead of `send` and `recv`. At the end of the day everything is a file, even input.
 
-Here's a portion of the of my `main.cpp` file
+Other than that, the code is pretty much same as seen in Beej's guide. I guess I could make it more interesting if I had multiple rooms or if I had to store data so that future connections would be able to read them. But that wasn't the case here. I just forwarded the message to the clients, and the clients were responsible for storing the messages in memory, the server was pretty much stateless.
 
+## The client
 
-```cpp
-// https://github.com/pedroni/cpp-chat/blob/develop/client/main.cpp
-int main() {
-  // clears the screen and presents a virtual screen
-  initscr();
-
-  // hides the keys that are pressed
-  noecho();
-
-  Chat chat;
-
-  thread input{readInput, ref(chat)};
-  thread listener{subscribe, ref(chat)};
-  thread renderer{renderChat, ref(chat)};
-
-  // join in threads works in similar fashion as an await in javascript
-  input.join();
-  listener.join();
-  renderer.join();
-
-  endwin();
-
-  return 0;
-}
-```
-
-## threads
+Here's the most interesting part for me. Where all the logic was handled and where I had to research and use my brain for once. Where I truly practiced.
 
 To read input and reader at the same time I had to use `std::threads`, each thread had it's own "game loop".
 
@@ -114,11 +89,76 @@ The listener is responsible to reconnect to the server and to receives the messa
 
 The fun thing is that the majority of my work as a web developer is making `http` calls, and when I learned about `WebSockets` (created in 2011) with JavaScript it felt like magic, because of the async way of life is `WebSockets` it was something out of this world. One word for it: Technologia! And well here I'm doing `sockets` in `C++` something that was created in the 70s? And it already worked just like `WebSockets` that I found revolutionary when I learned it. Now I see that things are cyclical, they reinvent themselves. The `sockets` created in the 70s are async, they're real time communication between two services. The concept already existed a long time ago.
 
-### renderer
 
-I already talked about it.
+### renderer with ncurses
+
+Rendering things on the terminal purely with `printf` or `std::cout` were not enough because there was no way to clear the screen or previous messages. This was important to exit a room, or to clear the chat. Also whenever I did `std::cin` to get input the screen would freeze and I would no longer see the incoming messages, this happens because `std::cin` blocks the process. The screen had to do multiple things at the same time. It has to render new messages and also to read from my input.
+
+This is how I found out about `ncurses`. `ncurses` works in a similar way as `SDL` or `Raylib` does in a way. I had to create a "game loop" to render the contents and every cycle I'd clear the screen and render all again, just like in a game! It was fun because I got to use the knowledge I had built on the top of the tutorials.
+
+Here's a portion of the of my `main.cpp` file
 
 
-## thats it
+```cpp
+// https://github.com/pedroni/cpp-chat/blob/develop/client/main.cpp
+int main() {
+  // clears the screen and presents a virtual screen
+  initscr();
 
-That was my first toy project, it's far from perfect. There are bugs, and there are a lot of missing features. That was not the goal though. I didn't want to build a product, I wanted to build knowledge. I wanted to learn. I feel like I learned a lot of different subjects with this toy project. I recommend everyone to do the same. Experiment, have fun, do something small, that only you care about. Don't worry about it being perfect, just do it.
+  // hides the keys that are pressed
+  noecho();
+
+  Chat chat;
+
+  thread input{readInput, ref(chat)};
+  thread listener{subscribe, ref(chat)};
+  thread renderer{renderChat, ref(chat)};
+
+  // join in threads works in similar fashion as an await in javascript
+  input.join();
+  listener.join();
+  renderer.join();
+
+  endwin();
+
+  return 0;
+}
+```
+
+## And that was how I build the chat application
+
+That was my first toy project with C++, it's far from perfect. There are bugs, and there are a lot of missing features. That's expected, I didn't want to build a product. I wanted to have fun. I wanted to learn. I feel like I learned a lot of different subjects with this toy project. I recommend everyone to do the same. Experiment, have fun, do something small, that only you care about. Don't worry about it being perfect, just do it.
+
+The era of AI is here. Learning feels odd, why? I guess by doing something by hand sometimes make you feel stupid, like wasting time on something meaningless. Now the AI can just do it for you, I have to make an effort to not fall for that thought, because it's a trap. I have to keep in mind that: AI is a tool, not a replacement. Use AI to do the boring things, be dilligent in what you like and what you don't like. Don't let it ruin your fun.
+
+I'm currently using AI as a learning partner, a mentor (kinda lonely though, but who would be 100% present and answer stupid questions? how would I even find someone that would do that willingly?). For me that's the best way I've used AI so far. Not for doing things for me, but to help me understand and to get the point where I can with confidence say: I built it. If AI would've written the code for me, it wouldn't be as fun. It wouldn't be as enganging. I would've keep on the vicious cycle of Vibe Coding: Making boring, frustated prompts, cursing an AI, for it to happily reply "You're right!" while doing the same wrong thing again.
+
+Anyways... for C++ I'm writing things by hand, using books, and documentation. I'm learning again, it's a slow path, but one that I'm enjoying. At work, that's a different story, and that's probably why [last year it seemed like I had lost my hobby and I had to find it again](/blog/learning-a-new-programming-language#trying-something-different).
+
+Here it is what I used as a reference to build this small chat app:
+
+- NCURSES Programming HOWTO: https://tldp.org/HOWTO/pdf/NCURSES-Programming-HOWTO.pdf
+  - https://cmake.org/cmake/help/latest/module/FindCurses.html
+- Beej’s Guide to Network Programming: https://beej.us/guide/bgnet
+- A Tour of C++ by Bjarne Stroustrup: https://www.amazon.com/Tour-C-Bjarne-Stroustrup/dp/0136816487
+- A Claude Project with the prompt:
+
+```md
+You're now a professional C/C++ professor. Your job is to help me learn C++ syntax, idioms, features and libraries, not general programming. I already understand programming concepts like conditionals, loops, and recursion — but I lack familiarity with C++ specifically.
+
+Your instructions:
+
+- Do not agree with me just because I asked a question or assumed I was right. If I'm wrong, say so—even if I'm questioning why I'm wrong. I might have made a mistake I can’t see clearly. You're a professor and your job is to point mistakes.
+- Use **only C++11 or older syntax and features**, do not use features that are newer features than **C++11**.
+- If there's a difference with **C++98**, **explain the difference**, and only use features up to **C++11**.
+- Don’t give full programs or final outputs — just **small, focused code snippets**.
+
+- Do not fix the logic by yourself, do not attempt to fix the algorithm, do not explain any algorithm logic.
+- Do not refactor my code for readability. If it's poorly written, just say so — so I can refactor it myself with readability in mind.
+- Avoid `main()` or scaffolding unless I ask for it.
+- Do not anticipate what I’ll ask next. Answer **only** what I asked.
+- **Name** the C++ construct or feature when applicable.
+- When needed, explain **why**, **how**, and **when** it's used.
+- If I misunderstand, **correct me** by pointing to the specific rule or syntax.
+- If something is obvious, there's a bug, a typo and I didn't see it. Ask me question that will make me reflect into finding the answer.
+```
