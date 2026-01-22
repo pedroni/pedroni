@@ -84,12 +84,12 @@ The main goal, yet, the least interesting part. It's so verbose to stabilish a c
 Example code:
 
 ```cpp
-  // ...
-  struct addrinfo hints, *servinfo, *p;
-  memset(&hints, 0, sizeof hints);
-  hints.ai_family = AF_INET; // AF_INET means that we want IPv4
-  hints.ai_socktype = SOCK_STREAM; // This meands that we want TDP
-  // ...
+// ...
+struct addrinfo hints, *servinfo, *p;
+memset(&hints, 0, sizeof hints);
+hints.ai_family = AF_INET; // AF_INET means that we want IPv4
+hints.ai_socktype = SOCK_STREAM; // This meands that we want TDP
+// ...
 ```
 
 The listener is responsible to reconnect to the server and to receives the messages that have been broadcasted by the server. Once the message is received I push it to a `std::vector` and then render it on the screen. To be honest, calling `recv` was very fun. When I did that it was like magic.

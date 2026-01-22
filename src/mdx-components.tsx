@@ -1,5 +1,5 @@
 import type { MDXComponents } from 'mdx/types'
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 
 // This file allows you to provide custom React components
 // to be used in MDX files. You can import and use any
@@ -79,12 +79,12 @@ const components = {
     </blockquote>
   ),
   code: ({ children }: { children?: ReactNode }) => (
-    <code className="text-lg font-mono bg-white/5 px-1 py-0.5 rounded">
+    <code className="text-lg font-mono px-1 py-0.5 rounded">
       {children}
     </code>
   ),
   pre: ({ children }: { children?: ReactNode }) => (
-    <pre className="overflow-x-auto rounded-lg bg-white/5 p-4">{children}</pre>
+    <pre className="overflow-x-auto rounded-lg p-4">{children}</pre>
   )
 } satisfies MDXComponents
 

@@ -165,7 +165,7 @@ export default async function PostPage(props: PostPageProps) {
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 mx-auto w-full relative">
             <div className="col-span-3">
-              <div className="relative max-w-full w-full text-left prose prose-invert font-extralight tracking-wide mx-auto px-6 prose-img:rounded-lg prose-img:-mx-6 prose-img:max-w-[calc(100%+48px)]! lg:px-0 lg:prose-img:mx-0 lg:prose-img:max-w-full lg:prose-img:w-full prose-headings:group prose-headings:relative prose-headings:border-b prose-headings:border-dashed prose-headings:border-white/10 prose-headings:font-light prose-headings:pb-3 [&_h1,h2,h3,h4,h5,h6_a]:no-underline prose-headings:text-primary prose-headings:font-mono prose-headings:tracking-normal prose-p:font-sans prose-p:text-lg prose-p:leading-relaxed [&_p_code]:text-lg prose-a:font-extralight prose-a:text-primary">
+              <div className="relative max-w-full w-full text-left prose prose-invert font-extralight tracking-wide mx-auto px-6 prose-img:rounded-lg prose-img:-mx-6 prose-img:max-w-[calc(100%+48px)]! lg:px-0 lg:prose-img:mx-0 lg:prose-img:max-w-full lg:prose-img:w-full prose-headings:group prose-headings:relative prose-headings:border-b prose-headings:border-dashed prose-headings:border-white/10 prose-headings:font-light prose-headings:pb-3 [&_h1,h2,h3,h4,h5,h6_a]:no-underline prose-headings:text-primary prose-headings:font-mono prose-headings:tracking-normal prose-p:font-sans prose-p:text-lg prose-p:leading-relaxed [&_p_code]:text-base [&_p_code]:font-normal prose-a:font-extralight prose-a:text-primary">
                 <Component />
               </div>
 
