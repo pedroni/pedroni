@@ -8,6 +8,7 @@ import Title from './Title'
 import Button from './Button'
 import BlogMetadata from '../app/[locale]/blog/[slug]/BlogMetadata'
 import { faCalendar, faClock } from '@fortawesome/free-regular-svg-icons'
+import BlogPostHoverItem from './BlogPostHoverItem'
 
 const HomeBanner = async () => {
   const locale = await getLocale()
@@ -57,34 +58,17 @@ const HomeBanner = async () => {
 
               <ul className="flex flex-col gap-2">
                 {posts.map(post => (
-                  <li key={post.slug}>
-                    <Link
-                      href={`/blog/${post.slug}`}
-                      className="group py-2 hover:text-primary-light transition-colors"
-                    >
-                      <div className="flex gap-4">
-                        <BlogMetadata size="xs" icon={faCalendar}>
-                          {new Date(post.date).toLocaleDateString(locale, {
-                            month: 'short',
-                            day: 'numeric',
-                            year: 'numeric'
-                          })}
-                        </BlogMetadata>
-
-                        <BlogMetadata size="xs" icon={faClock}>
-                          {post.readingTime} {t('Words.minutes')}
-                        </BlogMetadata>
-                      </div>
-                      <div className="transition-colors group-hover:text-primary-light text-white/90">
-                        {post.title}
-                      </div>
-                    </Link>
-                  </li>
+                  <BlogPostHoverItem
+                    key={post.slug}
+                    post={post}
+                    locale={locale}
+                    minutesText={t('Words.minutes')}
+                  />
                 ))}
               </ul>
 
               {posts.length >= 3 && (
-                <Link href="/blog">
+                <Link className='mt-4 inline-block' href="/blog">
                   <Button>{t('HomeBanner.viewAll')}</Button>
                 </Link>
               )}
