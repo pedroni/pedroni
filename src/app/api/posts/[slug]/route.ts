@@ -11,7 +11,7 @@ export async function GET(
   const locale = searchParams.get('locale') || 'en'
 
   try {
-    const post = getPostBySlug(locale, slug)
+    const post = await getPostBySlug(slug)
 
     return NextResponse.json({
       locale,

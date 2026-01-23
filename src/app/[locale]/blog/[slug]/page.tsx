@@ -1,20 +1,14 @@
 import {
   faCalendar,
   faClock,
-  faFile,
   faUser
 } from '@fortawesome/free-regular-svg-icons'
-import { faLongArrowLeft } from '@fortawesome/free-solid-svg-icons'
-import classNames from 'classnames'
 import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
-import { SimpleButton } from '../../../../components/SimpleButton'
 import TableOfContents from '../../../../components/TableOfContents'
-import { Link } from '../../../../i18n/navigation'
 import { routing } from '../../../../i18n/routing'
 import { getAllPostSlugs, getPostBySlug } from '../../../../lib/blog'
 import BlogAuthor from '../BlogAuthor'
-import getParsedPost from './get-parsed-post.function'
 import { getUrl } from '../../../../helpers'
 import BlogMetadata from './BlogMetadata'
 import Dashes from '../../../../components/Dashes'
@@ -31,11 +25,9 @@ export async function generateStaticParams() {
     slug: string
   }[] = []
 
+  const slugs = getAllPostSlugs()
   routing.locales.forEach(locale => {
-    const slugs = getAllPostSlugs(locale)
     slugs.forEach(slug => {
-      params.push({ locale, slug: slug + '.draft' })
-
       params.push({
         locale,
         slug
@@ -51,18 +43,11 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { locale, slug } = await props.params
 
-  const isDraft = slug.endsWith('.draft')
+  const post = await getPostBySlug(slug)
 
-  const post = getPostBySlug(locale, slug)
-
-  const title = isDraft
-    ? `${post.title} (Draft) | Lucas Pedroni`
-    : `${post.title} | Lucas Pedroni`
-
+  const title = `${post.title} | Lucas Pedroni`
   const description = post.excerpt || `Read ${post.title} by Lucas Pedroni`
-
   const url = getUrl(`/${locale}/blog/${slug}`)
-
   const publishedTime = new Date(post.date).toISOString()
 
   return {
@@ -97,7 +82,7 @@ export async function generateMetadata(
       siteName: 'Lucas Pedroni',
       locale,
       type: 'article',
-      publishedTime: isDraft ? undefined : publishedTime,
+      publishedTime,
       authors: ['Lucas Pedroni']
     },
     twitter: {
@@ -106,7 +91,7 @@ export async function generateMetadata(
       description,
       creator: '@pedronidev'
     },
-    robots: isDraft ? 'noindex, nofollow' : 'index, follow'
+    robots: 'index, follow'
   }
 }
 
@@ -114,14 +99,7 @@ export default async function PostPage(props: PostPageProps) {
   const { locale, slug } = await props.params
   const t = await getTranslations({ locale: locale })
 
-  const isDraft = slug.endsWith('.draft')
-  const cleanSlug = isDraft ? slug.replace('.draft', '') : slug
-
-  const { post, headings, html } = await getParsedPost(
-    locale,
-    cleanSlug,
-    isDraft
-  )
+  const { Component, headings, ...post } = await getPostBySlug(slug)
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -142,9 +120,9 @@ export default async function PostPage(props: PostPageProps) {
     dateModified: new Date(post.updatedAt || post.date).toISOString(),
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': getUrl(`/${locale}/blog/${cleanSlug}`)
+      '@id': getUrl(`/${locale}/blog/${slug}`)
     },
-    url: getUrl(`/${locale}/blog/${cleanSlug}`),
+    url: getUrl(`/${locale}/blog/${slug}`),
     inLanguage: locale,
     articleBody: post.content,
     ...(post.tags && { keywords: post.tags }),
@@ -153,26 +131,23 @@ export default async function PostPage(props: PostPageProps) {
 
   return (
     <>
-      {!isDraft && jsonLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       <div className="flex flex-col lg:flex-row">
         <div className="flex-1 w-full max-w-[991px] mx-auto">
           <div className="w-full flex flex-col relative lg:pt-20 px-6 lg:px-0">
-            {isDraft && (
-              <div className="left-1/2 z-10 -translate-1/2 bottom-2 fixed flex items-center font-mono text-primary gap-2 lg:bottom-auto lg:top-32">
-                <Link href={`/blog/${cleanSlug}`} className="-ml-6">
-                  <SimpleButton icon={faLongArrowLeft}>
-                    {t('BlogPost.publishedButton')}
-                  </SimpleButton>
-                </Link>
+            {post.thumbnail && (
+              <div className="mb-10 flex justify-center">
+                <img
+                  src={post.thumbnail}
+                  alt={post.title}
+                  className="w-auto h-auto max-h-96 object-contain rounded-lg"
+                />
               </div>
             )}
-
             <div className="font-mono flex flex-wrap gap-x-4 text-sm font-light mb-3 not-print:opacity-80">
               <BlogMetadata icon={faUser}>Lucas Pedroni</BlogMetadata>
               <BlogMetadata icon={faCalendar}>
@@ -186,31 +161,10 @@ export default async function PostPage(props: PostPageProps) {
               <BlogMetadata icon={faClock}>
                 {post.readingTime} {t('Words.minutes')}
               </BlogMetadata>
-
-              {isDraft ? (
-                <Link
-                  href={`/blog/${cleanSlug}`}
-                  className="hover:text-primary"
-                >
-                  <BlogMetadata icon={faFile}>
-                    {t('BlogPost.publishedButton')}
-                  </BlogMetadata>
-                </Link>
-              ) : (
-                <Link
-                  href={`/blog/${cleanSlug}.draft`}
-                  className="hover:text-primary"
-                >
-                  <BlogMetadata icon={faFile}>
-                    {t('BlogPost.draftButton')}
-                  </BlogMetadata>
-                </Link>
-              )}
             </div>
 
             <h1 className="text-5xl font-serif font-light text-primary">
               {post.title}
-              {isDraft && ' (Draft)'}
             </h1>
 
             <div className="my-10">
@@ -218,57 +172,11 @@ export default async function PostPage(props: PostPageProps) {
             </div>
           </div>
 
-          <div
-            className="
-          grid
-          grid-cols-1
-          lg:grid-cols-4
-          gap-10
-          mx-auto
-          w-full
-          relative
-        "
-          >
-            <div
-              className="            col-span-3
-"
-            >
-              <div
-                className={classNames(`
-              relative max-w-full w-full text-left prose prose-invert font-extralight tracking-wide mx-auto
-
-
-              px-6
-              prose-img:rounded-lg
-              prose-img:-mx-6
-              prose-img:max-w-[calc(100%+48px)]!
-              lg:px-0
-              lg:prose-img:mx-0
-              lg:prose-img:max-w-full
-              lg:prose-img:w-full
-
-              prose-headings:group
-              prose-headings:relative
-              prose-headings:border-b
-              prose-headings:border-dashed
-              prose-headings:border-white/10
-              prose-headings:font-light
-              prose-headings:pb-3
-              [&_h1,h2,h3,h4,h5,h6_a]:no-underline
-              prose-headings:text-primary
-              prose-headings:font-mono prose-headings:tracking-normal
-
-              prose-p:font-sans
-              prose-p:text-lg
-              prose-p:leading-relaxed
-
-              [&_p_code]:text-lg
-
-              prose-a:font-extralight prose-a:text-primary
-
-              `)}
-                dangerouslySetInnerHTML={{ __html: html }}
-              ></div>
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 mx-auto w-full relative">
+            <div className="col-span-3">
+              <div className="relative max-w-full w-full text-left prose prose-invert font-extralight tracking-wide mx-auto px-6 prose-img:rounded-lg prose-img:-mx-6 prose-img:max-w-[calc(100%+48px)]! lg:px-0 lg:prose-img:mx-0 lg:prose-img:max-w-full lg:prose-img:w-full prose-headings:group prose-headings:relative prose-headings:border-b prose-headings:border-dashed prose-headings:border-white/10 prose-headings:font-light prose-headings:pb-3 [&_h1,h2,h3,h4,h5,h6_a]:no-underline prose-headings:text-primary prose-headings:font-mono prose-headings:tracking-normal prose-p:font-sans prose-p:text-lg prose-p:leading-relaxed [&_p_code]:text-base [&_p_code]:font-normal prose-a:font-extralight prose-a:text-primary">
+                <Component />
+              </div>
 
               {post.tags && post.tags.length > 0 && (
                 <div className="flex flex-wrap gap-2 mt-4">
@@ -288,11 +196,11 @@ export default async function PostPage(props: PostPageProps) {
               <TableOfContents className="sticky top-10" headings={headings} />
             </div>
           </div>
-          <div className="overflow-hidden w-full mt-20 flex items-center  gap-2 h-4">
+          <div className="overflow-hidden w-full mt-20 flex items-center gap-2 h-4">
             <Dashes></Dashes>
           </div>
-          <div className="w-full px-4 lg:px-20 mx-auto pt-10 ">
-            <BlogAuthor></BlogAuthor>
+          <div className="w-full px-4 lg:px-20 mx-auto pt-10">
+            <BlogAuthor />
           </div>
         </div>
       </div>

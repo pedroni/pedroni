@@ -13,7 +13,7 @@ const HomeBanner = async () => {
   const locale = await getLocale()
 
   const t = await getTranslations()
-  const posts = getSortedPosts(locale).slice(0, 3)
+  const posts = (await getSortedPosts()).slice(0, 3)
 
   return (
     <section className="relative w-full min-h-screen lg:min-h-auto">
