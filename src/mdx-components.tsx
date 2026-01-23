@@ -6,6 +6,14 @@ import React, { ReactNode } from 'react'
 // React component you want, including inline styles,
 // components from other libraries, and more.
 
+function truncateMiddle(text: string, maxLength: number = 30): string {
+  if (text.length <= maxLength) return text
+  const half = Math.floor(maxLength / 2)
+  const first = text.substring(0, half - 1)
+  const last = text.substring(text.length - half + 1)
+  return `${first}...${last}`
+}
+
 const components = {
   // Override HTML elements with custom styling
   h1: ({ children }: { children?: ReactNode }) => (
@@ -41,14 +49,28 @@ const components = {
   p: ({ children }: { children?: ReactNode }) => (
     <p className="font-sans text-lg leading-relaxed">{children}</p>
   ),
-  a: ({ children, href }: { children?: ReactNode; href?: string }) => (
-    <a
-      href={href}
-      className="font-extralight text-primary underline decoration-white/20 decoration-1 hover:text-primary-light"
-    >
-      {children}
-    </a>
-  ),
+  a: ({ children, href }: { children?: ReactNode; href?: string }) => {
+    const shouldTruncate =
+      typeof children === 'string' &&
+      typeof href === 'string' &&
+      children.trim() === href.trim() &&
+      (children.startsWith('http') || children.startsWith('https'))
+
+    const childText = shouldTruncate
+        ? truncateMiddle(children)
+        : children
+
+    return (
+      <a
+        href={href}
+        className="font-extralight text-primary underline decoration-white/20 decoration-1 hover:text-primary-light break-all"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {childText}
+      </a>
+    )
+  },
   img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
     // Wrap images in clickable links (replicating existing behavior)
     <a
@@ -79,9 +101,7 @@ const components = {
     </blockquote>
   ),
   code: ({ children }: { children?: ReactNode }) => (
-    <code className="text-lg font-mono px-1 py-0.5 rounded">
-      {children}
-    </code>
+    <code className="text-lg font-mono px-1 py-0.5 rounded">{children}</code>
   ),
   pre: ({ children }: { children?: ReactNode }) => (
     <pre className="overflow-x-auto rounded-lg p-4">{children}</pre>
