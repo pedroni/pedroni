@@ -47,7 +47,7 @@
     "@shikijs/rehype": "^3.11.0",
     "@tailwindcss/postcss": "^4.1.12",
     "@tailwindcss/typography": "^0.5.16",
-    "@types/node": "^22",
+    "@types/node": "25.0.10",
     "@types/react": "19.1.10",
     "@types/rellax": "^1.7.6",
     "@typescript-eslint/eslint-plugin": "^7.18.0",

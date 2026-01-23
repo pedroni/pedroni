@@ -139,6 +139,15 @@ export default async function PostPage(props: PostPageProps) {
       <div className="flex flex-col lg:flex-row">
         <div className="flex-1 w-full max-w-[991px] mx-auto">
           <div className="w-full flex flex-col relative lg:pt-20 px-6 lg:px-0">
+            {post.thumbnail && (
+              <div className="mb-10 flex justify-center">
+                <img
+                  src={post.thumbnail}
+                  alt={post.title}
+                  className="w-auto h-auto max-h-96 object-contain rounded-lg"
+                />
+              </div>
+            )}
             <div className="font-mono flex flex-wrap gap-x-4 text-sm font-light mb-3 not-print:opacity-80">
               <BlogMetadata icon={faUser}>Lucas Pedroni</BlogMetadata>
               <BlogMetadata icon={faCalendar}>

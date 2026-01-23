@@ -1,12 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkMdx from 'remark-mdx'
-import remarkRehype from 'remark-rehype'
-import rehypeSlug from 'rehype-slug'
-import rehypeStringify from 'rehype-stringify'
-import { visit } from 'unist-util-visit'
+import GitHubSlugger from 'github-slugger'
 
 const postsDirectory = path.join(process.cwd(), 'src/posts')
 
@@ -20,8 +14,9 @@ export interface BlogPost {
   tags?: string[]
   keywords?: string[]
   image?: string
+  thumbnail?: string
   category?: string
-  draft?: boolean;
+  draft?: boolean
   readingTime: number
 }
 
@@ -44,36 +39,40 @@ async function extractHeadings(
   content: string
 ): Promise<Array<{ id: string; text: string; level: number }>> {
   const headings: Array<{ id: string; text: string; level: number }> = []
+  const slugger = new GitHubSlugger()
+  let inCodeBlock = false
+  const lines = content.split('\n')
 
-  await unified()
-    .use(remarkParse)
-    .use(remarkMdx)
-    .use(remarkRehype)
-    .use(rehypeSlug)
-    .use(() => tree => {
-      visit(tree, 'element', node => {
-        if (
-          ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(node.tagName) &&
-          node.properties?.id
-        ) {
-          let text = ''
-          visit(node, 'text', textNode => {
-            text += textNode.value
-          })
-          text = text.trim()
-          if (text) {
-            const level = parseInt(node.tagName.substring(1))
-            headings.push({
-              id: node.properties.id as string,
-              text,
-              level
-            })
-          }
-        }
-      })
-    })
-    .use(rehypeStringify)
-    .process(content)
+  for (const line of lines) {
+    const trimmed = line.trim()
+    if (trimmed.startsWith('```')) {
+      inCodeBlock = !inCodeBlock
+      continue
+    }
+    if (inCodeBlock) continue
+
+    const match = line.match(/^(#{1,6})\s+(.+)$/)
+    if (!match) continue
+
+    const level = match[1].length
+    let rawText = match[2].trim()
+
+    rawText = rawText.replace(/\s+#+$/, '')
+
+    let plainText = rawText
+      .replace(/(\*\*|__)(.*?)\1/g, '$2')
+      .replace(/(\*|_)(.*?)\1/g, '$2')
+      .replace(/`([^`]+)`/g, '$1')
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+      .replace(/!\[([^\]]*)\]\([^)]+\)/g, '$1')
+      .replace(/<[^>]+>/g, '')
+
+    plainText = plainText.trim()
+    if (!plainText) continue
+
+    const id = slugger.slug(plainText)
+    headings.push({ id, text: plainText, level })
+  }
 
   return headings
 }
@@ -98,7 +97,7 @@ async function getPostData(slug: string): Promise<BlogPostWithComponent> {
   // Calculate reading time from raw file content (excluding exports)
   // Simple word count estimation
   const contentWithoutExports = fileContents
-    .replace(/export\s+(const|let|var)\s+\w+\s*=.*$/gm, '')
+    .replace(/export\s+(const|let|var)\s+\w+\s*[={].*$/gm, '')
     .trim()
   const wordCount = contentWithoutExports.split(/\s+/).length
   const readingTime = Math.max(1, Math.ceil(wordCount / 250))
@@ -134,13 +133,15 @@ export async function getSortedPosts(): Promise<BlogPost[]> {
   )
 
   // Sort posts by date (newest first)
-  return allPostsData.filter(post => post.draft).sort((a, b) => {
-    if (a.date < b.date) {
-      return 1
-    } else {
-      return -1
-    }
-  })
+  return allPostsData
+    .filter(post => !post.draft)
+    .sort((a, b) => {
+      if (a.date < b.date) {
+        return 1
+      } else {
+        return -1
+      }
+    })
 }
 
 export function getAllPostSlugs(): string[] {
