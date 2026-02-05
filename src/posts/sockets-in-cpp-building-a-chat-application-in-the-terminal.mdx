@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Socket in C++: Building a chat application in the terminal',
+  title: 'Sockets in C++: Building a chat application in the terminal',
   date: '2026-01-21',
   excerpt:
     "Learning C++ through building toy projects. This time I'm building a chat application in the terminal to learn sockets in C++",
@@ -17,13 +17,13 @@ export const metadata = {
     'https://res.cloudinary.com/dzlxk32wz/image/upload/v1769129317/IMG_6309_Large_nxwi6s.jpg'
 }
 
-My journey into learning C++ is slowly building into something tangible. [Last time](/blog/learning-how-to-make-games) I went through several game tutorials. Despite the small problems I had, they showed me how pleasurable game programming was. But I needed to do something on my own rather than just follow a recipe. That's how in december I got into building a chat application in the terminal from scratch.
+My journey into learning C++ is slowly building into something tangible. [Last time](/blog/learning-how-to-make-games) I went through several game tutorials. Despite the small problems I had, they showed me how pleasurable game programming was. But I needed to do something on my own rather than just follow a recipe. That's how in December I got into building a chat application in the terminal from scratch.
 
 ![My chat app](https://res.cloudinary.com/dzlxk32wz/video/upload/f_gif,e_loop,w_700/Screen_Recording_2026-01-21_at_21.28.39_uhwfai.gif)
 
 You can check the source code at: [pedroni/cpp-chat](https://github.com/pedroni/cpp-chat). It is by no means perfect. One can find a bug in less than 5 minutes.
 
-This is far from perfect. The goal was to learn networking, with `socket`. However, to get to the point of using networks on my chat app I had to learn different concepts that I was not aware off. I had to learn how tu use `std::thread` (this was not so difficult in fact), `cmake`, `vcpkg`, `ncurses` (not so easy) and also `fmt`.
+This is far from perfect. The goal was to learn networking with `sockets`. However, to get to the point of using networks on my chat app I had to learn different concepts that I was not aware of. I had to learn how to use `std::thread` (this was not so difficult in fact), `cmake`, `vcpkg`, `ncurses` (not so easy), and also `fmt`.
 
 ## CMake and vcpkg
 
@@ -39,7 +39,7 @@ I only used `vcpkg` to install `fmt`. I only used the `fmt::sprintf` function, w
 
 I didn't know what `vcpkg` was. Neither did I know about `fmt`. I found out about it because I wanted to use `printf`, but in a way that I could `push` it to a `vector<string>`. And `fmt::sprintf` returned a string.
 
-Pretty dumb of me. Oh well, that's actually the nice part of doing something your way, and getting lost which you will eventually find your path through the problems. That's how you'll actively learn, thats how I practiced and used my creativity, which is not always the most optimized way, but ends up teaching a lot through practice. You have to come up with your own solution to your own problems.
+Pretty dumb of me. Oh well, that's actually the nice part of doing something your way and getting lost, which you will eventually find your path through the problems. That's how you'll actively learn, that's how I practiced and used my creativity, which is not always the most optimized way, but ends up teaching a lot through practice. You have to come up with your own solution to your own problems.
 
 ## The server
 
@@ -81,7 +81,7 @@ Here it is. My main goal: networking. By this point I had already read Beej's Gu
 
 ![Beej's Guide To Networking Programming](https://res.cloudinary.com/dzlxk32wz/image/upload/v1769044962/IMG_6310_Large_vheogz.jpg)
 
-The main goal, yet the least interesting part. It's so verbose to establish a connection. I'll probably never remember how to write this code again. The good thing here is that now when I look back at the code, I understand each piece of what the code is doing. That was the most valuable thing I got from here: to read and to understand. I'm pretty sure this is something you abstract once and never look at again, because that's what I did.
+The main goal, yet the least fun part. It's so verbose to establish a connection. I'll probably never remember how to write this code again. The good thing here is that now when I look back at the code, I understand each piece of what the code is doing. That was the most valuable thing I got from here: to read and to understand. I'm pretty sure this is something you abstract once and never look at again, because that's what I did.
 
 Example code:
 
