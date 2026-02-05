@@ -92,18 +92,18 @@ const BlogPostHoverItem: React.FC<BlogPostHoverItemProps> = ({
       </Link>
       {post.thumbnail && (
         <div
-          className={`absolute z-50 pointer-events-none transition-opacity duration-200 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute z-50 pointer-events-none ${isVisible ? 'block' : 'hidden'}`}
           style={{
             left: `${position.x}px`,
             top: `${position.y}px`,
-            transform: 'translate(-50%, -50%)'
+            transform: 'translate(10px, -100%)'
           }}
         >
-          <div className="w-20 h-20 overflow-hidden rounded-lg shadow-lg bg-black border border-white/20">
+          <div className="max-w-48 max-h-48 overflow-hidden rounded-lg shadow-lg bg-black border border-white/20">
             <img
               src={post.thumbnail}
               alt={post.title}
-              className="w-full h-full object-cover"
+              className="w-auto h-auto max-w-full max-h-full object-contain"
             />
           </div>
         </div>

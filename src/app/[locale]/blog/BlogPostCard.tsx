@@ -1,20 +1,67 @@
+'use client'
+
 import classNames from 'classnames'
 import { BlogPost } from '../../../lib/blog'
-import { getLocale, getTranslations } from 'next-intl/server'
+import { useLocale, useTranslations } from 'next-intl'
 import BlogMetadata from './[slug]/BlogMetadata'
 import { faCalendar, faClock } from '@fortawesome/free-regular-svg-icons'
 import { Link } from '../../../i18n/navigation'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 
-export default async function BlogPostCard(props: {
+export default function BlogPostCard(props: {
   className?: string
   post: BlogPost
   small?: boolean
 }) {
-  const locale = await getLocale()
-  const t = await getTranslations()
+  const locale = useLocale()
+  const t = useTranslations()
+  const [position, setPosition] = useState({ x: 0, y: 0 })
+  const [isVisible, setIsVisible] = useState(false)
+  const itemRef = useRef<HTMLAnchorElement>(null)
+  const rafRef = useRef<number | null>(null)
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!itemRef.current) return
+
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current)
+    }
+
+    rafRef.current = requestAnimationFrame(() => {
+      const rect = itemRef.current!.getBoundingClientRect()
+      const offsetX = e.clientX - rect.left
+      const offsetY = e.clientY - rect.top
+
+      setPosition({ x: offsetX, y: offsetY })
+    })
+  }, [])
+
+  const handleMouseEnter = (e: React.MouseEvent) => {
+    if (!itemRef.current) return
+
+    const rect = itemRef.current.getBoundingClientRect()
+    const offsetX = e.clientX - rect.left
+    const offsetY = e.clientY - rect.top
+
+    setPosition({ x: offsetX, y: offsetY })
+    setIsVisible(true)
+  }
+
+  const handleMouseLeave = () => {
+    setIsVisible(false)
+  }
+
+  useEffect(() => {
+    return () => {
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current)
+      }
+    }
+  }, [])
 
   return (
     <Link
+      ref={itemRef}
       href={`/blog/${props.post.slug}`}
       className={classNames(
         `block
@@ -35,6 +82,9 @@ export default async function BlogPostCard(props: {
           `,
         props.className
       )}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <div
         className="absolute w-[calc(100%-4px)] h-[calc(100%-4px)]
@@ -76,8 +126,26 @@ export default async function BlogPostCard(props: {
           <BlogMetadata icon={faClock}>
             {props.post.readingTime} {t('Words.minutes')}
           </BlogMetadata>
-        </div>{' '}
+        </div>
       </div>
+      {props.post.thumbnail && (
+        <div
+          className={`absolute z-50 pointer-events-none ${isVisible ? 'block' : 'hidden'}`}
+          style={{
+            left: `${position.x}px`,
+            top: `${position.y}px`,
+            transform: 'translate(10px, -100%)'
+          }}
+        >
+          <div className="max-w-48 max-h-48 overflow-hidden rounded-lg shadow-lg bg-black border border-white/20">
+            <img
+              src={props.post.thumbnail}
+              alt={props.post.title}
+              className="w-auto h-auto max-w-full max-h-full object-contain"
+            />
+          </div>
+        </div>
+      )}
     </Link>
   )
 }
