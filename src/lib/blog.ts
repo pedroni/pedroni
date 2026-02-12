@@ -100,7 +100,7 @@ async function getPostData(slug: string): Promise<BlogPostWithComponent> {
     .replace(/export\s+(const|let|var)\s+\w+\s*[={].*$/gm, '')
     .trim()
   const wordCount = contentWithoutExports.split(/\s+/).length
-  const readingTime = Math.max(1, Math.ceil(wordCount / 250))
+  const readingTime = Math.max(1, Math.ceil(wordCount / 200))
 
   // Extract headings for table of contents
   const headings = await extractHeadings(contentWithoutExports)

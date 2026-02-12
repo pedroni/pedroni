@@ -91,7 +91,7 @@ export default async function Layout(
         }}
       />
       <body
-        className={`${sans.variable} ${serif.variable} ${mono.variable} tracking-wider font-light font-sans bg-[url(/img/bg-pattern.jpg)] bg-repeat`}
+        className={`${sans.variable} ${serif.variable} ${mono.variable} tracking-wider  font-sans bg-[url(/img/bg-pattern.jpg)] bg-repeat`}
       >
         <NextIntlClientProvider>
           <div className="min-h-screen z-[1] relative max-w-full flex flex-col">

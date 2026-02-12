@@ -15,40 +15,6 @@ function truncateMiddle(text: string, maxLength: number = 30): string {
 }
 
 const components = {
-  // Override HTML elements with custom styling
-  h1: ({ children }: { children?: ReactNode }) => (
-    <h1 className="group relative border-b border-dashed border-white/10 font-light pb-3 text-primary font-mono tracking-normal">
-      {children}
-    </h1>
-  ),
-  h2: ({ children }: { children?: ReactNode }) => (
-    <h2 className="group relative border-b border-dashed border-white/10 font-light pb-3 text-primary font-mono tracking-normal">
-      {children}
-    </h2>
-  ),
-  h3: ({ children }: { children?: ReactNode }) => (
-    <h3 className="group relative border-b border-dashed border-white/10 font-light pb-3 text-primary font-mono tracking-normal">
-      {children}
-    </h3>
-  ),
-  h4: ({ children }: { children?: ReactNode }) => (
-    <h4 className="group relative border-b border-dashed border-white/10 font-light pb-3 text-primary font-mono tracking-normal">
-      {children}
-    </h4>
-  ),
-  h5: ({ children }: { children?: ReactNode }) => (
-    <h5 className="group relative border-b border-dashed border-white/10 font-light pb-3 text-primary font-mono tracking-normal">
-      {children}
-    </h5>
-  ),
-  h6: ({ children }: { children?: ReactNode }) => (
-    <h6 className="group relative border-b border-dashed border-white/10 font-light pb-3 text-primary font-mono tracking-normal">
-      {children}
-    </h6>
-  ),
-  p: ({ children }: { children?: ReactNode }) => (
-    <p className="font-sans text-lg leading-relaxed">{children}</p>
-  ),
   a: ({ children, href }: { children?: ReactNode; href?: string }) => {
     const shouldTruncate =
       typeof children === 'string' &&
@@ -63,7 +29,7 @@ const components = {
     return (
       <a
         href={href}
-        className="font-extralight text-primary underline decoration-white/20 decoration-1 hover:text-primary-light break-all"
+        className="text-primary underline decoration-white/20 decoration-1 hover:text-primary-light break-all"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -85,15 +51,6 @@ const components = {
         className="rounded-lg max-w-[calc(100%+48px)] -mx-6 lg:mx-0 lg:max-w-full lg:w-full"
       />
     </a>
-  ),
-  ul: ({ children }: { children?: ReactNode }) => (
-    <ul className="font-sans text-lg leading-relaxed">{children}</ul>
-  ),
-  ol: ({ children }: { children?: ReactNode }) => (
-    <ol className="font-sans text-lg leading-relaxed">{children}</ol>
-  ),
-  li: ({ children }: { children?: ReactNode }) => (
-    <li className="font-sans text-lg leading-relaxed">{children}</li>
   ),
   code: ({ children }: { children?: ReactNode }) => (
     <code className="text-lg font-mono px-1 py-0.5 rounded">{children}</code>
