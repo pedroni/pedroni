@@ -95,11 +95,6 @@ const components = {
   li: ({ children }: { children?: ReactNode }) => (
     <li className="font-sans text-lg leading-relaxed">{children}</li>
   ),
-  blockquote: ({ children }: { children?: ReactNode }) => (
-    <blockquote className="border-l-4 border-primary/50 pl-4 italic">
-      {children}
-    </blockquote>
-  ),
   code: ({ children }: { children?: ReactNode }) => (
     <code className="text-lg font-mono px-1 py-0.5 rounded">{children}</code>
   ),

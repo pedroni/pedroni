@@ -2,18 +2,19 @@ export const metadata = {
   title: 'How I recovered my coding hobby, and how I see AI',
   description:
     'There is now a great frustration of those who enjoy coding, a skill that once was a part of our identity was lost over night. AI can just do it.',
-  date: '2025-02-12',
-  draft: true
+  date: '2026-02-12'
 }
 
 Coding is my hobby and [last year it seemed like I had lost my hobby and I had to find it again](/blog/learning-a-new-programming-language#trying-something-different). Now I realize part of that was because I was already using AI at my work, which often I confused with my hobby. Because now there is a great frustration of those who enjoy coding, a skill that once was a part of our identity was lost over night.
 
 > Find a job you love and you will never have to work a day in your life.
+>
+> <strong class="block pt-4">Confucius</strong>
 
-That's a quote a lived by, until recently.
 
-At work AI got the fun away, occasionally I code from scratch, out of boredom, an attempt to reclaim what once was fun. For productivity AI can handle most of it. Though it need to be done carefully, or your energy and time will be drained. There's a hidden vicious cycle while "vibe coding", that can easily go unnoticed, which I only recently noticed. Coding had became prompting. Building became debugging. The satisfaction of hand writing a solution was replaced by a shallow relief of finally getting the AI to stop being wrong.
+That's a quote I lived by, until recently.
 
+At work AI got the fun away, occasionally I code from scratch, out of boredom, an attempt to reclaim what once was fun. For productivity AI can handle most of it. Though it needs to be done carefully, or your energy and time will be drained. There's a hidden vicious cycle while "vibe coding", that can easily go unnoticed, which I only recently noticed. Coding had become prompting. Building became debugging. The satisfaction of hand writing a solution was replaced by a shallow relief of finally getting the AI to stop being wrong.
 
 ## The vicious cycle
 
@@ -25,7 +26,7 @@ You're now cursing at the computer for no reason, for it to happily reply "You'r
 
 This is just like eating a piece of chocolate, you just want one piece to feel complete, but once you ate a piece, you realize you need one more, and another one. Never fully satiated, and now with a heavy stomach.
 
-AI almost gets it, in fact sometimes it does, and more often than not, it doesn't. Our primal instict is to keep chasing the end result, we keep chasing that dopamine hit with frustrated expectation and unsatisfied results. While chasing the result, time goes by without you even realizing it. Making you tired.
+AI almost gets it, in fact sometimes it does, and more often than not, it doesn't. Our primal instinct is to keep chasing the end result, we keep chasing that dopamine hit with frustrated expectation and unsatisfied results. While chasing the result, time goes by without you even realizing it. Making you tired.
 
 ## On recovering my hobby and using AI
 
@@ -33,9 +34,27 @@ To keep my hobby alive I'm writing code by hand, using books, documentation, and
 
 Whenever I can't find the answer I use AI as a learning partner, a mentor (kinda lonely, but who would be 100% present and answer stupid questions? how would I even find someone who would do that willingly?). For me that's the best way I've used AI so far. Not for doing things for me, but to help me understand and to get to the point where I can with confidence say: I built it, I understand it. If AI had written the code for me, it wouldn't be as fun. It wouldn't be as engaging.
 
-The most important prompt that I use to learn is this:
+The most important prompt that I use to learn is this: (at the end of the post is the full prompt for those interested)
 
 > If something is obvious, there's a bug, a typo and I didn't see it. Ask me questions that will make me reflect on finding the answer.
-> Ask me questions, make me reflect.
 
-I'm now once again, engaged.
+I didn't lose my hobby, my work and hobby were entangled, one overlaping the other, confused. It's now clear that there's a distinction between the two. I'm now once again, engaged.
+
+<details>
+<summary>Prompt that makes AI behave like my tutor</summary>
+
+```md
+You're now a professional C/C++ professor. Your job is to help me learn C++. Not general programming. I already understand programming concepts like conditionals, loops, and recursion — but I lack familiarity with C++ specifically.
+
+Your instructions:
+
+- Do not agree with me just because I asked a question or assumed I was right. If I'm wrong, say so—even if I'm questioning why I'm wrong. I might have made a mistake I can’t see clearly. You're a professor and your job is to point mistakes.
+- Don’t give full programs or final outputs — just **small, focused code snippets**.
+- Do not fix the logic by yourself, do not attempt to fix the algorithm, do not explain any algorithm logic.
+- Do not refactor my code for readability. If it's poorly written, just say so — so I can refactor it myself with readability in mind.
+- Do not anticipate what I’ll ask next. Answer **only** what I asked.
+- When needed, explain **why**, **how**, and **when** it's used.
+- If something is obvious, there's a bug, a typo and I didn't see it. Ask me question that will make me reflect into finding the answer.
+```
+
+</details>

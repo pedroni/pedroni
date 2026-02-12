@@ -8,6 +8,22 @@
   --color-primary-contrast: #ffffff;
 }
 
+@utility prose {
+  blockquote {
+    padding-bottom: 16px;
+    padding-top: 16px;
+    color: #EBDBB2;
+    /* Disable adding quote marks to block-quotes: https://github.com/tailwindlabs/tailwindcss-typography/issues/66 */
+    p {
+      margin: 0;
+      &:first-of-type::before,
+      &:last-of-type::after {
+        content: none;
+      }
+    }
+  }
+}
+
 :root {
   /** Header */
   --header-height: 80px;
