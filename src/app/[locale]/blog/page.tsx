@@ -124,7 +124,7 @@ export default async function BlogPage(props: BlogPageProps) {
             <Dashes></Dashes>
           </div>
 
-          {postsByYear.map(({ year, posts }) => (
+          {postsByYear.map(({ year, posts }, index) => (
             <div
               key={year}
               className="pb-10 mb-10 not-last:border-b border-b-white/10"
@@ -135,7 +135,7 @@ export default async function BlogPage(props: BlogPageProps) {
                 </h2>
               </div>
               <div className="grid gap-4 grid-cols-1 md:grid-cols-1">
-                {posts.map(post => (
+                {posts.filter((post, postIndex)=>!(index == 0 && postIndex ==0)).map(post => (
                   <BlogPostCard key={post.slug} post={post} small={true} />
                 ))}
               </div>
