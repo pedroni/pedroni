@@ -6,8 +6,6 @@ import { getSortedPosts } from '../lib/blog'
 import { Link } from '../i18n/navigation'
 import Title from './Title'
 import Button from './Button'
-import BlogMetadata from '../app/[locale]/blog/[slug]/BlogMetadata'
-import { faCalendar, faClock } from '@fortawesome/free-regular-svg-icons'
 import BlogPostHoverItem from './BlogPostHoverItem'
 
 const HomeBanner = async () => {
