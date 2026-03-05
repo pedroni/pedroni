@@ -109,14 +109,14 @@ export default function BlogPostCard(props: {
         >
           {props.post.title}
         </h2>
-        {!props.small && props.post.excerpt && (
+        {!props.small && props.post.summary && (
           <p className="text-white/70 tracking-wider font-light font-sans leading-relaxed">
-            {props.post.excerpt}
+            {props.post.summary}
           </p>
         )}
         <div className="flex gap-4 opacity-75">
           <BlogMetadata icon={faCalendar}>
-            {new Date(props.post.date).toLocaleDateString(locale, {
+            {new Date(props.post.createdAt).toLocaleDateString(locale, {
               month: 'long',
               day: 'numeric',
               year: 'numeric'

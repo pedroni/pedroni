@@ -60,9 +60,10 @@ export default async function BlogPage(props: BlogPageProps) {
   const t = await getTranslations('Blog')
 
   const posts = await getSortedPosts()
+
   const postsByYear: PostsByYear[] = posts.reduce(
     (acc: PostsByYear[], post: BlogPost) => {
-      const year = new Date(post.date).getFullYear()
+      const year = new Date(post.createdAt).getFullYear()
       const yearGroup = acc.find(group => group.year === year)
       if (yearGroup) {
         yearGroup.posts.push(post)
@@ -135,9 +136,12 @@ export default async function BlogPage(props: BlogPageProps) {
                 </h2>
               </div>
               <div className="grid gap-4 grid-cols-1 md:grid-cols-1">
-                {posts.filter((post, postIndex)=>!(index == 0 && postIndex ==0)).map(post => (
-                  <BlogPostCard key={post.slug} post={post} small={true} />
-                ))}
+                {posts
+                  // skip the very first post which is highlighted above
+                  .filter((post, postIndex) => !(index === 0 && postIndex === 0))
+                  .map(post => (
+                    <BlogPostCard key={post.slug} post={post} small={true} />
+                  ))}
               </div>
             </div>
           ))}

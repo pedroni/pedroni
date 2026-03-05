@@ -75,7 +75,7 @@ const BlogPostHoverItem: React.FC<BlogPostHoverItemProps> = ({
       >
         <div className="flex gap-4">
           <BlogMetadata size="xs" icon={faCalendar}>
-            {new Date(post.date).toLocaleDateString(locale, {
+            {new Date(post.createdAt).toLocaleDateString(locale, {
               month: 'short',
               day: 'numeric',
               year: 'numeric'

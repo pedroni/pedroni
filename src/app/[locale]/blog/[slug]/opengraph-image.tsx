@@ -121,7 +121,7 @@ export default async function Image(props: {
                 iconPath={faCalendar.icon[4]}
               ></OpenGraphIcon>
               <span>
-                {new Date(post.date).toLocaleDateString(locale, {
+                {new Date(post.createdAt).toLocaleDateString(locale, {
                   year: 'numeric',
                   month: 'short',
                   day: '2-digit'

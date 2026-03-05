@@ -7,9 +7,9 @@ const postsDirectory = path.join(process.cwd(), 'src/posts')
 export interface BlogPost {
   slug: string
   title: string
-  date: string
+  createdAt: string
   updatedAt?: string
-  excerpt?: string
+  summary?: string
   content: string
   tags?: string[]
   keywords?: string[]
@@ -132,11 +132,11 @@ export async function getSortedPosts(): Promise<BlogPost[]> {
     })
   )
 
-  // Sort posts by date (newest first)
+  // Sort posts by createdAt (newest first)
   return allPostsData
     .filter(post => !post.draft)
     .sort((a, b) => {
-      if (a.date < b.date) {
+      if (a.createdAt < b.createdAt) {
         return 1
       } else {
         return -1

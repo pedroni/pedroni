@@ -46,9 +46,9 @@ export async function generateMetadata(
   const post = await getPostBySlug(slug)
 
   const title = `${post.title} | Lucas Pedroni`
-  const description = post.excerpt || `Read ${post.title} by Lucas Pedroni`
+  const description = post.summary || `Read ${post.title} by Lucas Pedroni`
   const url = getUrl(`/${locale}/blog/${slug}`)
-  const publishedTime = new Date(post.date).toISOString()
+  const publishedTime = new Date(post.createdAt).toISOString()
 
   return {
     title,
@@ -105,7 +105,7 @@ export default async function PostPage(props: PostPageProps) {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: post.title,
-    description: post.excerpt || `Read ${post.title} by Lucas Pedroni`,
+    description: post.summary || `Read ${post.title} by Lucas Pedroni`,
     author: {
       '@type': 'Person',
       name: 'Lucas Pedroni',
@@ -116,8 +116,8 @@ export default async function PostPage(props: PostPageProps) {
       name: 'Lucas Pedroni',
       url: getUrl()
     },
-    datePublished: new Date(post.date).toISOString(),
-    dateModified: new Date(post.updatedAt || post.date).toISOString(),
+    datePublished: new Date(post.createdAt).toISOString(),
+    dateModified: new Date(post.updatedAt || post.createdAt).toISOString(),
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': getUrl(`/${locale}/blog/${slug}`)
@@ -151,7 +151,7 @@ export default async function PostPage(props: PostPageProps) {
             <div className="font-mono flex flex-wrap gap-x-4 text-sm font-light mb-3 not-print:opacity-80">
               <BlogMetadata icon={faUser}>Lucas Pedroni</BlogMetadata>
               <BlogMetadata icon={faCalendar}>
-                {new Date(post.date).toLocaleDateString(locale, {
+                {new Date(post.createdAt).toLocaleDateString(locale, {
                   month: 'long',
                   day: 'numeric',
                   year: 'numeric'
